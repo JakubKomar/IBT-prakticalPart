@@ -35,14 +35,17 @@ Button {
     }
     property bool activePage: false
 
-    property color frameColorDefault: "#ffff00"
-    property color frameColorActive: "#ff0000"
+    property color frameColorDefault: "transparent"
+    property color frameColorActive: "#00ff00"
     property color frameColor: activePage ? frameColorActive:frameColorDefault
 
 
 
     background: Rectangle {
           color: menuItem.bcColor
+          border.color: menuItem.frameColor
+          border.width: 5
+          radius: 2
 
     }
     contentItem: Item{
@@ -56,16 +59,10 @@ Button {
                font.pixelSize: 30
            }
     }
-
-       Frame {
-           id: frame
-           anchors.fill: parent
-       }
-
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.33}D{i:4}
+    D{i:0;formeditorZoom:1.33}
 }
 ##^##*/

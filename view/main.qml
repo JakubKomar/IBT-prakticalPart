@@ -38,15 +38,16 @@ Window {
                 anchors.leftMargin: 0
 
                 Column {
-                    id: column
+                    id: menuColum
                     anchors.fill: parent
                     spacing: 7
                     MenuItem{
                         id:dashBordButt
                         text: "Dash board"
+                        activePage: true
                         onClicked: {
-                            console.log("dwdaw")
                             contentLoader.setSource("modules/DashBoard.qml")
+                            menuColum.togleButt(this)
                         }
                     }
 
@@ -54,9 +55,18 @@ Window {
                         id:fuelButt
                         text: "Fuel"
                         onClicked: {
-                            console.log("dwdaw2")
                             contentLoader.setSource("modules/Fuel.qml")
+                            menuColum.togleButt(this)
                         }
+                    }
+
+                    function unTogleAll(){
+                            for (var i = 0; i < menuColum.children.length; ++i)
+                                menuColum.children[i].activePage = false;
+                        }
+                    function togleButt(toTogle){
+                           menuColum.unTogleAll()
+                           toTogle.activePage=true
                     }
                 }
             }
