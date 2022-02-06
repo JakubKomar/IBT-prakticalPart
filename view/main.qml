@@ -4,8 +4,8 @@ import QtQuick.Controls
 import "componets/"
 Window {
     id:mainWindow
-    width: 1900
-    height: 1000
+    width: 1920
+    height: 1080
     visible: true
     title: qsTr("Letecký display")
     //visibility: Window.FullScreen
@@ -60,9 +60,24 @@ Window {
                         }
                     }
 
+                    MenuItem {
+                        id: bleedButt
+                        text: "Bleed Air"
+                    }
+
+                    MenuItem {
+                        id: enginesButt
+                        text: "Engines"
+                    }
+
+                    MenuItem {
+                        id: powerButt
+                        text: "Power"
+                    }
+
                     function unTogleAll(){
-                            for (var i = 0; i < menuColum.children.length; ++i)
-                                menuColum.children[i].activePage = false;
+                        for (var i = 0; i < menuColum.children.length; ++i)
+                            menuColum.children[i].activePage = false;
                         }
                     function togleButt(toTogle){
                            menuColum.unTogleAll()
@@ -92,6 +107,7 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.33}D{i:5}D{i:6}D{i:4}D{i:3}D{i:8}D{i:7}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:0.33}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:3}D{i:11}D{i:10}
+D{i:2}D{i:1}
 }
 ##^##*/
