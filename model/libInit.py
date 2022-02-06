@@ -13,5 +13,5 @@ def estCon():
         print("Connection succsesfull")
     except:
         print("Error establishing connection to X-Plane.")
-        print("Exiting...")
-        sys.exit(-2)
+        # print("Exiting...")
+        # sys.exit(-2)

@@ -80,9 +80,35 @@ Window {
                             menuColum.children[i].activePage = false;
                         }
                     function togleButt(toTogle){
-                           menuColum.unTogleAll()
-                           toTogle.activePage=true
+                        menuColum.unTogleAll()
+                        toTogle.activePage=true
                     }
+                }
+
+                Button {
+                    id: testButton
+                    x: 77
+                    y: 755
+                    width: 96
+                    height: 52
+                    text: qsTr("TestButton")
+
+                    onClicked:{
+                        backend.chengeSomething(0)
+                    }
+                }
+
+                Button {
+                    id: testButton1
+                    x: 77
+                    y: 821
+                    width: 96
+                    height: 52
+                    text: qsTr("TestButton")
+                    onClicked:{
+                        backend.chengeSomething(1)
+                        }
+
                 }
             }
 
@@ -101,13 +127,18 @@ Window {
             }
         }
     }
+    Connections{
+        target: backend
 
+    }
 
 }
 
+
+
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.33}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:3}D{i:11}D{i:10}
-D{i:2}D{i:1}
+    D{i:0;formeditorZoom:0.75}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:10}D{i:11}D{i:3}
+D{i:13}D{i:12}D{i:2}D{i:1}D{i:14}
 }
 ##^##*/
