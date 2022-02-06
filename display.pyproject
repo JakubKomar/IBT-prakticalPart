@@ -1,0 +1,3 @@
+{
+    "files": ["view/componets/menuItem.qml","main.py","main.qml","view/modules/DashBoard.qml","view/modules/Fuel.qml"]
+}
