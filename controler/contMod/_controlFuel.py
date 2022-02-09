@@ -11,5 +11,4 @@ class ControlFuel(QObject):
 
     @Slot()
     def toglePump(self):
-        gear_dref = "laminar/B738/toggle_switch/hydro_pumps"
-        client.client.sendCOMM(gear_dref)
+        client.client.sendCOMM("laminar/B738/toggle_switch/hydro_pumps2")

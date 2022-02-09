@@ -9,7 +9,7 @@ class RenderFuel(QObject):
     def __init__(self):
         QObject.__init__(self)
 
-    setButt = Signal(int)
+    setPumpState = Signal(int)
 
     def render(self):
-        self.setButt.emit(1)
+        self.setPumpState.emit(client.client.getDREF("laminar/B738/toggle_switch/hydro_pumps2_pos")[0])

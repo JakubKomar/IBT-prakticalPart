@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
+import QtQuick.Controls.Universal
 import "componets/"
 Window {
     id:mainWindow
@@ -8,7 +9,7 @@ Window {
     height: 1080
     visible: true
     title: qsTr("Letecký display")
-    //visibility: Window.FullScreen
+    visibility: Window.FullScreen
 
     Rectangle {
         id: frameBc
@@ -39,6 +40,7 @@ Window {
 
                 Column {
                     id: menuColum
+                    visible: true
                     anchors.fill: parent
                     spacing: 7
                     MenuItem{
@@ -94,19 +96,69 @@ Window {
                             menuColum.togleButt(this)
                         }
                     }
-                    Connections{
-                        target: MainRanderControler
-                    }
-
                     function unTogleAll(){
                         for (var i = 0; i < menuColum.children.length; ++i)
                             menuColum.children[i].activePage = false;
-                        }
+                    }
                     function togleButt(toTogle){
                         menuColum.unTogleAll()
                         toTogle.activePage=true
                     }
-                }           
+                }
+
+                Rectangle {
+                    id: displayStateBar
+                    y: 1012
+                    height: 48
+                    color: "#3c3c3c"
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 0
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
+
+                    BusyIndicator {
+                        id: connectionLost
+                        x: 202
+                        width: 40
+                        height: 40
+                        visible: false
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        anchors.verticalCenterOffset: 0
+                        anchors.rightMargin: 8
+                        Universal.accent: Universal.Orange
+                    }
+
+                    Button {
+                        id: closeWindowButton
+                        x: 8
+                        y: 8
+                        width: 40
+                        height: 32
+                        font.pointSize: 18
+                        onClicked: {
+                            onClicked: mainWindow.close();
+                        }
+                        Text{
+                            text: qsTr("X")
+                            anchors.fill: parent
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            anchors.topMargin: -3
+                            font.pointSize: 28
+                            color:"orange"
+                        }
+                    }
+                }
+                Connections{
+                    target: MainRanderControler
+
+                    function onSetConnStatus(state){
+                        connectionLost.visible=state
+                    }
+                }
             }
 
             Rectangle {
@@ -119,7 +171,7 @@ Window {
                     id: contentLoader
                     anchors.fill: parent
                     clip: true
-                    source: Qt.resolvedUrl("modules/DashBoard.qml")
+                    source: Qt.resolvedUrl("modules/DashBoard.qml")                 
                 }
             }
         }
@@ -130,7 +182,7 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:10}D{i:3}D{i:13}
-D{i:12}D{i:2}D{i:1}D{i:14}D{i:15}
+    D{i:0;formeditorZoom:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:11}D{i:13}D{i:12}D{i:10}
+D{i:14}D{i:3}D{i:16}D{i:15}D{i:2}D{i:1}
 }
 ##^##*/
