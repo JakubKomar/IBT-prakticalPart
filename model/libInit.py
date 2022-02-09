@@ -1,11 +1,10 @@
-import model.xpc as XPC
-import sys
+from model.xpc import XPlaneConnect as XPC
 
 
 def estCon():
     print("X-Plane Connect example script")
     global client
-    client = XPC.XPlaneConnect()
+    client = XPC()
     try:
         # If X-Plane does not respond to the request, a timeout error
         # will be raised.

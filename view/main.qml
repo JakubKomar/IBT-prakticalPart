@@ -46,6 +46,7 @@ Window {
                         text: "Dash board"
                         activePage: true
                         onClicked: {
+                            MainRanderControler.setModuleSelector(0)
                             contentLoader.setSource("modules/DashBoard.qml")
                             menuColum.togleButt(this)
                         }
@@ -55,6 +56,7 @@ Window {
                         id:fuelButt
                         text: "Fuel"
                         onClicked: {
+                            MainRanderControler.setModuleSelector(1)
                             contentLoader.setSource("modules/Fuel.qml")
                             menuColum.togleButt(this)
                         }
@@ -63,16 +65,37 @@ Window {
                     MenuItem {
                         id: bleedButt
                         text: "Bleed Air"
+
+                        onClicked: {
+                            MainRanderControler.setModuleSelector(2)
+                            contentLoader.setSource("modules/Fuel.qml")
+                            menuColum.togleButt(this)
+                        }
                     }
 
                     MenuItem {
                         id: enginesButt
                         text: "Engines"
+
+                        onClicked: {
+                            MainRanderControler.setModuleSelector(3)
+                            contentLoader.setSource("modules/Fuel.qml")
+                            menuColum.togleButt(this)
+                        }
                     }
 
                     MenuItem {
                         id: powerButt
                         text: "Power"
+
+                        onClicked: {
+                            MainRanderControler.setModuleSelector(4)
+                            contentLoader.setSource("modules/Fuel.qml")
+                            menuColum.togleButt(this)
+                        }
+                    }
+                    Connections{
+                        target: MainRanderControler
                     }
 
                     function unTogleAll(){
@@ -83,33 +106,7 @@ Window {
                         menuColum.unTogleAll()
                         toTogle.activePage=true
                     }
-                }
-
-                Button {
-                    id: testButton
-                    x: 77
-                    y: 755
-                    width: 96
-                    height: 52
-                    text: qsTr("TestButton")
-
-                    onClicked:{
-                        backend.chengeSomething(0)
-                    }
-                }
-
-                Button {
-                    id: testButton1
-                    x: 77
-                    y: 821
-                    width: 96
-                    height: 52
-                    text: qsTr("TestButton")
-                    onClicked:{
-                        backend.chengeSomething(1)
-                        }
-
-                }
+                }           
             }
 
             Rectangle {
@@ -127,18 +124,13 @@ Window {
             }
         }
     }
-    Connections{
-        target: backend
-
-    }
-
 }
 
 
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:10}D{i:11}D{i:3}
-D{i:13}D{i:12}D{i:2}D{i:1}D{i:14}
+    D{i:0;formeditorZoom:0.75}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:10}D{i:3}D{i:13}
+D{i:12}D{i:2}D{i:1}D{i:14}D{i:15}
 }
 ##^##*/
