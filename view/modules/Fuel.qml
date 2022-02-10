@@ -1,32 +1,43 @@
 import QtQuick
 import QtQuick.Controls
-
+import "../componets"
 Item {
     id: fuelMod
-    width: 1650
+    width: 1750
     height: 1060
     Rectangle {
         id: rectangle
         color: "#000000"
         anchors.fill: parent
 
-        Button {
-            id: leftPump
-            width: 217
-            height: 118
-            text: qsTr("Pumpa")
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+        Swich2crossFeedInfo {
+            id: swich2crossFeedInfo1
+            x: 696
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.topMargin: 400
+            anchors.rightMargin: 800
+            anchors.leftMargin: 800
+        }
 
-            property color bcColor: "#ff0000"
+        PumpCombo {
+            id: pumpCombo
+            x: 296
+            y: 740
 
-            background: Rectangle {
-                  color: leftPump.bcColor
-            }
+        }
 
-            onClicked: {
-                ControlFuel.toglePump()
-            }
+        PumpCombo {
+            id: pumpCombo1
+            x: 715
+            y: 634
+        }
+
+        PumpCombo {
+            id: pumpCombo2
+            x: 1124
+            y: 740
         }
     }
     Connections{
@@ -50,6 +61,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}D{i:2}D{i:1}D{i:4}D{i:5}
+    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:5}D{i:1}D{i:6}D{i:7}
 }
 ##^##*/

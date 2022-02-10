@@ -4,14 +4,13 @@ from PySide6.QtCore import QObject, Slot, Signal, QTimer
 
 from .rendMod._fuelRender import RenderFuel
 
-
+import logging
 class MainRanderControler(QObject):
 
-    def __init__(self, fps=1):
+    def __init__(self, fps=30):
         QObject.__init__(self)
 
         self.moduleSelector = 0
-
         self.subcontrolers = {"RenderFuel": RenderFuel()}
         # timer init
         self.timer = QTimer()
@@ -26,8 +25,8 @@ class MainRanderControler(QObject):
             self.setConnStatus.emit(False)
         except WindowsError:
             self.setConnStatus.emit(True)
-        except Exception as ex:
-            print(f"ouch, error: slot, exception: {ex}")
+        except Exception:
+            ...
 
     def loop(self):
         if(self.moduleSelector == 0):
@@ -38,3 +37,5 @@ class MainRanderControler(QObject):
     @Slot(int)
     def setModuleSelector(self, modID):
         self.moduleSelector = modID
+
+

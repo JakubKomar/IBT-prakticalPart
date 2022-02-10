@@ -4,7 +4,7 @@ import QtQuick.Controls
 Item {
     Rectangle {
         id: rectangle
-        color: "#00ff00"
+        color: "#000000"
         anchors.fill: parent
 
         Label {
@@ -16,7 +16,6 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
-
 }
 
 /*##^##
