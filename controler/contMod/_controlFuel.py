@@ -9,6 +9,16 @@ class ControlFuel(QObject):
     def __init__(self):
         QObject.__init__(self)
 
-    @Slot()
-    def toglePump(self):
-        client.client.sendCOMM("laminar/B738/toggle_switch/hydro_pumps2")
+    @Slot(str)
+    def toglePump(self,str):
+        client.client.sendCOMM("laminar/B738/toggle_switch/fuel_pump_"+str)
+
+    @Slot(bool)
+    def togleCrossFeed(self,actualState):
+        if actualState:
+            client.client.sendCOMM("laminar/B738/toggle_switch/crossfeed_valve_off")
+        else:
+            client.client.sendCOMM("laminar/B738/toggle_switch/crossfeed_valve_on")
+
+    
+    

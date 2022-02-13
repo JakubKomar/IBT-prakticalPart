@@ -7,7 +7,7 @@ from .rendMod._fuelRender import RenderFuel
 import logging
 class MainRanderControler(QObject):
 
-    def __init__(self, fps=30):
+    def __init__(self, fps=4):
         QObject.__init__(self)
 
         self.moduleSelector = 0

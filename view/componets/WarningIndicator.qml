@@ -7,6 +7,7 @@ Rectangle {
     implicitHeight: 80
 
     property bool status:true
+    property string warText: "Warning"
     state: status?"on":""
     property color onColor:  "#ff8c00"
     property color offColor: "#271600"
@@ -17,11 +18,15 @@ Rectangle {
    Text{
        id:itemText
        color: "#232323"
-       text: qsTr("Warning")
+       text: warText
        anchors.verticalCenter: parent.verticalCenter
        anchors.horizontalCenter: parent.horizontalCenter
        font.pixelSize: 30
+       horizontalAlignment: Text.AlignHCenter
+       verticalAlignment: Text.AlignVCenter
        font.bold: true
+       wrapMode: Text.WordWrap
+       lineHeight: 0.7
 
    }
    states: [

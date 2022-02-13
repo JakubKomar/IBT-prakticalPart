@@ -10,6 +10,7 @@ Button {
 
     property bool togled: false
     property bool warningTogle: false
+    property string description:"dawdwa"
 
     background: Rectangle {
         color: "#ffffff"
@@ -24,6 +25,7 @@ Button {
         Swich2state {
             id: swich2state
             state:togled?"on":""
+            description:swich2stateWarning.description
         }
 
         WarningIndicator {
