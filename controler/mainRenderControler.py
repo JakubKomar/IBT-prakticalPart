@@ -3,11 +3,13 @@
 from PySide6.QtCore import QObject, Slot, Signal, QTimer
 
 from .rendMod._fuelRender import RenderFuel
-
+import time
 import logging
+
+
 class MainRanderControler(QObject):
 
-    def __init__(self, fps=4):
+    def __init__(self, fps=27):
         QObject.__init__(self)
 
         self.moduleSelector = 0
@@ -20,17 +22,23 @@ class MainRanderControler(QObject):
     setConnStatus = Signal(bool)
 
     def renderLoop(self):
+        start = time.time()
         try:
             self.loop()
             self.setConnStatus.emit(False)
-        except WindowsError:
+        except WindowsError as EX:
             self.setConnStatus.emit(True)
-        except Exception:
-            ...
+            print(EX)
+        except Exception as EX:
+            print(EX)
+
+        end = time.time()
+        print(end - start)
 
     def loop(self):
         if(self.moduleSelector == 0):
-            self.subcontrolers["RenderFuel"].render()
+            ...
+            # self.subcontrolers["RenderFuel"].render()
         else:
             self.subcontrolers["RenderFuel"].render()
 

@@ -122,6 +122,15 @@ Item {
                 font.pixelSize: 33
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
+            Rectangle {
+                id: rectangle2
+                x: 90
+                y: 276
+                width: 664
+                height: 50
+                color: "#ffffff"
+            }
         }
 
 
