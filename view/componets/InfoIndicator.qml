@@ -14,16 +14,21 @@ Rectangle {
     border.color: "#363636"
     border.width: 4
 
+    property string description: "INFO\nIO"
+    height: 65
 
    Text{
        id:itemText
        color: "#232323"
-       text: qsTr("Info")
+       text: qsTr(description)
        anchors.verticalCenter: parent.verticalCenter
        anchors.horizontalCenter: parent.horizontalCenter
        font.pixelSize: 30
+       horizontalAlignment: Text.AlignHCenter
+       verticalAlignment: Text.AlignVCenter
        font.bold: true
-
+       wrapMode: Text.WordWrap
+       lineHeight: 0.7  //
    }
    states: [
        State {
@@ -52,6 +57,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}D{i:1}
+    D{i:0;formeditorZoom:1.75}D{i:1}
 }
 ##^##*/

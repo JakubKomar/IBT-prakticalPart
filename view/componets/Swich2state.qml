@@ -1,102 +1,89 @@
 import QtQuick
 import QtQuick.Controls
 
-Button {
+Rectangle {
     id:swich2state
-    text: qsTr("Swich2state")
+    color: "#000000"
+    border.color: "#484848"
+    border.width: 3
 
     implicitWidth: 150
     implicitHeight: 150
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.rightMargin: 0
-    anchors.leftMargin: 0
 
-    flat: true
-    highlighted: false
+    property string description: "Desc\nMultiline"
 
+    Column {
+        id: column
+        anchors.fill: parent
 
-    property int status: 0
+        Rectangle {
+            id: status
+            height: 50
+            color: "#00ae5b5b"
+            border.color: "#313131"
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+            anchors.leftMargin: 0
 
-
-    background: Rectangle {
-          color: "black"
-          border.color: "#393939"
-          border.width: 2
-    }
-    contentItem: Item{
-           id: item1
-
-           Label {
-               id: label
-               text: qsTr("Label")
-               anchors.fill: parent
-           }
-    }
-
-    Rectangle {
-        id: actualStatus
-        x: 0
-        y: 0
-        width: 150
-        height: 60
-        color: "#000000"
-        border.color: "#393939"
-        border.width: 2
-
-        Label {
-            id: stateLabel
-            color: "#ffffff"
-            text: qsTr("OFF")
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.top: parent.top
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            font.styleName: "tučné"
-            font.family: "Verdana"
-            font.bold: true
-            anchors.horizontalCenter: parent.horizontalCenter
-            font.pointSize: 33
+            Text {
+                id: statusText
+                color: "#acacac"
+                text: qsTr("OFF")
+                anchors.fill: parent
+                font.pixelSize: 47
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                minimumPointSize: 13
+                font.family: "Tahoma"
+                font.bold: true
+            }
         }
-    }
 
-    Label {
-        id: swichDescription
-        y: 60
-        height: 90
-        color: "#ffffff"
-        text: qsTr("DES\nPOPIS")
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        textFormat: Text.PlainText
-        font.wordSpacing: 0
-        font.bold: true
-        font.pointSize: 27
-        anchors.rightMargin: 0
-        anchors.leftMargin: 0
-        anchors.bottomMargin: 0
+
+        Rectangle {
+            id: rectangle1
+            height: 100
+            color: "#00ffffff"
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+            anchors.leftMargin: 0
+
+            Text {
+                id: text2
+                color: "#ffffff"
+                text: qsTr(description)
+                anchors.fill: parent
+                font.pixelSize: 28
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.family: "Verdana"
+                font.bold: true
+            }
+        }
+
     }
     states: [
         State {
             name: "on"
 
             PropertyChanges {
-            }
-
-            PropertyChanges {
-                target: stateLabel
+                target: statusText
                 color: "#02ff00"
                 text: qsTr("ON")
             }
         }
     ]
+
+
+
+
+
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:2}D{i:5}D{i:4}D{i:6}D{i:3}
+    D{i:0;formeditorZoom:1.33}D{i:3}D{i:2}D{i:5}D{i:4}D{i:1}
 }
 ##^##*/

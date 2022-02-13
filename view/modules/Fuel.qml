@@ -25,7 +25,6 @@ Item {
             id: pumpCombo
             x: 296
             y: 740
-
         }
 
         PumpCombo {
@@ -61,6 +60,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:5}D{i:1}D{i:6}D{i:7}
+    D{i:0;formeditorZoom:1.25}D{i:2}D{i:3}D{i:4}D{i:5}D{i:1}D{i:6}D{i:7}
 }
 ##^##*/

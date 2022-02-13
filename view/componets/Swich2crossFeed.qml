@@ -1,9 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 
-Button {
+Rectangle {
     id:swich2state
-    text: qsTr("Swich2state")
+    //text: qsTr("Swich2state")
 
     implicitWidth: 150
     implicitHeight: 150
@@ -11,22 +11,8 @@ Button {
     anchors.right: parent.right
     anchors.rightMargin: 0
     anchors.leftMargin: 0
+    color: "#1d1d1d"
 
-    flat: true
-    highlighted: false
-
-
-    property int status: 0
-
-
-    background: Rectangle {
-          color: "black"
-          border.color: "#393939"
-          border.width: 2
-    }
-    contentItem: Item{
-        id: item1
-    }
 
     Rectangle {
         id: circle
@@ -66,6 +52,6 @@ Button {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.5}D{i:4}D{i:3}
+    D{i:0;formeditorZoom:1.5}D{i:2}D{i:1}
 }
 ##^##*/

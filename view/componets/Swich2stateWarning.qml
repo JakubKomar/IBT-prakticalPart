@@ -1,33 +1,45 @@
 import QtQuick
 import QtQuick.Controls
 
-Rectangle {
+Button {
     id:swich2stateWarning
-    height: 205
-    color: "#ffffff"
-    border.color: "#ffffff"
+    height: 206
 
     implicitWidth: 150
     implicitHeight: 200
 
-    Swich2state {
-        id: swich2state
-        x: 225
-        y: 0
+    property bool togled: false
+    property bool warningTogle: false
+
+    background: Rectangle {
+        color: "#ffffff"
+        border.color: "#ffffff"
+        border.width: 2
     }
 
-    WarningIndicator {
-        id: warningIndicator
+    Column {
+        id: column
         anchors.fill: parent
-        anchors.rightMargin: 0
-        anchors.bottomMargin: 0
-        anchors.leftMargin: 0
-        anchors.topMargin: 148
+
+        Swich2state {
+            id: swich2state
+            state:togled?"on":""
+        }
+
+        WarningIndicator {
+            id: warningIndicator
+            anchors.fill: parent
+            anchors.rightMargin: 0
+            anchors.bottomMargin: 0
+            anchors.leftMargin: 0
+            anchors.topMargin: 148
+            state:warningTogle?"on":""
+        }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:2}D{i:1}D{i:2}
+    D{i:0;formeditorZoom:2}D{i:3}D{i:4}D{i:2}
 }
 ##^##*/

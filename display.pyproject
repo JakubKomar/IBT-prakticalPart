@@ -1,3 +1,3 @@
 {
-    "files": ["view/modules/DashBoard.qml","model/fuelBackEnd.py","view/componets/menuItem.qml","main.qml","view/modules/Fuel.qml","main.py"]
+    "files": ["main.qml","view/modules/Fuel.qml","model/fuelBackEnd.py","main.py","view/componets/menuItem.qml","view/modules/DashBoard.qml","view/componets/CircularDial.qml"]
 }
