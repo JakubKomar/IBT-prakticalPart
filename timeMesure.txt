@@ -1,0 +1,11 @@
+        start = time.time()
+
+        end = time.time()
+        self.test.append(end - start)
+        if( len(self.test)>100):
+            evVal=0
+            for a in self.test:
+                evVal+=a
+            evVal=evVal/len(self.test)
+            print( evVal)
+            self.test=[]

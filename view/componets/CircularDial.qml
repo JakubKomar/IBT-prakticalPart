@@ -14,6 +14,7 @@ Item {
     property double warningValue: 1000
     state:value<warningValue?"low":""
     property string labelText:"def"
+    smooth: true
     antialiasing: true
     Rectangle {
         color:"black"
@@ -31,8 +32,9 @@ Item {
         Shape{
             id:circle
             anchors.fill: parent
+            antialiasing: true
             layer.enabled: true
-            layer.samples: 12
+            layer.samples: 8
 
             ShapePath{
                 id:circleBorder
@@ -126,10 +128,10 @@ Item {
     }
 
     Text {
-        id: dialLabel1
+        id: units
         y: 134
         color: "#0083ff"
-        text: "KG"
+        text: "LB"
         anchors.left: parent.left
         anchors.right: parent.right
         font.pixelSize: 19
@@ -224,7 +226,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.75}D{i:1}D{i:4}D{i:6}D{i:8}D{i:10}D{i:3}D{i:2}D{i:12}D{i:13}
+    D{i:0;formeditorZoom:1.66}D{i:1}D{i:4}D{i:6}D{i:8}D{i:10}D{i:3}D{i:2}D{i:12}D{i:13}
 D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}
 }
 ##^##*/

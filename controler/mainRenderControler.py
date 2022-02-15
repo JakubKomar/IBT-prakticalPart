@@ -4,12 +4,11 @@ from PySide6.QtCore import QObject, Slot, Signal, QTimer
 
 from .rendMod._fuelRender import RenderFuel
 import time
-import logging
-
+import model.libInit as client
 
 class MainRanderControler(QObject):
 
-    def __init__(self, fps=27):
+    def __init__(self, fps=20):
         QObject.__init__(self)
 
         self.moduleSelector = 0
@@ -22,7 +21,6 @@ class MainRanderControler(QObject):
     setConnStatus = Signal(bool)
 
     def renderLoop(self):
-        start = time.time()
         try:
             self.loop()
             self.setConnStatus.emit(False)
@@ -30,17 +28,28 @@ class MainRanderControler(QObject):
             self.setConnStatus.emit(True)
             print(EX)
         except Exception as EX:
+            ...
             print(EX)
 
-        end = time.time()
-        print(end - start)
-
     def loop(self):
+        refList=[]
+
         if(self.moduleSelector == 0):
             ...
-            # self.subcontrolers["RenderFuel"].render()
         else:
-            self.subcontrolers["RenderFuel"].render()
+            refList.extend(self.subcontrolers["RenderFuel"].requestRef())
+
+        refList = list(set(refList))
+        serverList = client.client.getDREFs(refList)
+
+        dictionary = {refList[i]: serverList[i] for i in range(len(refList))}
+
+
+        if(self.moduleSelector == 0):
+            ...
+        else:
+            self.subcontrolers["RenderFuel"].sendRef(dictionary)
+
 
     @Slot(int)
     def setModuleSelector(self, modID):

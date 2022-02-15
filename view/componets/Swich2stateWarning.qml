@@ -24,6 +24,7 @@ Button {
 
         Swich2state {
             id: swich2state
+            height: 135
             state:togled?"on":""
             description:swich2stateWarning.description
         }
@@ -31,10 +32,11 @@ Button {
         WarningIndicator {
             id: warningIndicator
             anchors.fill: parent
+            warText: "LOW\nPRESSURE"
             anchors.rightMargin: 0
             anchors.bottomMargin: 0
             anchors.leftMargin: 0
-            anchors.topMargin: 148
+            anchors.topMargin: 134
             state:warningTogle?"on":""
         }
     }

@@ -50,7 +50,7 @@ Item {
         }
 
         Swich2crossFeedInfo {
-            id: swich2crossFeedInfo1
+            id: swich2crossFeedInfo
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.horizontalCenterOffset: 0
@@ -70,7 +70,7 @@ Item {
         Rectangle {
             id: rectangle1
             y: -2
-            width: 844
+            width: 689
             height: 361
             color: "#00ffffff"
             border.color: "#ffffff"
@@ -96,6 +96,7 @@ Item {
                 x: 312
                 y: 50
                 anchors.top: parent.top
+                warningValue: -1
                 value: 28580
                 maxValue: 28580
                 labelText: "CENTER"
@@ -123,89 +124,21 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
-            Rectangle {
-                id: rectangle2
-                x: 90
-                y: 276
-                width: 664
-                height: 50
-                color: "#ffffff"
+            Verticalndicator {
+                id: fuelTemp
+                y: 297
+                anchors.horizontalCenter: parent.horizontalCenter
             }
-        }
 
-
-        InfoIndicator {
-            id: infoIndicator
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.topMargin: 46
-            anchors.leftMargin: 162
-            status: false
-            description: "ENG VAL\nCLOSED"
-        }
-
-        InfoIndicator {
-            id: infoIndicator1
-            x: 1412
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.topMargin: 46
-            anchors.rightMargin: 162
-            status: false
-            description: "ENG VAL\nCLOSED"
-        }
-
-
-
-        WarningIndicator {
-            id: warningIndicator
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.topMargin: 174
-            anchors.leftMargin: 162
-            status: false
-            warText: "FILTER\nBYPASS"
-        }
-
-
-
-
-        WarningIndicator {
-            id: warningIndicator1
-            x: 1448
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.rightMargin: 162
-            anchors.topMargin: 174
-            status: false
-            warText: "FILTER\nBYPASS"
-        }
-
-
-
-
-        InfoIndicator {
-            id: infoIndicator2
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.leftMargin: 162
-            anchors.topMargin: 330
-            status: false
-            description: "SPAR VAL\n CLOSED"
-        }
-
-
-
-
-        InfoIndicator {
-            id: infoIndicator3
-            x: 1448
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.rightMargin: 162
-            anchors.topMargin: 330
-            status: false
-            description: "SPAR VAL\\n CLOSED"
+            Text {
+                id: text2
+                y: 270
+                color: "#007cf3"
+                text: qsTr("FUEL TEMPRATURE")
+                font.pixelSize: 19
+                anchors.horizontalCenterOffset: 0
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
         }
 
         Swich2stateWarning {
@@ -259,6 +192,65 @@ Item {
             }
         }
 
+        Column {
+            id: leftEngineInfos
+            x: 202
+            y: 102
+            width: 143
+            height: 225
+            layer.enabled: false
+            spacing: 4
+            padding: 0
+
+            InfoIndicator {
+                id: engValClose_L
+                anchors.horizontalCenter: parent.horizontalCenter
+                status: false
+                description: "ENG VAL\nCLOSED"
+            }
+
+            WarningIndicator {
+                id: filtBypass_L
+                anchors.horizontalCenter: parent.horizontalCenter
+                status: false
+                warText: "FILTER\nBYPASS"
+            }
+
+            InfoIndicator {
+                id: sparValClose_L
+                anchors.horizontalCenter: parent.horizontalCenter
+                status: false
+                description: "SPAR VAL\n CLOSED"
+            }
+        }
+
+        Column {
+            id: rightEngineInfos
+            x: 1371
+            y: 126
+            width: 147
+            height: 233
+            spacing: 4
+
+            InfoIndicator {
+                id: engValClose_R
+                status: false
+                description: "ENG VAL\nCLOSED"
+            }
+
+            WarningIndicator {
+                id: filtBypass_R
+                status: false
+                warText: "FILTER\nBYPASS"
+            }
+
+            InfoIndicator {
+                id: sparValClose_R
+                status: false
+                description: "SPAR VAL\n CLOSED"
+            }
+        }
+
     }
     Connections{
         target:ControlFuel
@@ -267,7 +259,7 @@ Item {
         target:RenderFuel
 
         function onSetCrossFeed(state){
-            swich2crossFeedInfo1.togled=state
+            swich2crossFeedInfo.togled=state
         }
         function onSetPumpSwich(name,state){
             switch(name){
@@ -296,15 +288,93 @@ Item {
                     pumpFWD_R.togled=state
                     break;
                 }
-
+                default:{}
+            }  
+        }
+        function onSetTank(name,value){
+            switch(name){
+                case "left":{
+                    leftTank.value=value
+                    break;
+                }
+                case "center":{
+                    centerTank.value=value
+                    break;
+                }
+                case "right":{
+                    rightTank.value=value
+                    break;
+                }
+                default:{}
             }
+        }
+        function onSetIndicator(name,state){
+            switch(name){
+                case "en1VC":{
+                    engValClose_L.status = state
+                    break;
+                }
+                case "en2VC":{
+                    engValClose_R.status = state
+                    break;
+                }
+                case "sp1VC":{
+                    sparValClose_L.status = state
+                    break;
+                }
+                case "sp2VC":{
+                    sparValClose_R.status = state
+                    break;
+                }
+                case "bpf1":{
+                    filtBypass_L.status = state
+                    break;
+                }
+                case "bpf2":{
+                    filtBypass_R.status = state
+                    break;
+                }
+                case "lfpC1":{
+                    pumpCTR_L.warningTogle = state
+                    break;
+                }
+                case "lfpC2":{
+                    pumpCTR_R.warningTogle = state
+                    break;
+                }
+                case "lfpL1":{
+                    pumpAFT_L.warningTogle = state
+                    break;
+                }
+                case "lfpL2":{
+                    pumpFWD_L.warningTogle = state
+                    break;
+                }
+                case "lfpR1":{
+                    pumpAFT_R.warningTogle = state                  
+                    break;
+                }
+                case "lfpR2":{
+                    pumpFWD_R.warningTogle = state
+                    break;
+                }
+                case "cfv":{
+                    swich2crossFeedInfo.infoTogled = state
+                    break;
+                }
+                default:{}
+            }
+        }
+        function onSetFuelTemp(temp){
+            fuelTemp.value = temp
         }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:3}D{i:4}D{i:2}D{i:5}D{i:7}D{i:8}D{i:9}D{i:10}D{i:6}D{i:11}
-D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:1}D{i:21}D{i:22}
+    D{i:0;formeditorZoom:0.5}D{i:3}D{i:4}D{i:2}D{i:5}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
+D{i:12}D{i:6}D{i:13}D{i:14}D{i:15}D{i:16}D{i:18}D{i:19}D{i:20}D{i:17}D{i:22}D{i:23}
+D{i:24}D{i:21}D{i:1}D{i:25}D{i:26}
 }
 ##^##*/

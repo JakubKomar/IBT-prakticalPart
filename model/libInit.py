@@ -1,6 +1,6 @@
 from model.xpc import XPlaneConnect as XPC
 
-
+global client
 def estCon():
     print("X-Plane Connect example script")
     global client
