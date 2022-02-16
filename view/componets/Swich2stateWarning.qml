@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Button {
     id:swich2stateWarning
-    height: 206
+    height: 196
 
     implicitWidth: 150
     implicitHeight: 200
@@ -25,18 +25,16 @@ Button {
         Swich2state {
             id: swich2state
             height: 135
+            width:parent.width
             state:togled?"on":""
             description:swich2stateWarning.description
         }
 
         WarningIndicator {
             id: warningIndicator
-            anchors.fill: parent
+            height: 61
+            width:parent.width
             warText: "LOW\nPRESSURE"
-            anchors.rightMargin: 0
-            anchors.bottomMargin: 0
-            anchors.leftMargin: 0
-            anchors.topMargin: 134
             state:warningTogle?"on":""
         }
     }

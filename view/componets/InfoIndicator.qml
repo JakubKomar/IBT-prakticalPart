@@ -36,7 +36,7 @@ Rectangle {
            name: "on"
 
             PropertyChanges {
-                target: warningIndicator
+                target: infoIndicator
                 color: "#673600"
             }
 

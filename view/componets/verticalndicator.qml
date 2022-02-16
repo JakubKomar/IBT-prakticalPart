@@ -43,7 +43,7 @@ Item {
                 id: shape
                 anchors.fill: parent
                 layer.enabled: true
-                layer.samples: 12
+                layer.samples: 8
                 ShapePath{
                     id: scaleBase
                     strokeWidth: 3

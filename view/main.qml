@@ -7,9 +7,16 @@ Window {
     id:mainWindow
     width: 1920
     height: 1080
+    maximumHeight: height
+    maximumWidth: width
+
+    minimumHeight: height
+    minimumWidth: width
     visible: true
+
     title: qsTr("Letecký display")
-    //visibility: Window.FullScreen
+    property bool fullscreenEnable: false
+    visibility:fullscreenEnable? Window.FullScreen: Window.Windowed
 
     Rectangle {
         id: frameBc
@@ -151,6 +158,27 @@ Window {
                             color:"orange"
                         }
                     }
+
+                    Button {
+                        id: fullScreenButton
+                        x: 52
+                        y: 8
+                        width: 40
+                        height: 32
+                        font.pointSize: 18
+                        Text {
+                            color: "#ffa500"
+                            text: qsTr("F")
+                            anchors.fill: parent
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            font.pointSize: 28
+                            anchors.topMargin: -3
+                        }
+                        onClicked:  {
+                            fullscreenEnable=!fullscreenEnable
+                        }
+                    }
                 }
                 Connections{
                     target: MainRanderControler
@@ -171,7 +199,7 @@ Window {
                     id: contentLoader
                     anchors.fill: parent
                     clip: true
-                    source: Qt.resolvedUrl("modules/DashBoard.qml")                 
+                    source: Qt.resolvedUrl("modules/DashBoard.qml")
                 }
             }
         }
@@ -182,7 +210,7 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:11}D{i:13}D{i:12}
-D{i:10}D{i:14}D{i:3}D{i:16}D{i:15}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:1.66}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:11}D{i:13}D{i:12}
+D{i:15}D{i:14}D{i:10}D{i:16}D{i:3}D{i:18}D{i:17}D{i:2}D{i:1}
 }
 ##^##*/
