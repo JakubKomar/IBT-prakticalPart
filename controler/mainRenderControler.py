@@ -3,6 +3,7 @@
 from PySide6.QtCore import QObject, Slot, Signal, QTimer
 
 from .rendMod._fuelRender import RenderFuel
+from .rendMod._bleedRender import RenderBleed
 import time
 import model.libInit as client
 
@@ -12,7 +13,9 @@ class MainRanderControler(QObject):
         QObject.__init__(self)
 
         self.moduleSelector = 0
-        self.subcontrolers = {"RenderFuel": RenderFuel()}
+        self.subcontrolers = {"RenderFuel": RenderFuel(),
+            "RenderBleed": RenderBleed()
+        }
         # timer init
         self.timer = QTimer()
         self.timer.timeout.connect(lambda: self.renderLoop())
@@ -36,8 +39,10 @@ class MainRanderControler(QObject):
 
         if(self.moduleSelector == 0):
             ...
-        else:
+        elif(self.moduleSelector == 1):
             refList.extend(self.subcontrolers["RenderFuel"].requestRef())
+        elif(self.moduleSelector == 2):
+            refList.extend(self.subcontrolers["RenderBleed"].requestRef())
 
         refList = list(set(refList))
         serverList = client.client.getDREFs(refList)
@@ -47,8 +52,10 @@ class MainRanderControler(QObject):
 
         if(self.moduleSelector == 0):
             ...
-        else:
+        elif(self.moduleSelector == 1):
             self.subcontrolers["RenderFuel"].sendRef(dictionary)
+        elif(self.moduleSelector == 2):
+            self.subcontrolers["RenderBleed"].sendRef(dictionary)
 
 
     @Slot(int)

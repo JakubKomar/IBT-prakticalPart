@@ -8,7 +8,7 @@ Button {
     implicitWidth: 150
     implicitHeight: 200
 
-    property bool togled: false
+    property alias togled: swich2state.togled
     property bool warningTogle: false
     property string description:"dawdwa"
 
@@ -21,18 +21,20 @@ Button {
     Column {
         id: column
         anchors.fill: parent
+        anchors.bottomMargin: 0
+        spacing: -3
 
         Swich2state {
             id: swich2state
             height: 135
             width:parent.width
-            state:togled?"on":""
             description:swich2stateWarning.description
         }
 
         WarningIndicator {
             id: warningIndicator
-            height: 61
+            height: 65
+            textHeight: 28
             width:parent.width
             warText: "LOW\nPRESSURE"
             state:warningTogle?"on":""

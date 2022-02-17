@@ -12,6 +12,8 @@ Rectangle {
     anchors.rightMargin: 0
     anchors.leftMargin: 0
     color: "#1d1d1d"
+    border.color: "#484848"
+    border.width: 3
 
 
     Rectangle {

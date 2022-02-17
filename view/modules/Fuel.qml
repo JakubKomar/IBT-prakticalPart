@@ -31,12 +31,6 @@ Item {
             alfa: 79
             mirror: false
             clip: false
-
-
-
-
-
-
         }
 
 
@@ -479,6 +473,7 @@ Item {
             y: 674
             anchors.right: parent.right
             anchors.top: parent.top
+            togled: false
             description: "CTR"
             anchors.rightMargin: 616
             anchors.topMargin: 635
@@ -591,6 +586,7 @@ Item {
             width: 150
             height: 195
             anchors.right: pumpFWD_L.left
+            togled: false
             anchors.rightMargin: 10
             description: "AFT"
 
@@ -607,6 +603,7 @@ Item {
             height: 196
             anchors.left: parent.left
             anchors.top: parent.top
+            togled: false
             description: "FWD"
             anchors.topMargin: 740
             anchors.leftMargin: 260
@@ -622,6 +619,7 @@ Item {
             x: 1322
             anchors.right: parent.right
             anchors.top: parent.top
+            togled: false
             description: "FWD"
             anchors.topMargin: 740
             anchors.rightMargin: 260
@@ -638,6 +636,7 @@ Item {
             width: 150
             height: 190
             anchors.left: pumpFWD_R.right
+            togled: false
             description: "AFT"
             anchors.leftMargin: 10
             onClicked:{
@@ -656,11 +655,12 @@ Item {
             anchors.topMargin: 140
             anchors.leftMargin: 245
             layer.enabled: false
-            spacing: 4
+            spacing: 1
             padding: 0
 
             InfoIndicator {
                 id: engValClose_L
+                textHeight: 28
                 anchors.horizontalCenter: parent.horizontalCenter
                 status: false
                 description: "ENG VAL\nCLOSED"
@@ -675,6 +675,7 @@ Item {
 
             InfoIndicator {
                 id: sparValClose_L
+                textHeight: 28
                 anchors.horizontalCenter: parent.horizontalCenter
                 status: false
                 description: "SPAR VAL\n CLOSED"
@@ -690,12 +691,14 @@ Item {
             height: 233
             anchors.right: parent.right
             anchors.top: parent.top
+            padding: 0
             anchors.topMargin: 145
             anchors.rightMargin: 245
-            spacing: 4
+            spacing: 1
 
             InfoIndicator {
                 id: engValClose_R
+                textHeight: 28
                 status: false
                 description: "ENG VAL\nCLOSED"
             }
@@ -708,6 +711,7 @@ Item {
 
             InfoIndicator {
                 id: sparValClose_R
+                textHeight: 28
                 status: false
                 description: "SPAR VAL\n CLOSED"
             }
@@ -762,18 +766,6 @@ Item {
             x: 1397
             y: 57
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
     Connections{
         target:ControlFuel
@@ -909,7 +901,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
+    D{i:0;formeditorZoom:0.66}D{i:2}D{i:3}D{i:4}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
 D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:22}D{i:21}D{i:5}
 D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}D{i:36}
 D{i:35}D{i:23}D{i:38}D{i:37}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:46}D{i:47}

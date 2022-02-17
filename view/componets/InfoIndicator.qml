@@ -11,10 +11,11 @@ Rectangle {
     property color onColor:  "#ff8c00"
     property color offColor: "#271600"
     color: "#000c16"
-    border.color: "#363636"
-    border.width: 4
+    border.color: "#484848"
+    border.width: 3
 
     property string description: "INFO\nIO"
+    property int textHeight:30
     height: 65
 
    Text{
@@ -23,7 +24,7 @@ Rectangle {
        text: qsTr(description)
        anchors.verticalCenter: parent.verticalCenter
        anchors.horizontalCenter: parent.horizontalCenter
-       font.pixelSize: 30
+       font.pixelSize: textHeight
        horizontalAlignment: Text.AlignHCenter
        verticalAlignment: Text.AlignVCenter
        font.bold: true

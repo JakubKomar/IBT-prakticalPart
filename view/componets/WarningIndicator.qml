@@ -11,9 +11,10 @@ Rectangle {
     state: status?"on":""
     property color onColor:  "#ff8c00"
     property color offColor: "#271600"
+    property int textHeight:30
     color: "#160c00"
-    border.color: "#363636"
-    border.width: 4
+    border.color: "#484848"
+    border.width: 3
 
    Text{
        id:itemText
@@ -21,7 +22,7 @@ Rectangle {
        text: warText
        anchors.verticalCenter: parent.verticalCenter
        anchors.horizontalCenter: parent.horizontalCenter
-       font.pixelSize: 30
+       font.pixelSize: textHeight
        horizontalAlignment: Text.AlignHCenter
        verticalAlignment: Text.AlignVCenter
        font.bold: true

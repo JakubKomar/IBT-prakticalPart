@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Button {
     id:swich2crossFeedInfo
-    height: 210
+    height: 207
 
     implicitWidth: 150
     implicitHeight: 200
@@ -16,6 +16,8 @@ Button {
     Column {
         id: column
         anchors.fill: parent
+        anchors.bottomMargin: 0
+        spacing: -3
 
         Swich2crossFeed{
             id: swich2crissFeed
@@ -37,6 +39,6 @@ Button {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:3}D{i:2}D{i:3}D{i:1}
+    D{i:0;formeditorZoom:1.33}D{i:2}D{i:3}D{i:1}
 }
 ##^##*/

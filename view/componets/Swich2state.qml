@@ -11,7 +11,12 @@ Rectangle {
     implicitHeight: 150
 
     property string description: "Desc\nMultiline"
-
+    property string onText:"ON"
+    property string offText:"OFF"
+    property int textWidthStatus:47
+    property int textWidthDescription:28
+    property bool togled:false
+    state:togled?"on":"off"
     Column {
         id: column
         anchors.fill: parent
@@ -20,7 +25,7 @@ Rectangle {
             id: status
             height: 50
             color: "#00ae5b5b"
-            border.color: "#313131"
+            border.color: "#484848"
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.rightMargin: 0
@@ -29,9 +34,9 @@ Rectangle {
             Text {
                 id: statusText
                 color: "#acacac"
-                text: qsTr("OFF")
+                text: offText
                 anchors.fill: parent
-                font.pixelSize: 47
+                font.pixelSize: textWidthStatus
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 minimumPointSize: 13
@@ -55,7 +60,7 @@ Rectangle {
                 color: "#ffffff"
                 text: qsTr(description)
                 anchors.fill: parent
-                font.pixelSize: 28
+                font.pixelSize: textWidthDescription
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: "Verdana"
@@ -71,7 +76,7 @@ Rectangle {
             PropertyChanges {
                 target: statusText
                 color: "#02ff00"
-                text: qsTr("ON")
+                text: onText
             }
         }
     ]
@@ -84,6 +89,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.33}D{i:3}D{i:2}D{i:5}D{i:4}D{i:1}
+    D{i:0;formeditorZoom:0.5}D{i:3}D{i:2}D{i:5}D{i:4}D{i:1}
 }
 ##^##*/
