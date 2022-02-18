@@ -194,7 +194,10 @@ Window {
                 color: "#000000"
                 anchors.fill: parent
                 anchors.leftMargin: menuCont.width
-
+                property double xscaleVal:contentCont.width/1750
+                property double yscaleVal:contentCont.height/1060
+                property double scaleVal: xscaleVal<yscaleVal?xscaleVal:yscaleVal
+                transform: Scale {xScale: contentCont.scaleVal;yScale:contentCont.scaleVal}
                 Loader {
                     id: contentLoader
                     width: 1750
@@ -212,7 +215,7 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:11}D{i:13}D{i:12}
-D{i:15}D{i:14}D{i:10}D{i:16}D{i:3}D{i:18}D{i:17}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:0.25}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:11}D{i:13}D{i:12}
+D{i:15}D{i:14}D{i:10}D{i:16}D{i:3}D{i:20}D{i:17}D{i:2}D{i:1}
 }
 ##^##*/
