@@ -84,11 +84,11 @@ Window {
 
                     MenuItem {
                         id: enginesButt
-                        text: "Engines"
+                        text: "Temp"
 
                         onClicked: {
                             MainRanderControler.setModuleSelector(3)
-                            contentLoader.setSource("modules/Fuel.qml")
+                            contentLoader.setSource("modules/TempControl.qml")
                             menuColum.togleButt(this)
                         }
                     }

@@ -1,3 +1,3 @@
 {
-    "files": ["model/fuelBackEnd.py","view/componets/Valve.qml","main.py","view/componets/menuItem.qml","view/modules/Fuel.qml","view/componets/CircularDial.qml","view/componets/verticalndicator.qml","view/componets/swich3pos.qml","view/componets/tankModel/tankLeft.qml","main.qml","view/modules/DashBoard.qml","view/modules/BleedAir.qml","view/componets/Swich3posDes.qml"]
+    "files": ["view/componets/Valve.qml","view/componets/menuItem.qml","main.py","model/fuelBackEnd.py","view/componets/swich3pos.qml","view/componets/verticalndicator.qml","view/componets/Swich3posDes.qml","view/componets/tankModel/tankLeft.qml","main.qml","view/modules/DashBoard.qml","view/componets/CircularDial.qml","view/modules/Fuel.qml","view/modules/BleedAir.qml","CircularDialV2.qml"]
 }

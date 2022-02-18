@@ -122,10 +122,10 @@ Item {
                     0
                 }
                 else if(value>maxVal){
-                    120*((parent.width-width)/120)
+                    (maxVal-minVal)*((parent.width-width)/(maxVal-minVal))
                 }
                 else{
-                    0 +(60+value)*((parent.width-width)/120)
+                    0 +(-minVal+value)*((parent.width-width)/(maxVal-minVal))
                 }
             }
 
