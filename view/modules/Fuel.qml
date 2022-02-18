@@ -17,9 +17,6 @@ Item {
         anchors.leftMargin: 0
         anchors.topMargin: 0
 
-
-
-
         Tank{
             id: leftTankImg
             x: 8
@@ -33,7 +30,6 @@ Item {
             clip: false
         }
 
-
         Tank{
             id: rightTankImg
             x: 1218
@@ -45,8 +41,6 @@ Item {
             alfa: 79
         }
 
-
-
         Tank {
             id: centerTankImg
             x: 555
@@ -57,7 +51,6 @@ Item {
             beta: 90
             alfa: 90
         }
-
 
         Item {
             id: pipeColection
@@ -498,63 +491,65 @@ Item {
             }
         }
 
-
-
-
-
-
-
         Rectangle {
             id: rectangle1
             y: 1
             width: 689
             height: 361
             color: "#00ffffff"
+            radius: 20
             border.color: "#ffffff"
             border.width: 2
             anchors.horizontalCenterOffset: 0
             anchors.horizontalCenter: parent.horizontalCenter
 
-            CircularDial {
+            CircularDialFuel {
                 id: leftTank
                 x: 60
                 anchors.right: centerTank.left
                 anchors.top: parent.top
-                maxValue: 8620
+                warningValue: 1000
+                circularDialV2.warningTogle: false
+                circularDialV2.errorTogle: false
+                value: 7000
+                circularDialV2.bigStep: 1000
+                circularDialV2.maxValue: 8620
+                desText: "Left"
                 anchors.topMargin: 50
-                labelText: "LEFT"
                 anchors.rightMargin: 2
-
-
             }
 
-            CircularDial {
+            CircularDialFuel {
                 id: centerTank
                 x: 312
                 y: 50
                 anchors.top: parent.top
-                warningValue: -1
-                value: 28580
-                maxValue: 28580
-                labelText: "CENTER"
+                circularDialV2.bigStep: 2800
+                circularDialV2.maxValue: 28580
+                desText: "Center"
+                value: 10000
                 anchors.topMargin: 50
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
-            CircularDial {
+            CircularDialFuel {
                 id: rightTank
                 x: 534
                 anchors.left: centerTank.right
                 anchors.top: parent.top
-                maxValue: 8620
+                warningValue: 1000
+                value: 7000
+                circularDialV2.bigStep: 1000
+                circularDialV2.maxValue: 8620
+                desText: "Right"
                 anchors.topMargin: 50
-                labelText: "RIGHT"
                 anchors.leftMargin: 2
             }
 
             Text {
                 id: text1
-                y: 8
+                y: 5
+                height: 42
                 color: "#007cf3"
                 text: qsTr("FUEL")
                 font.pixelSize: 33
@@ -643,8 +638,6 @@ Item {
                 ControlFuel.toglePump("rgt1")
             }
         }
-
-
 
         Column {
             id: leftEngineInfos
@@ -901,7 +894,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:2}D{i:3}D{i:4}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
+    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
 D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:22}D{i:21}D{i:5}
 D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}D{i:36}
 D{i:35}D{i:23}D{i:38}D{i:37}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:46}D{i:47}

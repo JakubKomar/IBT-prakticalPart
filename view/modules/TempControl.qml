@@ -24,11 +24,11 @@ Rectangle {
         rotation: -270
     }
 
-
     Connections{
         target:ControlBleed
 
     }
+
     Connections{
         target:RenderBleed
 

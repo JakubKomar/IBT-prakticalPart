@@ -16,16 +16,16 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        CircularDialV2 {
-            id: circularDialV2
-            x: 47
-            y: 46
+        CircularDialFuel {
+            id: circularDialFuel
+            x: 52
+            y: 60
         }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:1}
+    D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:3}D{i:1}
 }
 ##^##*/

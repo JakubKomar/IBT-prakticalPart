@@ -11,12 +11,40 @@ Item {
     property double value: 40
     property double maxValue: 80
     property double minValue: 0
+    property double safeVal:{
+        if(value<minValue)
+            minValue
+        else if(value>maxValue)
+            maxValue
+        else
+            value
+    }
 
+    property double numScale:1
+    property int numFixed:0
+    property string scaleText:""
     property double smallStep:1
     property double bigStep:10
+
     property double startAng:50
     property double endAng:310
     property double difAng:endAng-startAng
+
+
+    property bool warningTogle: false
+    property bool errorTogle: false
+
+    state:{
+        if(errorTogle||value<minValue||value>maxValue){
+            "error"
+        }
+        else if(warningTogle){
+            "warning"
+        }
+        else{
+            ""
+        }
+    }
 
     width: 210
     height: 210
@@ -83,7 +111,7 @@ Item {
             }
             Repeater{
                 id: largeScale
-                model: parseInt((maxValue-minValue)/bigStep)+1
+                model: parseInt((maxValue-minValue)/(bigStep))+1
                 delegate: Item{
                     property ShapePath s: ShapePath{
                         strokeWidth: 2
@@ -116,29 +144,36 @@ Item {
                     centerY: dial.height/2
                     startAngle: startAng
 
-                    sweepAngle: difAng*value/(maxValue-minValue)
+                    sweepAngle: difAng*safeVal/(maxValue-minValue)
                 }
             }
         }
         Repeater{
             id: largeScaleNums
-            model: parseInt((maxValue-minValue)/bigStep)+1
+            model: parseInt((maxValue-minValue)/(bigStep))+1
             delegate: Text {
                 id:scaleNums
                 color:"white"
                 x:  dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-32) - scaleNums.width/2
 
                 y:  dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-32) - scaleNums.height/2
-                text:minValue+ model.index*bigStep
+                text:(minValue+ model.index*bigStep/numScale).toFixed(numFixed)+scaleText
             }
         }
     }
     states: [
         State {
-            name: "low"
+            name: "warning"
             PropertyChanges {
                 target: filed
                 strokeColor: "orange"
+            }
+        },
+        State {
+            name: "error"
+            PropertyChanges {
+                target: filed
+                strokeColor: "red"
             }
         }
     ]
@@ -149,7 +184,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.25}D{i:1;locked:true}D{i:4}D{i:6}D{i:8}D{i:12}D{i:3}D{i:14}
+    D{i:0;formeditorZoom:0.66}D{i:1;locked:true}D{i:4}D{i:6}D{i:8}D{i:12}D{i:3}D{i:14}
 D{i:2}
 }
 ##^##*/

@@ -6,6 +6,7 @@ Item {
     width: 1750
     height: 1060
     property alias rectangle3: rectangle3
+
     Rectangle {
         id: rectangle
         color: "#000000"
@@ -19,10 +20,6 @@ Item {
         Item {
             id: pipes
             anchors.fill: parent
-
-
-
-
             Rectangle {
                 id: pipe9
                 x: 1268
@@ -91,14 +88,6 @@ Item {
                     anchors.rightMargin: -1101
                 }
             }
-
-
-
-
-
-
-
-
 
             Item {
                 id: item3
@@ -179,8 +168,6 @@ Item {
                 }
             }
 
-
-
             Item {
                 id: item5
                 y: -288
@@ -189,8 +176,6 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 rotation: 90
             }
-
-
 
             Rectangle {
                 id: pipe18
@@ -239,7 +224,6 @@ Item {
                 }
             }
 
-
             Item {
                 id: item10
                 y: 428
@@ -263,10 +247,6 @@ Item {
                     anchors.rightMargin: 0
                 }
             }
-
-
-
-
         }
 
         Rectangle {
@@ -328,7 +308,7 @@ Item {
             width: 460
             height: 282
             color: "#00ffffff"
-            radius: 4
+            radius: 20
             border.color: "#ffffff"
             border.width: 3
             anchors.top: parent.top
@@ -344,7 +324,7 @@ Item {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 units: "PSI"
-                desText: "Duck Press"
+                desText: "L Duck Press"
                 anchors.leftMargin: 10
                 anchors.topMargin: 5
                 anchors.bottomMargin: 5
@@ -359,7 +339,7 @@ Item {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 units: "PSI"
-                desText: "Duck Press"
+                desText: "R Duck Press"
                 anchors.rightMargin: 10
                 anchors.topMargin: 5
                 anchors.bottomMargin: 5
@@ -554,7 +534,7 @@ Item {
             width: 460
             height: 466
             color: "#00ffffff"
-            radius: 4
+            radius: 20
             border.color: "#ffffff"
             border.width: 3
             anchors.top: parent.top
@@ -616,6 +596,27 @@ Item {
                     }
                 }
             }
+        }
+
+        CircleButton{
+            y: 719 ;
+            text: "";
+            buttText: "TRIP\nRESET";
+            anchors.horizontalCenter: parent.horizontalCenter
+            onClicked: {
+                    ControlBleed.bleedTripReset()
+            }
+        }
+
+        CircleButton {
+            y: 907
+            buttText: "OVHT\nTEST"
+            anchors.horizontalCenterOffset: 0
+            anchors.horizontalCenter: parent.horizontalCenter
+            onClicked: {
+                    ControlBleed.tripButtTest()
+            }
+
         }
 
 
@@ -713,11 +714,10 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0}D{i:3}D{i:4}D{i:5}D{i:7}D{i:8}D{i:6}D{i:10}D{i:11}D{i:12}D{i:9}D{i:14}D{i:15}
-D{i:13}D{i:16}D{i:17}D{i:19}D{i:20}D{i:18}D{i:22}D{i:21}D{i:2}D{i:23}D{i:24}D{i:25}
-D{i:26}D{i:28}D{i:29}D{i:27}D{i:31;locked:true}D{i:32;locked:true}D{i:33;locked:true}
-D{i:30}D{i:35;locked:true}D{i:34}D{i:37;locked:true}D{i:36}D{i:39;locked:true}D{i:38}
-D{i:40}D{i:41}D{i:42}D{i:46}D{i:47}D{i:48}D{i:45}D{i:50}D{i:51}D{i:52}D{i:49}D{i:44}
-D{i:43}D{i:1}D{i:53}D{i:54}
+    D{i:0;formeditorZoom:0.66}D{i:3}D{i:4}D{i:5}D{i:7}D{i:8}D{i:6}D{i:10}D{i:11}D{i:12}
+D{i:9}D{i:14}D{i:15}D{i:13}D{i:16}D{i:17}D{i:19}D{i:20}D{i:18}D{i:22}D{i:21}D{i:2}
+D{i:23}D{i:24}D{i:25}D{i:26}D{i:28}D{i:29}D{i:27}D{i:31}D{i:32}D{i:33}D{i:30}D{i:35}
+D{i:34}D{i:37}D{i:36}D{i:39}D{i:38}D{i:40}D{i:41}D{i:42}D{i:46}D{i:47}D{i:48}D{i:45}
+D{i:50}D{i:51}D{i:52}D{i:49}D{i:44}D{i:43}D{i:53}D{i:54}D{i:1}D{i:55}D{i:56}
 }
 ##^##*/

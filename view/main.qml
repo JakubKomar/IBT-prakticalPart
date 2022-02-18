@@ -7,11 +7,11 @@ Window {
     id:mainWindow
     width: 1920
     height: 1080
-    //maximumHeight: height
+    /*maximumHeight: height
     maximumWidth: width
 
-    //minimumHeight: height
-    minimumWidth: width
+   minimumHeight: height
+    minimumWidth: width*/
     visible: true
 
     title: qsTr("Letecký display")
@@ -197,7 +197,9 @@ Window {
 
                 Loader {
                     id: contentLoader
-                    anchors.fill: parent
+                    width: 1750
+                    height: 1060
+
                     clip: true
                     source: Qt.resolvedUrl("modules/DashBoard.qml")
                 }
