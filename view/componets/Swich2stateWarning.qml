@@ -4,6 +4,8 @@ import QtQuick.Controls
 Button {
     id:swich2stateWarning
     height: 196
+    property alias warningIndicator: warningIndicator
+    property alias swich2state: swich2state
 
     implicitWidth: 150
     implicitHeight: 200

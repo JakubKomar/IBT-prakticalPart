@@ -6,26 +6,19 @@ Item {
         id: rectangle
         color: "#000000"
         anchors.fill: parent
+        anchors.rightMargin: -465
+        anchors.bottomMargin: -122
 
-        Label {
-            id: label
-            text: qsTr("Dashboard")
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: 0
-            anchors.horizontalCenterOffset: 1
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-        CircularDialFuel {
-            id: circularDialFuel
-            x: 52
-            y: 60
+        VerticaIndicatorDouble {
+            id: verticaIndicatorDouble
+            x: 241
+            y: 219
         }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:3}D{i:1}
+    D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:1}
 }
 ##^##*/
