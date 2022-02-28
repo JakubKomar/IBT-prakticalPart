@@ -29,7 +29,6 @@ Item {
                 radius: 0
                 border.color: "#484848"
                 border.width: 0
-                anchors.verticalCenter: verticalndicator.verticalCenter
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.rightMargin: 0
@@ -107,8 +106,6 @@ Item {
                     height: 66
                     anchors.left: warningIndicator.right
                     anchors.right: parent.right
-                    anchors.top: verticalndicator.bottom
-                    anchors.bottom: parent.bottom
                     anchors.rightMargin: 5
                     anchors.leftMargin: 2
                     anchors.bottomMargin: 0

@@ -11,8 +11,11 @@ Rectangle {
     state: status?"on":""
     property color onColor:  "#ff8c00"
     property color offColor: "#271600"
+
+    property color onColorBc:  "#673600"
+    property color offColorBc: "#160c00"
     property int textHeight:30
-    color: "#160c00"
+    color: offColorBc
     border.color: "#484848"
     border.width: 3
 
@@ -37,12 +40,12 @@ Rectangle {
 
             PropertyChanges {
                 target: warningIndicator
-                color: "#673600"
+                color: onColorBc
             }
 
             PropertyChanges {
                 target: itemText
-                color: "#ffa000"
+                color: onColor
             }
        }
    ]

@@ -106,11 +106,6 @@ Slider {
         }
 
     }
-    onValueChanged: {
-        console.log(value)
-        if(value<-0.06)
-            value=-0.146
-    }
 }
 
 /*##^##

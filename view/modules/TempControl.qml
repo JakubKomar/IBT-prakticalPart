@@ -9,10 +9,11 @@ Rectangle {
 
     color: "#000000"
     border.color: "#000000"
-    Connections{
-        target:ControlBleed
 
+    Connections{
+        target:ControlTemp
     }
+
 
     Connections{
         target:RenderBleed
@@ -29,16 +30,25 @@ Rectangle {
     }
 
 
+
+
     Swich2stateBasic{
-        x: 1023
-        y: 791
+        id: trimAir
+        x: 1011
+        y: 801
+        width: 149
+        height: 152
         text: "T"
+        swich2state.onColor: "#ffae00"
         swich2state.textWidthDescription: 24
         swich2state.onText: "ON"
         swich2state.togled: false
         swich2state.offText: "OFF"
         swich2state.description: "TRIM\nAIR"
+        onClicked:{ControlTemp.trimAir()}
     }
+
+
 
     Column {
         id: column
@@ -62,6 +72,7 @@ Rectangle {
         }
 
         TempModule{
+            id: cont
             anchors.left: parent.left
             anchors.right: parent.right
             verticaIndicatorDouble.text2.horizontalAlignment: Text.AlignHCenter
@@ -70,21 +81,26 @@ Rectangle {
             verticaIndicatorDouble.enableSecond: false
             anchors.rightMargin: 0
             anchors.leftMargin: 0
+            tempSlider.onValueChanged: {ControlTemp.setRheostat("cont_cab_temp",tempSlider.value)}
         }
         TempModule{
+            id: fwd
             anchors.left: parent.left
             anchors.right: parent.right
             description.text: "FWD"
             anchors.rightMargin: 0
             anchors.leftMargin: 0
+            tempSlider.onValueChanged: {ControlTemp.setRheostat("fwd_cab_temp",tempSlider.value)}
         }
         
         TempModule{
+            id: aft
             anchors.left: parent.left
             anchors.right: parent.right
             description.text: "AFT"
             anchors.rightMargin: 0
             anchors.leftMargin: 0
+            tempSlider.onValueChanged: {ControlTemp.setRheostat("aft_cab_temp",tempSlider.value)}
         }
 
 
@@ -100,6 +116,7 @@ Rectangle {
             anchors.leftMargin: 0
 
             VerticaIndicatorDouble{
+                id: packs
                 x: 0
                 y: 3
                 height: 87
@@ -145,6 +162,33 @@ Rectangle {
     }
 
     Rectangle {
+        id: rectangle
+        x: 0
+        y: -23
+        width: 770
+        height: 1083
+        color: "#00ffffff"
+        border.color: "#00ffffff"
+        clip: true
+
+        Image {
+            id: image
+            y: -636
+            width: 508
+            height: 1083
+            anchors.verticalCenter: parent.verticalCenter
+            source: "../pic/plane.png"
+            anchors.horizontalCenter: parent.horizontalCenter
+            clip: false
+            scale: 1.8
+            anchors.verticalCenterOffset: 24
+            sourceSize.width: 764
+            rotation: -180
+            fillMode: Image.PreserveAspectFit
+        }
+    }
+
+    Rectangle {
         id: rectangle3
         x: 1338
         y: 706
@@ -155,40 +199,46 @@ Rectangle {
         border.width: 2
 
         Swich2stateWarning{
+            id: suplyFan
             width: 150
             height: 193
             text: ""
             anchors.left: parent.left
             anchors.top: parent.top
+            swich2state.onColor: "#ffae00"
             description: "SUPLY\nFAN"
             warningTogle: false
             togled: false
             warningIndicator.warText: "OFF"
             anchors.topMargin: 100
             anchors.leftMargin: 20
-            swich2state.textWidthStatus: 32
+            swich2state.textWidthStatus: 20
             swich2state.description: "SUPLY\nFAN"
             swich2state.togled: false
             swich2state.onText: "ALTERNATIVE"
             swich2state.offText: "NORMAL"
+            onClicked:{ControlTemp.coolingSwich("supply")}
         }
 
         Swich2stateWarning{
-            id: swich2stateWarning
+            id: exhoustFan
             x: 219
             width: 150
             height: 193
             anchors.right: parent.right
             anchors.top: parent.top
+            warningIndicator.onColor: "#ff8c00"
+            swich2state.onColor: "#ffae00"
+            togled: false
             description: "EXHOUST\nFAN"
             warningIndicator.warText: "OFF"
             anchors.topMargin: 100
             anchors.rightMargin: 20
-            swich2state.textWidthStatus: 32
-            warningIndicator.onColor: "#ff8c00"
+            swich2state.textWidthStatus: 20
             swich2state.onText: "ALTERNATIVE"
             swich2state.offText: "NORMAL"
             swich2state.description: "EXHOUST\nFAN"
+            onClicked:{ControlTemp.coolingSwich("exhaust")}
         }
 
         Text {
@@ -204,7 +254,66 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }
+
+    Rectangle {
+        id: rectangle4
+        x: 404
+        y: 161
+        width: 430
+        height: 2
+        color: "#ffffff"
+        border.color: "#ffffff"
+        border.width: 2
+    }
+
+    Rectangle {
+        id: rectangle5
+        x: 404
+        y: 329
+        width: 430
+        height: 2
+        color: "#ffffff"
+        border.color: "#ffffff"
+        border.width: 2
+    }
+
+    Rectangle {
+        id: rectangle6
+        x: 398
+        y: 548
+        width: 445
+        height: 2
+        color: "#ffffff"
+        border.color: "#ffffff"
+        border.width: 2
+        rotation: -13.03
+    }
+    Connections{
+        target:RenderTemp
+
+        function onSetTrim(state){
+            trimAir.swich2state.togled=state
+        }
+        function onSetCooling(name,state){
+            if(name==="suply")
+                suplyFan.togled=state
+            else if(name==="exhoust")
+                exhoustFan.togled=state
+        }
+        function onSetTempControl(name,state){
+            if(name==="cont_cab_temp")
+                cont.tempSlider.value=state
+            else if(name==="aft_cab_temp")
+                aft.tempSlider.value=state
+            else if(name==="fwd_cab_temp")
+                fwd.tempSlider.value=state
+        }
+
+    }
+
 }
+
+
 
 
 
@@ -212,7 +321,8 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.66}D{i:1}D{i:2}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:10}D{i:12}
-D{i:11}D{i:9}D{i:4}D{i:13}D{i:15}D{i:16}D{i:17}D{i:14}
+    D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:10}D{i:12}
+D{i:11}D{i:9}D{i:4}D{i:14}D{i:13}D{i:16}D{i:17}D{i:18}D{i:15}D{i:19}D{i:20}D{i:21}
+D{i:22}
 }
 ##^##*/
