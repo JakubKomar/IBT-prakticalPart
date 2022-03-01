@@ -14,7 +14,6 @@ Rectangle {
         target:ControlTemp
     }
 
-
     Connections{
         target:RenderBleed
 
@@ -28,9 +27,6 @@ Rectangle {
             }
         }
     }
-
-
-
 
     Swich2stateBasic{
         id: trimAir
@@ -47,8 +43,6 @@ Rectangle {
         swich2state.description: "TRIM\nAIR"
         onClicked:{ControlTemp.trimAir()}
     }
-
-
 
     Column {
         id: column
@@ -153,12 +147,6 @@ Rectangle {
                 }
             }
         }
-
-
-
-
-
-
     }
 
     Rectangle {
@@ -288,6 +276,7 @@ Rectangle {
         border.width: 2
         rotation: -13.03
     }
+
     Connections{
         target:RenderTemp
 
@@ -308,9 +297,7 @@ Rectangle {
             else if(name==="fwd_cab_temp")
                 fwd.tempSlider.setVal(state)
         }
-
     }
-
 }
 
 

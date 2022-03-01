@@ -102,14 +102,14 @@ Item {
 
                 TempSlider {
                     id: tempSlider
-                    y: 5
-                    height: 66
                     anchors.left: warningIndicator.right
                     anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
                     anchors.rightMargin: 5
                     anchors.leftMargin: 2
-                    anchors.bottomMargin: 0
-                    anchors.topMargin: 6
+                    anchors.bottomMargin: 2
+                    anchors.topMargin: 2
                 }
             }
         }

@@ -9,16 +9,20 @@ Item {
         anchors.rightMargin: -465
         anchors.bottomMargin: -122
 
-        VerticaIndicatorDouble {
-            id: verticaIndicatorDouble
-            x: 241
-            y: 219
+        GuardedSwich{ x: 390;y: 128}
+
+        Swich2stateAlt {
+            id: swich2stateAlt
+            x: 226
+            y: 212
+            width: 98
+            height: 52
         }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:1}
+    D{i:0;autoSize:true;formeditorZoom:0.75;height:480;width:640}D{i:2}D{i:3}D{i:1}
 }
 ##^##*/

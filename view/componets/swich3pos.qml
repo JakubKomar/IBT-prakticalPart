@@ -7,10 +7,10 @@ Item {
     width: 300
     property color activeBackGroundCol: "white"
     property color backGroundCol: "#414141"
-    property color activeBorderCol: "green"
+    property color activeBorderCol: "#00b9ff"
     property color borderCol: "white"
     property color textCol: "white"
-    property color activeTextCol: "green"
+    property color activeTextCol: "#00b9ff"
     property int radiusButt:4
 
     property int position: 0

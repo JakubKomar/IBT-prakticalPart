@@ -11,7 +11,6 @@ class ControlTemp(QObject):
 
     @Slot()
     def trimAir(self):
-        print("bleh")
         client.client.sendCOMM("laminar/B738/toggle_switch/trim_air")
 
     @Slot(str, float)

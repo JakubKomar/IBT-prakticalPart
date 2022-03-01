@@ -6,6 +6,7 @@ from .contMod._controlFuel import ControlFuel
 from .contMod._controlBleed import ControlBleed
 from .contMod._controlTemp import ControlTemp
 from .contMod._controlSetings import ControlSetings
+from .contMod._controlElectrical import ControlElectrical
 class MainComandControler(QObject):
 
     def __init__(self):
@@ -14,5 +15,6 @@ class MainComandControler(QObject):
         self.subcontrolers = {"ControlFuel": ControlFuel(),
             "ControlBleed": ControlBleed(),
             "ControlTemp": ControlTemp(),
-            "ControlSetings": ControlSetings()
+            "ControlSetings": ControlSetings(),
+            "ControlElectrical": ControlElectrical()
         }

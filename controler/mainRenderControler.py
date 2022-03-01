@@ -6,7 +6,7 @@ from .rendMod._fuelRender import RenderFuel
 from .rendMod._bleedRender import RenderBleed
 from .rendMod._tempRender import TempRender
 from .rendMod._doorsRender import DoorRender
-
+from .rendMod._electricalRender import ElectricalRender
 import time
 import model.libInit as client
 
@@ -17,9 +17,10 @@ class MainRanderControler(QObject):
 
         self.moduleSelector = 0
         self.subcontrolers = {"RenderFuel": RenderFuel(),
-            "RenderBleed": RenderBleed(),
-            "RenderTemp": TempRender(),
-            "RenderDoor": DoorRender()
+            "RenderBleed" : RenderBleed(),
+            "RenderTemp" : TempRender(),
+            "RenderDoor" : DoorRender(),
+            "RenderElectrical" : ElectricalRender(),
         }
         # timer init
         self.timer = QTimer()
@@ -34,8 +35,7 @@ class MainRanderControler(QObject):
             self.setConnStatus.emit(False)
         except WindowsError as EX:
             self.setConnStatus.emit(True)
-            print(EX)
-        #except Exception as EX:
+        # except Exception as EX:
         #    ...
         #    print(EX)
 
@@ -52,6 +52,8 @@ class MainRanderControler(QObject):
             refList.extend(self.subcontrolers["RenderTemp"].requestRef())
         elif(self.moduleSelector == 4):
             refList.extend(self.subcontrolers["RenderDoor"].requestRef())
+        elif(self.moduleSelector == 5):
+            refList.extend(self.subcontrolers["RenderElectrical"].requestRef())
 
         refList = list(set(refList))
         serverList = client.client.getDREFs(refList)
@@ -69,6 +71,8 @@ class MainRanderControler(QObject):
             self.subcontrolers["RenderTemp"].sendRef(dictionary)
         elif(self.moduleSelector == 4):
             self.subcontrolers["RenderDoor"].sendRef(dictionary)
+        elif(self.moduleSelector == 5):
+            self.subcontrolers["RenderElectrical"].sendRef(dictionary)
 
 
     @Slot(int)
