@@ -115,8 +115,8 @@ Window {
 
                 Rectangle {
                     id: displayStateBar
-                    y: 1012
-                    height: 48
+                    y: 1026
+                    height: 34
                     color: "#3c3c3c"
                     anchors.left: parent.left
                     anchors.right: parent.right
@@ -125,58 +125,83 @@ Window {
                     anchors.rightMargin: 0
                     anchors.leftMargin: 0
 
-                    BusyIndicator {
-                        id: connectionLost
-                        x: 202
-                        width: 40
-                        height: 40
-                        visible: false
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.right: parent.right
-                        anchors.verticalCenterOffset: 0
-                        anchors.rightMargin: 8
-                        Universal.accent: Universal.Orange
-                    }
+                    Row {
+                        id: row
+                        anchors.fill: parent
+                        spacing: 1
 
-                    Button {
-                        id: closeWindowButton
-                        x: 8
-                        y: 8
-                        width: 40
-                        height: 32
-                        font.pointSize: 18
-                        onClicked: {
-                            onClicked: mainWindow.close();
-                        }
-                        Text{
-                            text: qsTr("X")
-                            anchors.fill: parent
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                            anchors.topMargin: -3
-                            font.pointSize: 28
-                            color:"orange"
-                        }
-                    }
 
-                    Button {
-                        id: fullScreenButton
-                        x: 52
-                        y: 8
-                        width: 40
-                        height: 32
-                        font.pointSize: 18
-                        Text {
-                            color: "#ffa500"
-                            text: qsTr("F")
-                            anchors.fill: parent
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                            font.pointSize: 28
-                            anchors.topMargin: -3
+                        Button {
+                            id: closeWindowButton
+                            width: 35
+                            height: 35
+                            anchors.topMargin: 5
+                            font.pointSize: 18
+                            onClicked: {
+                                onClicked: mainWindow.close();
+                            }
+                            Text{
+                                text: qsTr("X")
+                                anchors.fill: parent
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                font.pointSize: 28
+                                color:"orange"
+                            }
                         }
-                        onClicked:  {
-                            fullscreenEnable=!fullscreenEnable
+
+                        Button {
+                            id: fullScreenButton
+                            width: 35
+                            height: 35
+                            anchors.topMargin: 5
+                            font.pointSize: 18
+                            Text {
+                                color: "#ffa500"
+                                text: qsTr("F")
+                                anchors.fill: parent
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                anchors.rightMargin: 0
+                                anchors.bottomMargin: 0
+                                anchors.leftMargin: 0
+                                anchors.topMargin: 0
+                                font.pointSize: 28
+                            }
+                            onClicked:  {
+                                fullscreenEnable=!fullscreenEnable
+                            }
+                        }
+
+                        Button {
+                            id: setingsButt
+                            width: 35
+                            height: 35
+                            anchors.topMargin: 5
+                            Text {
+                                color: "#ffa500"
+                                text: qsTr("S")
+                                anchors.fill: parent
+                                horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
+                                anchors.rightMargin: 0
+                                anchors.bottomMargin: 1
+                                anchors.leftMargin: 0
+                                anchors.topMargin: -1
+                                font.pointSize: 28
+                            }
+                            font.pointSize: 18
+
+                            onClicked: {
+                                contentLoader.setSource("modules/ProgramConfig.qml")
+                            }
+                        }
+                        BusyIndicator {
+                            id: connectionLost
+                            width: 35
+                            height: 35
+                            visible: false
+                            Universal.accent: Universal.Orange
                         }
                     }
                 }
@@ -215,7 +240,7 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:11}D{i:13}D{i:12}
-D{i:15}D{i:14}D{i:10}D{i:16}D{i:3}D{i:19}D{i:17}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:0.5}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:13}D{i:12}D{i:15}
+D{i:14}D{i:17}D{i:16}D{i:18}D{i:11}D{i:10}D{i:19}D{i:3}D{i:22}D{i:20}D{i:2}D{i:1}
 }
 ##^##*/

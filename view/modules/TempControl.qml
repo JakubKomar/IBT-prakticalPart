@@ -81,7 +81,7 @@ Rectangle {
             verticaIndicatorDouble.enableSecond: false
             anchors.rightMargin: 0
             anchors.leftMargin: 0
-            tempSlider.onValueChanged: {ControlTemp.setRheostat("cont_cab_temp",tempSlider.value)}
+            tempSlider.onValueChanged: {ControlTemp.setRheostat("cont_cab_temp",tempSlider.getVal())}
         }
         TempModule{
             id: fwd
@@ -90,7 +90,7 @@ Rectangle {
             description.text: "FWD"
             anchors.rightMargin: 0
             anchors.leftMargin: 0
-            tempSlider.onValueChanged: {ControlTemp.setRheostat("fwd_cab_temp",tempSlider.value)}
+            tempSlider.onValueChanged: {ControlTemp.setRheostat("fwd_cab_temp",tempSlider.getVal())}
         }
         
         TempModule{
@@ -100,7 +100,7 @@ Rectangle {
             description.text: "AFT"
             anchors.rightMargin: 0
             anchors.leftMargin: 0
-            tempSlider.onValueChanged: {ControlTemp.setRheostat("aft_cab_temp",tempSlider.value)}
+            tempSlider.onValueChanged: {ControlTemp.setRheostat("aft_cab_temp",tempSlider.getVal())}
         }
 
 
@@ -302,11 +302,11 @@ Rectangle {
         }
         function onSetTempControl(name,state){
             if(name==="cont_cab_temp")
-                cont.tempSlider.value=state
+                cont.tempSlider.setVal(state)
             else if(name==="aft_cab_temp")
-                aft.tempSlider.value=state
+                aft.tempSlider.setVal(state)
             else if(name==="fwd_cab_temp")
-                fwd.tempSlider.value=state
+                fwd.tempSlider.setVal(state)
         }
 
     }
@@ -321,7 +321,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:10}D{i:12}
+    D{i:0;formeditorZoom:0.33}D{i:1}D{i:2}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:10}D{i:12}
 D{i:11}D{i:9}D{i:4}D{i:14}D{i:13}D{i:16}D{i:17}D{i:18}D{i:15}D{i:19}D{i:20}D{i:21}
 D{i:22}
 }

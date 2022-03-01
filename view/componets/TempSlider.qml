@@ -79,11 +79,8 @@ Slider {
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-
             }
         }
-
-
     }
     handle: Rectangle {
         id: rectangle
@@ -106,6 +103,23 @@ Slider {
         }
 
     }
+    function setVal(val){
+        if(val>0.5)
+            value= val
+        else if(val<=0.5&&val>0.05)
+            value= (val-0.06)*1.012
+        else
+            value= -0.15
+    }
+    function getVal(){
+        if(value>0.5)
+            return value
+        else if(value<=0.5&&value>-0.06)
+            return (value+0.06)*0.989
+        else
+            return 0
+    }
+    onValueChanged: {console.log(getVal())}
 }
 
 /*##^##
