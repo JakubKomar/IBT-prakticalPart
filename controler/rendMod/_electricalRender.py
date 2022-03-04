@@ -8,12 +8,11 @@ class ElectricalRender(QObject,RendModeBase):
 
     def __init__(self):
         QObject.__init__(self)
-        self.referList = ["",
+        self.referList = ["\n",
 
 
         ]
   
-    setTrim=Signal(bool)
-    def sendRef(self, dic):
-        self.setTrim.emit(bool(dic["laminar/B738/air/trim_air_pos"][0]))
 
+    def sendRef(self, dic):
+       ...

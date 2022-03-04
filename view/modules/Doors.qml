@@ -67,20 +67,21 @@ Rectangle {
 
     Rectangle {
         id: rectangle
-        x: 416
+        x: 0
+        y: 0
+        width: parent.width/2
+        height: parent.height
         color: "#00ffffff"
-        border.color: "#00ffffff"
-        anchors.fill: parent
-        clip: true
+        border.color: "#ffffff"
+        border.width: 2
 
         Image {
             id: image
-            y: -12
-            width: 531
-            height: 1083
+            x: 181
+            y: -20
+            width: 486
+            height: 1056
             source: "../pic/plane.png"
-            anchors.horizontalCenterOffset: -16
-            anchors.horizontalCenter: parent.horizontalCenter
             clip: false
             scale: 1.8
             sourceSize.width: 764
@@ -89,8 +90,8 @@ Rectangle {
 
             Rectangle {
                 id: rectangle1
-                x: 139
-                y: 699
+                x: 122
+                y: 669
                 width: 90
                 height: 2
                 color: "#ffffff"
@@ -98,12 +99,124 @@ Rectangle {
 
             Rectangle {
                 id: rectangle2
-                x: 139
-                y: 449
+                x: 120
+                y: 419
                 width: 90
                 height: 2
                 color: "#ffffff"
             }
+        }
+
+        DoorIdicator {
+            id: fwdService
+            x: 436
+            y: 44
+            width: 141
+            height: 137
+            swich2state.description: "FWD\nSERVICE"
+        }
+
+        DoorIdicator {
+            id: leftFwdOverwing
+            x: 298
+            y: 340
+            width: 141
+            height: 137
+            swich2state.textWidthDescription: 19
+            swich2state.description: "LEFT FWD\nOVERWING"
+
+        }
+
+        DoorIdicator {
+            id: rightFwdOverwing
+            x: 436
+            y: 340
+            width: 141
+            height: 137
+            swich2state.textWidthDescription: 19
+            swich2state.description: "RIGHT FWD\nOVERWING"
+
+        }
+
+        DoorIdicator {
+            id: leftAftOverwing
+            x: 298
+            y: 475
+            width: 141
+            height: 137
+            swich2state.textWidthDescription: 19
+            swich2state.description: "LEFT AFT\nOVERWING"
+
+        }
+
+        DoorIdicator {
+            id: rightAftOverwing
+            x: 436
+            y: 475
+            width: 141
+            height: 137
+            swich2state.textWidthDescription: 19
+            swich2state.description: "RIGHT AFT\nOVERWING"
+
+        }
+
+        DoorIdicator {
+            id: aftService
+            x: 436
+            y: 758
+            width: 141
+            height: 137
+            swich2state.description: "AFT\nSERVICE"
+
+        }
+
+        DoorIdicator {
+            id: aftEntry
+            x: 298
+            y: 758
+            width: 141
+            height: 137
+            swich2state.description: "AFT\nENTRY"
+
+        }
+
+        DoorIdicator {
+            id: aftCargo
+            x: 644
+            y: 651
+            width: 141
+            height: 137
+            swich2state.description: "AFT\nCARGO"
+
+        }
+
+        DoorIdicator {
+            id: fwdCargo
+            x: 644
+            y: 201
+            width: 141
+            height: 137
+            swich2state.description: "FWD\nCARGO"
+
+        }
+
+        DoorIdicator {
+            id: equip
+            x: 104
+            y: 625
+            width: 141
+            height: 137
+            swich2state.description: "EQUIP"
+
+        }
+
+        DoorIdicator {
+            id: fwdEntry
+            x: 298
+            y: 44
+            width: 141
+            height: 137
+            swich2state.description: "FWD\nENTRY"
         }
     }
     Connections{
@@ -129,118 +242,6 @@ Rectangle {
 
     }
 
-    DoorIdicator {
-        id: fwdService
-        x: 871
-        y: 51
-        width: 141
-        height: 137
-        swich2state.description: "FWD\nSERVICE"
-    }
-
-    DoorIdicator {
-        id: leftFwdOverwing
-        x: 733
-        y: 332
-        width: 141
-        height: 137
-        swich2state.textWidthDescription: 19
-        swich2state.description: "LEFT FWD\nOVERWING"
-
-    }
-
-    DoorIdicator {
-        id: rightFwdOverwing
-        x: 871
-        y: 332
-        width: 141
-        height: 137
-        swich2state.textWidthDescription: 19
-        swich2state.description: "RIGHT FWD\nOVERWING"
-
-    }
-
-    DoorIdicator {
-        id: leftAftOverwing
-        x: 733
-        y: 467
-        width: 141
-        height: 137
-        swich2state.textWidthDescription: 19
-        swich2state.description: "LEFT AFT\nOVERWING"
-
-    }
-
-    DoorIdicator {
-        id: rightAftOverwing
-        x: 871
-        y: 467
-        width: 141
-        height: 137
-        swich2state.textWidthDescription: 19
-        swich2state.description: "RIGHT AFT\nOVERWING"
-
-    }
-
-    DoorIdicator {
-        id: aftService
-        x: 871
-        y: 786
-        width: 141
-        height: 137
-        swich2state.description: "AFT\nSERVICE"
-
-    }
-
-    DoorIdicator {
-        id: aftEntry
-        x: 733
-        y: 786
-        width: 141
-        height: 137
-        swich2state.description: "AFT\nENTRY"
-
-    }
-
-    DoorIdicator {
-        id: aftCargo
-        x: 1086
-        y: 643
-        width: 141
-        height: 137
-        swich2state.description: "AFT\nCARGO"
-
-    }
-
-    DoorIdicator {
-        id: fwdCargo
-        x: 1086
-        y: 192
-        width: 141
-        height: 137
-        swich2state.description: "FWD\nCARGO"
-
-    }
-
-    DoorIdicator {
-        id: equip
-        x: 525
-        y: 643
-        width: 141
-        height: 137
-        swich2state.description: "EQUIP"
-
-    }
-
-    DoorIdicator {
-        id: fwdEntry
-        x: 733
-        y: 51
-        width: 141
-        height: 137
-        swich2state.description: "FWD\nENTRY"
-    }
-
 }
 
 
@@ -251,7 +252,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.33}D{i:1}D{i:4}D{i:5}D{i:3}D{i:2}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}
-D{i:11}D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}
+    D{i:0;formeditorZoom:0.33}D{i:1}D{i:4}D{i:5}D{i:3}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}
+D{i:11}D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:2}D{i:17}
 }
 ##^##*/

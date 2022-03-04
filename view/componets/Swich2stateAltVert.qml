@@ -2,20 +2,20 @@ import QtQuick
 import QtQuick.Controls
 
 Item {
-    id:swich2stateAlt
-    width: 180
-    height: 90
+    id:swich2stateAltVert
+    width: 150
+    height: 180
     property alias button2: button2
     property alias button1: button1
     property bool togled:false
 
     property color turnOnBcCol:"white"
     property color turnOnBcBorderCol:"#00b9ff"
-    property color turnOnTextCol: swich2stateAlt.turnOnBcBorderCol
+    property color turnOnTextCol: turnOnBcBorderCol
 
     property color turnOffBcCol:"gray"
     property color turnOffBcBorderCol:"white"
-    property color turnOffTextCol:swich2stateAlt.turnOffBcBorderCol
+    property color turnOffTextCol:turnOffBcBorderCol
 
     property string textOn:"ON"
     property string textOff:"OFF"
@@ -23,8 +23,8 @@ Item {
         id: button1
         x: 0
         y: 0
-        width: parent.width/2
-        height: parent.height
+        width: parent.width
+        height: parent.height/2
         background: Rectangle{
             color: !togled?turnOnBcCol:turnOffBcCol
             border.color: !togled?turnOnBcBorderCol:turnOffBcBorderCol
@@ -44,10 +44,10 @@ Item {
 
     Button {
         id: button2
-        x: parent.width/2
-        y: 0
-        width: parent.width/2
-        height: parent.height
+        x: 0
+        y: parent.height/2
+        width: parent.width
+        height: parent.height/2
 
         background: Rectangle{
             color: togled?turnOnBcCol:turnOffBcCol
@@ -70,6 +70,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:3}D{i:1}D{i:4}
+    D{i:0;formeditorZoom:0.9}D{i:1}D{i:4}
 }
 ##^##*/

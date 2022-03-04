@@ -9,14 +9,12 @@ Item {
         anchors.rightMargin: -465
         anchors.bottomMargin: -122
 
-        GuardedSwich{ x: 390;y: 128}
-
-        Swich2stateAlt {
-            id: swich2stateAlt
-            x: 226
-            y: 212
-            width: 98
-            height: 52
+        Swich2noStateGen {
+            id: swich2noStateGen
+            x: 229
+            y: 132
+            width: 99
+            height: 88
         }
     }
 }
