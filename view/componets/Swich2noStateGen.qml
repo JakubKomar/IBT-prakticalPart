@@ -9,16 +9,17 @@ Item {
     property alias button2: button2
     property alias button1: button1
 
-    property color bcCol:"gray"
-    property color bcBorderCol:"white"
-    property color textCol:turnOffBcBorderCol
+    property color bcCol:"white"
+    property color bcBorderCol:"#484848"
+    property color textCol:bcBorderCol
 
-    property string text1:"ON"
-    property string text2:"OFF"
+    property string text1:"OFF"
+    property string text2:"ON"
 
     Rectangle {
         id: rectangle
         color: "#4e4e4e"
+        radius: 9
         border.color: "#515151"
         anchors.fill: parent
 
@@ -31,7 +32,7 @@ Item {
                 width: parent.width
                 height: parent.height/3
                 background: Rectangle{
-                    color: bcBorderCol
+                    color: bcCol
                     border.color:  bcBorderCol
                     border.width: 2
                     radius: 8
@@ -62,7 +63,7 @@ Item {
                 height: parent.height/3
 
                 background: Rectangle{
-                    color: bcBorderCol
+                    color: bcCol
                     radius: 8
                     border.color: bcBorderCol
                     border.width: 2
@@ -87,6 +88,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.66}D{i:3}D{i:6}D{i:7}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:3}D{i:3}D{i:6}D{i:7}D{i:2}D{i:1}
 }
 ##^##*/

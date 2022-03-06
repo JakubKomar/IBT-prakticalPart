@@ -9,18 +9,17 @@ Item {
         anchors.rightMargin: -465
         anchors.bottomMargin: -122
 
-        Swich2noStateGen {
-            id: swich2noStateGen
-            x: 229
-            y: 132
-            width: 99
-            height: 88
+        GuardedSwichAlt {
+            id: guardedSwichAlt
+            x: 162
+            y: 116
+            guardCol: "#d0282828"
         }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.75;height:480;width:640}D{i:2}D{i:3}D{i:1}
+    D{i:0;autoSize:true;formeditorZoom:0.66;height:480;width:640}D{i:2}D{i:1}
 }
 ##^##*/

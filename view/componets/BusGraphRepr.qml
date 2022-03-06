@@ -3,6 +3,7 @@ import QtQuick 2.0
 Item {
     width: 180
     height: 190
+    property string busText: "BUS 1"
     Rectangle {
         id: rectangle
         color: "#000000"
@@ -33,7 +34,7 @@ Item {
                 width: parent.width
                 height: parent.height/2
                 color: "#ababab"
-                text: qsTr("BUS 1")
+                text: busText
                 font.pixelSize: 42
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter

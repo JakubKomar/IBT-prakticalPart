@@ -262,6 +262,7 @@ Rectangle {
             y: 827
             width: 150
             height: 157
+            busText: "BUS 2"
         }
 
 
@@ -274,60 +275,128 @@ Rectangle {
         }
 
 
-        Rectangle {
-            id: rectangle1
-            x: 593
-            y: 48
-            width: 248
-            height: 154
-            color: "#2d2d2d"
-            radius: 14
-            border.color: "#7f7f7f"
-
-            GuardedSwich {
-                id: guardedSwich1
-                x: 0
-                y: 0
-                width: 250
-                height: 110
-                rotation: -360
-            }
-
-            WarningIndicator {
-                id: warningIndicator5
-                x: 55
-                y: 111
-                width: 140
-                height: 43
-            }
-        }
-
 
         Rectangle {
             id: rectangle2
             x: 38
-            y: 48
+            y: 58
             width: 248
-            height: 154
+            height: 201
             color: "#2d2d2d"
             radius: 14
             border.color: "#7f7f7f"
 
-            GuardedSwich {
-                id: guardedSwich4
-                x: 0
-                y: 0
-                width: 250
-                height: 110
-                rotation: -360
-            }
-
             WarningIndicator {
                 id: warningIndicator10
-                x: 55
-                y: 111
+                y: 154
                 width: 140
                 height: 43
+                radius: 13
+                anchors.horizontalCenter: parent.horizontalCenter
+                warText: "DRIVE"
+            }
+
+            GuardedSwichAlt {
+                id: guardedSwichAlt
+                x: 0
+                y: 29
+
+            }
+
+            Text {
+                id: text1
+                x: 0
+                y: 0
+                width: 248
+                height: 34
+                color: "#ffffff"
+                text: qsTr("DISCONNECT GEN1")
+                font.letterSpacing: -1.5
+                font.pixelSize: 26
+                horizontalAlignment: Text.AlignHCenter
+                font.family: "Verdana"
+            }
+
+        }
+
+        Rectangle {
+            id: rectangle4
+            x: 593
+            y: 58
+            width: 248
+            height: 201
+            color: "#2d2d2d"
+            radius: 14
+            border.color: "#7f7f7f"
+            WarningIndicator {
+                id: warningIndicator11
+                y: 154
+                width: 140
+                height: 43
+                radius: 13
+                anchors.horizontalCenter: parent.horizontalCenter
+                warText: "DRIVE"
+            }
+
+            GuardedSwichAlt {
+                id: guardedSwichAlt2
+                x: 0
+                y: 29
+            }
+
+            Text {
+                id: text2
+                x: 0
+                y: 0
+                width: 248
+                height: 34
+                color: "#ffffff"
+                text: qsTr("DISCONNECT GEN1")
+                font.letterSpacing: -1.5
+                font.pixelSize: 26
+                horizontalAlignment: Text.AlignHCenter
+                font.family: "Verdana"
+            }
+        }
+
+        Rectangle {
+            id: rectangle5
+            x: 314
+            y: 8
+            width: 248
+            height: 201
+            color: "#2d2d2d"
+            radius: 14
+            border.color: "#7f7f7f"
+            WarningIndicator {
+                id: warningIndicator12
+                y: 154
+                width: 140
+                height: 43
+                radius: 13
+                anchors.horizontalCenter: parent.horizontalCenter
+                warText: "DRIVE"
+            }
+
+            GuardedSwichAlt {
+                id: guardedSwichAlt3
+                x: 0
+                y: 29
+
+            }
+
+            Text {
+                id: text3
+                x: 0
+                y: 0
+                width: 248
+                height: 34
+                color: "#ffffff"
+                text: qsTr("STANDBY POWER")
+                font.letterSpacing: -1.5
+                font.pixelSize: 26
+                horizontalAlignment: Text.AlignHCenter
+                font.family: "Verdana"
             }
         }
 
@@ -409,42 +478,16 @@ Rectangle {
             x: 577
             y: 531
         }
-
-        Rectangle {
-            id: rectangle3
-            x: -555
-            y: 14
-            width: 248
-            height: 154
-            color: "#2d2d2d"
-            radius: 14
-            border.color: "#7f7f7f"
-            GuardedSwich {
-                id: guardedSwich5
-                x: 0
-                y: 0
-                width: 250
-                height: 110
-                rotation: -360
-            }
-
-            WarningIndicator {
-                id: warningIndicator6
-                x: 55
-                y: 111
-                width: 140
-                height: 43
-            }
-        }
     }
 
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
+    D{i:0;formeditorZoom:0.9}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
 D{i:13}D{i:12}D{i:15}D{i:14}D{i:16}D{i:17}D{i:18}D{i:4}D{i:19}D{i:20}D{i:21}D{i:22}
-D{i:23}D{i:24}D{i:25}D{i:27}D{i:28}D{i:26}D{i:30}D{i:31}D{i:29}D{i:3}D{i:33}D{i:34}
-D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:40}D{i:42}D{i:43}D{i:41}D{i:32}
+D{i:23}D{i:24}D{i:25}D{i:27}D{i:28}D{i:29}D{i:26}D{i:31}D{i:32}D{i:33}D{i:30}D{i:35}
+D{i:36}D{i:37}D{i:34}D{i:3}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:45}D{i:46}
+D{i:38}
 }
 ##^##*/
