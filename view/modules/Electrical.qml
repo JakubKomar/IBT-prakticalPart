@@ -61,6 +61,7 @@ Rectangle {
 
             }
         }
+
         function onSwichUpdate(name, value){
             switch(name){
                 case "standby_bat":
@@ -88,6 +89,7 @@ Rectangle {
                 break;
             }
         }
+
         function onGuardUpdate(name, value){
             switch(name){
                 case "batteryCover":
@@ -109,7 +111,6 @@ Rectangle {
                 break;
             }
         }
-
     }
 
     Rectangle {
@@ -163,7 +164,6 @@ Rectangle {
                     anchors.leftMargin: 2
                 }
             }
-
 
             Rectangle {
                 id: pipe2
@@ -304,6 +304,12 @@ Rectangle {
             id: gen1Mod
             x: 87
             y: 283
+            button1.onClicked:{
+                ControlElectrical.togle("gen1_up")
+            }
+            button2.onClicked:{
+                ControlElectrical.togle("gen1_dn")
+            }
         }
 
         Swich2noStateGen {
@@ -311,12 +317,30 @@ Rectangle {
             x: 642
             y: 283
             infoIndicator.description: "GEN 2\nOFFBUS"
+            button1.onClicked:{
+                ControlElectrical.togle("gen2_up")
+            }
+            button2.onClicked:{
+                ControlElectrical.togle("gen2_dn")
+            }
         }
 
         SwichesApuGen {
             id: apuGenMod
             y: 283
             anchors.horizontalCenter: parent.horizontalCenter
+            button1.onClicked:{
+                ControlElectrical.togle("apu_gen1_up")
+            }
+            button2.onClicked:{
+                ControlElectrical.togle("apu_gen1_dn")
+            }
+            button3.onClicked:{
+                ControlElectrical.togle("apu_gen2_up")
+            }
+            button4.onClicked:{
+                ControlElectrical.togle("apu_gen2_dn")
+            }
         }
 
         Swich2noStateGen {
@@ -326,6 +350,12 @@ Rectangle {
             infoIndicator.description: "GRD POWER\nAVAILABLE"
             anchors.horizontalCenterOffset: 0
             anchors.horizontalCenter: parent.horizontalCenter
+            button1.onClicked:{
+                ControlElectrical.togle("gpu_up")
+            }
+            button2.onClicked:{
+                ControlElectrical.togle("gpu_dn")
+            }
         }
 
         BusGraphRepr {
@@ -373,10 +403,23 @@ Rectangle {
                 swich2stateAlt.togled: false
                 swich2stateAlt.textOn: "DISCONECT"
                 swich2stateAlt.textHeight: 13
-                guard.guardCol: "#c9db0101"
+                guard.guardCol: "#c95c0000"
                 swich2stateAlt.textOff: "NORMAL"
                 guarded: true
                 guardCol: "#d0ff0000"
+
+                guard.onGuard:{
+                    ControlElectrical.setGuard("disconect1")
+                }
+                guard.onUnGuard:{
+                    ControlElectrical.setGuard("disconect1")
+                }
+                swich2stateAlt.button1.onClicked:{
+                    ControlElectrical.togle("disconect1_off")
+                }
+                swich2stateAlt.button2.onClicked:{
+                   ControlElectrical.togle("disconect1")
+                }
 
             }
 
@@ -423,8 +466,20 @@ Rectangle {
                 swich2stateAlt.textHeight: 13
                 swich2stateAlt.textOn: "DISCONECT"
                 swich2stateAlt.textOff: "NORMAL"
-                guard.guardCol: "#c9db0101"
-                guardCol: "#d0ff0000"
+                guard.guardCol: "#c95c0000"
+                guardCol: "#d0590101"
+                guard.onGuard:{
+                    ControlElectrical.setGuard("disconect2")
+                }
+                guard.onUnGuard:{
+                    ControlElectrical.setGuard("disconect2")
+                }
+                swich2stateAlt.button1.onClicked:{
+                    ControlElectrical.togle("disconect2_off")
+                }
+                swich2stateAlt.button2.onClicked:{
+                   ControlElectrical.togle("disconect2")
+                }
             }
 
             Text {
@@ -490,6 +545,19 @@ Rectangle {
                 swich3pos.textPos1: "BAT"
                 anchors.rightMargin: 0
                 anchors.leftMargin: 0
+                guard.onGuard:{
+                    ControlElectrical.setGuard("stanbySwich")
+                }
+                guard.onUnGuard:{
+                    ControlElectrical.setGuard("stanbySwich")
+                }
+                swich3pos.button2.onClicked:{
+                    ControlElectrical.togle("stanbySwich")
+                                    }
+                swich3pos.button3.onClicked:{
+                    ControlElectrical.togle("stanbySwich_off")
+                    ControlElectrical.setGuard("stanbySwich")
+                }
             }
         }
 
@@ -523,6 +591,19 @@ Rectangle {
                     swich2stateAlt.textHeight: 23
                     swich2stateAlt.textOn: "AUTO"
                     anchors.horizontalCenter: parent.horizontalCenter
+                    guard.onGuard:{
+                        ControlElectrical.setGuard("busTransfer")
+                    }
+                    guard.onUnGuard:{
+                        ControlElectrical.setGuard("busTransfer")
+                    }
+                    swich2stateAlt.button1.onClicked:{
+                        ControlElectrical.togle("busTransfer_off")
+                    }
+                    swich2stateAlt.button2.onClicked:{
+                        ControlElectrical.togle("busTransfer_on")
+                        ControlElectrical.setGuard("busTransfer")
+                    }
                 }
             }
         }
@@ -576,6 +657,19 @@ Rectangle {
                         y: 36
                         anchors.horizontalCenter: parent.horizontalCenter
                         swich2stateAlt.textOn: "ON"
+                        guard.onGuard:{
+                            ControlElectrical.setGuard("batSwich")
+                        }
+                        guard.onUnGuard:{
+                            ControlElectrical.setGuard("batSwich")
+                        }
+                        swich2stateAlt.button1.onClicked:{
+                            ControlElectrical.togle("battery_off")
+                        }
+                        swich2stateAlt.button2.onClicked:{
+                            ControlElectrical.togle("battery_on")
+                            ControlElectrical.setGuard("batSwich")
+                        }
                     }
                 }
             }

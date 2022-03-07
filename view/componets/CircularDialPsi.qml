@@ -26,7 +26,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
 
-        value: 30
+        value: circularDial.value
         maxValue: 80
         minValue: 0
 

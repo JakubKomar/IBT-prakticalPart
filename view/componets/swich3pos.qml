@@ -4,6 +4,9 @@ import QtQuick.Controls
 Item {
     id: swich3pos
     height: 100
+    property alias button3: button3
+    property alias button2: button2
+    property alias button1: button1
     width: 300
     property color activeBackGroundCol: "white"
     property color backGroundCol: "#414141"

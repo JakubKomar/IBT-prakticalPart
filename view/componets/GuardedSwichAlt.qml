@@ -14,8 +14,7 @@ Item {
     property bool guarded:true
     property color guardCol: "#d0282828"
     property color guardBorderCol: "white"
-    signal unGuard()
-    signal guard()
+
     signal button1Clicked()
     signal button2Clicked()
 
@@ -64,7 +63,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:3}D{i:2}D{i:1}D{i:5}D{i:10}D{i:4}D{i:14}D{i:3}D{i:17}D{i:24}
-D{i:26}D{i:28}D{i:30}D{i:32}D{i:16}D{i:34}D{i:15}
+    D{i:0;formeditorZoom:0.9}D{i:2}D{i:1}D{i:3}
 }
 ##^##*/

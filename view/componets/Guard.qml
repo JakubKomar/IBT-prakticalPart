@@ -62,9 +62,8 @@ Item {
             width: 40
             height: parent.height
             onClicked: {
-                guard()
+                  guard.guard()
             }
-
         }
     }
 
@@ -210,12 +209,8 @@ Item {
             }
             onReleased:{
                 if(startX>parent.width/2&&mouseX<parent.width/2){
-                    console.log( "Acept")
-                    unGuard()
+                    guard.unGuard()
                 }
-                else
-                    console.log( "Reject")
-
             }
             onPositionChanged: {
 
