@@ -19,6 +19,7 @@ Item {
 
     property string textOn:"ON"
     property string textOff:"OFF"
+    property int textHeight: 25
     Button {
         id: button1
         x: 0
@@ -37,7 +38,7 @@ Item {
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pointSize: 30
+                font.pointSize: textHeight
             }
         }
     }
@@ -61,7 +62,7 @@ Item {
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pointSize: 30
+                font.pointSize: textHeight
             }
         }
     }

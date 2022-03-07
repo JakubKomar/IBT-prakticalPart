@@ -3,6 +3,7 @@ import QtQuick 2.0
 Item {
     width: 180
     height: 190
+    property alias warningIndicator1: warningIndicator1
     property string busText: "BUS 1"
     Rectangle {
         id: rectangle

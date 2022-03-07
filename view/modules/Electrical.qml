@@ -10,22 +10,107 @@ Rectangle {
     color: "#000000"
     border.color: "#000000"
 
-
     Connections{
         target:ControlElectrical
     }
 
-
     Connections{
         target:RenderElectrical
+        function onIndicatorUpdate(name, value){
+            switch(name){
+                case "drive1":
+                    drive1.status=value
+                break;
+                case "drive2":
+                    drive2.status=value
+                break;
+                case "standbyPwr":
+                    standbyWarning.status=value
+                break;
+                case "source1":
+                    sourceOff1.warningIndicator1.status=value
+                break;
+                case "source2":
+                    sourceOff2.warningIndicator1.status=value
+                break;
+                case "grp":
+                    grdPower.infoIndicator.status=value
+                break;
+                case "bus1":
+                    transfer1.status=value
+                break;
+                case "bus2":
+                    transfer2.status=value
+                break;
+                case "gen1":
+                    gen1Mod.infoIndicator.status=value
+                break;
+                case "gen2":
+                    gen2Mod.infoIndicator.status=value
+                break;
+                case "apuGen":
+                    apuGenMod.infoIndicator.status=value
+                break;
+                default:
+                break;
+                /*
+                case "":
+                    =value
+                break;
+                */
+
+            }
+        }
+        function onSwichUpdate(name, value){
+            switch(name){
+                case "standby_bat":
+                    stanbySwich.swich3pos.position=value
+                break;
+                case "cross_tie":
+                    busTransfer.swich2stateAlt.togled=value
+                break;
+                case "batteryOn":
+                    batSwich.swich2stateAlt.togled=value
+                break;
+                case "disconnect1":
+                    diconnect1.swich2stateAlt.togled=value
+                break;
+                case "disconnect2":
+                    diconnect2.swich2stateAlt.togled=value
+                break;
+                case "ifePassSeat":
+                    ifePassSeat.togled=value
+                break;
+                case "cabUtil":
+                    cabUtil.togled=value
+                break;
+                default:
+                break;
+            }
+        }
+        function onGuardUpdate(name, value){
+            switch(name){
+                case "batteryCover":
+                    batSwich.guard.guarded=value
+                break;
+                case "standbyPower":
+                    stanbySwich.guard.guarded=value
+                break;
+                case "drive1Cover":
+                    diconnect1.guard.guarded=value
+                break;
+                case "drive2Cover":
+                    diconnect2.guard.guarded=value
+                break;
+                case "busTransferCover":
+                    busTransfer.guard.guarded=value
+                break;
+                default:
+                break;
+            }
+        }
 
     }
-
-
-
-
-
-
 
     Rectangle {
         id: leftSide
@@ -34,7 +119,6 @@ Rectangle {
         color: "#00ffffff"
         border.color: "#ffffff"
         border.width: 2
-
 
         Item {
             id: pipes
@@ -107,7 +191,6 @@ Rectangle {
                 }
             }
 
-
             Rectangle {
                 id: pipe4
                 x: 423
@@ -133,7 +216,6 @@ Rectangle {
                     anchors.leftMargin: 2
                 }
             }
-
 
             Rectangle {
                 id: pipe6
@@ -161,7 +243,6 @@ Rectangle {
                 }
             }
 
-
             Rectangle {
                 id: pipe8
                 x: 501
@@ -188,7 +269,6 @@ Rectangle {
                 }
             }
 
-
             Rectangle {
                 id: pipe12
                 x: 158
@@ -203,15 +283,16 @@ Rectangle {
             }
 
             WarningIndicator {
-                id: warningIndicator
+                id: transfer1
                 x: 97
                 y: 608
+                radius: 0
                 textHeight: 24
                 warText: "TRANSFER\nBUS OFF"
             }
 
             WarningIndicator {
-                id: warningIndicator1
+                id: transfer2
                 x: 647
                 y: 608
                 textHeight: 24
@@ -219,45 +300,36 @@ Rectangle {
             }
         }
 
-        GuardedSwich {
-            id: guardedSwich2
-            y: 577
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-
         Swich2noStateGen {
-            id: swich2noStateGen
+            id: gen1Mod
             x: 87
             y: 283
         }
 
-
         Swich2noStateGen {
-            id: swich2noStateGen1
+            id: gen2Mod
             x: 642
             y: 283
             infoIndicator.description: "GEN 2\nOFFBUS"
         }
 
-
         SwichesApuGen {
-            id: swichesApuGen
+            id: apuGenMod
             y: 283
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-
         Swich2noStateGen {
-            id: swich2noStateGen2
+            id: grdPower
             y: 806
+            infoIndicator.textHeight: 23
+            infoIndicator.description: "GRD POWER\nAVAILABLE"
             anchors.horizontalCenterOffset: 0
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-
         BusGraphRepr {
-            id: busGraphRepr1
+            id: sourceOff2
             x: 642
             y: 827
             width: 150
@@ -265,21 +337,18 @@ Rectangle {
             busText: "BUS 2"
         }
 
-
         BusGraphRepr {
-            id: busGraphRepr
+            id: sourceOff1
             x: 87
             y: 827
             width: 150
             height: 157
         }
 
-
-
         Rectangle {
             id: rectangle2
-            x: 38
-            y: 58
+            x: 35
+            y: 47
             width: 248
             height: 201
             color: "#2d2d2d"
@@ -287,7 +356,7 @@ Rectangle {
             border.color: "#7f7f7f"
 
             WarningIndicator {
-                id: warningIndicator10
+                id: drive1
                 y: 154
                 width: 140
                 height: 43
@@ -297,9 +366,17 @@ Rectangle {
             }
 
             GuardedSwichAlt {
-                id: guardedSwichAlt
+                id: diconnect1
                 x: 0
                 y: 29
+                guard.text1.color: "#4c250000"
+                swich2stateAlt.togled: false
+                swich2stateAlt.textOn: "DISCONECT"
+                swich2stateAlt.textHeight: 13
+                guard.guardCol: "#c9db0101"
+                swich2stateAlt.textOff: "NORMAL"
+                guarded: true
+                guardCol: "#d0ff0000"
 
             }
 
@@ -316,20 +393,19 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 font.family: "Verdana"
             }
-
         }
 
         Rectangle {
             id: rectangle4
             x: 593
-            y: 58
+            y: 47
             width: 248
             height: 201
             color: "#2d2d2d"
             radius: 14
             border.color: "#7f7f7f"
             WarningIndicator {
-                id: warningIndicator11
+                id: drive2
                 y: 154
                 width: 140
                 height: 43
@@ -339,9 +415,16 @@ Rectangle {
             }
 
             GuardedSwichAlt {
-                id: guardedSwichAlt2
+                id: diconnect2
                 x: 0
                 y: 29
+                guard.text1.color: "#4c250000"
+                swich2stateAlt.togled: false
+                swich2stateAlt.textHeight: 13
+                swich2stateAlt.textOn: "DISCONECT"
+                swich2stateAlt.textOff: "NORMAL"
+                guard.guardCol: "#c9db0101"
+                guardCol: "#d0ff0000"
             }
 
             Text {
@@ -361,33 +444,26 @@ Rectangle {
 
         Rectangle {
             id: rectangle5
-            x: 314
             y: 8
-            width: 248
+            width: 300
             height: 201
             color: "#2d2d2d"
             radius: 14
             border.color: "#7f7f7f"
+            anchors.horizontalCenter: parent.horizontalCenter
             WarningIndicator {
-                id: warningIndicator12
+                id: standbyWarning
                 y: 154
                 width: 140
                 height: 43
                 radius: 13
+                textHeight: 20
                 anchors.horizontalCenter: parent.horizontalCenter
-                warText: "DRIVE"
-            }
-
-            GuardedSwichAlt {
-                id: guardedSwichAlt3
-                x: 0
-                y: 29
-
+                warText: "STANDBY\nPWR OFF"
             }
 
             Text {
                 id: text3
-                x: 0
                 y: 0
                 width: 248
                 height: 34
@@ -396,20 +472,60 @@ Rectangle {
                 font.letterSpacing: -1.5
                 font.pixelSize: 26
                 horizontalAlignment: Text.AlignHCenter
+                anchors.horizontalCenter: parent.horizontalCenter
                 font.family: "Verdana"
+            }
+
+            Guarded3Swich {
+                id: stanbySwich
+                y: 28
+                height: 130
+                anchors.left: parent.left
+                anchors.right: parent.right
+                swich3pos.position: 2
+                guard.guarded: true
+                swich3pos.textWidth: 28
+                swich3pos.textPos3: "AUTO"
+                swich3pos.textPos2: "OFF"
+                swich3pos.textPos1: "BAT"
+                anchors.rightMargin: 0
+                anchors.leftMargin: 0
             }
         }
 
+        Rectangle {
+            id: rectangle6
+            y: 557
+            width: 249
+            height: 168
+            color: "#2d2d2d"
+            radius: 14
+            border.color: "#7f7f7f"
+            anchors.horizontalCenter: parent.horizontalCenter
 
+            Text {
+                id: text4
+                y: 0
+                width: 248
+                height: 40
+                color: "#ffffff"
+                text: qsTr("STANDBY POWER")
+                font.letterSpacing: -1.5
+                font.pixelSize: 26
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.family: "Verdana"
 
-
-
-
-
-
-
-
-
+                GuardedSwichAlt {
+                    id: busTransfer
+                    y: 36
+                    swich2stateAlt.textHeight: 23
+                    swich2stateAlt.textOn: "AUTO"
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+            }
+        }
     }
 
     Rectangle {
@@ -430,7 +546,41 @@ Rectangle {
             color: "#00ffffff"
             border.color: "#ffffff"
             border.width: 2
+
+            Rectangle {
+                id: rectangle7
+                x: -562
+                y: 845
+                width: 249
+                height: 168
+                color: "#2d2d2d"
+                radius: 14
+                border.color: "#7f7f7f"
+                anchors.horizontalCenterOffset: 0
+                anchors.horizontalCenter: parent.horizontalCenter
+                Text {
+                    id: text5
+                    y: 0
+                    width: 248
+                    height: 40
+                    color: "#ffffff"
+                    text: qsTr("BATERY ")
+                    font.letterSpacing: -1.5
+                    font.pixelSize: 26
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    font.family: "Verdana"
+                    GuardedSwichAlt {
+                        id: batSwich
+                        y: 36
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        swich2stateAlt.textOn: "ON"
+                    }
+                }
+            }
         }
+
         Rectangle {
             id: acPart
             x: parent.width/2
@@ -442,23 +592,15 @@ Rectangle {
             border.width: 2
         }
         Swich2state {
-            id: swich2state2
+            id: cabUtil
             x: 503
             y: 858
         }
 
         Swich2state {
-            id: swich2state3
+            id: ifePassSeat
             x: 669
             y: 858
-        }
-
-        GuardedSwich {
-            id: guardedSwich3
-            x: 94
-            y: 858
-            width: 250
-            height: 150
         }
 
         WarningIndicator {
@@ -479,15 +621,14 @@ Rectangle {
             y: 531
         }
     }
-
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
+    D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
 D{i:13}D{i:12}D{i:15}D{i:14}D{i:16}D{i:17}D{i:18}D{i:4}D{i:19}D{i:20}D{i:21}D{i:22}
-D{i:23}D{i:24}D{i:25}D{i:27}D{i:28}D{i:29}D{i:26}D{i:31}D{i:32}D{i:33}D{i:30}D{i:35}
-D{i:36}D{i:37}D{i:34}D{i:3}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:45}D{i:46}
-D{i:38}
+D{i:23}D{i:24}D{i:26}D{i:27}D{i:28}D{i:25}D{i:30}D{i:31}D{i:32}D{i:29}D{i:34}D{i:35}
+D{i:36}D{i:33}D{i:39}D{i:38}D{i:37}D{i:3}D{i:44}D{i:43}D{i:42}D{i:41}D{i:45}D{i:46}
+D{i:47}D{i:48}D{i:49}D{i:50}D{i:40}
 }
 ##^##*/

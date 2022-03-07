@@ -5,6 +5,9 @@ Item {
     id:swichesApuGen
     width: 300
     height: 200
+    property alias infoIndicator: infoIndicator
+    property alias button4: button4
+    property alias button3: button3
     property alias button2: button2
     property alias button1: button1
 

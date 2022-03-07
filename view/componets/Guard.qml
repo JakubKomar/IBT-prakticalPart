@@ -6,6 +6,7 @@ Item {
     id: guard
     width: 250
     height: 131
+    property alias text1: text1
     antialiasing: true
     layer.enabled: true
     layer.samples: 8
@@ -179,6 +180,23 @@ Item {
 
         }
 
+        Text {
+            id: text1
+            x: 134
+            width: 88
+            color: "#8a6a6a6a"
+            text: qsTr("<<")
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            font.letterSpacing: -27.7
+            font.pixelSize: 90
+            horizontalAlignment: Text.AlignHCenter
+            anchors.topMargin: -5
+            anchors.bottomMargin: 16
+            anchors.rightMargin: 28
+        }
+
         MouseArea {
             id: mouseArea
             visible: guarded
@@ -204,6 +222,7 @@ Item {
             }
 
         }
+
     }
 
 }
@@ -212,7 +231,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:6;height:480;width:640}D{i:2}D{i:12}D{i:1}D{i:14}
-D{i:32}D{i:13}
+    D{i:0;formeditorZoom:2}D{i:3}D{i:8}D{i:2}D{i:12}D{i:1}D{i:15}D{i:22}D{i:24}D{i:26}
+D{i:28}D{i:30}D{i:14}D{i:32}D{i:33}D{i:13}
 }
 ##^##*/
