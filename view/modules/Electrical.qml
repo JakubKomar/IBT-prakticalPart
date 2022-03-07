@@ -18,40 +18,40 @@ Rectangle {
         target:RenderElectrical
         function onIndicatorUpdate(name, value){
             switch(name){
-                case "drive1":
-                    drive1.status=value
+            case "drive1":
+                drive1.status=value
                 break;
-                case "drive2":
-                    drive2.status=value
+            case "drive2":
+                drive2.status=value
                 break;
-                case "standbyPwr":
-                    standbyWarning.status=value
+            case "standbyPwr":
+                standbyWarning.status=value
                 break;
-                case "source1":
-                    sourceOff1.warningIndicator1.status=value
+            case "source1":
+                sourceOff1.warningIndicator1.status=value
                 break;
-                case "source2":
-                    sourceOff2.warningIndicator1.status=value
+            case "source2":
+                sourceOff2.warningIndicator1.status=value
                 break;
-                case "grp":
-                    grdPower.infoIndicator.status=value
+            case "grp":
+                grdPower.infoIndicator.status=value
                 break;
-                case "bus1":
-                    transfer1.status=value
+            case "bus1":
+                transfer1.status=value
                 break;
-                case "bus2":
-                    transfer2.status=value
+            case "bus2":
+                transfer2.status=value
                 break;
-                case "gen1":
-                    gen1Mod.infoIndicator.status=value
+            case "gen1":
+                gen1Mod.infoIndicator.status=value
                 break;
-                case "gen2":
-                    gen2Mod.infoIndicator.status=value
+            case "gen2":
+                gen2Mod.infoIndicator.status=value
                 break;
-                case "apuGen":
-                    apuGenMod.infoIndicator.status=value
+            case "apuGen":
+                apuGenMod.infoIndicator.status=value
                 break;
-                default:
+            default:
                 break;
                 /*
                 case "":
@@ -64,50 +64,50 @@ Rectangle {
 
         function onSwichUpdate(name, value){
             switch(name){
-                case "standby_bat":
-                    stanbySwich.swich3pos.position=value
+            case "standby_bat":
+                stanbySwich.swich3pos.position=value
                 break;
-                case "cross_tie":
-                    busTransfer.swich2stateAlt.togled=value
+            case "cross_tie":
+                busTransfer.swich2stateAlt.togled=value
                 break;
-                case "batteryOn":
-                    batSwich.swich2stateAlt.togled=value
+            case "batteryOn":
+                batSwich.swich2stateAlt.togled=value
                 break;
-                case "disconnect1":
-                    diconnect1.swich2stateAlt.togled=value
+            case "disconnect1":
+                diconnect1.swich2stateAlt.togled=value
                 break;
-                case "disconnect2":
-                    diconnect2.swich2stateAlt.togled=value
+            case "disconnect2":
+                diconnect2.swich2stateAlt.togled=value
                 break;
-                case "ifePassSeat":
-                    ifePassSeat.togled=value
+            case "ifePassSeat":
+                ifePassSeat.togled=value
                 break;
-                case "cabUtil":
-                    cabUtil.togled=value
+            case "cabUtil":
+                cabUtil.togled=value
                 break;
-                default:
+            default:
                 break;
             }
         }
 
         function onGuardUpdate(name, value){
             switch(name){
-                case "batteryCover":
-                    batSwich.guard.guarded=value
+            case "batteryCover":
+                batSwich.guard.guarded=value
                 break;
-                case "standbyPower":
-                    stanbySwich.guard.guarded=value
+            case "standbyPower":
+                stanbySwich.guard.guarded=value
                 break;
-                case "drive1Cover":
-                    diconnect1.guard.guarded=value
+            case "drive1Cover":
+                diconnect1.guard.guarded=value
                 break;
-                case "drive2Cover":
-                    diconnect2.guard.guarded=value
+            case "drive2Cover":
+                diconnect2.guard.guarded=value
                 break;
-                case "busTransferCover":
-                    busTransfer.guard.guarded=value
+            case "busTransferCover":
+                busTransfer.guard.guarded=value
                 break;
-                default:
+            default:
                 break;
             }
         }
@@ -418,7 +418,7 @@ Rectangle {
                     ControlElectrical.togle("disconect1_off")
                 }
                 swich2stateAlt.button2.onClicked:{
-                   ControlElectrical.togle("disconect1")
+                    ControlElectrical.togle("disconect1")
                 }
 
             }
@@ -478,7 +478,7 @@ Rectangle {
                     ControlElectrical.togle("disconect2_off")
                 }
                 swich2stateAlt.button2.onClicked:{
-                   ControlElectrical.togle("disconect2")
+                    ControlElectrical.togle("disconect2")
                 }
             }
 
@@ -553,7 +553,7 @@ Rectangle {
                 }
                 swich3pos.button2.onClicked:{
                     ControlElectrical.togle("stanbySwich")
-                                    }
+                }
                 swich3pos.button3.onClicked:{
                     ControlElectrical.togle("stanbySwich_off")
                     ControlElectrical.setGuard("stanbySwich")
@@ -577,7 +577,7 @@ Rectangle {
                 width: 248
                 height: 40
                 color: "#ffffff"
-                text: qsTr("STANDBY POWER")
+                text: qsTr("BUS TRANSFER")
                 font.letterSpacing: -1.5
                 font.pixelSize: 26
                 horizontalAlignment: Text.AlignHCenter
@@ -621,55 +621,42 @@ Rectangle {
         Rectangle {
             id: dcPart
             x: 0
-            y: 0
-            width: parent.width/2
-            height: parent.height
+            y:parent.height/2
+            width: parent.width
+            height: parent.height/2
             color: "#00ffffff"
             border.color: "#ffffff"
-            border.width: 2
+            border.width: 1
 
             Rectangle {
                 id: rectangle7
-                x: -562
-                y: 845
+                x: -45
+                y: 334
                 width: 249
-                height: 168
+                height: 128
                 color: "#2d2d2d"
                 radius: 14
                 border.color: "#7f7f7f"
-                anchors.horizontalCenterOffset: 0
-                anchors.horizontalCenter: parent.horizontalCenter
-                Text {
-                    id: text5
-                    y: 0
-                    width: 248
-                    height: 40
-                    color: "#ffffff"
-                    text: qsTr("BATERY ")
-                    font.letterSpacing: -1.5
-                    font.pixelSize: 26
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
+                rotation: 90
+
+                GuardedSwichAlt {
+                    id: batSwich
+                    x: 0
+                    y: -2
                     anchors.horizontalCenter: parent.horizontalCenter
-                    font.family: "Verdana"
-                    GuardedSwichAlt {
-                        id: batSwich
-                        y: 36
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        swich2stateAlt.textOn: "ON"
-                        guard.onGuard:{
-                            ControlElectrical.setGuard("batSwich")
-                        }
-                        guard.onUnGuard:{
-                            ControlElectrical.setGuard("batSwich")
-                        }
-                        swich2stateAlt.button1.onClicked:{
-                            ControlElectrical.togle("battery_off")
-                        }
-                        swich2stateAlt.button2.onClicked:{
-                            ControlElectrical.togle("battery_on")
-                            ControlElectrical.setGuard("batSwich")
-                        }
+                    swich2stateAlt.textOn: "ON"
+                    guard.onGuard:{
+                        ControlElectrical.setGuard("batSwich")
+                    }
+                    guard.onUnGuard:{
+                        ControlElectrical.setGuard("batSwich")
+                    }
+                    swich2stateAlt.button1.onClicked:{
+                        ControlElectrical.togle("battery_off")
+                    }
+                    swich2stateAlt.button2.onClicked:{
+                        ControlElectrical.togle("battery_on")
+                        ControlElectrical.setGuard("batSwich")
                     }
                 }
             }
@@ -677,52 +664,94 @@ Rectangle {
 
         Rectangle {
             id: acPart
-            x: parent.width/2
+            x: 0
             y: 0
-            width: parent.width/2
-            height: parent.height
+            width: parent.width
+            height: parent.height/2
             color: "#00ffffff"
-            border.color: "#ffffff"
+            border.color: "#00ffffff"
             border.width: 2
+
+            Text {
+                id: text6
+                y: -7
+                color: "#ffffff"
+                text: qsTr("AC")
+                font.pixelSize: 33
+                anchors.horizontalCenterOffset: 0
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            Rectangle {
+                id: rectangle
+                y: 36
+                width: 834
+                height: 1
+                color: "#ffffff"
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            Text {
+                id: text7
+                y: 530
+                color: "#ffffff"
+                text: qsTr("DC")
+                font.pixelSize: 33
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenterOffset: 0
+            }
+
+            Rectangle {
+                id: rectangle1
+                y: 573
+                width: 834
+                height: 1
+                color: "#ffffff"
+                anchors.horizontalCenterOffset: 0
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
         }
         Swich2state {
             id: cabUtil
-            x: 503
-            y: 858
+            x: 8
+            y: 380
+            description: "CAB\nUTIL"
         }
 
         Swich2state {
             id: ifePassSeat
-            x: 669
-            y: 858
+            x: 8
+            y: 210
+            textWidthDescription: 25
+            description: "IFE/PASS\nSEAT"
         }
 
         WarningIndicator {
             id: warningIndicator7
-            x: 266
-            y: 531
+            x: 13
+            y: 686
         }
 
         WarningIndicator {
             id: warningIndicator8
-            x: 420
-            y: 531
+            x: 13
+            y: 593
         }
 
         WarningIndicator {
             id: warningIndicator9
-            x: 577
-            y: 531
+            x: 13
+            y: 101
         }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
+    D{i:0;formeditorZoom:0.75}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
 D{i:13}D{i:12}D{i:15}D{i:14}D{i:16}D{i:17}D{i:18}D{i:4}D{i:19}D{i:20}D{i:21}D{i:22}
 D{i:23}D{i:24}D{i:26}D{i:27}D{i:28}D{i:25}D{i:30}D{i:31}D{i:32}D{i:29}D{i:34}D{i:35}
-D{i:36}D{i:33}D{i:39}D{i:38}D{i:37}D{i:3}D{i:44}D{i:43}D{i:42}D{i:41}D{i:45}D{i:46}
-D{i:47}D{i:48}D{i:49}D{i:50}D{i:40}
+D{i:36}D{i:33}D{i:39}D{i:38}D{i:37}D{i:3}D{i:43}D{i:42}D{i:41}D{i:45}D{i:46}D{i:47}
+D{i:48}D{i:44}D{i:49}D{i:50}D{i:51}D{i:52}D{i:53}D{i:40}
 }
 ##^##*/
