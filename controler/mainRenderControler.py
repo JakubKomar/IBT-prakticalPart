@@ -7,6 +7,13 @@ from .rendMod._bleedRender import RenderBleed
 from .rendMod._tempRender import TempRender
 from .rendMod._doorsRender import DoorRender
 from .rendMod._electricalRender import ElectricalRender
+
+from .rendMod._antiIceRender import AntiIceRender
+from .rendMod._dashBoardRender import DashBoardRender
+from .rendMod._engineRender import EngineRender
+from .rendMod._flyControlRender import FLyControlRender
+from .rendMod._ligtsRender import LightsRender
+
 import time
 import model.libInit as client
 
@@ -21,6 +28,11 @@ class MainRanderControler(QObject):
             "RenderTemp" : TempRender(),
             "RenderDoor" : DoorRender(),
             "RenderElectrical" : ElectricalRender(),
+            "AntiIceRender" : AntiIceRender(),
+            "DashBoardRender" : DashBoardRender(),
+            "EngineRender" : EngineRender(),
+            "FLyControlRender" : FLyControlRender(),
+            "LightsRender" : LightsRender(),
         }
         # timer init
         self.timer = QTimer()
@@ -43,7 +55,7 @@ class MainRanderControler(QObject):
         refList=[]
 
         if(self.moduleSelector == 0):
-            ...
+            refList.extend(self.subcontrolers["DashBoardRender"].requestRef())
         elif(self.moduleSelector == 1):
             refList.extend(self.subcontrolers["RenderFuel"].requestRef())
         elif(self.moduleSelector == 2):
@@ -54,6 +66,14 @@ class MainRanderControler(QObject):
             refList.extend(self.subcontrolers["RenderDoor"].requestRef())
         elif(self.moduleSelector == 5):
             refList.extend(self.subcontrolers["RenderElectrical"].requestRef())
+        elif(self.moduleSelector == 6):
+            refList.extend(self.subcontrolers["AntiIceRender"].requestRef())
+        elif(self.moduleSelector == 7):
+            refList.extend(self.subcontrolers["LightsRender"].requestRef())
+        elif(self.moduleSelector == 8):
+            refList.extend(self.subcontrolers["EngineRender"].requestRef())
+        elif(self.moduleSelector == 9):
+            refList.extend(self.subcontrolers["FLyControlRender"].requestRef())
 
         refList = list(set(refList))
         serverList = client.client.getDREFs(refList)
@@ -62,7 +82,7 @@ class MainRanderControler(QObject):
 
 
         if(self.moduleSelector == 0):
-            ...
+            self.subcontrolers["DashBoardRender"].sendRef(dictionary)
         elif(self.moduleSelector == 1):
             self.subcontrolers["RenderFuel"].sendRef(dictionary)
         elif(self.moduleSelector == 2):
@@ -73,6 +93,14 @@ class MainRanderControler(QObject):
             self.subcontrolers["RenderDoor"].sendRef(dictionary)
         elif(self.moduleSelector == 5):
             self.subcontrolers["RenderElectrical"].sendRef(dictionary)
+        elif(self.moduleSelector == 6):
+            self.subcontrolers["AntiIceRender"].sendRef(dictionary)
+        elif(self.moduleSelector == 7):
+            self.subcontrolers["LightsRender"].sendRef(dictionary)
+        elif(self.moduleSelector == 8):
+            self.subcontrolers["EngineRender"].sendRef(dictionary)
+        elif(self.moduleSelector == 9):
+            self.subcontrolers["FLyControlRender"].sendRef(dictionary)
 
 
     @Slot(int)
