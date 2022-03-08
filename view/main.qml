@@ -113,6 +113,31 @@ Window {
                             menuColum.togleButt(this)
                         }
                     }
+
+                    MenuItem {
+                        id: electricalButton1
+                        text: "AntiIce"
+                    }
+
+                    MenuItem {
+                        id: electricalButton2
+                        text: "Lights"
+                    }
+
+                    MenuItem {
+                        id: electricalButton3
+                        text: "Eng"
+                    }
+
+                    MenuItem {
+                        id: electricalButton4
+                        text: "FtControl"
+                    }
+
+                    MenuItem {
+                        id: electricalButton5
+                        text: "Presurazation"
+                    }
                     function unTogleAll(){
                         for (var i = 0; i < menuColum.children.length; ++i)
                             menuColum.children[i].activePage = false;
@@ -250,8 +275,8 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:4}D{i:14}D{i:13}
-D{i:16}D{i:15}D{i:18}D{i:17}D{i:19}D{i:12}D{i:11}D{i:20}D{i:3}D{i:23}D{i:21}D{i:2}
-D{i:1}
+    D{i:0;formeditorZoom:0.75}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}
+D{i:14}D{i:15}D{i:4}D{i:19}D{i:18}D{i:21}D{i:20}D{i:23}D{i:22}D{i:24}D{i:17}D{i:16}
+D{i:25}D{i:3}D{i:28}D{i:26}D{i:2}D{i:1}
 }
 ##^##*/
