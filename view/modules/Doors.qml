@@ -219,40 +219,54 @@ Rectangle {
             swich2state.description: "FWD\nENTRY"
         }
     }
-    Connections{
-        target:RenderTemp
 
-        function onSetTrim(state){
-            trimAir.DoorIndicator.togled=state
-        }
-        function onSetCooling(name,state){
-            if(name==="suply")
-                suplyFan.togled=state
-            else if(name==="exhoust")
-                exhoustFan.togled=state
-        }
-        function onSetTempControl(name,state){
-            if(name==="cont_cab_temp")
-                cont.tempSlider.value=state
-            else if(name==="aft_cab_temp")
-                aft.tempSlider.value=state
-            else if(name==="fwd_cab_temp")
-                fwd.tempSlider.value=state
-        }
+    Guarded3Swich {
+        id: guarded3Swich
+        x: 938
+        y: 62
 
+        WarningIndicator {
+            id: warningIndicator
+            x: 113
+            y: 111
+        }
     }
 
+    Swich3pos {
+        id: swich3pos
+        x: 961
+        y: 362
+    }
+
+    Swich3pos {
+        id: swich3pos1
+        x: 1355
+        y: 362
+    }
+
+    CircleButton {
+        id: circleButton
+        x: 1074
+        y: 653
+    }
+
+    CircleButton {
+        id: circleButton1
+        x: 1410
+        y: 652
+    }
+
+    WarningIndicator {
+        id: warningIndicator1
+        x: 1435
+        y: 78
+    }
 }
-
-
-
-
-
-
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.33}D{i:1}D{i:4}D{i:5}D{i:3}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}
-D{i:11}D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:2}D{i:17}
+    D{i:0;formeditorZoom:0.25}D{i:1}D{i:4}D{i:5}D{i:3}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}
+D{i:11}D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:2}D{i:18}D{i:17}D{i:19}D{i:20}D{i:21}
+D{i:22}D{i:23}
 }
 ##^##*/

@@ -12,10 +12,10 @@ class MasterControler():
 
         for key, value in self.MainRanderControler.subcontrolers.items():
             engine.rootContext().setContextProperty(key, value)
-            print(key)
 
         for key, value in self.MainComandControler.subcontrolers.items():
             engine.rootContext().setContextProperty(key, value)
-            print(key)
+
+        print(self.MainRanderControler.subcontrolers.keys(), self.MainComandControler.subcontrolers.keys())
 
         engine.rootContext().setContextProperty("MainRanderControler", self.MainRanderControler)

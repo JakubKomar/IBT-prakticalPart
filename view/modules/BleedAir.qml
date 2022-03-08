@@ -5,7 +5,6 @@ Item {
     id:bleedAirMod
     width: 1750
     height: 1060
-    property alias rectangle3: rectangle3
 
     Rectangle {
         id: rectangle
@@ -542,7 +541,7 @@ Item {
             anchors.horizontalCenterOffset: 0
             anchors.horizontalCenter: parent.horizontalCenter
 
-            Row {
+            Item {
                 id: row2
                 x: 39
                 y: 45

@@ -14,20 +14,6 @@ Rectangle {
         target:ControlTemp
     }
 
-    Connections{
-        target:RenderBleed
-
-        function onSetSwich(name,pos){
-            switch(name){
-            case"lPack":{
-                lPack.position=pos
-                break;
-            }
-            default:{}
-            }
-        }
-    }
-
     Swich2stateBasic{
         id: trimAir
         x: 1011
@@ -300,16 +286,9 @@ Rectangle {
     }
 }
 
-
-
-
-
-
-
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.33}D{i:1}D{i:2}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:10}D{i:12}
-D{i:11}D{i:9}D{i:4}D{i:14}D{i:13}D{i:16}D{i:17}D{i:18}D{i:15}D{i:19}D{i:20}D{i:21}
-D{i:22}
+    D{i:0;formeditorZoom:0.33}D{i:1}D{i:2}D{i:4}D{i:5}D{i:6}D{i:7}D{i:9}D{i:10}D{i:8}
+D{i:3}D{i:13}D{i:12}D{i:15}D{i:16}D{i:17}D{i:14}D{i:18}D{i:19}D{i:20}D{i:21}
 }
 ##^##*/

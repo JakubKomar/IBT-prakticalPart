@@ -56,8 +56,8 @@ Window {
                         activePage: true
                         onClicked: {
                             MainRanderControler.setModuleSelector(0)
-                            contentLoader.setSource("modules/DashBoard.qml")
                             menuColum.togleButt(this)
+                            dashLd.visible=true
                         }
                     }
 
@@ -66,8 +66,8 @@ Window {
                         text: "Fuel"
                         onClicked: {
                             MainRanderControler.setModuleSelector(1)
-                            contentLoader.setSource("modules/Fuel.qml")
                             menuColum.togleButt(this)
+                            fuelLd.visible=true
                         }
                     }
 
@@ -77,19 +77,19 @@ Window {
 
                         onClicked: {
                             MainRanderControler.setModuleSelector(2)
-                            contentLoader.setSource("modules/BleedAir.qml")
                             menuColum.togleButt(this)
+                            bleadLd.visible=true
                         }
                     }
 
                     MenuItem {
-                        id: enginesButt
+                        id: tempButt
                         text: "Temp"
 
                         onClicked: {
-                            MainRanderControler.setModuleSelector(3)
-                            contentLoader.setSource("modules/TempControl.qml")
+                            MainRanderControler.setModuleSelector(3)                  
                             menuColum.togleButt(this)
+                            tempLd.visible=true
                         }
                     }
 
@@ -99,8 +99,8 @@ Window {
 
                         onClicked: {
                             MainRanderControler.setModuleSelector(4)
-                            contentLoader.setSource("modules/Doors.qml")
                             menuColum.togleButt(this)
+                            doorLd.visible=true
                         }
                     }
 
@@ -109,38 +109,58 @@ Window {
                         text: "Electrical"
                         onClicked: {
                             MainRanderControler.setModuleSelector(5)
-                            contentLoader.setSource("modules/Electrical.qml")
                             menuColum.togleButt(this)
+                            electLd.visible=true
                         }
                     }
 
                     MenuItem {
                         id: electricalButton1
                         text: "AntiIce"
+                        onClicked: {
+                            MainRanderControler.setModuleSelector(6)
+                            menuColum.togleButt(this)
+                            antiIceLd.visible=true
+                        }
                     }
 
                     MenuItem {
                         id: electricalButton2
                         text: "Lights"
+                        onClicked: {
+                            MainRanderControler.setModuleSelector(7)
+                            menuColum.togleButt(this)
+                            lightsLd.visible=true
+                        }
                     }
 
                     MenuItem {
                         id: electricalButton3
                         text: "Eng"
+                        onClicked: {
+                            MainRanderControler.setModuleSelector(8)
+                            menuColum.togleButt(this)
+                            engLd.visible=true
+                        }
                     }
 
                     MenuItem {
                         id: electricalButton4
                         text: "FtControl"
-                    }
+                        onClicked: {
+                            MainRanderControler.setModuleSelector(9)
+                            menuColum.togleButt(this)
+                            ftControlLd.visible=true
+                        }
 
-                    MenuItem {
-                        id: electricalButton5
-                        text: "Presurazation"
                     }
                     function unTogleAll(){
-                        for (var i = 0; i < menuColum.children.length; ++i)
+                        for (var i = 0; i < menuColum.children.length; ++i){
                             menuColum.children[i].activePage = false;
+                        }
+                        for (var j = 0; j < contentLoader.children.length; ++j){
+                            contentLoader.children[j].visible = false;
+                        }
                     }
                     function togleButt(toTogle){
                         menuColum.unTogleAll()
@@ -228,7 +248,7 @@ Window {
                             font.pointSize: 18
 
                             onClicked: {
-                                contentLoader.setSource("modules/ProgramConfig.qml")
+                                setingsLd.visible=true
                             }
                         }
                         BusyIndicator {
@@ -258,13 +278,84 @@ Window {
                 property double yscaleVal:contentCont.height/1060
                 property double scaleVal: xscaleVal<yscaleVal?xscaleVal:yscaleVal
                 transform: Scale {xScale: contentCont.scaleVal;yScale:contentCont.scaleVal}
-                Loader {
+                Item {
                     id: contentLoader
                     width: 1750
                     height: 1060
 
                     clip: true
-                    source: Qt.resolvedUrl("modules/DashBoard.qml")
+                    Loader{
+                        id: dashLd
+                        anchors.fill: parent
+                        visible: true
+                        source: Qt.resolvedUrl("modules/DashBoard.qml")
+                    }
+                    Loader{
+                        id: fuelLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/Fuel.qml")
+                    }
+                    Loader{
+                        id: bleadLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/BleedAir.qml")
+                    }
+                    Loader{
+                        id: doorLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/Doors.qml")
+                    }
+                    Loader{
+                        id: tempLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/TempControl.qml")
+                    }
+                    Loader{
+                        id: programLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/ProgramConfig.qml")
+                    }
+                    Loader{
+                        id: electLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/Electrical.qml")
+                    }
+                    Loader{
+                        id: setingsLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/ProgramConfig.qml")
+                    }
+                    Loader{
+                        id: antiIceLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/AntiIce.qml")
+                    }
+                    Loader{
+                        id: lightsLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/Lights.qml")
+                    }
+                    Loader{
+                        id: engLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/Engine.qml")
+                    }
+                    Loader{
+                        id: ftControlLd
+                        anchors.fill: parent
+                        visible: false
+                        source: Qt.resolvedUrl("modules/FlyControl.qml")
+                    }
                 }
             }
         }
@@ -275,8 +366,9 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}
-D{i:14}D{i:15}D{i:4}D{i:19}D{i:18}D{i:21}D{i:20}D{i:23}D{i:22}D{i:24}D{i:17}D{i:16}
-D{i:25}D{i:3}D{i:28}D{i:26}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:0.5}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}
+D{i:14}D{i:4}D{i:18}D{i:17}D{i:20}D{i:19}D{i:22}D{i:21}D{i:23}D{i:16}D{i:15}D{i:24}
+D{i:3}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}D{i:35}D{i:36}D{i:37}D{i:38}
+D{i:39}D{i:27}D{i:25}D{i:2}D{i:1}
 }
 ##^##*/
