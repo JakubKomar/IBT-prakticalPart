@@ -1,33 +1,57 @@
 import QtQuick
 import QtQuick.Controls
 import "../componets"
-Item {
+Rectangle {
+    id: dashBoard
+    width: 1750
+    height: 1060
+    color: "#000000"
+
+    HorizontalIndicator {
+        id: horizontalIndicator
+        x: 310
+        y: 307
+        value: 80.8
+        maxValue: 100
+        maxKritikValEneb: true
+        minKritikValEneb: true
+        maxKritikVal: 88.3
+        minKritikVal: 6.5
+    }
+
     Rectangle {
-        id: rectangle
-        color: "#000000"
-        anchors.fill: parent
-        anchors.rightMargin: -465
-        anchors.bottomMargin: -122
+        id: rightSide
+        x: parent.width/2
+        width: parent.width/2
+        color: "#00ffffff"
+        border.color: "#ffffff"
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        anchors.topMargin: 0
 
-        GuardedSwichAlt {
-            id: guardedSwichAlt
-            x: 162
-            y: 116
-            guardCol: "#d0282828"
+        EngineData {
+            id: engineData
+            anchors.fill: parent
         }
+    }
 
-        Indicator {
-            id: indicator
-            x: 757
-            y: 85
-            width: 182
-            height: 80
-        }
+    Rectangle {
+        id: leftSide
+        x: 0
+        width: parent.width/2
+        color: "#00ffffff"
+        border.color: "#ffffff"
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        anchors.topMargin: 0
     }
 }
 
+
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:1.75;height:480;width:640}D{i:2}D{i:3}D{i:1}
+    D{i:0;formeditorZoom:0.5}D{i:1}D{i:3}D{i:2}D{i:4}
 }
 ##^##*/

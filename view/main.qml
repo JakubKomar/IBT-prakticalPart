@@ -53,6 +53,7 @@ Window {
                     MenuItem{
                         id:dashBordButt
                         text: "Dash "
+                        wheelEnabled: false
                         activePage: true
                         onClicked: {
                             MainRanderControler.setModuleSelector(0)
@@ -115,7 +116,7 @@ Window {
                     }
 
                     MenuItem {
-                        id: electricalButton1
+                        id: antiIceBtn
                         text: "AntiIce"
                         onClicked: {
                             MainRanderControler.setModuleSelector(6)
@@ -125,7 +126,7 @@ Window {
                     }
 
                     MenuItem {
-                        id: electricalButton2
+                        id: lightsBtn
                         text: "Lights"
                         onClicked: {
                             MainRanderControler.setModuleSelector(7)
@@ -135,7 +136,7 @@ Window {
                     }
 
                     MenuItem {
-                        id: electricalButton3
+                        id: engBtn
                         text: "Eng"
                         onClicked: {
                             MainRanderControler.setModuleSelector(8)
@@ -145,7 +146,7 @@ Window {
                     }
 
                     MenuItem {
-                        id: electricalButton4
+                        id: ftContBtn
                         text: "FtControl"
                         onClicked: {
                             MainRanderControler.setModuleSelector(9)
@@ -360,6 +361,55 @@ Window {
             }
         }
     }
+    Connections{
+        target: WarningsRender
+        function onSetAnnunciator(name, val){
+            switch(name){
+                case"apu":{
+                    engBtn.status=val
+                break;
+                }
+                case"doors":{
+                    doorButton.status=val
+                break;
+                }
+                case"electrical":{
+                    electricalButton.status=val
+                break;
+                }
+                case"engine":{
+                    engBtn.status=val
+                break;
+                }
+                case"fire":{
+                    if(val===1)
+                        engBtn.status=2
+                break;
+                }
+                case"fuel":{
+                    fuelButt.status=val
+                break;
+                }
+                case"hydraulic":{
+                    ftContBtn.status=val
+                break;
+                }
+                case"ice":{
+                    antiIceBtn.status=val
+                break;
+                }
+                case"temp":{
+                    tempButt.status=val
+                break;
+                }
+                case"flyCont":{
+                    ftContBtn.status=val
+                break;
+                }
+                default:{}
+            }
+        }
+    }
 }
 
 
@@ -369,6 +419,6 @@ Designer {
     D{i:0;formeditorZoom:0.5}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}
 D{i:14}D{i:4}D{i:18}D{i:17}D{i:20}D{i:19}D{i:22}D{i:21}D{i:23}D{i:16}D{i:15}D{i:24}
 D{i:3}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}D{i:35}D{i:36}D{i:37}D{i:38}
-D{i:39}D{i:27}D{i:25}D{i:2}D{i:1}
+D{i:39}D{i:27}D{i:25}D{i:2}D{i:1}D{i:40}
 }
 ##^##*/

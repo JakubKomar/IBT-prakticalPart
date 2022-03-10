@@ -14,7 +14,7 @@ from .rendMod._dashBoardRender import DashBoardRender
 from .rendMod._engineRender import EngineRender
 from .rendMod._flyControlRender import FLyControlRender
 from .rendMod._ligtsRender import LightsRender
-
+from .rendMod._renderWarnings import WarnigsRender
 import time
 import model.libInit as client
 
@@ -34,6 +34,7 @@ class MainRanderControler(QObject):
             "EngineRender" : EngineRender(),
             "FLyControlRender" : FLyControlRender(),
             "LightsRender" : LightsRender(),
+            "WarningsRender":WarnigsRender()
         }
         # timer init
         self.timer = QTimer()
@@ -56,6 +57,8 @@ class MainRanderControler(QObject):
 
     def loop(self):
         refList=[]
+
+        refList.extend(self.subcontrolers["WarningsRender"].requestRef())
 
         if(self.moduleSelector == 0):
             refList.extend(self.subcontrolers["DashBoardRender"].requestRef())
@@ -83,7 +86,8 @@ class MainRanderControler(QObject):
 
         dictionary = {refList[i]: serverList[i] for i in range(len(refList))}
 
-
+        self.subcontrolers["WarningsRender"].sendRef(dictionary)
+        
         if(self.moduleSelector == 0):
             self.subcontrolers["DashBoardRender"].sendRef(dictionary)
         elif(self.moduleSelector == 1):

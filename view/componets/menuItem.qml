@@ -18,8 +18,8 @@ Button {
 
     property int status: 0
 
-    property color warningColor: "#ffff00"
-    property color errorColor: "#ff0000"
+    property color warningColor: "#ff8c00"
+    property color errorColor: "#bb0000"
     property color defaultColor: "#080808"
 
     property color bcColor: {
@@ -63,6 +63,6 @@ Button {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.33}
+    D{i:0;formeditorZoom:1.33;height:80;width:146}
 }
 ##^##*/
