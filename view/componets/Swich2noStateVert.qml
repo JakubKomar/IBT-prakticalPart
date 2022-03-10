@@ -8,9 +8,9 @@ Item {
     property alias button2: button2
     property alias button1: button1
 
-    property color BcCol:"gray"
-    property color BcBorderCol:"white"
-    property color TextCol:swich2stateAlt.turnOffBcBorderCol
+    property color bcCol:"gray"
+    property color bcBorderCol:"white"
+    property color textCol:"black"
 
     property string text1:"ON"
     property string text2:"OFF"
@@ -21,14 +21,14 @@ Item {
         width: parent.width
         height: parent.height/2
         background: Rectangle{
-            color: BcBorderCol
-            border.color:  BcBorderCol
+            color: bcBorderCol
+            border.color:  bcBorderCol
             border.width: 2
             radius: 8
             Text {
                 id: button1Text
                 text: text1
-                color: TextCol
+                color: textCol
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -45,14 +45,14 @@ Item {
         height: parent.height/2
 
         background: Rectangle{
-            color: BcBorderCol
+            color: bcBorderCol
             radius: 8
-            border.color: BcBorderCol
+            border.color: bcBorderCol
             border.width: 2
             Text {
                 id: button2Text
                 text: text2
-                color: TextCol
+                color: textCol
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter

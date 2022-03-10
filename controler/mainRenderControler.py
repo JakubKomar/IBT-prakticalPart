@@ -1,5 +1,6 @@
 # This Python file uses the following encoding: utf-8
 
+from typing import Dict
 from PySide6.QtCore import QObject, Slot, Signal, QTimer
 
 from .rendMod._fuelRender import RenderFuel
@@ -51,6 +52,8 @@ class MainRanderControler(QObject):
         #    ...
         #    print(EX)
 
+    lastData=[]
+
     def loop(self):
         refList=[]
 
@@ -101,7 +104,6 @@ class MainRanderControler(QObject):
             self.subcontrolers["EngineRender"].sendRef(dictionary)
         elif(self.moduleSelector == 9):
             self.subcontrolers["FLyControlRender"].sendRef(dictionary)
-
 
     @Slot(int)
     def setModuleSelector(self, modID):

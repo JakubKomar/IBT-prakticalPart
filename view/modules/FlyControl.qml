@@ -41,20 +41,20 @@ Rectangle {
 
         GuardedSwichAlt {
             id: guardedSwichAlt
-            x: 61
-            y: 449
+            x: 70
+            y: 340
         }
 
         GuardedSwichAlt {
             id: guardedSwichAlt1
-            x: 61
-            y: 594
+            x: 70
+            y: 485
         }
 
         Swich2stateBasic {
             id: swich2stateBasic
-            x: 124
-            y: 827
+            x: 339
+            y: 433
         }
 
         Swich3pos {
@@ -67,6 +67,51 @@ Rectangle {
             id: guardedSwichAlt2
             x: 527
             y: 179
+        }
+
+        Text {
+            id: text3
+            x: 350
+            y: 654
+            color: "#ffffff"
+            text: qsTr("Hydr Pumps")
+            font.pixelSize: 30
+        }
+
+        Swich2stateWarning {
+            id: swich2stateWarning
+            x: 65
+            y: 734
+        }
+
+        Swich2stateWarning {
+            id: swich2stateWarning1
+            x: 237
+            y: 734
+        }
+
+        Swich2stateWarning {
+            id: swich2stateWarning2
+            x: 453
+            y: 734
+        }
+
+        Swich2stateWarning {
+            id: swich2stateWarning3
+            x: 627
+            y: 734
+        }
+
+        WarningIndicator {
+            id: warningIndicator
+            x: 247
+            y: 936
+        }
+
+        WarningIndicator {
+            id: warningIndicator1
+            x: 458
+            y: 936
         }
 
     }

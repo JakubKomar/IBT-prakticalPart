@@ -15,11 +15,19 @@ Item {
             y: 116
             guardCol: "#d0282828"
         }
+
+        Indicator {
+            id: indicator
+            x: 757
+            y: 85
+            width: 182
+            height: 80
+        }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.66;height:480;width:640}D{i:2}D{i:1}
+    D{i:0;autoSize:true;formeditorZoom:1.75;height:480;width:640}D{i:2}D{i:3}D{i:1}
 }
 ##^##*/

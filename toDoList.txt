@@ -1,0 +1,10 @@
+to do list
+
+pipes transfer indication - better
+render isules when display disconected
+
+optional:
+temp sliders render,
+
+notes:
+    warnigy modulů přes referece sixpacku

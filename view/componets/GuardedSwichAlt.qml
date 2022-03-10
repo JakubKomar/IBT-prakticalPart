@@ -53,10 +53,6 @@ Item {
         id: guard
         anchors.fill: parent
     }
-
-
-
-
 }
 
 

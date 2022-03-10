@@ -14,8 +14,7 @@ class TempRender(QObject,RendModeBase):
             "laminar/B738/air/trim_air_pos",
             "laminar/B738/cabin_temp",
             "laminar/B738/toggle_switch/eq_cool_supply",
-            "laminar/B738/toggle_switch/eq_cool_exhaust",
-
+            "laminar/B738/toggle_switch/eq_cool_exhaust"
         ]
   
     setTrim=Signal(bool)

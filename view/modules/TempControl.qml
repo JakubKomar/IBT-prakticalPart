@@ -139,7 +139,7 @@ Rectangle {
         id: rectangle
         x: 0
         y: -23
-        width: 770
+        width: 809
         height: 1083
         color: "#00ffffff"
         border.color: "#00ffffff"
@@ -147,15 +147,13 @@ Rectangle {
 
         Image {
             id: image
-            y: -636
-            width: 508
+            x: 169
+            y: -42
+            width: 441
             height: 1083
-            anchors.verticalCenter: parent.verticalCenter
             source: "../pic/plane.png"
-            anchors.horizontalCenter: parent.horizontalCenter
             clip: false
             scale: 1.8
-            anchors.verticalCenterOffset: 24
             sourceSize.width: 764
             rotation: -180
             fillMode: Image.PreserveAspectFit
@@ -201,7 +199,6 @@ Rectangle {
             height: 193
             anchors.right: parent.right
             anchors.top: parent.top
-            warningIndicator.onColor: "#ff8c00"
             swich2state.onColor: "#ffae00"
             togled: false
             description: "EXHOUST\nFAN"
@@ -276,19 +273,21 @@ Rectangle {
                 exhoustFan.togled=state
         }
         function onSetTempControl(name,state){
+            /*
             if(name==="cont_cab_temp")
                 cont.tempSlider.setVal(state)
             else if(name==="aft_cab_temp")
                 aft.tempSlider.setVal(state)
             else if(name==="fwd_cab_temp")
                 fwd.tempSlider.setVal(state)
+            */
         }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.33}D{i:1}D{i:2}D{i:4}D{i:5}D{i:6}D{i:7}D{i:9}D{i:10}D{i:8}
-D{i:3}D{i:13}D{i:12}D{i:15}D{i:16}D{i:17}D{i:14}D{i:18}D{i:19}D{i:20}D{i:21}
+    D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:4}D{i:5}D{i:6}D{i:7}D{i:9}D{i:11}D{i:10}
+D{i:8}D{i:3}D{i:13}D{i:12}D{i:15}D{i:16}D{i:17}D{i:14}D{i:18}D{i:19}D{i:20}D{i:21}
 }
 ##^##*/

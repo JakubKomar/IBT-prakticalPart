@@ -654,15 +654,13 @@ Item {
             InfoIndicator {
                 id: engValClose_L
                 textHeight: 28
-                anchors.horizontalCenter: parent.horizontalCenter
-                status: false
+                anchors.horizontalCenter: parent.horizontalCenter               
                 description: "ENG VAL\nCLOSED"
             }
 
             WarningIndicator {
                 id: filtBypass_L
                 anchors.horizontalCenter: parent.horizontalCenter
-                status: false
                 warText: "FILTER\nBYPASS"
             }
 
@@ -670,7 +668,6 @@ Item {
                 id: sparValClose_L
                 textHeight: 28
                 anchors.horizontalCenter: parent.horizontalCenter
-                status: false
                 description: "SPAR VAL\n CLOSED"
             }
         }
@@ -692,20 +689,17 @@ Item {
             InfoIndicator {
                 id: engValClose_R
                 textHeight: 28
-                status: false
                 description: "ENG VAL\nCLOSED"
             }
 
             WarningIndicator {
-                id: filtBypass_R
-                status: false
+                id: filtBypass_R             
                 warText: "FILTER\nBYPASS"
             }
 
             InfoIndicator {
                 id: sparValClose_R
                 textHeight: 28
-                status: false
                 description: "SPAR VAL\n CLOSED"
             }
         }
@@ -874,7 +868,7 @@ Item {
                 break;
             }
             case "cfv":{
-                swich2crossFeedInfo.infoTogled = state
+                swich2crossFeedInfo.infoValue = state
                 break;
             }
             case "apuRuning":{

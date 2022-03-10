@@ -1,57 +1,26 @@
 import QtQuick
 
-Rectangle {
+Item {
     id:infoIndicator
 
     implicitWidth: 140
     implicitHeight: 80
 
-    property bool status:true
-    state: status?"on":""
-    property color onColor:  "#ff8c00"
-    property color offColor: "#271600"
-    color: "#000c16"
-    border.color: "#484848"
-    border.width: 3
+    property alias status:indicator.value
+    property alias indicator: indicator
 
-    property string description: "INFO\nIO"
-    property int textHeight:30
+    property alias description: indicator.description
+    property alias textHeight:indicator.textHeight
     height: 65
 
-   Text{
-       id:itemText
-       color: "#232323"
-       text: qsTr(description)
-       anchors.verticalCenter: parent.verticalCenter
-       anchors.horizontalCenter: parent.horizontalCenter
-       font.pixelSize: textHeight
-       horizontalAlignment: Text.AlignHCenter
-       verticalAlignment: Text.AlignVCenter
-       font.bold: true
-       wrapMode: Text.WordWrap
-       lineHeight: 0.7  //
-   }
-   states: [
-       State {
-           id: off
-           name: "on"
-
-            PropertyChanges {
-                target: infoIndicator
-                color: "#673600"
-            }
-
-            PropertyChanges {
-                target: itemText
-                color: "#ffffff"
-            }
-
-            PropertyChanges {
-                target: infoIndicator
-                color: "#004e90"
-            }
-       }
-   ]
+    Indicator{
+        id: indicator
+        anchors.fill: parent
+        offColorBc: "#000c16"
+        onColorBc: "#004e90"
+        onColor: "#ffffff"
+        offColor: "#232323"
+    }
 }
 
 

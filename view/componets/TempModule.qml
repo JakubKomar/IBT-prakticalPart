@@ -95,7 +95,6 @@ Item {
                     anchors.leftMargin: 0
                     anchors.bottomMargin: 0
                     anchors.topMargin: 0
-                    status: false
                     textHeight: 24
                     warText: "ZONE\nTEMP"
                 }

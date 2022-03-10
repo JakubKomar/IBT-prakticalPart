@@ -1,60 +1,31 @@
 import QtQuick
 
-Rectangle {
+Item {
     id:warningIndicator
 
     implicitWidth: 140
     implicitHeight: 80
 
-    property bool status:true
-    property string warText: "Warning"
-    state: status?"on":""
-    property color onColor:  "#ff8c00"
-    property color offColor: "#271600"
+    property alias status:indicator.value
 
-    property color onColorBc:  "#673600"
-    property color offColorBc: "#160c00"
-    property int textHeight:30
-    color: offColorBc
-    border.color: "#484848"
-    border.width: 3
+    property alias textHeight:indicator.textHeight
 
-   Text{
-       id:itemText
-       color: "#232323"
-       text: warText
-       anchors.verticalCenter: parent.verticalCenter
-       anchors.horizontalCenter: parent.horizontalCenter
-       font.pixelSize: textHeight
-       horizontalAlignment: Text.AlignHCenter
-       verticalAlignment: Text.AlignVCenter
-       font.bold: true
-       wrapMode: Text.WordWrap
-       lineHeight: 0.7
+    property alias indicator: indicator
 
-   }
-   states: [
-       State {
-           id: off
-           name: "on"
+    property alias warText: indicator.description
+    property alias radius: indicator.radius
+    property alias border:indicator.border
+    height: 65
 
-            PropertyChanges {
-                target: warningIndicator
-                color: onColorBc
-            }
-
-            PropertyChanges {
-                target: itemText
-                color: onColor
-            }
-       }
-   ]
+    Indicator{
+       id: indicator
+       anchors.fill: parent
+       offColorBc: "#160c00"
+       onColorBc: "#673600"
+       onColor: "#ff8c00"
+       offColor: "#271600"
+    }
 }
-
-
-
-
-
 /*##^##
 Designer {
     D{i:0;formeditorZoom:0.9}D{i:1}

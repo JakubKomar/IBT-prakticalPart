@@ -28,58 +28,73 @@ Rectangle {
             font.pixelSize: 30
         }
 
-        Swich2state {
-            id: swich2state6
-            x: 128
-            y: 316
-        }
-
-        Swich2state {
-            id: swich2state7
-            x: 476
-            y: 316
-        }
-
-        Swich2state {
-            id: swich2state8
-            x: 680
-            y: 316
-        }
-
-        WarningIndicator {
-            id: warningIndicator4
-            x: 481
-            y: 128
-        }
-
-        WarningIndicator {
-            id: warningIndicator5
-            x: 685
-            y: 128
+        Swich2stateBasic {
+            id: swichWingAntiIce
+            x: 135
+            y: 162
+            swich2state.description: "WING\nANTI-ICE"
+            onClicked: {
+                ControlAntiIce.swichTogle("wingAntiIce")
+            }
         }
 
         InfoIndicator {
-            id: infoIndicator4
-            x: 481
-            y: 214
+            id: infoCowlValveL
+            x: 480
+            y: 97
+            width: 150
+            height: 65
+            textHeight: 22
+            description: "COWL VALVE\nOPEN"
         }
 
         InfoIndicator {
-            id: infoIndicator5
-            x: 685
-            y: 214
+            id: infoCowlValveR
+            x: 684
+            y: 97
+            width: 150
+            height: 65
+            textHeight: 22
+            description: "COWL VALVE\nOPEN"
         }
 
         InfoIndicator {
-            id: infoIndicator6
-            x: 56
-            y: 238
+            id: infoLValve
+            x: 72
+            y: 97
+            description: "L VALVE\nOPEN"
         }
 
         InfoIndicator {
-            id: infoIndicator7
-            x: 208
-            y: 238
+            id: infoRValve
+            x: 212
+            y: 97
+            height: 65
+            description: "R VALVE\nOPEN"
+        }
+
+        Swich2stateWarning {
+            id: swichEngAntiIceL
+            x: 480
+            y: 160
+            warningIndicator.warText: "COWL \nANTI-ICE"
+            description: "ENG 1\nANTI-ICE"
+            onClicked: {
+                ControlAntiIce.swichTogle("engLAntiIce")
+            }
+        }
+
+        Swich2stateWarning {
+            id: swichEngAntiIceR
+            x: 684
+            y: 160
+            width: 150
+            height: 196
+            warningIndicator.warText: "COWL \nANTI-ICE"
+            description: "ENG 1\nANTI-ICE"
+            onClicked: {
+                ControlAntiIce.swichTogle("engRAntiIce")
+            }
         }
     }
     Rectangle {
@@ -101,159 +116,302 @@ Rectangle {
             font.pixelSize: 30
         }
 
-        Swich2state {
-            id: swich2state
-            x: 27
-            y: 268
-        }
-
-        Swich2state {
-            id: swich2state1
-            x: 201
-            y: 268
-        }
-
-        Swich2state {
-            id: swich2state2
-            x: 519
-            y: 268
-        }
-
-        Swich2state {
-            id: swich2state3
-            x: 693
-            y: 268
-        }
-
-        Swich2stateAltVert {
-            id: swich2stateAltVert
-            x: 363
-            y: 258
-        }
-
-        WarningIndicator {
-            id: warningIndicator
-            x: 26
-            y: 66
-        }
-
-        WarningIndicator {
-            id: warningIndicator1
-            x: 206
-            y: 66
-        }
-
-        WarningIndicator {
-            id: warningIndicator2
-            x: 524
-            y: 66
-        }
-
-        WarningIndicator {
-            id: warningIndicator3
-            x: 698
-            y: 66
-        }
-
-        InfoIndicator {
-            id: infoIndicator
-            x: 26
-            y: 168
-        }
-
-        InfoIndicator {
-            id: infoIndicator1
-            x: 206
-            y: 168
-        }
-
-        InfoIndicator {
-            id: infoIndicator2
-            x: 524
-            y: 168
-        }
-
-        InfoIndicator {
-            id: infoIndicator3
-            x: 698
-            y: 168
-        }
-
-        Swich2state {
-            id: swich2state4
+        Swich2stateBasic {
+            id: swichHeatL
             x: 251
             y: 560
+            swich2state.togled: false
+            swich2state.description: "PROBE\nHEAT A"
+            onClicked: {
+                ControlAntiIce.swichTogle("probeL")
+            }
         }
 
-        Swich2state {
-            id: swich2state5
+        Swich2stateBasic {
+            id: swichHeatR
             x: 475
             y: 560
+            swich2state.description: "PROBE\nHEAT B"
+            onClicked: {
+                ControlAntiIce.swichTogle("probeR")
+            }
         }
 
         CircleButton {
-            id: circleButton
+            id: tatTest
             x: 393
             y: 740
+            buttText: "TAT\nTEST"
         }
 
-        WarningIndicator {
-            id: warningIndicator6
-            x: 27
-            y: 551
+        Column {
+            id: column
+            x: 95
+            y: 512
+            width: 144
+            height: 261
+
+            WarningIndicator {
+                id: warningCaptL
+                warText: "CAPT\nPITOT"
+            }
+
+            WarningIndicator {
+                id: warningElevL
+                warText: "L ELEV\nPITOT"
+            }
+
+            WarningIndicator {
+                id: warningAlphaL
+                warText: "L ALPHA\nPITOT"
+            }
+
+            WarningIndicator {
+                id: warningTempL
+                warText: "TEMP\nPROBE"
+            }
         }
 
-        WarningIndicator {
-            id: warningIndicator7
-            x: 27
-            y: 630
+        Column {
+            id: column1
+            x: 631
+            y: 512
+            width: 146
+            height: 268
+
+            WarningIndicator {
+                id: warningFOR
+                warText: "F/O\nPITOT"
+            }
+
+            WarningIndicator {
+                id: warningElevR
+                warText: "R ELEV\nPITOT"
+            }
+
+            WarningIndicator {
+                id: warningAlphaR
+                warText: "R ALPHA\nPITOT"
+            }
+
+            WarningIndicator {
+                id: warningAuxR
+                warText: "AUX\nPITOT"
+            }
         }
 
-        WarningIndicator {
-            id: warningIndicator8
-            x: 27
-            y: 708
+        AntiIceSwich {
+            id: swichWinHeatSideL
+            x: 31
+            y: 102
+            onClicked: {
+                ControlAntiIce.swichTogle("sideWindL")
+            }
         }
 
-        WarningIndicator {
-            id: warningIndicator9
-            x: 27
-            y: 787
+        AntiIceSwich {
+            id: swichWinHeatFwdL
+            x: 179
+            y: 102
+            swich2stateWarning.description: "FWD"
+            onClicked: {
+                ControlAntiIce.swichTogle("fwdWindL")
+            }
         }
 
-        WarningIndicator {
-            id: warningIndicator10
-            x: 698
-            y: 551
+        AntiIceSwich {
+            id: swichWinHeatFwdR
+            x: 539
+            y: 102
+            swich2stateWarning.description: "FWD"
+            onClicked: {
+                ControlAntiIce.swichTogle("fwdWindR")
+            }
         }
 
-        WarningIndicator {
-            id: warningIndicator11
-            x: 698
-            y: 630
+        AntiIceSwich {
+            id: swichWinHeatSideR
+            x: 687
+            y: 102
+            onClicked: {
+                ControlAntiIce.swichTogle("sideWindR")
+            }
         }
 
-        WarningIndicator {
-            id: warningIndicator12
-            x: 698
-            y: 708
-        }
+        Swich2noStateVert {
+            id: winHeatTester
+            x: 363
+            y: 143
+            text2: "PWR"
+            text1: "OVHT"
+            button1.onPressed: {
+                ControlAntiIce.swichTogle("ovhtTest")
+            }
+            button2.onPressed: {
+                ControlAntiIce.swichTogle("pwrTest")
+            }
+            button1.onReleased: {
+                reset()
+            }
+            button2.onReleased: {
+                reset()
+            }
+            function reset(){
+                ControlAntiIce.swichTogle("testReset")
+            }
 
-        WarningIndicator {
-            id: warningIndicator13
-            x: 698
-            y: 787
         }
     }
+    Connections{
+        target:ControlAntiIce
 
-
+    }
+    Connections{
+        target:AntiIceRender
+        function onSetAnnunciator(name,state){
+            switch(name){
+                case "lHeatSide":{
+                    swichWinHeatSideL.stateIndicator.status=state
+                break;
+                }
+                case "lHeatFwd":{
+                    swichWinHeatFwdL.stateIndicator.status=state
+                break;
+                }
+                case "rHeatFwd":{
+                    swichWinHeatFwdR.stateIndicator.status=state
+                break;
+                }
+                case "rHeatSide":{
+                    swichWinHeatSideR.stateIndicator.status=state
+                break;
+                }
+                case "ovhtLf":{
+                    swichWinHeatFwdL.swich2stateWarning.warningIndicator.status=state
+                break;
+                }
+                case "ovhtLs":{
+                    swichWinHeatSideL.swich2stateWarning.warningIndicator.status=state
+                break;
+                }
+                case "ovhtRf":{
+                    swichWinHeatFwdR.swich2stateWarning.warningIndicator.status=state
+                break;
+                }
+                case "ovhtRs":{
+                    swichWinHeatSideR.swich2stateWarning.warningIndicator.status=state
+                break;
+                }
+                case "capt_pitot_off":{
+                    warningCaptL.status=state
+                break;
+                }
+                case "capt_alpha":{
+                    warningAlphaL.status=state
+                break;
+                }
+                case "capt_elev":{
+                    warningElevL.status=state
+                break;
+                }
+                case "capt_temp":{
+                    warningTempL.status=state
+                break;
+                }
+                case "fo_pitot_off":{
+                    warningFOR.status=state
+                break;
+                }
+                case "fo_alpha":{
+                    warningAlphaR.status=state
+                break;
+                }
+                case "fo_elev":{
+                    warningElevR.status=state
+                break;
+                }
+                case "fo_aux":{
+                    warningAuxR.status=state
+                break;
+                }
+                case "cowl_ice_on_0":{
+                    infoCowlValveL.status=state
+                break;
+                }
+                case "cowl_ice_on_1":{
+                    infoCowlValveR.status=state
+                break;
+                }
+                case "wing_ice_on_L":{
+                    infoLValve.status=state
+                break;
+                }
+                case "wing_ice_on_R":{
+                    infoRValve.status=state
+                break;
+                }
+                case "cowl_ice_0":{
+                    swichEngAntiIceL.warningIndicator.status=state
+                break;
+                }
+                case "cowl_ice_1":{
+                    swichEngAntiIceR.warningIndicator.status=state
+                break;
+                }
+                default:{}
+            }
+        }
+        function onSetSwich(name,state){
+            switch(name){
+                case "sideL":{
+                    swichWinHeatSideL.swich2stateWarning.togled=state
+                break;
+                }
+                case "fwdL":{
+                   swichWinHeatFwdL.swich2stateWarning.togled=state
+                break;
+                }
+                case "fwdR":{
+                   swichWinHeatFwdR.swich2stateWarning.togled=state
+                break;
+                }
+                case "sideR":{
+                   swichWinHeatSideR.swich2stateWarning.togled=state
+                break;
+                }
+                case "heatL":{
+                   swichHeatL.swich2state.togled=state
+                break;
+                }
+                case "heatR":{
+                    swichHeatR.swich2state.togled=state
+                break;
+                }
+                case "wingHeat":{
+                    swichWingAntiIce.swich2state.togled=state
+                break;
+                }
+                case "engHeatR":{
+                    swichEngAntiIceR.swich2state.togled=state
+                break;
+                }
+                case "engHeatL":{
+                    swichEngAntiIceL.swich2state.togled=state
+                break;
+                }
+               
+                default:{}
+            }
+        }
+    }
 }
+
+
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.25}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}
-D{i:11}D{i:1}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}
-D{i:23}D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}
-D{i:35}D{i:36}D{i:37}D{i:12}
+    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:1}D{i:11}
+D{i:12}D{i:13}D{i:14}D{i:16}D{i:17}D{i:18}D{i:19}D{i:15}D{i:21}D{i:22}D{i:23}D{i:24}
+D{i:20}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:10}D{i:30}D{i:31}
 }
 ##^##*/

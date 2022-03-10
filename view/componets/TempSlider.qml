@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Slider {
     id: custSlider
-    width: 300
+    width: 437
     height: 40
     touchDragThreshold: 0
     property double pading: 0.5
@@ -30,7 +30,7 @@ Slider {
         gradient: Gradient {
             orientation: Gradient.Horizontal
             GradientStop { position: 0.0; color: "#00a8de" }
-            GradientStop { position: 0.5+deadZone; color: "white" }
+            GradientStop { position: 0.5; color: "white" }
             GradientStop { position: 1.0; color: "#ffea00" }
 
         }
@@ -48,12 +48,12 @@ Slider {
 
         Text {
             id: text2
-            x: deadZone*(to-from)* parent.width + (parent.width-deadZone*(to-from)* parent.width)/2
             text: qsTr("AUTO")
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 14
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
+            anchors.horizontalCenter: parent.horizontalCenter
         }
 
         Text {
@@ -113,6 +113,6 @@ Slider {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:3}
+    D{i:0;formeditorZoom:3}D{i:7}
 }
 ##^##*/

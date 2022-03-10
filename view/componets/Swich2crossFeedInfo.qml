@@ -9,7 +9,7 @@ Button {
     implicitHeight: 200
 
     property bool togled: false
-    property bool infoTogled: false
+    property alias infoValue: infoIndicator.status
     width: 150
 
 
@@ -30,7 +30,6 @@ Button {
         anchors.rightMargin: 0
         anchors.leftMargin: 0
         description:"VAL\nOPENED"
-        state:infoTogled?"on":""
     }
 }
 
