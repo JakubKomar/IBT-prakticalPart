@@ -15,6 +15,7 @@ from .rendMod._engineRender import EngineRender
 from .rendMod._flyControlRender import FLyControlRender
 from .rendMod._ligtsRender import LightsRender
 from .rendMod._renderWarnings import WarnigsRender
+from .rendMod._engineDataRender import EngineDataRender
 import time
 import model.libInit as client
 
@@ -34,7 +35,8 @@ class MainRanderControler(QObject):
             "EngineRender" : EngineRender(),
             "FLyControlRender" : FLyControlRender(),
             "LightsRender" : LightsRender(),
-            "WarningsRender":WarnigsRender()
+            "WarningsRender":WarnigsRender(),
+            "EngineDataRender":EngineDataRender()
         }
         # timer init
         self.timer = QTimer()
@@ -62,6 +64,7 @@ class MainRanderControler(QObject):
 
         if(self.moduleSelector == 0):
             refList.extend(self.subcontrolers["DashBoardRender"].requestRef())
+            refList.extend(self.subcontrolers["EngineDataRender"].requestRef())
         elif(self.moduleSelector == 1):
             refList.extend(self.subcontrolers["RenderFuel"].requestRef())
         elif(self.moduleSelector == 2):
@@ -78,10 +81,12 @@ class MainRanderControler(QObject):
             refList.extend(self.subcontrolers["LightsRender"].requestRef())
         elif(self.moduleSelector == 8):
             refList.extend(self.subcontrolers["EngineRender"].requestRef())
+            refList.extend(self.subcontrolers["EngineDataRender"].requestRef())
         elif(self.moduleSelector == 9):
             refList.extend(self.subcontrolers["FLyControlRender"].requestRef())
 
         refList = list(set(refList))
+        
         serverList = client.client.getDREFs(refList)
 
         dictionary = {refList[i]: serverList[i] for i in range(len(refList))}
@@ -90,6 +95,7 @@ class MainRanderControler(QObject):
         
         if(self.moduleSelector == 0):
             self.subcontrolers["DashBoardRender"].sendRef(dictionary)
+            self.subcontrolers["EngineDataRender"].sendRef(dictionary)
         elif(self.moduleSelector == 1):
             self.subcontrolers["RenderFuel"].sendRef(dictionary)
         elif(self.moduleSelector == 2):
@@ -106,6 +112,7 @@ class MainRanderControler(QObject):
             self.subcontrolers["LightsRender"].sendRef(dictionary)
         elif(self.moduleSelector == 8):
             self.subcontrolers["EngineRender"].sendRef(dictionary)
+            self.subcontrolers["EngineDataRender"].sendRef(dictionary)
         elif(self.moduleSelector == 9):
             self.subcontrolers["FLyControlRender"].sendRef(dictionary)
 

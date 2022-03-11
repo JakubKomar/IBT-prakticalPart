@@ -1,10 +1,12 @@
 to do list
 
-pipes transfer indication - better
-render isules when display disconected
+render isules when display disconected 
+motoring indication, reverser indication
 
 optional:
+pipes transfer indication - better
 temp sliders render,
+fuel alternative units - kg
 
 notes:
-    warnigy modulů přes referece sixpacku
+    

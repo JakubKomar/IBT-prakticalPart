@@ -3,7 +3,7 @@ import QtQuick 2.0
 Rectangle {
     id: horizontalIndicator
     width: 246
-    height: 67
+    height: 42
     color: "#000000"
     border.color: "#00000000"
     property alias digitalVal: digitalVal
@@ -22,7 +22,7 @@ Rectangle {
     property double maxKritikVal:maxValue
     Rectangle {
         id: rectangle
-        y: 35
+        y: 9
         width: 43
         height: 32
         color: "#00ffffff"
@@ -34,16 +34,12 @@ Rectangle {
 
         Text {
             id: digitalVal
-            color: inCritical()?"red":"#ffffff"
+            color: "#ffffff"
             text: value.toFixed(fixedDecimals)
             anchors.fill: parent
             font.pixelSize: 22
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            anchors.rightMargin: 0
-            anchors.bottomMargin: 0
-            anchors.leftMargin: 0
-            anchors.topMargin: 0
         }
     }
 
@@ -54,7 +50,6 @@ Rectangle {
         radius: 4
         border.color: "#ffffff"
         border.width: 2
-        anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.right: parent.right
         clip: true
@@ -120,8 +115,8 @@ Rectangle {
 
     Text {
         id: rightValue
-        x: 219
-        y: 41
+        x: 223
+        y: 19
         color: "#a3a3a3"
         text: inverted?minValue:maxValue
         anchors.right: parent.right
@@ -130,26 +125,9 @@ Rectangle {
     }
 
     Text {
-        id: name
-        y: 8
-        width: 165
-        height: 15
-        color: "#ffffff"
-        text: qsTr("Temp")
-        font.pixelSize: 12
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        anchors.horizontalCenterOffset: 1
-        font.underline: false
-        anchors.horizontalCenter: parent.horizontalCenter
-        font.family: "Verdana"
-        font.capitalization: Font.AllUppercase
-    }
-
-    Text {
         id: leftValue
         x: 217
-        y: 41
+        y: 19
         color: "#a3a3a3"
         text: inverted?maxValue:minValue
         anchors.left: parent.left
@@ -172,6 +150,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:4}D{i:2}D{i:1}D{i:5}D{i:6}D{i:7}D{i:4}D{i:3}D{i:8}D{i:9}D{i:10}
+    D{i:0;formeditorZoom:2;height:67;width:246}D{i:2}D{i:1}D{i:5}D{i:6}D{i:7}D{i:4}D{i:3}
+D{i:8}D{i:9}
 }
 ##^##*/

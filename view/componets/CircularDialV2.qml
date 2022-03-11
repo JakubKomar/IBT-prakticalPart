@@ -29,7 +29,8 @@ Item {
     property double startAng:50
     property double endAng:310
     property double difAng:endAng-startAng
-
+    property bool hideScale:false
+    property bool hideScaleText:false
 
     property bool warningTogle: false
     property bool errorTogle: false
@@ -109,6 +110,41 @@ Item {
                     sweepAngle: difAng
                 }
             }
+            ShapePath{
+                id:filed
+                strokeColor: "#00b9ff"
+                fillColor:"transparent"
+                strokeWidth:18
+                capStyle: ShapePath.RoundCap
+
+                PathAngleArc{
+                    radiusX: (dial.width/2)-(circleBackGround.strokeWidth/2)-1
+                    radiusY: (dial.height/2)-(circleBackGround.strokeWidth/2)-1
+                    centerX: dial.width/2
+                    centerY: dial.height/2
+                    startAngle: startAng
+
+                    sweepAngle: difAng*safeVal/(maxValue-minValue)
+                }
+            }
+        }
+        Item{
+            visible: !hideScaleText
+            Repeater{
+                id: largeScaleNums
+                model: parseInt((maxValue-minValue)/(bigStep))+1
+                delegate: Text {
+                    id:scaleNums
+                    color:"white"
+                    x:  dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-32) - scaleNums.width/2
+
+                    y:  dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-32) - scaleNums.height/2
+                    text:(minValue+ model.index*bigStep/numScale).toFixed(numFixed)+scaleText
+                }
+            }
+        }
+        Item{
+            visible: !hideScale
             Repeater{
                 id: largeScale
                 model: parseInt((maxValue-minValue)/(bigStep))+1
@@ -129,35 +165,6 @@ Item {
                     }
 
                 }
-            }
-            ShapePath{
-                id:filed
-                strokeColor: "#00b9ff"
-                fillColor:"transparent"
-                strokeWidth:18
-                capStyle: ShapePath.RoundCap
-
-                PathAngleArc{
-                    radiusX: (dial.width/2)-(circleBackGround.strokeWidth/2)-1
-                    radiusY: (dial.height/2)-(circleBackGround.strokeWidth/2)-1
-                    centerX: dial.width/2
-                    centerY: dial.height/2
-                    startAngle: startAng
-
-                    sweepAngle: difAng*safeVal/(maxValue-minValue)
-                }
-            }
-        }
-        Repeater{
-            id: largeScaleNums
-            model: parseInt((maxValue-minValue)/(bigStep))+1
-            delegate: Text {
-                id:scaleNums
-                color:"white"
-                x:  dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-32) - scaleNums.width/2
-
-                y:  dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-32) - scaleNums.height/2
-                text:(minValue+ model.index*bigStep/numScale).toFixed(numFixed)+scaleText
             }
         }
     }
@@ -180,11 +187,12 @@ Item {
     function toRadians (angle) {
         return angle * (Math.PI / 180);
     }
+
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:1;locked:true}D{i:4}D{i:6}D{i:8}D{i:12}D{i:3}D{i:14}
-D{i:2}
+    D{i:0;formeditorZoom:0.66}D{i:1;locked:true}D{i:4}D{i:6}D{i:8}D{i:3}D{i:11}D{i:10}
+D{i:14}D{i:13}D{i:2}
 }
 ##^##*/

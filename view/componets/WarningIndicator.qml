@@ -20,7 +20,8 @@ Item {
     Indicator{
        id: indicator
        anchors.fill: parent
-       offColorBc: "#160c00"
+       borderWidth: 2
+       offColorBc: "#000000"
        onColorBc: "#673600"
        onColor: "#ff8c00"
        offColor: "#271600"
