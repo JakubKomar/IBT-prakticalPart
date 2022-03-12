@@ -16,7 +16,7 @@ if __name__ == "__main__":
     # connect tp xplane 11
     estCon()
     # app init
-    app = QGuiApplication(sys.argv)
+    app = QGuiApplication()
     engine = QQmlApplicationEngine()
 
     # init backend

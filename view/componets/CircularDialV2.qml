@@ -35,17 +35,12 @@ Item {
     property bool warningTogle: false
     property bool errorTogle: false
 
-    state:{
-        if(errorTogle||value<minValue||value>maxValue){
-            "error"
-        }
-        else if(warningTogle){
-            "warning"
-        }
-        else{
-            ""
-        }
-    }
+    property int startRadiusOfScale:22
+    property int endRadiusOfScale:18
+    property int numRadiusOfScale:32
+
+    property double redVal: maxValue
+    property double orangeVal: maxValue
 
     width: 210
     height: 210
@@ -54,11 +49,6 @@ Item {
     antialiasing: true
     layer.enabled: true
     layer.samples: 8
-    Rectangle {
-        color:"black"
-        anchors.fill: parent
-
-    }
 
     Rectangle {
         id: dial
@@ -112,7 +102,12 @@ Item {
             }
             ShapePath{
                 id:filed
-                strokeColor: "#00b9ff"
+                strokeColor: if(value>redVal)
+                                 "red"
+                            else if(value>orangeVal)
+                                 "#ff9200"
+                            else
+                                 "#00b9ff"
                 fillColor:"transparent"
                 strokeWidth:18
                 capStyle: ShapePath.RoundCap
@@ -136,9 +131,9 @@ Item {
                 delegate: Text {
                     id:scaleNums
                     color:"white"
-                    x:  dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-32) - scaleNums.width/2
+                    x:  dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-numRadiusOfScale) - scaleNums.width/2
 
-                    y:  dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-32) - scaleNums.height/2
+                    y:  dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-numRadiusOfScale) - scaleNums.height/2
                     text:(minValue+ model.index*bigStep/numScale).toFixed(numFixed)+scaleText
                 }
             }
@@ -152,12 +147,12 @@ Item {
                     property ShapePath s: ShapePath{
                         strokeWidth: 2
                         strokeColor: "#b9b9b9"
-                        startX: dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-18)
-                        startY: dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.height/2-18)
+                        startX: dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-startRadiusOfScale)
+                        startY: dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.height/2-startRadiusOfScale)
                         PathLine{
-                            x:  dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-22)
+                            x:  dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-endRadiusOfScale)
 
-                            y:  dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-22)
+                            y:  dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-endRadiusOfScale)
                         }
                         Component.onCompleted: {
                             circle.data.push(s)
@@ -168,22 +163,6 @@ Item {
             }
         }
     }
-    states: [
-        State {
-            name: "warning"
-            PropertyChanges {
-                target: filed
-                strokeColor: "orange"
-            }
-        },
-        State {
-            name: "error"
-            PropertyChanges {
-                target: filed
-                strokeColor: "red"
-            }
-        }
-    ]
     function toRadians (angle) {
         return angle * (Math.PI / 180);
     }
@@ -192,7 +171,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:1;locked:true}D{i:4}D{i:6}D{i:8}D{i:3}D{i:11}D{i:10}
-D{i:14}D{i:13}D{i:2}
+    D{i:0;formeditorZoom:0.66}D{i:3}D{i:5}D{i:7}D{i:2}D{i:10}D{i:9}D{i:13}D{i:12}D{i:1}
 }
 ##^##*/

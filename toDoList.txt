@@ -1,11 +1,11 @@
 to do list
 
-render isules when display disconected 
-motoring indication, reverser indication
+thread exiting isule
+egt warn/kritick vals
 
 optional:
 pipes transfer indication - better
-temp sliders render,
+temp sliders pozition render,
 fuel alternative units - kg
 
 notes:

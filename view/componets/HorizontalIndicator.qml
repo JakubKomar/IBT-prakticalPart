@@ -3,7 +3,7 @@ import QtQuick 2.0
 Rectangle {
     id: horizontalIndicator
     width: 246
-    height: 42
+    height: 44
     color: "#000000"
     border.color: "#00000000"
     property alias digitalVal: digitalVal
@@ -20,6 +20,11 @@ Rectangle {
     property double minKritikVal:minValue
     property bool maxKritikValEneb: false
     property double maxKritikVal:maxValue
+
+    property bool minWarnValEneb: false
+    property double minWarnVal:minValue
+    property bool maxWarnValEneb: false
+    property double maxWarnVal:maxValue
     Rectangle {
         id: rectangle
         y: 9
@@ -70,7 +75,7 @@ Rectangle {
 
             Rectangle {
                 id: indicator
-                color: inCritical()?"red":"#0069ff"
+                color: inCritical()?"red":inWarn()?"#FF9900":"#0069ff"
                 radius: 4
                 anchors.left: parent.left
                 anchors.top: parent.top
@@ -80,16 +85,18 @@ Rectangle {
                 anchors.topMargin: 0
 
                 width:{
-                    if((parent.width/(maxValue-minValue))*value>parent.width)
+                    if(((parent.width/(maxValue-minValue))*(value-minValue))>parent.width)
                         parent.width
+                    else if(((parent.width/(maxValue-minValue))*(value-minValue))<0)
+                        0
                     else
-                        (parent.width/(maxValue-minValue))*value
+                        (parent.width/(maxValue-minValue))*(value-minValue)
                 }
             }
 
             Rectangle {
                 id: rightStop
-                x: (parent.width/(maxValue-minValue))*maxKritikVal-2
+                x: (parent.width/(maxValue-minValue))*(maxKritikVal-minValue)-2
                 width: 2
                 color: "#c80000"
                 anchors.top: parent.top
@@ -100,7 +107,7 @@ Rectangle {
             }
             Rectangle {
                 id: leftStop
-                x: (parent.width/(maxValue-minValue))*minKritikVal+2
+                x: (parent.width/(maxValue-minValue))*(minKritikVal-minValue)+2
                 width: 2
                 color: "#c80000"
                 anchors.top: parent.top
@@ -108,6 +115,28 @@ Rectangle {
                 anchors.topMargin: 0
                 anchors.bottomMargin: 0
                 visible: minKritikValEneb
+            }
+            Rectangle {
+                id: rightWarnStop
+                x: (parent.width/(maxValue-minValue))*(maxWarnVal-minValue)-2
+                width: 2
+                color: "#FF9900"
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.topMargin: 0
+                anchors.bottomMargin: 0
+                visible: maxWarnValEneb
+            }
+            Rectangle {
+                id: leftWarnStop
+                x: (parent.width/(maxValue-minValue))*(minWarnVal-minValue)+2
+                width: 2
+                color: "#FF9900"
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.topMargin: 0
+                anchors.bottomMargin: 0
+                visible: minWarnValEneb
             }
         }
     }
@@ -143,6 +172,15 @@ Rectangle {
         else
             return false
     }
+    function inWarn(){
+
+        if(minWarnValEneb && (value<minWarnVal))
+            return true
+        else if (maxWarnValEneb && (value>maxWarnVal))
+            return true
+        else
+            return false
+    }
 
 
 
@@ -150,7 +188,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:2;height:67;width:246}D{i:2}D{i:1}D{i:5}D{i:6}D{i:7}D{i:4}D{i:3}
-D{i:8}D{i:9}
+    D{i:0;height:44;width:246}D{i:2}D{i:1}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:3}D{i:10}
+D{i:11}
 }
 ##^##*/

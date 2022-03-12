@@ -1,7 +1,8 @@
 # This Python file uses the following encoding: utf-8
 
 from typing import Dict
-from PySide6.QtCore import QObject, Slot, Signal, QTimer
+from PySide6.QtCore import QObject, Slot, Signal, QTimer, QThread
+
 
 from .rendMod._fuelRender import RenderFuel
 from .rendMod._bleedRender import RenderBleed
@@ -19,10 +20,10 @@ from .rendMod._engineDataRender import EngineDataRender
 import time
 import model.libInit as client
 
-class MainRanderControler(QObject):
+class MainRanderControler(QThread):
 
     def __init__(self, fps=20):
-        QObject.__init__(self)
+        QThread.__init__(self)
 
         self.moduleSelector = 0
         self.subcontrolers = {"RenderFuel": RenderFuel(),
@@ -39,21 +40,22 @@ class MainRanderControler(QObject):
             "EngineDataRender":EngineDataRender()
         }
         # timer init
-        self.timer = QTimer()
-        self.timer.timeout.connect(lambda: self.renderLoop())
-        self.timer.start(int(1000/fps))
+        #self.timer = QTimer()
+        #self.timer.timeout.connect(lambda: self.run())
+        #self.timer.start(int(1000/fps))
+
 
     setConnStatus = Signal(bool)
 
-    def renderLoop(self):
-        try:
-            self.loop()
-            self.setConnStatus.emit(False)
-        except WindowsError as EX:
-            self.setConnStatus.emit(True)
-        # except Exception as EX:
-        #    ...
-        #    print(EX)
+    def run(self):
+        while True:
+            try:
+                self.loop()
+                self.setConnStatus.emit(False)
+            except WindowsError:
+                self.setConnStatus.emit(True)
+            except Exception as EX:
+                print(EX)
 
     lastData=[]
 

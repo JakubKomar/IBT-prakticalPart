@@ -9,8 +9,8 @@ class ControlSetings(QObject):
     def __init__(self):
         QObject.__init__(self)
 
-    @Slot(str,str,str,str)
-    def setConnection(self,xpHost, xpPort, port, timeout):
+    @Slot(str, str, str, str)
+    def setConnection(self, xpHost, xpPort, port, timeout):
         client.client.close()
         client.estCon(xpHost, int(xpPort), int(port), int(timeout))
 

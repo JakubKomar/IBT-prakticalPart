@@ -10,11 +10,13 @@ Item {
 
     property double value: 400
     property double maxValue: 750
+    property double redVal: maxValue
+    property double orangeVal: maxValue
     property double minValue: 0
-    property double warningValue: 700
-    state:value>warningValue?"low":""
-    property string labelText:"def"
+    property color fillCol: "#00b9ff"
     property int strWidth:20
+    property int startAng:40
+    property int sweepAng:280
     smooth: true
     antialiasing: true
 
@@ -41,9 +43,9 @@ Item {
                     radiusY: (dial.height/2)-(circleBorder.strokeWidth/2)
                     centerX: dial.width/2
                     centerY: dial.height/2
-                    startAngle: 40
+                    startAngle: startAng
 
-                    sweepAngle: 280
+                    sweepAngle: sweepAng
                 }
             }
 
@@ -59,14 +61,19 @@ Item {
                     radiusY: (dial.height/2)-(circleBackGround.strokeWidth/2)-1
                     centerX: dial.width/2
                     centerY: dial.height/2
-                    startAngle: 40
+                    startAngle: startAng
 
-                    sweepAngle: 280
+                    sweepAngle: sweepAng
                 }
             }
             ShapePath{
                 id:filed
-                strokeColor: "#00b9ff"
+                strokeColor: if(value>redVal)
+                                 "red"
+                            else if(value>orangeVal)
+                                 "#ff9200"
+                            else
+                                 fillCol
                 fillColor:"transparent"
                 strokeWidth:strWidth-2
                 capStyle: ShapePath.RoundCap
@@ -76,9 +83,12 @@ Item {
                     radiusY: (dial.height/2)-(circleBackGround.strokeWidth/2)-1
                     centerX: dial.width/2
                     centerY: dial.height/2
-                    startAngle: 40
+                    startAngle: startAng
 
-                    sweepAngle: 280*value/(maxValue-minValue)
+                    sweepAngle: if(sweepAng*value/(maxValue-minValue)>sweepAng)
+                                    sweepAng
+                                else
+                                    sweepAng*value/(maxValue-minValue)
                 }
             }
             Path {
@@ -87,16 +97,7 @@ Item {
                 PathLine { x: 200; y: 100 }
             }
         }
-    }
-    states: [
-        State {
-            name: "low"
-            PropertyChanges {
-                target: filed
-                strokeColor: "orange"
-            }
-        }
-    ]
+    }  
 }
 
 /*##^##
