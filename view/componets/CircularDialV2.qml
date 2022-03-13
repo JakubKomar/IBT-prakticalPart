@@ -5,8 +5,8 @@ Item {
     id: circularDialV2
 
 
-    implicitHeight: 220
-    implicitWidth:  220
+    height: 220
+    width:  220
 
     property double value: 40
     property double maxValue: 80
@@ -42,8 +42,9 @@ Item {
     property double redVal: maxValue
     property double orangeVal: maxValue
 
-    width: 210
-    height: 210
+    property bool redValEneb:false
+    property bool orangeValEneb:false
+
     property alias dial: dial
     smooth: true
     antialiasing: true
@@ -122,6 +123,32 @@ Item {
                     sweepAngle: difAng*safeVal/(maxValue-minValue)
                 }
             }
+            ShapePath {
+                id:kritStop
+                strokeColor: redValEneb? "red":"transparent"
+                strokeWidth: 2
+                fillColor: "transparent"
+
+                startX: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxVal- minVal))*redVal))* (dial.width/2-circleBackGround.strokeWidth)
+                startY: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxVal- minVal))*redVal))* (dial.height/2-circleBackGround.strokeWidth)
+                PathLine {
+                    x: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxVal- minVal))*redVal))* (dial.width/2+5)
+                    y: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxVal- minVal))*redVal))* (dial.height/2+5)
+                }
+            }
+            ShapePath {
+                id:warStop
+                strokeColor: orangeValEneb? "orange":"transparent"
+                strokeWidth: 2
+                fillColor: "transparent"
+
+                startX: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxVal- minVal))*orangeVal))* (dial.width/2-circleBackGround.strokeWidth)
+                startY: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxVal- minVal))*orangeVal))* (dial.height/2-circleBackGround.strokeWidth)
+                PathLine {
+                    x: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxVal- minVal))*orangeVal))* (dial.width/2+5)
+                    y: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxVal- minVal))*orangeVal))* (dial.height/2+5)
+                }
+            }
         }
         Item{
             visible: !hideScaleText
@@ -161,7 +188,7 @@ Item {
 
                 }
             }
-        }
+        }      
     }
     function toRadians (angle) {
         return angle * (Math.PI / 180);
@@ -171,6 +198,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:3}D{i:5}D{i:7}D{i:2}D{i:10}D{i:9}D{i:13}D{i:12}D{i:1}
+    D{i:0;formeditorZoom:0.66}D{i:3}D{i:5}D{i:7}D{i:2}D{i:10}D{i:9}D{i:13}D{i:12}D{i:17}
+D{i:19}D{i:1}
 }
 ##^##*/

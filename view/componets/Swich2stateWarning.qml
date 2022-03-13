@@ -11,7 +11,7 @@ Button {
     implicitHeight: 200
 
     property alias togled: swich2state.togled
-    property bool warningTogle: false
+    property double warningTogle: 0
     property string description:"dawdwa"
 
     background: Rectangle {
@@ -39,7 +39,7 @@ Button {
             textHeight: 28
             width:parent.width
             warText: "LOW\nPRESSURE"
-            state:warningTogle?"on":""
+            status: warningTogle
         }
     }
 }

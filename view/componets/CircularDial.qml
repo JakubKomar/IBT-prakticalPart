@@ -4,7 +4,6 @@ import QtQuick.Shapes
 Item {
     id: circularDial
 
-
     height: 210
     width:  210
 
@@ -17,6 +16,8 @@ Item {
     property int strWidth:20
     property int startAng:40
     property int sweepAng:280
+    property bool redValEneb:false
+    property bool orangeValEneb:false
     smooth: true
     antialiasing: true
 
@@ -91,17 +92,41 @@ Item {
                                     sweepAng*value/(maxValue-minValue)
                 }
             }
-            Path {
+            ShapePath {
+                id:kritStop
+                strokeColor:redValEneb? "red":"transparent"
+                strokeWidth: 2
+                fillColor: "transparent"
 
-                startX: 169; startY: 177
-                PathLine { x: 200; y: 100 }
+                startX: circularDial.width/2+ Math.cos(toRadians(startAng+(sweepAng/(maxVal- minVal))*redVal))* (circularDial.width/2-strWidth)
+                startY: circularDial.height/2+Math.sin(toRadians(startAng+(sweepAng/(maxVal- minVal))*redVal))* (circularDial.height/2-strWidth)
+                PathLine {
+                    x: circularDial.width/2+ Math.cos(toRadians(startAng+(sweepAng/(maxVal- minVal))*redVal))* (circularDial.width/2+5)
+                    y: circularDial.height/2+Math.sin(toRadians(startAng+(sweepAng/(maxVal- minVal))*redVal))* (circularDial.height/2+5)
+                }
+            }
+            ShapePath {
+                id:warStop
+                strokeColor:orangeValEneb? "orange":"transparent"
+                strokeWidth: 2
+                fillColor: "transparent"
+
+                startX: circularDial.width/2+ Math.cos(toRadians(startAng+(sweepAng/(maxVal- minVal))*orangeVal))* (circularDial.width/2-strWidth)
+                startY: circularDial.height/2+Math.sin(toRadians(startAng+(sweepAng/(maxVal- minVal))*orangeVal))* (circularDial.height/2-strWidth)
+                PathLine {
+                    x: circularDial.width/2+ Math.cos(toRadians(startAng+(sweepAng/(maxVal- minVal))*orangeVal))* (circularDial.width/2+5)
+                    y: circularDial.height/2+Math.sin(toRadians(startAng+(sweepAng/(maxVal- minVal))*orangeVal))* (circularDial.height/2+5)
+                }
             }
         }
     }  
+    function toRadians (angle) {
+        return angle * (Math.PI / 180);
+    }
 }
 
 /*##^##
 Designer {
-    D{i:0;height:210;width:210}D{i:3}D{i:5}D{i:7}D{i:9}D{i:2}D{i:1}
+    D{i:0;height:210;width:210}D{i:3}D{i:5}D{i:7}D{i:9}D{i:11}D{i:2}D{i:1}
 }
 ##^##*/

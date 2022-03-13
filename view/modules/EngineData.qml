@@ -56,7 +56,7 @@ Rectangle {
 
     Text {
         id: text1
-        x: 207
+        x: 240
         y: 8
         color: "#ffffff"
         text: qsTr("ENGINE 1")
@@ -65,8 +65,8 @@ Rectangle {
 
     Text {
         id: text2
-        x: 543
-        y: 0
+        x: 527
+        y: 8
         color: "#ffffff"
         text: qsTr("ENGINE 2")
         font.pixelSize: 28
@@ -146,17 +146,6 @@ Rectangle {
             }
 
             HorizontalIndicator {
-                id: vibL
-                maxWarnValEneb: true
-                maxWarnVal: 4
-                value: 1.6
-                fixedDecimals: 1
-                maxValue: 5
-                inverted: true
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            HorizontalIndicator {
                 id: oilQtyL
                 minWarnValEneb: true
                 minKritikVal: 5
@@ -167,6 +156,18 @@ Rectangle {
                 inverted: true
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
+            HorizontalIndicator {
+                id: vibL
+                maxWarnValEneb: true
+                maxWarnVal: 4
+                value: 1.6
+                fixedDecimals: 1
+                maxValue: 5
+                inverted: true
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
         }
 
 
@@ -247,16 +248,6 @@ Rectangle {
             }
 
             HorizontalIndicator {
-                id: vibR
-                maxWarnValEneb: true
-                maxWarnVal: 4
-                value: 1.6
-                fixedDecimals: 1
-                maxValue: 5
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            HorizontalIndicator {
                 id: oilQtyR
                 minWarnValEneb: true
                 minKritikVal: 5
@@ -267,6 +258,17 @@ Rectangle {
                 inverted: false
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
+            HorizontalIndicator {
+                id: vibR
+                maxWarnValEneb: true
+                maxWarnVal: 4
+                value: 1.6
+                fixedDecimals: 1
+                maxValue: 5
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
         }
 
 
@@ -635,9 +637,9 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:1}D{i:7}D{i:8}D{i:10}
-D{i:11}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:12}D{i:9}D{i:19}D{i:20}D{i:22}D{i:23}
-D{i:24}D{i:25}D{i:26}D{i:21}D{i:18}D{i:27}D{i:28}D{i:29}D{i:30}D{i:32}D{i:33}D{i:34}
-D{i:35}D{i:36}D{i:31}D{i:37}D{i:38}D{i:39}
+    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:1}D{i:7}D{i:8}D{i:10}D{i:11}
+D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:12}D{i:9}D{i:19}D{i:20}D{i:22}D{i:23}D{i:24}
+D{i:25}D{i:26}D{i:21}D{i:18}D{i:27}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:28}D{i:34}
+D{i:35}D{i:37}D{i:38}D{i:39}D{i:40}D{i:41}D{i:36}D{i:42}D{i:43}D{i:44}
 }
 ##^##*/

@@ -1,7 +1,7 @@
 # This Python file uses the following encoding: utf-8
 
 from typing import Dict
-from PySide6.QtCore import QObject, Slot, Signal, QTimer, QThread
+from PySide6.QtCore import  Slot, Signal, QThread
 
 
 from .rendMod._fuelRender import RenderFuel
@@ -17,15 +17,14 @@ from .rendMod._flyControlRender import FLyControlRender
 from .rendMod._ligtsRender import LightsRender
 from .rendMod._renderWarnings import WarnigsRender
 from .rendMod._engineDataRender import EngineDataRender
-import time
+
 import model.libInit as client
 
 class MainRanderControler(QThread):
 
-    def __init__(self, fps=20):
+    def __init__(self):
         QThread.__init__(self)
 
-        self.moduleSelector = 0
         self.subcontrolers = {"RenderFuel": RenderFuel(),
             "RenderBleed" : RenderBleed(),
             "RenderTemp" : TempRender(),
@@ -39,11 +38,6 @@ class MainRanderControler(QThread):
             "WarningsRender":WarnigsRender(),
             "EngineDataRender":EngineDataRender()
         }
-        # timer init
-        #self.timer = QTimer()
-        #self.timer.timeout.connect(lambda: self.run())
-        #self.timer.start(int(1000/fps))
-
 
     setConnStatus = Signal(bool)
 
@@ -57,42 +51,58 @@ class MainRanderControler(QThread):
             except Exception as EX:
                 print(EX)
 
-    lastData=[]
+    refList=[]
+    poisonRefList=True
+    moduleSelector = 0
+    moduleSelectorPicker = 0
 
     def loop(self):
-        refList=[]
+        if self.poisonRefList:
+            self.actualizateRefList()
 
-        refList.extend(self.subcontrolers["WarningsRender"].requestRef())
+        serverList = client.client.getDREFs(self.refList)
+        dictionary = {self.refList[i]: serverList[i] for i in range(len(self.refList))}
+
+        self.sendRefs(dictionary)
+
+    @Slot(int)
+    def setModuleSelector(self, modID):
+        self.moduleSelectorPicker = modID
+        self.poisonRefList=True
+
+    def actualizateRefList(self):
+        self.moduleSelector=self.moduleSelectorPicker
+        self.refList=[]
+
+        self.refList.extend(self.subcontrolers["WarningsRender"].requestRef())
 
         if(self.moduleSelector == 0):
-            refList.extend(self.subcontrolers["DashBoardRender"].requestRef())
-            refList.extend(self.subcontrolers["EngineDataRender"].requestRef())
+            self.refList.extend(self.subcontrolers["DashBoardRender"].requestRef())
+            self.refList.extend(self.subcontrolers["EngineDataRender"].requestRef())
         elif(self.moduleSelector == 1):
-            refList.extend(self.subcontrolers["RenderFuel"].requestRef())
+            self.refList.extend(self.subcontrolers["RenderFuel"].requestRef())
         elif(self.moduleSelector == 2):
-            refList.extend(self.subcontrolers["RenderBleed"].requestRef())
+            self.refList.extend(self.subcontrolers["RenderBleed"].requestRef())
         elif(self.moduleSelector == 3):
-            refList.extend(self.subcontrolers["RenderTemp"].requestRef())
+            self.refList.extend(self.subcontrolers["RenderTemp"].requestRef())
         elif(self.moduleSelector == 4):
-            refList.extend(self.subcontrolers["RenderDoor"].requestRef())
+            self.refList.extend(self.subcontrolers["RenderDoor"].requestRef())
         elif(self.moduleSelector == 5):
-            refList.extend(self.subcontrolers["RenderElectrical"].requestRef())
+            self.refList.extend(self.subcontrolers["RenderElectrical"].requestRef())
         elif(self.moduleSelector == 6):
-            refList.extend(self.subcontrolers["AntiIceRender"].requestRef())
+            self.refList.extend(self.subcontrolers["AntiIceRender"].requestRef())
         elif(self.moduleSelector == 7):
-            refList.extend(self.subcontrolers["LightsRender"].requestRef())
+            self.refList.extend(self.subcontrolers["LightsRender"].requestRef())
         elif(self.moduleSelector == 8):
-            refList.extend(self.subcontrolers["EngineRender"].requestRef())
-            refList.extend(self.subcontrolers["EngineDataRender"].requestRef())
+            self.refList.extend(self.subcontrolers["EngineRender"].requestRef())
+            self.refList.extend(self.subcontrolers["EngineDataRender"].requestRef())
         elif(self.moduleSelector == 9):
-            refList.extend(self.subcontrolers["FLyControlRender"].requestRef())
+            self.refList.extend(self.subcontrolers["FLyControlRender"].requestRef())
 
-        refList = list(set(refList))
-        
-        serverList = client.client.getDREFs(refList)
+        self.refList = list(set(self.refList))
+        self.poisonRefList=False
 
-        dictionary = {refList[i]: serverList[i] for i in range(len(refList))}
-
+    def sendRefs(self, dictionary):
         self.subcontrolers["WarningsRender"].sendRef(dictionary)
         
         if(self.moduleSelector == 0):
@@ -118,8 +128,6 @@ class MainRanderControler(QThread):
         elif(self.moduleSelector == 9):
             self.subcontrolers["FLyControlRender"].sendRef(dictionary)
 
-    @Slot(int)
-    def setModuleSelector(self, modID):
-        self.moduleSelector = modID
+
 
 

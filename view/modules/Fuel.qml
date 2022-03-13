@@ -844,11 +844,11 @@ Item {
                 break;
             }
             case "lfpC1":{
-                pumpCTR_L.warningTogle = state
+                pumpCTR_L.warningTogle  = state
                 break;
             }
             case "lfpC2":{
-                pumpCTR_R.warningTogle = state
+                pumpCTR_R.warningTogle  = state
                 break;
             }
             case "lfpL1":{

@@ -1,5 +1,5 @@
 import QtQuick
-import QtQuick.Shapes
+
 
 Item {
     id:circularDialEgt
@@ -14,6 +14,8 @@ Item {
     CircularDial {
         id: circularDial
         anchors.fill: parent
+        redValEneb: true
+        orangeValEneb: true
         orangeVal: warVal
         redVal: kriticVal
         maxValue: maxVal
@@ -31,38 +33,12 @@ Item {
         fixedVal: 0
         texHeight: 50
     }
-    ShapePath {
-        strokeColor: "red"
-        strokeWidth: 16
-        fillColor: "transparent"
-        capStyle: ShapePath.RoundCap
-
-        property int joinStyleIndex: 0
-
-        property variant styles: [
-            ShapePath.BevelJoin,
-            ShapePath.MiterJoin,
-            ShapePath.RoundJoin
-        ]
-
-        joinStyle: styles[joinStyleIndex]
-
-        startX: 30
-        startY: 30
-        PathLine { x: 100; y: 100 }
-        PathLine { x: 30; y: 100 }
-    }
-
-    function toRadians (angle) {
-        return angle * (Math.PI / 180);
-    }
-
 }
 
 
 
 /*##^##
 Designer {
-    D{i:0;height:220;width:220}D{i:1}D{i:2}D{i:3}
+    D{i:0;height:220;width:220}D{i:1}D{i:2}
 }
 ##^##*/

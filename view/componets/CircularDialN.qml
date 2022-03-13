@@ -60,6 +60,7 @@ Rectangle {
     CircularDialV2 {
         id: circularDialV2
         anchors.fill: parent
+        redValEneb: true
         orangeVal: 999
         endRadiusOfScale: 16
         numRadiusOfScale: 34

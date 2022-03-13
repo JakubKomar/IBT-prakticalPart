@@ -179,7 +179,6 @@ Rectangle {
             anchors.top: parent.top
             swich2state.onColor: "#ffae00"
             description: "SUPLY\nFAN"
-            warningTogle: false
             togled: false
             warningIndicator.warText: "OFF"
             anchors.topMargin: 100
