@@ -50,8 +50,8 @@ class MainRanderControler(QThread):
                 self.setConnStatus.emit(False)
             except WindowsError:
                 self.setConnStatus.emit(True)
-            #except Exception as EX:
-               # print(EX)
+            except Exception as EX:
+                print(EX)
 
     refList=[]
     poisonRefList=True
