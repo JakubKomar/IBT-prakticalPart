@@ -7,18 +7,6 @@ Rectangle {
     height: 1060
     color: "#000000"
 
-    HorizontalIndicator {
-        id: horizontalIndicator
-        x: 310
-        y: 307
-        value: 80.8
-        maxValue: 100
-        maxKritikValEneb: true
-        minKritikValEneb: true
-        maxKritikVal: 88.3
-        minKritikVal: 6.5
-    }
-
     Rectangle {
         id: rightSide
         x: parent.width/2
@@ -46,12 +34,19 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
         anchors.topMargin: 0
+
+        FuelPanel {
+            id: fuelPanel
+            y: 828
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.horizontalCenterOffset: 0
+        }
     }
 }
 
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:1}D{i:3}D{i:2}D{i:4}
+    D{i:0;formeditorZoom:0.5}D{i:2}D{i:1}D{i:4}D{i:3}
 }
 ##^##*/

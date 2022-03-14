@@ -55,6 +55,7 @@ Rectangle {
             id: cont
             anchors.left: parent.left
             anchors.right: parent.right
+            warningIndicator.status: 0
             verticaIndicatorDouble.text2.horizontalAlignment: Text.AlignHCenter
             verticaIndicatorDouble.text2.text: "DUC"
             description.text: "CONT"
@@ -67,6 +68,7 @@ Rectangle {
             id: fwd
             anchors.left: parent.left
             anchors.right: parent.right
+            warningIndicator.status: 0
             description.text: "FWD"
             anchors.rightMargin: 0
             anchors.leftMargin: 0
@@ -77,6 +79,7 @@ Rectangle {
             id: aft
             anchors.left: parent.left
             anchors.right: parent.right
+            warningIndicator.status: 0
             description.text: "AFT"
             anchors.rightMargin: 0
             anchors.leftMargin: 0

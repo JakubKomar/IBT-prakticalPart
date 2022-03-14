@@ -3,11 +3,12 @@ import QtQuick.Controls
 
 Item {
     id: swich3pos
-    height: 100
+    height: 350
+    property alias button4: button4
     property alias button3: button3
     property alias button2: button2
     property alias button1: button1
-    width: 300
+    width: 123
     property color activeBackGroundCol: "white"
     property color backGroundCol: "#414141"
     property color activeBorderCol: "#00b9ff"
@@ -17,26 +18,21 @@ Item {
     property int radiusButt:4
 
     property int position: 0
-    property string textPos1:"OFF"
+    property string textPos1:"GRD"
     property string textPos2:"AUTO"
-    property string textPos3:"ON"
+    property string textPos3:"CONT"
+    property string textPos4:"FLT"
     property int textWidth:36
 
-    Row {
+    Column {
         id: row
         anchors.fill: parent
-        bottomPadding: 0
-        rightPadding: 0
-        leftPadding: 0
-        spacing: 0
+
 
         Button {
             id: button1
-            width: parent.width/3
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 0
-            anchors.topMargin: 0
+            width: parent.width
+            height:parent.height/4
             background: Rectangle{
                 color: position==0?activeBackGroundCol:backGroundCol
                 radius: radiusButt
@@ -61,11 +57,8 @@ Item {
 
         Button {
             id: button2
-            width: parent.width/3
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 0
-            anchors.topMargin: 0
+            width: parent.width
+            height:parent.height/4
 
             background: Rectangle{
                 radius: radiusButt
@@ -89,11 +82,8 @@ Item {
 
         Button {
             id: button3
-            width: parent.width/3
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 0
-            anchors.topMargin: 0
+            width: parent.width
+            height:parent.height/4
 
             background: Rectangle{
                 radius: radiusButt
@@ -114,13 +104,33 @@ Item {
                 font.family: "Verdana"
             }
         }
+        Button {
+            id: button4
+            width: parent.width
+            height:parent.height/4
+
+            background: Rectangle{
+                radius: radiusButt
+                border.width: 3
+                color: position==3?activeBackGroundCol:backGroundCol
+                border.color: position==2?activeBorderCol:borderCol
+                anchors.fill: parent
+            }
+
+            Text {
+                id: text4
+                color: position==3?activeTextCol:textCol
+                text: textPos4
+                anchors.fill: parent
+                font.pixelSize: textWidth
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.family: "Verdana"
+            }
+        }
     }
 }
 
 
 
-/*##^##
-Designer {
-    D{i:0;height:108;width:313}D{i:4}D{i:2}D{i:7}D{i:5}D{i:10}D{i:8}D{i:1}
-}
-##^##*/
+

@@ -43,6 +43,7 @@ Rectangle {
     CircularDial {
         id: circularDial
         anchors.fill: parent
+        orangeValEneb: true
         redVal: 105
         value: n2
         orangeVal: 103

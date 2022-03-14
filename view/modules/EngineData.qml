@@ -10,6 +10,13 @@ Rectangle {
     color: "#000000"
     border.color: "#ffffff"
 
+    ModuleDescription {
+        id: moduleDescription
+        y: 0
+        description: "ENGINE STATUS"
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
     Column {
         id: column
         x: 8
@@ -52,24 +59,7 @@ Rectangle {
             status: 0
         }
 
-    }
 
-    Text {
-        id: text1
-        x: 240
-        y: 8
-        color: "#ffffff"
-        text: qsTr("ENGINE 1")
-        font.pixelSize: 28
-    }
-
-    Text {
-        id: text2
-        x: 527
-        y: 8
-        color: "#ffffff"
-        text: qsTr("ENGINE 2")
-        font.pixelSize: 28
     }
 
     Column {
@@ -79,6 +69,14 @@ Rectangle {
         width: 235
         height: 1011
         spacing: 18
+
+        Text {
+            id: text1
+            color: "#ffffff"
+            text: qsTr("ENGINE 1")
+            font.pixelSize: 28
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
 
         CircularDialN {
             id: n1L
@@ -91,7 +89,7 @@ Rectangle {
             id: egtL
             width: 220
             height: 220
-            value: 24.8
+            value: 893.8
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
@@ -177,6 +175,7 @@ Rectangle {
 
 
 
+
     }
 
     Column {
@@ -185,6 +184,14 @@ Rectangle {
         y: 52
         width: 235
         height: 1011
+        Text {
+            id: text2
+            color: "#ffffff"
+            text: qsTr("ENGINE 2")
+            font.pixelSize: 28
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
         CircularDialN {
             id: n1R
             x: -20
@@ -203,6 +210,7 @@ Rectangle {
             id: egtR
             width: 220
             height: 220
+            value: 103.6
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
@@ -272,12 +280,13 @@ Rectangle {
         }
 
 
+
         spacing: 18
     }
 
     Text {
         id: text4
-        y: 388
+        y: 467
         width: 77
         color: "#00cdff"
         text: qsTr("EGT")
@@ -291,7 +300,7 @@ Rectangle {
 
     Text {
         id: text5
-        y: 557
+        y: 609
         width: 77
         color: "#00cdff"
         text: qsTr("FF")
@@ -357,7 +366,7 @@ Rectangle {
 
     Text {
         id: text7
-        y: 624
+        y: 676
         width: 77
         color: "#00cdff"
         text: qsTr("OIL\nPRESS")
@@ -371,7 +380,7 @@ Rectangle {
 
     Text {
         id: text10
-        y: 888
+        y: 940
         width: 77
         color: "#00cdff"
         text: qsTr("VIB")
@@ -502,6 +511,15 @@ Rectangle {
                 vibL.value=val
                 break;
             }
+            case"tat": {
+                if(val>0.999)
+                    tat.text="+"+ val.toFixed(0)
+                else
+                    tat.text=val.toFixed(0)
+                break;
+            }
+
+
             default:{}
             }
         }
@@ -607,7 +625,7 @@ Rectangle {
 
     Text {
         id: text11
-        y: 699
+        y: 751
         width: 77
         color: "#00cdff"
         text: qsTr("OIL\nTEMP")
@@ -621,7 +639,7 @@ Rectangle {
 
     Text {
         id: text12
-        y: 786
+        y: 838
         width: 77
         color: "#00cdff"
         text: qsTr("OIL\nQTY")
@@ -632,14 +650,82 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.horizontalCenterOffset: 0
     }
+
+    Rectangle {
+        id: rectangle
+        x: 8
+        y: 8
+        width: 155
+        height: 51
+        color: "#000000"
+        radius: 9
+        border.color: "#ffffff"
+
+        Text {
+            id: tat
+            color: "#ffffff"
+            text: qsTr("-23")
+            anchors.fill: parent
+            font.pixelSize: 45
+            horizontalAlignment: Text.AlignRight
+            verticalAlignment: Text.AlignVCenter
+            anchors.bottomMargin: 0
+            anchors.topMargin: 0
+            anchors.rightMargin: 43
+            anchors.leftMargin: 45
+        }
+
+        Text {
+            id: text15
+            x: 0
+            y: 0
+            width: 48
+            height: 51
+            color: "#00deff"
+            text: qsTr("TAT")
+            font.pixelSize: 28
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+
+        Rectangle {
+            id: rectangle1
+            x: 44
+            width: 1
+            color: "#585858"
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.topMargin: 1
+            anchors.bottomMargin: 1
+        }
+    }
+
+    Text {
+        id: text16
+        x: 115
+        y: 8
+        width: 48
+        height: 51
+        color: "#00deff"
+        text: qsTr("C°")
+        font.letterSpacing: -1.4
+        font.pixelSize: 35
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.wordSpacing: -0.4
+    }
+
+
+
 }
 
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:1}D{i:7}D{i:8}D{i:10}D{i:11}
-D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:12}D{i:9}D{i:19}D{i:20}D{i:22}D{i:23}D{i:24}
-D{i:25}D{i:26}D{i:21}D{i:18}D{i:27}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:28}D{i:34}
-D{i:35}D{i:37}D{i:38}D{i:39}D{i:40}D{i:41}D{i:36}D{i:42}D{i:43}D{i:44}
+    D{i:0;height:1060;width:875}D{i:1}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:2}D{i:9}D{i:10}
+D{i:11}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:12}D{i:8}D{i:19}D{i:20}D{i:21}D{i:23}
+D{i:24}D{i:25}D{i:26}D{i:27}D{i:22}D{i:18}D{i:28}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}
+D{i:29}D{i:35}D{i:36}D{i:38}D{i:39}D{i:40}D{i:41}D{i:42}D{i:37}D{i:43}D{i:44}D{i:45}
+D{i:47}D{i:48}D{i:49}D{i:46}D{i:50}
 }
 ##^##*/

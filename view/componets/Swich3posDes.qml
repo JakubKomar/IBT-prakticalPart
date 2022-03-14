@@ -11,9 +11,9 @@ Item {
     property alias textPos3: swich3pos.textPos3
     property alias textWidth: swich3pos.textWidth
 
-    property alias butt1: swich3pos.butt1
-    property alias butt2: swich3pos.butt2
-    property alias butt3: swich3pos.butt3
+    property alias butt1: swich3pos.button1
+    property alias butt2: swich3pos.button2
+    property alias butt3: swich3pos.button3
 
     property alias position:swich3pos.position
     Rectangle {
@@ -61,6 +61,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.25}D{i:3}D{i:4}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:1.25}D{i:1}D{i:2}D{i:3}
 }
 ##^##*/

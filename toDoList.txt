@@ -1,7 +1,6 @@
 to do list
 
 thread exiting isule
-egt warn/kritick vals
 
 optional:
 pipes transfer indication - better

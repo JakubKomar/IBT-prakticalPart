@@ -17,6 +17,7 @@ Rectangle {
         y: 152
         swich2state.textWidthDescription: 27
         swich2state.description: "LANDING\nLEFT"
+        onClicked: {ControlLights.swichTogle("landingL")}
     }
 
     Swich2stateBasic {
@@ -25,6 +26,7 @@ Rectangle {
         y: 152
         swich2state.textWidthDescription: 27
         swich2state.description: "LANDING\nRIGHT"
+        onClicked: {ControlLights.swichTogle("landingR")}
     }
 
     Swich2stateBasic {
@@ -32,9 +34,7 @@ Rectangle {
         x: 112
         y: 370
         swich2state.description: "RUNWAY\nLEFT"
-        onClicked: {
-            ControlLights.swichSet("runwayL",1)
-        }
+        onClicked: {ControlLights.swichSet("runwayL",this.swich2state.togled)}
     }
 
     Swich2stateBasic {
@@ -42,6 +42,7 @@ Rectangle {
         x: 268
         y: 370
         swich2state.description: "RUNWAY\nRIGHT"
+        onClicked: {ControlLights.swichSet("runwayR",this.swich2state.togled)}
     }
 
     Swich2stateBasic {
@@ -59,6 +60,7 @@ Rectangle {
         x: 1118
         y: 388
         swich2state.description: "LOGO"
+        onClicked: {ControlLights.swichSet("logo",this.swich2state.togled)}
     }
 
     Swich2stateBasic {
@@ -77,6 +79,7 @@ Rectangle {
         x: 1430
         y: 388
         swich2state.description: "WING"
+        onClicked: {ControlLights.swichSet("wing",this.swich2state.togled)}
     }
 
     Swich3pos {
@@ -87,6 +90,9 @@ Rectangle {
         textPos3: "STEADY"
         textPos2: "OFF"
         textPos1: "STROBE &\nSTEADY"
+        button1.onClicked: {ControlLights.positionLightSet(0, strobe.position)}
+        button2.onClicked: {ControlLights.positionLightSet(1, strobe.position)}
+        button3.onClicked: {ControlLights.positionLightSet(2, strobe.position)}
     }
 
     Swich2stateBasic {
@@ -94,6 +100,7 @@ Rectangle {
         x: 1581
         y: 388
         swich2state.description: "WHEEL\nWELL"
+        onClicked: {ControlLights.swichSet("wheelWell",this.swich2state.togled)}
     }
     Connections{
         target:ControlLights

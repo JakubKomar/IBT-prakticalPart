@@ -24,10 +24,9 @@ class WarnigsRender(QObject,RendModeBase):
     setAnnunciator=Signal(str, bool)
 
     def sendRef(self, dic):
-        self.setAnnunciator.emit("apu",bool(dic["laminar/B738/annunciator/six_pack_apu"][0]))
         self.setAnnunciator.emit("doors",bool(dic["laminar/B738/annunciator/six_pack_doors"][0]))
         self.setAnnunciator.emit("electrical",bool(dic["laminar/B738/annunciator/six_pack_elec"][0]))
-        self.setAnnunciator.emit("engine",bool(dic["laminar/B738/annunciator/six_pack_eng"][0]))
+        self.setAnnunciator.emit("engine",bool(dic["laminar/B738/annunciator/six_pack_eng"][0]) or bool(dic["laminar/B738/annunciator/six_pack_apu"][0]))
         self.setAnnunciator.emit("fire",bool(dic["laminar/B738/annunciator/six_pack_fire"][0]))
         self.setAnnunciator.emit("fuel",bool(dic["laminar/B738/annunciator/six_pack_fuel"][0]))
         self.setAnnunciator.emit("hydraulic",bool(dic["laminar/B738/annunciator/six_pack_hyd"][0]))

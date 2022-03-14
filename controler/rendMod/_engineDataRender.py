@@ -23,7 +23,7 @@ class EngineDataRender(QObject,RendModeBase):
             "laminar/B738/engine/eng2_req_n1",
 
             "laminar/B738/fuel_flow_used1",
-            "laminar/B738/fuel_flow_used2,",
+            "laminar/B738/fuel_flow_used2",
 
             "laminar/B738/engine/start_valve1",
             "laminar/B738/engine/start_valve2",
@@ -42,9 +42,7 @@ class EngineDataRender(QObject,RendModeBase):
             "laminar/B738/systems/motoring2",
             "laminar/B738/engine/starter1_pos",
             "laminar/B738/engine/starter2_pos",
-            
-
-
+            "sim/cockpit2/temperature/outside_air_LE_temp_degc"
         ]
   
     setIndicator=Signal(str, float)
@@ -68,7 +66,7 @@ class EngineDataRender(QObject,RendModeBase):
         self.setBoolAnnunciator.emit("reverserGreenL",dic["sim/flightmodel2/engines/thrust_reverser_deploy_ratio"][0]>0.85)
         self.setBoolAnnunciator.emit("reverserGreenR",dic["sim/flightmodel2/engines/thrust_reverser_deploy_ratio"][0]>0.85)
         self.setBoolAnnunciator.emit("engFailL",dic["laminar/B738/engine/eng1_egt"][0]<380 and dic["laminar/B738/engine/mixture_ratio1"][0]>0.1 and dic["laminar/B738/engine/starter1_pos"][0]==1)
-        self.setBoolAnnunciator.emit("engFailR",dic["laminar/B738/engine/eng2_egt"][0]<380 and dic["laminar/B738/engine/mixture_ratio2"][0]>0.1 and dic["laminar/B738/engine/starter1_pos"][1]==1)
+        self.setBoolAnnunciator.emit("engFailR",dic["laminar/B738/engine/eng2_egt"][0]<380 and dic["laminar/B738/engine/mixture_ratio2"][0]>0.1 and dic["laminar/B738/engine/starter2_pos"][0]==1)
         self.setBoolAnnunciator.emit("targetOffL", dic["laminar/B738/engine/mixture_ratio1"][0]>0.1 )
         self.setBoolAnnunciator.emit("targetOffR", dic["laminar/B738/engine/mixture_ratio2"][0]>0.1)
 
@@ -85,6 +83,7 @@ class EngineDataRender(QObject,RendModeBase):
         self.setIndicator.emit("oilQtyR",dic["sim/flightmodel/engine/ENGN_oil_quan"][1]*20)
         self.setIndicator.emit("vibR",1.6)
         self.setIndicator.emit("vibL",1.6)
+        self.setIndicator.emit("tat",dic["sim/cockpit2/temperature/outside_air_LE_temp_degc"][0])
 
         self.setAnnunciator.emit("startValveL",dic["laminar/B738/engine/start_valve1"][0])
         self.setAnnunciator.emit("startValveR",dic["laminar/B738/engine/start_valve2"][0])

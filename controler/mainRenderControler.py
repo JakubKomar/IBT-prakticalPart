@@ -17,6 +17,7 @@ from .rendMod._flyControlRender import FLyControlRender
 from .rendMod._ligtsRender import LightsRender
 from .rendMod._renderWarnings import WarnigsRender
 from .rendMod._engineDataRender import EngineDataRender
+from .rendMod._fuelDialsRender import FuelDialsRender
 
 import model.libInit as client
 
@@ -36,7 +37,8 @@ class MainRanderControler(QThread):
             "FLyControlRender" : FLyControlRender(),
             "LightsRender" : LightsRender(),
             "WarningsRender":WarnigsRender(),
-            "EngineDataRender":EngineDataRender()
+            "EngineDataRender":EngineDataRender(),
+            "FuelDialsRender":FuelDialsRender()
         }
 
     setConnStatus = Signal(bool)
@@ -79,8 +81,10 @@ class MainRanderControler(QThread):
         if(self.moduleSelector == 0):
             self.refList.extend(self.subcontrolers["DashBoardRender"].requestRef())
             self.refList.extend(self.subcontrolers["EngineDataRender"].requestRef())
+            self.refList.extend(self.subcontrolers["FuelDialsRender"].requestRef())
         elif(self.moduleSelector == 1):
             self.refList.extend(self.subcontrolers["RenderFuel"].requestRef())
+            self.refList.extend(self.subcontrolers["FuelDialsRender"].requestRef())
         elif(self.moduleSelector == 2):
             self.refList.extend(self.subcontrolers["RenderBleed"].requestRef())
         elif(self.moduleSelector == 3):
@@ -108,8 +112,10 @@ class MainRanderControler(QThread):
         if(self.moduleSelector == 0):
             self.subcontrolers["DashBoardRender"].sendRef(dictionary)
             self.subcontrolers["EngineDataRender"].sendRef(dictionary)
+            self.subcontrolers["FuelDialsRender"].sendRef(dictionary)
         elif(self.moduleSelector == 1):
             self.subcontrolers["RenderFuel"].sendRef(dictionary)
+            self.subcontrolers["FuelDialsRender"].sendRef(dictionary)
         elif(self.moduleSelector == 2):
             self.subcontrolers["RenderBleed"].sendRef(dictionary)
         elif(self.moduleSelector == 3):

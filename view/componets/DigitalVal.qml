@@ -7,9 +7,11 @@ Item {
     property int fixedVal: 1
     property int texHeight:57
     property double value: 100.1
+    property bool disableVal:false
+    property bool higliteVal:false
     Rectangle {
         id: rectangle
-        color: "#000000"
+        color: higliteVal?"white":"black"
         radius: 16
         border.color: "#ffffff"
         border.width: 2
@@ -17,7 +19,8 @@ Item {
 
         Text {
             id: digitalVal
-            color: "#ffffff"
+            visible: !disableVal
+            color: !higliteVal?"white":"black"
             text: value.toFixed(fixedVal)
             anchors.fill: parent
             font.pixelSize: texHeight
@@ -29,6 +32,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:3}D{i:2}D{i:1}
+    D{i:0;height:60;width:131}D{i:2}D{i:1}
 }
 ##^##*/

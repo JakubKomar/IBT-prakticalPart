@@ -15,30 +15,34 @@ class ControlLights(QObject):
             client.client.sendCOMM("laminar/B738/toggle_switch/taxi_light_brigh_toggle")
         elif name=="anitcollision":
             client.client.sendCOMM("sim/lights/beacon_lights_toggle")
-
-    @Slot(str, int)
-    def swichSet(self, name, actualState):
-        prevState=client.client.getDREF("sim/cockpit2/switches/generic_lights_switch")
-        print(type(prevState))
-
-        if name=="landingL":
-            client.client.sendDREF("laminar/B738/switch/land_lights_left_pos",float(actualState+1)%2)
+        elif name=="landingL":
+            client.client.sendCOMM("laminar/B738/switch/land_lights_left")
         elif name=="landingR":
-            client.client.sendDREF("laminar/B738/switch/land_lights_right_pos",float(actualState+1)%2)
-        elif name=="runwayL":
+            client.client.sendCOMM("laminar/B738/switch/land_lights_right")
 
-            client.client.sendDREF("sim/cockpit2/switches/generic_lights_switch",1,1)
+    @Slot(str, bool)
+    def swichSet(self, name, actualState):
+        if name=="runwayL":
+            client.client.sendCOMM("laminar/B738/switch/rwy_light_left_off" if actualState==True else "laminar/B738/switch/rwy_light_left_on")
         elif name=="runwayR":
-            prevState[3]=float(prevState[3]+1)%2
-            client.client.sendDREF("sim/cockpit2/switches/generic_lights_switch",prevState)
+            client.client.sendCOMM("laminar/B738/switch/rwy_light_right_off" if actualState==True else "laminar/B738/switch/rwy_light_right_on")
         elif name=="logo":
-            prevState[1]=float(prevState[1]+1)%2
-            client.client.sendDREF("sim/cockpit2/switches/generic_lights_switch",prevState)
+            client.client.sendCOMM("laminar/B738/switch/logo_light_off" if actualState==True else "laminar/B738/switch/logo_light_on")
         elif name=="wing":
-            prevState[0]=float(prevState[0]+1)%2
-            client.client.sendDREF("sim/cockpit2/switches/generic_lights_switch",prevState)
+            client.client.sendCOMM("laminar/B738/switch/wing_light_off" if actualState==True else "laminar/B738/switch/wing_light_on")
         elif name=="wheelWell":
-            prevState[5]=float(prevState[5]+1)%2
-            client.client.sendDREF("sim/cockpit2/switches/generic_lights_switch",prevState)
+            client.client.sendCOMM("laminar/B738/switch/wheel_light_off" if actualState==True else "laminar/B738/switch/wheel_light_on")
+
+    @Slot(int, int)
+    def positionLightSet(self, val, actualState):
+        if(val==actualState):
+            return
+        
+        direction="down" if val<actualState else "up"
+        comandNumber=abs(actualState-val)
+
+        for i in range(comandNumber):
+            client.client.sendCOMM("laminar/B738/toggle_switch/position_light_"+direction)
+
 
         

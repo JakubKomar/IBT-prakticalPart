@@ -23,7 +23,7 @@ Rectangle {
     property color offColor: "#acacac"
 
     state:togled?"on":"off"
-
+    property int position: togled?1:0
     Rectangle {
         id: status
         height: 50
