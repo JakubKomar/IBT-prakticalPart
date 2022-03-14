@@ -7,17 +7,17 @@ Item {
     height: 210
     property alias circularDialV2: circularDialV2
     property double value: 10000
-    property double warningValue:-1
     property alias analog: analog
 
     property string desText:"Description"
     property string units:"Units"
-
+    property bool inbalance:true
+    property bool config:true
+    property bool low:true
+    property bool isCenterTank:true
+    property bool warning:inbalance&&!isCenterTank||config&&isCenterTank||low&&!isCenterTank
     state:{
-        if(value<circularDialV2.minValue||value>circularDialV2.maxValue){
-            "error"
-        }
-        else if(value<warningValue){
+        if(warning){
             "warning"
         }
         else{
@@ -43,7 +43,7 @@ Item {
         Rectangle {
             id: digitalField
             x: 59
-            width: 143
+            width: 153
             height: 100
             color: "#00ffffff"
             radius: 20
@@ -65,31 +65,69 @@ Item {
 
             Text {
                 id: digitalValue
-                x: 53
-                y: 26
-                color: "#ffffff"
+                x: 0
+                y: 25
+                width: 134
+                height: 50
+                color:warning?"orange": "#ffffff"
                 text: value.toFixed(0)
                 font.pixelSize: 41
-                horizontalAlignment: Text.AlignHCenter
+                horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
                 lineHeight: 0
                 font.family: "Verdana"
-                anchors.horizontalCenterOffset: -1
                 font.strikeout: false
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Text {
                 id: unitsText
-                x: 56
-                y: 69
+                y: 43
                 color: "#0083ff"
                 text: "LB"
                 font.pixelSize: 20
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                anchors.horizontalCenterOffset: 0
+                anchors.horizontalCenterOffset: 66
                 anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            Text {
+                id: warnImbalance
+                x: 8
+                y: 76
+                width: 75
+                height: 16
+                visible: inbalance&& !isCenterTank
+                color: "#ff9300"
+                text: qsTr("IMBALANCE")
+                font.pixelSize: 13
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                id: warnConfig
+                x: 76
+                y: 76
+                width: 69
+                height: 16
+                visible: config && isCenterTank
+                color: "#ff9300"
+                text: qsTr("CONFIG")
+                font.pixelSize: 13
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Text {
+                id: warnLowFuel
+                x: 76
+                y: 76
+                width: 69
+                height: 16
+                visible: low && !isCenterTank
+                color: "#ff9300"
+                text: qsTr("LOW")
+                font.pixelSize: 13
+                horizontalAlignment: Text.AlignHCenter
             }
         }
     }
@@ -124,6 +162,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}D{i:1}D{i:4}D{i:5}D{i:6}D{i:3}D{i:2}
+    D{i:0;height:210;width:210}D{i:1}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:3}D{i:2}
 }
 ##^##*/
