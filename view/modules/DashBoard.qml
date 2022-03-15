@@ -6,6 +6,7 @@ Rectangle {
     width: 1750
     height: 1060
     color: "#000000"
+    border.color: "#ffffff"
     
     Rectangle {
         id: rightSide
@@ -105,53 +106,114 @@ Rectangle {
                 anchors.left: parent.left
                 orangeVal: 5
                 redVal: 9.5
-                anchors.leftMargin: 160
+                anchors.leftMargin: 82
                 leftBreakTemp: 6.1
                 
                 Text {
                     id: text1
-                    x: 84
                     y: -24
-                    width: 17
+                    width: 123
                     height: 24
                     color: "#00b2ff"
-                    text: qsTr("L")
-                    font.pixelSize: 26
+                    text: qsTr("BREAK TEMP L")
+                    font.pixelSize: 16
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
             }
             
             BreakTemp {
                 id: breakTempR
-                x: 568
+                x: 591
                 y: 586
                 anchors.right: parent.right
                 orangeVal: 5
                 redVal: 9.5
-                anchors.rightMargin: 160
+                anchors.rightMargin: 101
                 leftBreakTemp: 6.1
                 
                 Text {
                     id: text2
-                    x: 81
                     y: -24
-                    width: 17
+                    width: 113
                     height: 24
                     color: "#00b2ff"
-                    text: qsTr("R")
-                    font.pixelSize: 26
+                    text: qsTr("BREAK TEMP R")
+                    font.pixelSize: 16
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
             }
-            
-            Text {
-                id: text3
-                y: 610
-                color: "#00b2ff"
-                text: qsTr("BRAKES TEMP")
-                font.pixelSize: 18
+
+            SurfaceIndicatorHorizontal {
+                id: splrL
+                y: 246
+                width: 83
+                height: 180
+                description: "FLT SPLR"
+                minVal: 0
+                anchors.horizontalCenterOffset: -160
+                anchors.horizontalCenter: parent.horizontalCenter
+                indicateMidle: false
+                digiValOnLeft: false
+                val: 1
+            }
+
+            SurfaceIndicatorHorizontal {
+                id: aliL
+                y: 246
+                height: 180
+                description: "AIL"
+                anchors.horizontalCenterOffset: -245
+                anchors.horizontalCenter: parent.horizontalCenter
+                digiValOnLeft: false
+                val: 1
+            }
+
+            SurfaceIndicatorHorizontal {
+                id: splrR
+                y: 246
+                height: 180
+                description: "FLT SPLR"
+                minVal: 0
+                anchors.horizontalCenterOffset: 160
+                anchors.horizontalCenter: parent.horizontalCenter
+                indicateMidle: false
+                digiValOnLeft: true
+                val: 1
+            }
+
+            SurfaceIndicatorHorizontal {
+                id: aliR
+                y: 246
+                height: 180
+                description: "AIL"
+                anchors.horizontalCenterOffset: 245
+                anchors.horizontalCenter: parent.horizontalCenter
+                digiValOnLeft: true
+                val: -1
+            }
+
+            SurfaceIndicatorHorizontal {
+                id: elev
+                x: 424
+                y: 403
+                width: 89
+                height: 180
+                description: "ELEV"
+                val: -1
+                digiValOnLeft: true
+            }
+
+            SurfaceIndicatorVertical {
+                id: rudder
+                y: 589
+                width: 180
+                height: 84
+                description: "RUDDER"
+                val: 0.25
                 anchors.horizontalCenter: parent.horizontalCenter
             }
         }
@@ -345,19 +407,43 @@ Rectangle {
                     break
                 }
                 case"aPress":{
-                    pressA.text=val
+                    pressA.text=val.toFixed(0)
                     break
                 }
                 case"bPress":{
-                    pressB.text=val
+                    pressB.text=val.toFixed(0)
                     break
                 }
                 case"aQty":{
-                    qtyA.text=val
+                    qtyA.text=val.toFixed(0)
                     break
                 }
                 case"bQty":{
-                    qtyB.text=val
+                    qtyB.text=val.toFixed(0)
+                    break
+                }
+                case"elev":{
+                    elev.val=val
+                    break
+                }
+                case"ruder":{
+                    rudder.val=val
+                    break
+                }
+                case"lSplr":{
+                    splrL.val=val
+                    break
+                }
+                case"rSplr":{
+                    splrR.val=val
+                    break
+                }
+                case"aliL":{
+                    aliL.val=val
+                    break
+                }
+                case"aliR":{
+                    aliR.val=val
                     break
                 }
                 default:{}
@@ -372,7 +458,7 @@ Rectangle {
 /*##^##
 Designer {
     D{i:0;formeditorZoom:0.5}D{i:2}D{i:1}D{i:4}D{i:5}D{i:6}D{i:7}D{i:10}D{i:9}D{i:12}
-D{i:11}D{i:14}D{i:13}D{i:15}D{i:8}D{i:16}D{i:17}D{i:20}D{i:21}D{i:22}D{i:23}D{i:24}
-D{i:25}D{i:26}D{i:27}D{i:19}D{i:18}D{i:3}D{i:28}
+D{i:11}D{i:14}D{i:13}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:8}D{i:21}D{i:22}
+D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:24}D{i:23}D{i:3}D{i:33}
 }
 ##^##*/

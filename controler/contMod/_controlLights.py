@@ -3,7 +3,7 @@
 from array import array
 import model.libInit as client
 from PySide6.QtCore import QObject, Slot
-import numpy as np
+
 class ControlLights(QObject):
 
     def __init__(self):
