@@ -102,11 +102,11 @@ Rectangle {
             
             BreakTemp {
                 id: breakTempL
-                y: 586
+                y: 589
                 anchors.left: parent.left
                 orangeVal: 5
                 redVal: 9.5
-                anchors.leftMargin: 82
+                anchors.leftMargin: 135
                 leftBreakTemp: 6.1
                 
                 Text {
@@ -125,12 +125,12 @@ Rectangle {
             
             BreakTemp {
                 id: breakTempR
-                x: 591
-                y: 586
+                x: 564
+                y: 589
                 anchors.right: parent.right
                 orangeVal: 5
                 redVal: 9.5
-                anchors.rightMargin: 101
+                anchors.rightMargin: 127
                 leftBreakTemp: 6.1
                 
                 Text {
@@ -218,6 +218,34 @@ Rectangle {
             }
         }
         
+        LandingGearStatus {
+            id: rightGear
+            x: 443
+            y: 339
+            width: 60
+            height: 60
+            description: "RIGHT"
+        }
+
+        LandingGearStatus {
+            id: leftGear
+            x: 377
+            y: 339
+            width: 60
+            height: 60
+        }
+
+        LandingGearStatus {
+            id: noseGear
+            y: 190
+            width: 60
+            height: 60
+            openLock: false
+            inTransit: false
+            description: "NOSE"
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
         ModuleDescription {
             id: moduleDescription1
             x: 601
@@ -358,6 +386,9 @@ Rectangle {
                 }
             }
         }
+
+
+
         
     }
     Connections{
@@ -390,75 +421,105 @@ Rectangle {
         }
         function onSetIndicators(name, val){
             switch(name){
-                case"breakLInTemp":{
-                    breakTempL.rightBreakTemp=val
+            case"breakLInTemp":{
+                breakTempL.rightBreakTemp=val
+                break
+            }
+            case"breakLOutTemp":{
+                breakTempL.leftBreakTemp=val
+                break
+            }
+            case"breakRInTemp":{
+                breakTempR.leftBreakTemp=val
+                break
+            }
+            case"breakROutTemp":{
+                breakTempR.rightBreakTemp=val
+                break
+            }
+            case"aPress":{
+                pressA.text=val.toFixed(0)
+                break
+            }
+            case"bPress":{
+                pressB.text=val.toFixed(0)
+                break
+            }
+            case"aQty":{
+                qtyA.text=val.toFixed(0)
+                break
+            }
+            case"bQty":{
+                qtyB.text=val.toFixed(0)
+                break
+            }
+            case"elev":{
+                elev.val=val
+                break
+            }
+            case"ruder":{
+                rudder.val=val
+                break
+            }
+            case"lSplr":{
+                splrL.val=val
+                break
+            }
+            case"rSplr":{
+                splrR.val=val
+                break
+            }
+            case"aliL":{
+                aliL.val=val
+                break
+            }
+            case"aliR":{
+                aliR.val=val
+                break
+            }
+            default:{}
+            }
+        }
+        function onSetGearState(name, val){
+            switch(name){
+                case"leftSafe":{
+                    leftGear.openLock=val
                     break
                 }
-                case"breakLOutTemp":{
-                    breakTempL.leftBreakTemp=val
+                case"rightSafe":{
+                    rightGear.openLock=val
                     break
                 }
-                case"breakRInTemp":{
-                    breakTempR.leftBreakTemp=val
+                case"noseSafe":{
+                    noseGear.openLock=val
                     break
                 }
-                case"breakROutTemp":{
-                    breakTempR.rightBreakTemp=val
+                case"leftTransit":{
+                    leftGear.inTransit=val
                     break
                 }
-                case"aPress":{
-                    pressA.text=val.toFixed(0)
+                case"rightTransit":{
+                    rightGear.inTransit=val
                     break
                 }
-                case"bPress":{
-                    pressB.text=val.toFixed(0)
-                    break
-                }
-                case"aQty":{
-                    qtyA.text=val.toFixed(0)
-                    break
-                }
-                case"bQty":{
-                    qtyB.text=val.toFixed(0)
-                    break
-                }
-                case"elev":{
-                    elev.val=val
-                    break
-                }
-                case"ruder":{
-                    rudder.val=val
-                    break
-                }
-                case"lSplr":{
-                    splrL.val=val
-                    break
-                }
-                case"rSplr":{
-                    splrR.val=val
-                    break
-                }
-                case"aliL":{
-                    aliL.val=val
-                    break
-                }
-                case"aliR":{
-                    aliR.val=val
+                case"noseTransit":{
+                    noseGear.inTransit=val
                     break
                 }
                 default:{}
             }
         }
-        
-        
     }
 }
 
 
+
+
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:2}D{i:1}D{i:4}D{i:5}D{i:6}D{i:7}D{i:10}D{i:9}D{i:12}
+    D{i:0;formeditorZoom:1.33}D{i:2}D{i:1}D{i:4}D{i:5}D{i:6}D{i:7}D{i:10}D{i:9}D{i:12}
 D{i:11}D{i:14}D{i:13}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:8}D{i:21}D{i:22}
-D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:24}D{i:23}D{i:3}D{i:33}
+D{i:23}D{i:24}D{i:25}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}D{i:35}D{i:27}
+D{i:26}D{i:3}D{i:36}
 }
 ##^##*/

@@ -1,8 +1,11 @@
 to do list
 
-thread exiting isule
+font size -2-3 - beater readbilty
+better button repres
+
 
 optional:
+thread exiting isule
 pipes transfer indication - better
 temp sliders pozition render,
 fuel alternative units - kg

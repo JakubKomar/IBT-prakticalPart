@@ -117,6 +117,7 @@ Window {
 
                     MenuItem {
                         id: antiIceBtn
+                        visible: false
                         text: "AntiIce"
                         onClicked: {
                             MainRanderControler.setModuleSelector(6)
@@ -147,6 +148,7 @@ Window {
 
                     MenuItem {
                         id: ftContBtn
+                        visible: false
                         text: "FtControl"
                         onClicked: {
                             MainRanderControler.setModuleSelector(9)

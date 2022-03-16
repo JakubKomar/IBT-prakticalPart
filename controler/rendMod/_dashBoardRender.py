@@ -27,11 +27,20 @@ class DashBoardRender(QObject,RendModeBase):
             "sim/flightmodel/controls/lail2def",
             "sim/flightmodel/controls/hstab1_elv1def",
             "sim/flightmodel/controls/ldruddef",
+
+            "laminar/B738/annunciator/left_gear_safe",
+            "laminar/B738/annunciator/right_gear_safe",
+            "laminar/B738/annunciator/nose_gear_safe",
+            "laminar/B738/annunciator/left_gear_transit",
+            "laminar/B738/annunciator/right_gear_transit",
+            "laminar/B738/annunciator/nose_gear_transit"
         ]
   
     setAnnunciator=Signal(str, float)
     setFlapIndicator=Signal(str, float)
     setIndicators=Signal(str, float)
+    setGearState=Signal(str, bool)
+
     def sendRef(self, dic):
         self.setAnnunciator.emit("transit",dic["laminar/B738/annunciator/slats_transit"][0])
         self.setAnnunciator.emit("extend",dic["laminar/B738/annunciator/slats_extend"][0])
@@ -65,7 +74,13 @@ class DashBoardRender(QObject,RendModeBase):
             dic["sim/flightmodel/controls/lail2def"][0]/24
         )
 
+        self.setGearState.emit("leftSafe",bool(dic["laminar/B738/annunciator/left_gear_safe"][0]))
+        self.setGearState.emit("rightSafe",bool(dic["laminar/B738/annunciator/right_gear_safe"][0]))
+        self.setGearState.emit("noseSafe",bool(dic["laminar/B738/annunciator/nose_gear_safe"][0]))
 
+        self.setGearState.emit("leftTransit",bool(dic["laminar/B738/annunciator/left_gear_transit"][0]))
+        self.setGearState.emit("rightTransit",bool(dic["laminar/B738/annunciator/right_gear_transit"][0]))
+        self.setGearState.emit("noseTransit",bool(dic["laminar/B738/annunciator/nose_gear_transit"][0]))
 
 
        

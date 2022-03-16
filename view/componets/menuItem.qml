@@ -57,6 +57,7 @@ Button {
                anchors.verticalCenter: parent.verticalCenter
                anchors.horizontalCenter: parent.horizontalCenter
                font.pixelSize: 30
+               font.capitalization: Font.AllUppercase
            }
     }
 }
