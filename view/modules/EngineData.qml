@@ -524,13 +524,6 @@ Rectangle {
                 vibL.value=val
                 break;
             }
-            case"tat": {
-                if(val>0.999)
-                    tat.text="+"+ val.toFixed(0)
-                else
-                    tat.text=val.toFixed(0)
-                break;
-            }
             default:{}
             }
         }
@@ -695,11 +688,6 @@ Rectangle {
         status: 0
         warText: "FUEL FLOW"
     }
-
-
-
-
-
 }
 
 

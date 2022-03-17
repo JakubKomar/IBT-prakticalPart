@@ -23,6 +23,9 @@ Window {
         color: "#000000"
         anchors.fill: parent
 
+
+
+
         Rectangle {
             id: frame
             color: "#000000"
@@ -150,11 +153,116 @@ Window {
             anchors.topMargin: 0
             anchors.leftMargin: 0
 
+            Rectangle {
+                id: info
+                x: 0
+                y: 0
+                height: 108
+                color: "#00000000"
+                radius: 9
+                border.color: "#00808080"
+                border.width: 2
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.rightMargin: 0
+                anchors.leftMargin: -6
+
+                TextCust {
+                    id: date
+                    x: 68
+                    y: 76
+                    width: 94
+                    height: 32
+                    color: "#ffffff"
+                    text: qsTr("12.05.21")
+                    font.letterSpacing: -1.6
+                    horizontalAlignment: Text.AlignRight
+                    level: 2
+                }
+
+                TextCust {
+                    id: text2
+                    x: 6
+                    y: 40
+                    width: 63
+                    height: 32
+                    color: Styles.blueDark
+                    text: qsTr("UTC")
+                    font.letterSpacing: -2
+                    level: 2
+                }
+
+                TextCust {
+                    id: time
+                    x: 68
+                    y: 40
+                    width: 94
+                    height: 32
+                    color: "#ffffff"
+                    text: qsTr("12:21:25")
+                    font.letterSpacing: -1.6
+                    horizontalAlignment: Text.AlignRight
+                    font.kerning: true
+                    textFormat: Text.PlainText
+                    level: 2
+                }
+
+                TextCust {
+                    id: text4
+                    x: 6
+                    y: 4
+                    width: 63
+                    height: 32
+                    color: Styles.blueDark
+                    text: qsTr("TAT")
+                    font.letterSpacing: 2.4
+                    level: 2
+                }
+
+                TextCust {
+                    id: text5
+                    x: 5
+                    y: 76
+                    width: 64
+                    height: 32
+                    color: Styles.blueDark
+                    text: qsTr("DATE")
+                    font.letterSpacing: -2
+                    level: 2
+                }
+
+                TextCust {
+                    id: tat
+                    x: 72
+                    y: 4
+                    width: 60
+                    height: 32
+                    color: "#ffffff"
+                    text: qsTr("-5")
+                    font.letterSpacing: -1.6
+                    horizontalAlignment: Text.AlignRight
+                    level: 2
+                }
+
+                TextCust {
+                    id: tatUnit
+                    x: 132
+                    y: 4
+                    width: 30
+                    height: 32
+                    color: Styles.blueDark
+                    text: qsTr("C°")
+                    font.letterSpacing: -1.6
+                    horizontalAlignment: Text.AlignRight
+                    level: 2
+                }
+            }
+
             Column {
                 id: menuColum
                 visible: true
                 anchors.fill: parent
-                anchors.topMargin: 10
+                anchors.topMargin: 114
                 anchors.bottomMargin: 10
                 anchors.leftMargin: -6
                 spacing: 5
@@ -172,18 +280,15 @@ Window {
                     }
                 }
 
-
                 MenuItem {
                     id: engBtn
                     text: "Eng"
-                    frameColorDefault: "#ffffff"
                     onClicked: {
                         MainRanderControler.setModuleSelector(8)
                         menuColum.togleButt(this)
                         engLd.visible=true
                     }
                 }
-
 
                 MenuItem{
                     id:fuelButt
@@ -383,6 +488,7 @@ Window {
                     }
                 }
             }
+
             Connections{
                 target: MainRanderControler
 
@@ -390,19 +496,11 @@ Window {
                     connectionLost.visible=state
                 }
             }
+
+
         }
 
-        Rectangle {
-            id: info
-            x: 10
-            y: 10
-            height: 89
-            color: "#00000000"
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.rightMargin: 0
-            anchors.leftMargin: 0
-        }
+
     }
     Connections{
         target: WarningsRender
@@ -452,6 +550,15 @@ Window {
             default:{}
             }
         }
+        function onSetTime(string){
+            time.text=string
+        }
+        function onSetDate(string){
+            date.text=string
+        }
+        function onSetTat(string){
+            tat.text=string
+        }
     }
 }
 
@@ -459,11 +566,14 @@ Window {
 
 
 
+
+
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.25}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}D{i:14}
+    D{i:0;formeditorZoom:1.33}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}D{i:14}
 D{i:15}D{i:16}D{i:17}D{i:5}D{i:3}D{i:2}D{i:23}D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}
-D{i:29}D{i:30}D{i:31}D{i:32}D{i:22}D{i:36}D{i:35}D{i:38}D{i:37}D{i:40}D{i:39}D{i:41}
-D{i:34}D{i:33}D{i:42}D{i:18}D{i:43}D{i:1}D{i:44}
+D{i:29}D{i:22}D{i:31}D{i:32}D{i:33}D{i:34}D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:40}
+D{i:30}D{i:44}D{i:43}D{i:46}D{i:45}D{i:48}D{i:47}D{i:49}D{i:42}D{i:41}D{i:50}D{i:18}
+D{i:1}D{i:51}
 }
 ##^##*/

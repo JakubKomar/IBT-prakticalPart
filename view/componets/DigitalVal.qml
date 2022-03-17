@@ -14,7 +14,7 @@ Item {
         color: higliteVal?"white":"black"
         radius: 16
         border.color: "#ffffff"
-        border.width: 2
+        border.width: 1
         anchors.fill: parent
 
         TextCust {
@@ -32,6 +32,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:60;width:131}D{i:2}D{i:1}
+    D{i:0;height:45;width:75}D{i:2}D{i:1}
 }
 ##^##*/

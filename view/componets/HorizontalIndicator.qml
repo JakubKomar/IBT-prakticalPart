@@ -33,7 +33,7 @@ Rectangle {
         color: "#00ffffff"
         radius: 4
         border.color: "#ffffff"
-        border.width: 2
+        border.width: 1
         anchors.horizontalCenterOffset: 1
         anchors.horizontalCenter: parent.horizontalCenter
 
@@ -54,7 +54,7 @@ Rectangle {
         color: "#2b2b2b"
         radius: 4
         border.color: "#ffffff"
-        border.width: 2
+        border.width: 1
         anchors.left: parent.left
         anchors.right: parent.right
         clip: true
@@ -70,8 +70,8 @@ Rectangle {
             anchors.fill: parent
             anchors.rightMargin: 1
             anchors.leftMargin: 1
-            anchors.bottomMargin: 2
-            anchors.topMargin: 2
+            anchors.bottomMargin: 1
+            anchors.topMargin: 1
 
             Rectangle {
                 id: indicator
@@ -188,7 +188,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:44;width:246}D{i:2}D{i:1}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:4}D{i:3}D{i:10}
-D{i:11}
+    D{i:0;formeditorZoom:3;height:44;width:250}D{i:2}D{i:1}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}
+D{i:4}D{i:3}D{i:10}D{i:11}
 }
 ##^##*/

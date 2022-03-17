@@ -4,7 +4,7 @@ import string
 import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
-
+import datetime
 class WarnigsRender(QObject,RendModeBase):
 
     def __init__(self):
@@ -19,10 +19,19 @@ class WarnigsRender(QObject,RendModeBase):
             "laminar/B738/annunciator/six_pack_ice",
             "laminar/B738/annunciator/six_pack_air_cond",
             "laminar/B738/annunciator/six_pack_flt_cont",
+
+            "sim/cockpit2/clock_timer/current_month",
+            "sim/cockpit2/clock_timer/current_day",
+            "sim/cockpit2/clock_timer/zulu_time_hours",
+            "sim/cockpit2/clock_timer/zulu_time_minutes",
+            "sim/cockpit2/clock_timer/zulu_time_seconds",
+            "sim/cockpit2/temperature/outside_air_LE_temp_degc"
         ]
   
     setAnnunciator=Signal(str, bool)
-
+    setTime=Signal(str)
+    setDate=Signal(str)
+    setTat=Signal(str)
     def sendRef(self, dic):
         self.setAnnunciator.emit("doors",bool(dic["laminar/B738/annunciator/six_pack_doors"][0]))
         self.setAnnunciator.emit("electrical",bool(dic["laminar/B738/annunciator/six_pack_elec"][0]))
@@ -33,6 +42,25 @@ class WarnigsRender(QObject,RendModeBase):
         self.setAnnunciator.emit("ice",bool(dic["laminar/B738/annunciator/six_pack_ice"][0]))
         self.setAnnunciator.emit("temp",bool(dic["laminar/B738/annunciator/six_pack_air_cond"][0]))
         self.setAnnunciator.emit("flyCont",bool(dic["laminar/B738/annunciator/six_pack_flt_cont"][0]))
+
+        self.setTime.emit(str(int(dic["sim/cockpit2/clock_timer/zulu_time_hours"][0])).zfill(2)+
+            ":"+
+            str(int(dic["sim/cockpit2/clock_timer/zulu_time_minutes"][0])).zfill(2)+
+            ":"+
+            str(int(dic["sim/cockpit2/clock_timer/zulu_time_seconds"][0])).zfill(2)
+        )
+
+        self.setDate.emit(str(int(dic["sim/cockpit2/clock_timer/current_day"][0])).zfill(2)+
+            "."+
+            str(int(dic["sim/cockpit2/clock_timer/current_month"][0])).zfill(2)+
+            "."+
+            str(datetime.datetime.now().year)[-2:]
+        )
+
+        self.setTat.emit(str(int(dic["sim/cockpit2/temperature/outside_air_LE_temp_degc"][0])) if dic["sim/cockpit2/temperature/outside_air_LE_temp_degc"][0]<0 else "+"+ str(int(dic["sim/cockpit2/temperature/outside_air_LE_temp_degc"][0])))
+
+        
+        
  
         
 

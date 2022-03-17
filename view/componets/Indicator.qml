@@ -16,11 +16,11 @@ Rectangle {
     property int textHeight:30
 
     property int borderWidth: 3
-    border.width: borderWidth
     property alias itemText: itemText
 
     property color borderCol: "#484848"
     border.color: borderCol
+    border.width: 1
 
     property int borderRadius:0
     radius:borderRadius

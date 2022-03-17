@@ -5,8 +5,8 @@ Rectangle {
     property bool inTransit: false
     property bool openLock: false
     property string description:"LEFT"
-    width: 50
-    height: 50
+    width: 60
+    height: 60
     color: "black"
     radius: 4
     border.color: "#ffffff"
@@ -29,7 +29,7 @@ Rectangle {
 
     TextCust {
         id: text2
-        color: "green"
+        color: Styles.green
         text: qsTr("DWN")
         anchors.fill: parent
         font.letterSpacing: -1.6
@@ -64,6 +64,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.66;height:60;width:60}D{i:1}D{i:2}
+    D{i:0;height:60;width:60}D{i:1}D{i:2}
 }
 ##^##*/

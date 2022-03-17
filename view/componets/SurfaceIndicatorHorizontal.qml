@@ -26,11 +26,26 @@ Item {
         y: shapeHeight
         width: 28
         height:!indicateMidle?parent.height/2-shapeHeight:parent.height-shapeHeight*2
+        antialiasing: true
+        layer.samples: 8
+        layer.enabled: true
         Shape{
             ShapePath{
                 strokeColor: "white"
                 fillColor: "transparent"
-                strokeWidth: 2
+                strokeWidth: 1
+                capStyle: ShapePath.RoundCap
+                startX: inerBorder.width/2
+                startY:3
+                PathLine{
+                    x:inerBorder.width/2
+                    y:inerBorder.height-3
+                }
+            }
+            ShapePath{
+                strokeColor: "white"
+                fillColor: "transparent"
+                strokeWidth: 1
                 capStyle: ShapePath.RoundCap
                 startX: inerBorder.width/2
                 startY:0
@@ -42,19 +57,7 @@ Item {
             ShapePath{
                 strokeColor: "white"
                 fillColor: "transparent"
-                strokeWidth: 2
-                capStyle: ShapePath.RoundCap
-                startX: inerBorder.width/2
-                startY:0
-                PathLine{
-                    x:inerBorder.width/2
-                    y:inerBorder.height
-                }
-            }
-            ShapePath{
-                strokeColor: "white"
-                fillColor: "transparent"
-                strokeWidth: 3
+                strokeWidth: 1
                 capStyle: ShapePath.RoundCap
                 startX: 0
                 startY:0
@@ -66,7 +69,7 @@ Item {
             ShapePath{
                 strokeColor: "white"
                 fillColor: "transparent"
-                strokeWidth: 3
+                strokeWidth: 1
                 capStyle: ShapePath.RoundCap
                 startX: 0
                 startY:inerBorder.height
@@ -90,7 +93,7 @@ Item {
             ShapePath{
                 strokeColor:fillColor
                 fillColor: Styles.blue
-                strokeWidth: 3
+                strokeWidth: 1
                 capStyle: ShapePath.RoundCap
                 startX: 0
                 startY:inerBorder.height-((inerBorder.height)/(maxVal-minVal))*(safeVal-minVal)+shapeHeight
@@ -111,7 +114,7 @@ Item {
             ShapePath{
                 strokeColor:fillColor
                 fillColor: Styles.blue
-                strokeWidth: 3
+                strokeWidth: 1
                 capStyle: ShapePath.RoundCap
                 startX: inerBorder.width
                 startY:inerBorder.height-((inerBorder.height)/(maxVal-minVal))*(safeVal-minVal)+shapeHeight

@@ -47,8 +47,10 @@ Rectangle {
         
         FuelPanelCompact {
             id: fuelPanelCompact
-            x: 8
-            y: 718
+            x: 26
+            y: 721
+            width: 549
+            height: 334
         }
         
         Rectangle {
@@ -265,6 +267,7 @@ Rectangle {
 
         
     }
+
     Connections{
         target: DashBoardRender
         function onSetAnnunciator(name, val){
@@ -369,16 +372,20 @@ Rectangle {
         }
     }
 
-    HalfTransparentBorderVert {
-        id: halfTransparentBorderVert
+    HalfTransparentBorder {
+        id: halfTransparentBorder
         x: 437
         y: 0
+        width: 1
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 0
+        grad2: "gray"
+        vert: true
         anchors.topMargin: 0
+        anchors.bottomMargin: 0
         anchors.horizontalCenter: parent.horizontalCenter
     }
+
 }
 
 
@@ -386,8 +393,8 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.1}D{i:2}D{i:1}D{i:4}D{i:5}D{i:8}D{i:7}D{i:10}D{i:9}D{i:12}
+    D{i:0;formeditorZoom:0.75}D{i:2}D{i:1}D{i:4}D{i:5}D{i:8}D{i:7}D{i:10}D{i:9}D{i:12}
 D{i:11}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:6}D{i:19}D{i:20}D{i:21}D{i:22}
-D{i:23}D{i:24}D{i:25}D{i:26}D{i:3}D{i:27}D{i:28}
+D{i:23}D{i:24}D{i:25}D{i:3}D{i:26}D{i:27}
 }
 ##^##*/

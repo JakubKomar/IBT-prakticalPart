@@ -24,6 +24,6 @@ Text {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}
+    D{i:0;autoSize:true;height:74;width:134}
 }
 ##^##*/

@@ -7,7 +7,7 @@ Rectangle {
     height: 106
     color: "#00ffffff"
     radius: 13
-    border.color: "#ffffff"
+    border.color: "gray"
     anchors.horizontalCenter: parent.horizontalCenter
 
     Text {

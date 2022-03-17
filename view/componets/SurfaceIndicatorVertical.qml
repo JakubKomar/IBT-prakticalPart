@@ -18,12 +18,15 @@ Item {
         y: -73
         width:28
         height:parent.width-shapeHeight*2
+        antialiasing: true
+        layer.enabled: true
+        layer.samples: 8
         rotation: 90
         Shape{
             ShapePath{
                 strokeColor: "white"
                 fillColor: "transparent"
-                strokeWidth: 2
+                strokeWidth: 1
                 capStyle: ShapePath.RoundCap
                 startX: inerBorder.width/2
                 startY:0
@@ -36,18 +39,6 @@ Item {
                 strokeColor: "white"
                 fillColor: "transparent"
                 strokeWidth: 2
-                capStyle: ShapePath.RoundCap
-                startX: inerBorder.width/2
-                startY:0
-                PathLine{
-                    x:inerBorder.width/2
-                    y:inerBorder.height
-                }
-            }
-            ShapePath{
-                strokeColor: "white"
-                fillColor: "transparent"
-                strokeWidth: 3
                 capStyle: ShapePath.RoundCap
                 startX: 0
                 startY:0
@@ -59,7 +50,7 @@ Item {
             ShapePath{
                 strokeColor: "white"
                 fillColor: "transparent"
-                strokeWidth: 3
+                strokeWidth: 2
                 capStyle: ShapePath.RoundCap
                 startX: 0
                 startY:inerBorder.height
@@ -83,7 +74,7 @@ Item {
             ShapePath{
                 strokeColor:fillColor
                 fillColor: "#00b9ff"
-                strokeWidth: 3
+                strokeWidth: 1
                 capStyle: ShapePath.RoundCap
                 startX: 0
                 startY:inerBorder.height-((inerBorder.height)/(maxVal-minVal))*(safeVal-minVal)+shapeHeight
@@ -104,7 +95,7 @@ Item {
             ShapePath{
                 strokeColor:fillColor
                 fillColor: "#00b9ff"
-                strokeWidth: 3
+                strokeWidth: 1
                 capStyle: ShapePath.RoundCap
                 startX: inerBorder.width
                 startY:inerBorder.height-((inerBorder.height)/(maxVal-minVal))*(safeVal-minVal)+shapeHeight
@@ -172,7 +163,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:72;width:180}D{i:3}D{i:5}D{i:7}D{i:9}D{i:11}D{i:13}D{i:17}D{i:2}D{i:1}
-D{i:22}D{i:23}D{i:21}
+    D{i:0;height:75;width:180}D{i:3}D{i:5}D{i:7}D{i:9}D{i:11}D{i:15}D{i:2}D{i:1}D{i:20}
+D{i:21}D{i:19}
 }
 ##^##*/

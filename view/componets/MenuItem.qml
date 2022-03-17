@@ -18,8 +18,8 @@ Button {
 
     property int status: 0
     property int rad: 7
-    property color warningColor: "#ff8c00"
-    property color errorColor: "#bb0000"
+    property color warningColor: "orange"
+    property color errorColor: "red"
     property color defaultColor: "transparent"
 
     property int borderW:1
@@ -38,8 +38,8 @@ Button {
     }
     property bool activePage: false
 
-    property color frameColorDefault: "white"
-    property color frameColorActive: "#00ff00"
+    property color frameColorDefault: "gray"
+    property color frameColorActive: Styles.green
     property color frameColor: activePage ? frameColorActive:frameColorDefault
 
 
