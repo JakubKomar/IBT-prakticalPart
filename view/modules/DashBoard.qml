@@ -6,14 +6,14 @@ Rectangle {
     width: 1750
     height: 1060
     color: "#000000"
-    border.color: "#ffffff"
+    border.color: "#00ffffff"
     
     Rectangle {
         id: rightSide
         x: parent.width/2
         width: parent.width/2
         color: "#00ffffff"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
@@ -21,6 +21,7 @@ Rectangle {
         
         EngineData {
             id: engineData
+            border.color: "#00ffffff"
             anchors.fill: parent
         }
     }
@@ -30,7 +31,7 @@ Rectangle {
         x: 0
         width: parent.width/2
         color: "#00ffffff"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
@@ -38,8 +39,8 @@ Rectangle {
         
         FlapsIndicator {
             id: flapsIndicator
-            x: 635
-            y: 743
+            x: 628
+            y: 741
             stateVal: 0
             setVal: 0.1
         }
@@ -48,28 +49,6 @@ Rectangle {
             id: fuelPanelCompact
             x: 8
             y: 718
-        }
-        
-        Rectangle {
-            id: rectangle
-            y: 673
-            height: 1
-            color: "#ffffff"
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.rightMargin: 0
-            anchors.leftMargin: 0
-        }
-        
-        Rectangle {
-            id: rectangle1
-            x: 601
-            y: 680
-            width: 1
-            height: 386
-            color: "#ffffff"
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 0
         }
         
         Rectangle {
@@ -109,14 +88,14 @@ Rectangle {
                 anchors.leftMargin: 135
                 leftBreakTemp: 6.1
                 
-                Text {
+                TextCust {
                     id: text1
                     y: -24
                     width: 123
                     height: 24
-                    color: "#00b2ff"
+                    color: Styles.blueDark
                     text: qsTr("BREAK TEMP L")
-                    font.pixelSize: 16
+                    level:3
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -133,14 +112,14 @@ Rectangle {
                 anchors.rightMargin: 127
                 leftBreakTemp: 6.1
                 
-                Text {
+                TextCust {
                     id: text2
                     y: -24
                     width: 113
                     height: 24
-                    color: "#00b2ff"
+                    color: Styles.blueDark
                     text: qsTr("BREAK TEMP R")
-                    font.pixelSize: 16
+                    level:3
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -150,11 +129,10 @@ Rectangle {
             SurfaceIndicatorHorizontal {
                 id: splrL
                 y: 246
-                width: 83
                 height: 180
                 description: "FLT SPLR"
                 minVal: 0
-                anchors.horizontalCenterOffset: -160
+                anchors.horizontalCenterOffset: -152
                 anchors.horizontalCenter: parent.horizontalCenter
                 indicateMidle: false
                 digiValOnLeft: false
@@ -178,7 +156,7 @@ Rectangle {
                 height: 180
                 description: "FLT SPLR"
                 minVal: 0
-                anchors.horizontalCenterOffset: 160
+                anchors.horizontalCenterOffset: 152
                 anchors.horizontalCenter: parent.horizontalCenter
                 indicateMidle: false
                 digiValOnLeft: true
@@ -198,9 +176,9 @@ Rectangle {
 
             SurfaceIndicatorHorizontal {
                 id: elev
-                x: 424
+                x: 425
                 y: 403
-                width: 89
+                width: 106
                 height: 180
                 description: "ELEV"
                 val: -1
@@ -209,9 +187,10 @@ Rectangle {
 
             SurfaceIndicatorVertical {
                 id: rudder
-                y: 589
+                y: 591
                 width: 180
-                height: 84
+                height: 75
+                anchors.horizontalCenterOffset: -1
                 description: "RUDDER"
                 val: 0.25
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -266,7 +245,6 @@ Rectangle {
         
         ModuleDescription {
             id: moduleDescription2
-            height: 39
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
@@ -274,117 +252,13 @@ Rectangle {
             anchors.leftMargin: 0
             anchors.topMargin: 0
             description: "HYDRAULIC STATUS"
-            
-            Rectangle {
-                id: rectangle2
-                y: 36
-                width: 227
-                height: 106
-                color: "#00ffffff"
-                radius: 13
-                border.color: "#ffffff"
-                anchors.horizontalCenter: parent.horizontalCenter
-                
-                Text {
-                    id: text4
-                    y: 27
-                    color: "#00b2ff"
-                    text: qsTr("QTY %")
-                    font.pixelSize: 20
-                    anchors.horizontalCenterOffset: 0
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
-                
-                Text {
-                    id: text5
-                    y: 65
-                    color: "#00b2ff"
-                    text: qsTr("PRESS")
-                    font.pixelSize: 20
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.horizontalCenterOffset: -1
-                }
-                
-                Text {
-                    id: text6
-                    y: 0
-                    color: "#00b2ff"
-                    text: qsTr("A")
-                    font.pixelSize: 20
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.horizontalCenterOffset: -70
-                }
-                
-                Text {
-                    id: text7
-                    y: 0
-                    width: 12
-                    height: 27
-                    color: "#00b2ff"
-                    text: qsTr("B")
-                    font.pixelSize: 20
-                    anchors.horizontalCenterOffset: 70
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
-                
-                Text {
-                    id: qtyB
-                    x: 148
-                    y: 27
-                    width: 79
-                    height: 27
-                    color: "#ffffff"
-                    text: qsTr("87")
-                    anchors.right: parent.right
-                    font.pixelSize: 28
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    anchors.rightMargin: 0
-                }
-                
-                Text {
-                    id: qtyA
-                    y: 27
-                    width: 85
-                    height: 27
-                    color: "#ffffff"
-                    text: qsTr("87")
-                    anchors.left: parent.left
-                    font.pixelSize: 28
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    anchors.leftMargin: 0
-                }
-                
-                Text {
-                    id: pressB
-                    x: 148
-                    y: 65
-                    width: 79
-                    height: 27
-                    color: "#ffffff"
-                    text: qsTr("2920")
-                    anchors.right: parent.right
-                    font.pixelSize: 28
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    anchors.rightMargin: 0
-                }
-                
-                Text {
-                    id: pressA
-                    y: 65
-                    width: 85
-                    height: 27
-                    color: "#ffffff"
-                    text: qsTr("2940")
-                    anchors.left: parent.left
-                    font.pixelSize: 28
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    anchors.leftMargin: 0
-                }
-            }
+        }
+
+        HydraulicData {
+            id: hydraulicData
+            x: 324
+            y: 41
+            anchors.horizontalCenterOffset: 0
         }
 
 
@@ -437,22 +311,6 @@ Rectangle {
                 breakTempR.rightBreakTemp=val
                 break
             }
-            case"aPress":{
-                pressA.text=val.toFixed(0)
-                break
-            }
-            case"bPress":{
-                pressB.text=val.toFixed(0)
-                break
-            }
-            case"aQty":{
-                qtyA.text=val.toFixed(0)
-                break
-            }
-            case"bQty":{
-                qtyB.text=val.toFixed(0)
-                break
-            }
             case"elev":{
                 elev.val=val
                 break
@@ -482,33 +340,44 @@ Rectangle {
         }
         function onSetGearState(name, val){
             switch(name){
-                case"leftSafe":{
-                    leftGear.openLock=val
-                    break
-                }
-                case"rightSafe":{
-                    rightGear.openLock=val
-                    break
-                }
-                case"noseSafe":{
-                    noseGear.openLock=val
-                    break
-                }
-                case"leftTransit":{
-                    leftGear.inTransit=val
-                    break
-                }
-                case"rightTransit":{
-                    rightGear.inTransit=val
-                    break
-                }
-                case"noseTransit":{
-                    noseGear.inTransit=val
-                    break
-                }
-                default:{}
+            case"leftSafe":{
+                leftGear.openLock=val
+                break
+            }
+            case"rightSafe":{
+                rightGear.openLock=val
+                break
+            }
+            case"noseSafe":{
+                noseGear.openLock=val
+                break
+            }
+            case"leftTransit":{
+                leftGear.inTransit=val
+                break
+            }
+            case"rightTransit":{
+                rightGear.inTransit=val
+                break
+            }
+            case"noseTransit":{
+                noseGear.inTransit=val
+                break
+            }
+            default:{}
             }
         }
+    }
+
+    HalfTransparentBorderVert {
+        id: halfTransparentBorderVert
+        x: 437
+        y: 0
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        anchors.topMargin: 0
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }
 
@@ -517,9 +386,8 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.33}D{i:2}D{i:1}D{i:4}D{i:5}D{i:6}D{i:7}D{i:10}D{i:9}D{i:12}
-D{i:11}D{i:14}D{i:13}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:8}D{i:21}D{i:22}
-D{i:23}D{i:24}D{i:25}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}D{i:35}D{i:27}
-D{i:26}D{i:3}D{i:36}
+    D{i:0;formeditorZoom:1.1}D{i:2}D{i:1}D{i:4}D{i:5}D{i:8}D{i:7}D{i:10}D{i:9}D{i:12}
+D{i:11}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:6}D{i:19}D{i:20}D{i:21}D{i:22}
+D{i:23}D{i:24}D{i:25}D{i:26}D{i:3}D{i:27}D{i:28}
 }
 ##^##*/

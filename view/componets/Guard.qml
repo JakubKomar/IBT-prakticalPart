@@ -183,16 +183,16 @@ Item {
             id: text1
             x: 134
             width: 88
+            height: 98
             color: "#8a6a6a6a"
             text: qsTr("<<")
+            anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
             font.letterSpacing: -27.7
             font.pixelSize: 90
             horizontalAlignment: Text.AlignHCenter
-            anchors.topMargin: -5
-            anchors.bottomMargin: 16
+            verticalAlignment: Text.AlignVCenter
+            anchors.verticalCenterOffset: -12
             anchors.rightMargin: 28
         }
 

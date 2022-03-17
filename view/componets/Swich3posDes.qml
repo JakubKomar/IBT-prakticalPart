@@ -25,17 +25,16 @@ Item {
         anchors.fill: parent
     }
 
-    Text {
+    TextCust {
         id: text1
+        level:2
         height: 54
         color: "#a4a4a4"
         text: description
         anchors.left: parent.left
         anchors.right: parent.right
-        font.pixelSize: descriptionTextW
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        font.family: "Verdana"
         anchors.rightMargin: 0
         anchors.leftMargin: 0
     }

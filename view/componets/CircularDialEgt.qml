@@ -28,34 +28,34 @@ Item {
                 circularDialEgt.value
         }
 
-        Text {
+        TextCust {
             id: text1
             x: 163
             y: 51
             color: "#ffffff"
             text: circularDial.redVal
-            font.pixelSize: 12
+            level:3
         }
 
-        Text {
+        TextCust {
             id: text2
             x: 175
             y: 155
             color: "#ffffff"
             text: minVal
-            font.pixelSize: 12
+            level:3
         }
     }
 
     DigitalVal {
         id: digitalVal
-        x: 71
-        y: 75
-        width: 131
-        height: 60
+        width: 75
+        height: 45
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenterOffset: 61
+        anchors.horizontalCenter: parent.horizontalCenter
         value: circularDialEgt.value
         fixedVal: 0
-        texHeight: 50
         disableVal: disVal
     }
 }
@@ -64,6 +64,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:2;height:220;width:220}D{i:2}D{i:3}D{i:1}D{i:4}
+    D{i:0;height:220;width:220}D{i:2}D{i:3}D{i:1}D{i:4}
 }
 ##^##*/

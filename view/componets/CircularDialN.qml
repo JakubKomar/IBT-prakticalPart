@@ -48,13 +48,13 @@ Rectangle {
         value: n2
         orangeVal: 103
         maxValue: 105
-        fillCol: "#f8f8f8"
+        fillCol: Styles.green
         sweepAng: 257
         startAng: 51
-        anchors.rightMargin: 19
-        anchors.leftMargin: 19
-        anchors.bottomMargin: 19
-        anchors.topMargin: 19
+        anchors.rightMargin: 20
+        anchors.leftMargin: 20
+        anchors.bottomMargin: 20
+        anchors.topMargin: 20
         strWidth: 5
     }
 
@@ -64,7 +64,7 @@ Rectangle {
         redValEneb: true
         orangeVal: 999
         endRadiusOfScale: 16
-        numRadiusOfScale: 34
+        numRadiusOfScale: 37
         startRadiusOfScale: 26
         numScale: 10
         maxValue: 103.3
@@ -92,140 +92,93 @@ Rectangle {
             Rectangle {
                 id: dataBorder
                 y: 0
+                width: 144
+                height: 108
                 color: "#00ffffff"
                 radius: 12
                 border.color: "#ffffff"
-                anchors.fill: parent
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
 
-                Text {
-                    id: digiValN1
-                    x: 37
-                    y: -1
-                    width: 125
-                    height: 53
-                    color: "#ffffff"
-                    text: n1.toFixed(1)
-                    anchors.right: parent.right
-                    font.pixelSize: 53
-                    horizontalAlignment: Text.AlignRight
-                    verticalAlignment: Text.AlignVCenter
-                    anchors.rightMargin: 4
-                }
-
-                Text {
-                    id: text2
-                    x: 0
-                    y: 8
-                    width: 36
-                    height: 44
-                    color: "#00b2ff"
-                    text: qsTr("N1")
-                    font.pixelSize: 22
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                Text {
-                    id: text3
-                    x: 99
-                    y: 98
-                    width: 63
-                    height: 20
-                    color: "#00b2ff"
-                    text: qsTr("N2")
-                    font.pixelSize: 12
-                    horizontalAlignment: Text.AlignHCenter
-                }
-
-                Text {
-                    id: digiValN2
-                    x: 100
-                    y: 57
-                    width: 62
-                    height: 31
-                    color: "#d3d3d3"
-                    text: n2.toFixed(1)
-                    anchors.right: parent.right
-                    font.pixelSize: 26
-                    horizontalAlignment: Text.AlignHCenter
-                    anchors.rightMargin: 1
-                }
-
-                Text {
+                TextCust {
                     id: indiFire1
-                    visible:fire
-                    x: 0
                     y: 58
-                    width: 99
-                    height: 36
+                    height: 58
+                    visible:fire
                     color: "#ff0000"
                     text: qsTr("FIRE")
-                    font.pixelSize: 39
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    level:1
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
+                    anchors.bottomMargin: 0
                     font.styleName: "tučné"
-                    font.family: "Verdana"
                 }
 
-                Text {
+                TextCust {
                     id: indiReverser
-                    x: 1
-                    y: 58
-                    visible: reverser||reverserGreen
-                    width: 99
+                    y: 63
+                    visible: (reverser||reverserGreen )&& !fire
+                    color: Styles.green
                     height: 18
-                    color: reverserGreen?"#00ff00":"#ffae00"
                     text: qsTr("REVERSER")
-                    font.pixelSize: 14
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    font.letterSpacing: 0
+                    level:3
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    font.family: "Verdana"
+                    anchors.bottomMargin: 39
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
                 }
 
-                Text {
+                TextCust {
                     id: indiMotoring
-                    x: 1
-                    y: 76
-                    visible:motoring
-                    width: 99
+                    y: 81
+                    visible:motoring&& !fire
                     height: 18
                     color: "#ffffff"
                     text: qsTr("MOTORING")
-                    font.pixelSize: 14
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    font.letterSpacing: 0
+                    level:3
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    font.family: "Verdana"
+                    anchors.bottomMargin: 21
+                    anchors.leftMargin: 0
+                    anchors.rightMargin: 0
                 }
 
-                Text {
+                TextCust {
                     id: indiEngFail
-                    x: 1
-                    y: 95
-                    visible:engFail
-                    width: 99
+                    y: 98
+                    visible:engFail&& !fire
                     height: 18
-                    color: "#ffae00"
+                    color: "orange"
                     text: qsTr("ENGINE FAIL")
-                    font.pixelSize: 14
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    font.letterSpacing: 0
+                    level:3
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    font.family: "Verdana"
-                    font.styleName: "tučné"
-                }
-
-                Rectangle {
-                    id: brd1
-                    x: 99
-                    y: 52
-                    width: 1
-                    height: 67
-                    color: "#00ffffff"
-                    border.color: "#ffffff"
+                    anchors.bottomMargin: 4
+                    anchors.leftMargin: 0
+                    anchors.rightMargin: 0
                 }
 
                 Rectangle {
                     id: brd2
-                    y: 52
+                    y: 48
                     height: 1
                     color: "#ffffff"
                     border.color: "#00000000"
@@ -236,24 +189,97 @@ Rectangle {
                 }
 
                 Rectangle {
-                    id: brd3
-                    x: 33
+                    id: rectangle
+                    x: 8
                     y: 1
                     width: 1
-                    height: 51
-                    color: "#00ffffff"
-                    border.color: "#585858"
+                    height: 47
+                    color: "#ffffff"
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
 
-                Rectangle {
-                    id: brd4
-                    x: 100
-                    y: 94
-                    width: 61
-                    height: 1
-                    color: "#00ffffff"
-                    border.color: "#585858"
+                Item {
+                    id: item1
+                    y: 1
+                    width: 72
+                    height: 48
+                    anchors.left: parent.left
+                    anchors.leftMargin: 0
+
+                    TextCust {
+                        id: digiValN1
+                        x: 14
+                        height: 28
+                        color: "#ffffff"
+                        text: "66.6"
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        level:2
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        anchors.rightMargin: 0
+                        anchors.leftMargin: 0
+                        anchors.verticalCenterOffset: 10
+                    }
+
+                    TextCust {
+                        id: text2
+                        y: 0
+                        height: 20
+                        color: Styles.blue
+                        text: qsTr("N1")
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        level:3
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        anchors.rightMargin: 0
+                        anchors.leftMargin: 0
+                    }
                 }
+
+                Item {
+                    id: item2
+                    x: 76
+                    y: 1
+                    width: 72
+                    height: 48
+                    anchors.right: parent.right
+                    anchors.rightMargin: 0
+
+                    TextCust{
+                        id: text3
+                        y: 0
+                        height: 20
+                        color: Styles.green
+                        text: qsTr("N2")
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        level:3
+                        font.pixelSize: 12
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        anchors.leftMargin: 0
+                        anchors.rightMargin: 0
+                    }
+
+                    TextCust {
+                        id: digiValN2
+                        height: 28
+                        color: "#d3d3d3"
+                        text: n2.toFixed(1)
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        level:2
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.leftMargin: 0
+                        anchors.rightMargin: 0
+                        anchors.verticalCenterOffset: 10
+                    }
+                }
+
             }
         }
     }
@@ -265,7 +291,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.5;height:220;width:220}D{i:1}D{i:3}D{i:6}D{i:7}D{i:8}D{i:9}
-D{i:10}D{i:11}D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:5}D{i:4}D{i:2}
+    D{i:0;formeditorZoom:2;height:250;width:250}D{i:1}D{i:3}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}
+D{i:11}D{i:13}D{i:14}D{i:12}D{i:16}D{i:17}D{i:15}D{i:5}D{i:4}D{i:2}
 }
 ##^##*/

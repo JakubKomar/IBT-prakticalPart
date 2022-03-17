@@ -35,17 +35,15 @@ Rectangle {
         anchors.rightMargin: 0
         anchors.leftMargin: 0
 
-        Text {
+        TextCust {
             id: statusText
             color: offColor
             text: offText
+            level:2
             anchors.fill: parent
-            font.pixelSize: textWidthStatus
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             minimumPointSize: 13
-            font.family: "Tahoma"
-            font.bold: true
         }
     }
 
@@ -63,18 +61,15 @@ Rectangle {
         anchors.rightMargin: 0
         anchors.leftMargin: 0
 
-        Text {
+        TextCust{
             id: text2
             color: "#ffffff"
             text: qsTr(description)
             anchors.fill: parent
-            font.pixelSize: textWidthDescription
+            level:2
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors.topMargin: -7
-            font.family: "Verdana"
-            font.bold: true
-
             Rectangle {
                 id: rectangle
                 y: 8
@@ -107,6 +102,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.75}D{i:2}D{i:1}D{i:5}D{i:4}D{i:3}
+    D{i:0;height:140;width:140}D{i:2}D{i:1}D{i:5}D{i:4}D{i:3}
 }
 ##^##*/

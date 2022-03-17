@@ -17,18 +17,16 @@ Button {
 
     }
 
-    Text {
+    TextCust {
         id: text1
         color: "#ffffff"
         text: buttText
         anchors.fill: parent
+        level:2
         font.letterSpacing: 0
-        font.pixelSize: 26
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         lineHeight: 0.7
-        font.bold: false
-        font.family: "Verdana"
         font.wordSpacing: 0
     }
 }

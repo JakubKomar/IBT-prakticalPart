@@ -15,11 +15,13 @@ Item {
     property alias warText: indicator.description
     property alias radius: indicator.radius
     property alias border:indicator.border
+    property alias itemText:indicator.itemText
     height: 65
 
     Indicator{
        id: indicator
        anchors.fill: parent
+       clip: false
        borderWidth: 2
        offColorBc: "#000000"
        onColorBc: "#673600"
@@ -29,6 +31,6 @@ Item {
 }
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}D{i:1}
+    D{i:0;height:80;width:140}D{i:1}
 }
 ##^##*/

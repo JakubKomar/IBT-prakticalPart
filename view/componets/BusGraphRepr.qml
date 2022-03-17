@@ -30,16 +30,15 @@ Item {
                  warText: "SOURCE\nOFF"
             }
 
-            Text {
+            TextCust {
                 id: text1
                 width: parent.width
                 height: parent.height/2
                 color: "#ababab"
                 text: busText
-                font.pixelSize: 42
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.family: "Verdana"
             }
 
 

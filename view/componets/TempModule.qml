@@ -61,15 +61,14 @@ Item {
                     anchors.topMargin: 0
                     anchors.bottomMargin: 0
 
-                    Text {
+                    TextCust {
                         id: description
                         color: "#ffffff"
                         text: qsTr("CENTER")
                         anchors.fill: parent
-                        font.pixelSize: 20
+                        level:2
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        font.family: "Verdana"
                     }
                 }
             }
@@ -124,6 +123,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.5}D{i:4}D{i:6}D{i:5}D{i:3}D{i:8}D{i:9}D{i:7}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:0.75}D{i:4}D{i:6}D{i:5}D{i:3}D{i:8}D{i:9}D{i:7}D{i:2}D{i:1}
 }
 ##^##*/

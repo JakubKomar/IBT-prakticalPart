@@ -198,18 +198,17 @@ Item {
                 border.color: "gray"
                 border.width: 2
 
-                Text {
+                TextCust {
                     id: digitalValueText
                     x: 0
                     y: -14
                     color: "#008aff"
                     text: value1.toFixed(1)+" C°"
                     anchors.fill: parent
-                    font.pixelSize: 15
+                    level:3
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    font.bold: true
-                    font.family: "Verdana"
+
                 }
             }
             Shape {
@@ -259,18 +258,16 @@ Item {
                 color: "#ffffff"
                 border.color: "#808080"
                 border.width: 2
-                Text {
+                TextCust {
                     id: digitalValueText1
                     x: 0
                     y: -14
                     color: "#008aff"
                     text: value2.toFixed(1)+" C°"
                     anchors.fill: parent
-                    font.pixelSize: 15
                     horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    font.family: "Verdana"
-                    font.bold: true
+                    verticalAlignment: Text.AlignVCenter                  
+                    level:3
                 }
             }
 
@@ -306,7 +303,7 @@ Item {
             }
         }
 
-        Text {
+        TextCust {
             id: text1
             x: 0
             y: 6
@@ -314,14 +311,13 @@ Item {
             height: 16
             color: "#d0d0d0"
             text: qsTr("Text")
-            font.pixelSize: 12
+            level:3
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            font.family: "Verdana"
             visible: enableSecond
         }
 
-        Text {
+        TextCust {
             id: text2
             x: 0
             y: 26
@@ -329,10 +325,9 @@ Item {
             height: 16
             color: "#d0d0d0"
             text: qsTr("Text")
-            font.pixelSize: 12
+            level:3
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            font.family: "Verdana"
         }
 
     }
@@ -343,7 +338,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.5}D{i:4}D{i:6}D{i:10}D{i:3}D{i:15}D{i:17}D{i:21}D{i:14}D{i:25}
+    D{i:0;formeditorZoom:1.25}D{i:4}D{i:6}D{i:10}D{i:3}D{i:15}D{i:17}D{i:21}D{i:14}D{i:25}
 D{i:2}D{i:29}D{i:28}D{i:31}D{i:30}D{i:27}D{i:37}D{i:36}D{i:39}D{i:38}D{i:35}D{i:43}
 D{i:44}D{i:1}
 }

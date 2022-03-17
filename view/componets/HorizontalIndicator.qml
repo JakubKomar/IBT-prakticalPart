@@ -75,7 +75,7 @@ Rectangle {
 
             Rectangle {
                 id: indicator
-                color: inCritical()?"red":inWarn()?"#FF9900":"#0069ff"
+                color: inCritical()?"red":inWarn()?"#orange":Styles.blue
                 radius: 4
                 anchors.left: parent.left
                 anchors.top: parent.top

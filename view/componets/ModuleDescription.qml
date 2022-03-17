@@ -1,41 +1,52 @@
-import QtQuick 2.0
-
+import QtQuick
 Item {
     id: rectangle1
     width: 672
-    height: 39
+    height: 30
     property string description: "ENGINE CONTROLS"
-    Text {
+    TextCust {
         id: text4
-        x: 269
-        height: 38
-        color: "#ffffff"
+        color: Styles.blueDark
         text:description
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: parent.top
-        font.pixelSize: 35
+        level:2
+        anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         font.capitalization: Font.AllUppercase
-        anchors.topMargin: 0
     }
 
     Rectangle {
         id: rectangle
         y: 37
         height: 1
-        color: "#ffffff"
+        color: "gray"
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.leftMargin: 30
-        anchors.rightMargin: 30
+        anchors.bottom: parent.bottom
+        gradient: Gradient {
+            GradientStop {
+                position: 0
+                color: "transparent"
+            }
+            GradientStop {
+                position: 0.5
+                color: "#ffffff"
+            }
+            GradientStop {
+                position: 1
+                color: "transparent"
+            }
+            orientation: Gradient.Horizontal
+        }
+        anchors.bottomMargin: 0
+        anchors.leftMargin: 0
+        anchors.rightMargin: 0
     }
 
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.5}D{i:1}D{i:2}
+    D{i:0;height:30;width:875}D{i:1}D{i:2}
 }
 ##^##*/

@@ -4,7 +4,7 @@ import QtQuick.Shapes
 Item {
     id: flapsIndicator
     width: 220
-    height: 285
+    height: 301
     property alias stateIndicator: stateIndicator
     property alias warningIndicator: warningIndicator
     property variant textArray:["UP",1,2,5,10,15,25,30,40]
@@ -42,35 +42,51 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
 
-                Text {
+                TextCust {
                     id: text1
-                    y: 0
+                    height: 26
                     color: "#009bff"
                     text: qsTr("FLAPS")
-                    font.pixelSize: 21
-                    anchors.horizontalCenterOffset: 0
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.leftMargin: 0
+                    anchors.rightMargin: 0
+                    anchors.verticalCenterOffset: -27
+                    level:3
                 }
 
-                Text {
+                TextCust {
                     id: text2
                     color: "#ffffff"
                     text: textArray[(stateVal*8).toFixed(0)]
                     anchors.verticalCenter: parent.verticalCenter
-                    font.pixelSize: 38
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
+                    level:2
                     anchors.verticalCenterOffset: 1
-                    anchors.horizontalCenterOffset: 1
-                    anchors.horizontalCenter: parent.horizontalCenter
                 }
 
-                Text {
+                TextCust {
                     id: text3
-                    y: 62
+                    height: 31
                     color: "#009bff"
                     text: qsTr("Position")
-                    font.pixelSize: 12
-                    anchors.horizontalCenterOffset: 0
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
+                    anchors.verticalCenterOffset: 27
+                    level:3
                 }
             }
         }
@@ -107,7 +123,7 @@ Item {
         id: warningIndicator
         y: 221
         width: 111
-        height: 65
+        height: 80
         anchors.left: parent.left
         status: 0
         textHeight: 23
@@ -120,7 +136,7 @@ Item {
         x: 109
         y: 221
         width: 111
-        height: 65
+        height: 80
         anchors.right: parent.right
         indicator.offColorBc: "#000000"
         indicator.borderWidth: 2
@@ -136,7 +152,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.5;height:285;width:220}D{i:4}D{i:5}D{i:6}D{i:3}D{i:2}D{i:8}
-D{i:7}D{i:10}D{i:1}D{i:11}D{i:12}
+    D{i:0;height:301;width:220}D{i:4}D{i:5}D{i:6}D{i:3}D{i:2}D{i:8}D{i:7}D{i:10}D{i:1}
+D{i:11}D{i:12}
 }
 ##^##*/

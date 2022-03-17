@@ -21,19 +21,18 @@ Rectangle {
             ""
     }
 
-    Text {
+    TextCust {
         id: text2
         color: "#b6b6b6"
         text: "OFF"
         anchors.fill: parent
-        font.pixelSize: 50
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        font.capitalization: Font.AllUppercase
+        level: 1
         anchors.leftMargin: 90
     }
 
-    Text {
+    TextCust {
         id: text1
         width: 91
         color: "#009bff"
@@ -41,7 +40,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        font.pixelSize: 25
+        level: 2
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         anchors.leftMargin: 0

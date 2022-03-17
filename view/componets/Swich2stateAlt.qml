@@ -31,14 +31,14 @@ Item {
             border.color: !togled?turnOnBcBorderCol:turnOffBcBorderCol
             border.width: 2
             radius: 8
-            Text {
+            TextCust {
                 id: button1Text
                 text: textOff
                 color: !togled?turnOnTextCol:turnOffTextCol
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pointSize: textHeight
+                level:2
             }
         }
     }
@@ -55,14 +55,14 @@ Item {
             radius: 8
             border.color: togled?turnOnBcBorderCol:turnOffBcBorderCol
             border.width: 2
-            Text {
+            TextCust {
                 id: button2Text
                 text: textOn
                 color: togled?turnOnTextCol:turnOffTextCol
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pointSize: textHeight
+                level:2
             }
         }
     }

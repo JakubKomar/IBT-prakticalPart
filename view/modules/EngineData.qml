@@ -13,19 +13,25 @@ Rectangle {
     ModuleDescription {
         id: moduleDescription
         y: 0
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: 1
+        anchors.rightMargin: 0
         description: "ENGINE STATUS"
-        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     Column {
         id: column
         x: 8
-        y: 65
+        y: 98
         width: 140
-        height: 329
+        height: 396
+        spacing: -1
 
         WarningIndicator {
             id: warningStartValve1
+            height: 80
+            indicator.textHeight: 11
             textHeight: 21
             warText: "START VALVE\nOPEN"
             status: 0
@@ -33,6 +39,7 @@ Rectangle {
 
         WarningIndicator {
             id: warningOilFilter1
+            height: 80
             textHeight: 21
             warText: "OIL FILTER\nBYPASS"
             status: 0
@@ -40,6 +47,7 @@ Rectangle {
 
         WarningIndicator {
             id: warningLowOil1
+            height: 80
             textHeight: 21
             warText: "LOW OIL\nPRESSURE"
             status: 0
@@ -47,6 +55,7 @@ Rectangle {
 
         WarningIndicator {
             id: warningThrust1
+            height: 80
             textHeight: 21
             warText: "THRUST"
             status: 0
@@ -54,34 +63,35 @@ Rectangle {
 
         WarningIndicator {
             id: warningFuelFlow1
+            height: 80
             textHeight: 21
             warText: "FUEL FLOW"
             status: 0
         }
-
-
     }
 
     Column {
         id: column2
-        x: 154
         y: 52
         width: 235
         height: 1011
+        anchors.horizontalCenterOffset: -150
+        anchors.horizontalCenter: parent.horizontalCenter
         spacing: 18
 
-        Text {
+        TextCust {
             id: text1
-            color: "#ffffff"
+            color: Styles.blueDark
             text: qsTr("ENGINE 1")
-            font.pixelSize: 28
+            level:2
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
         CircularDialN {
             id: n1L
-            x: 20
             width: 250
+            anchors.horizontalCenter: parent.horizontalCenter
+            fire: true
             n2: 104.7
         }
 
@@ -93,33 +103,28 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-
-
-
-
-
-
-
-
         Column {
             id: column5
+            width: 250
             height: 400
-            anchors.left: parent.left
             anchors.right: parent.right
-            anchors.rightMargin: 0
-            anchors.leftMargin: 0
+            anchors.rightMargin: 28
             spacing: 40
 
             DigitalVal {
                 id: ffL
                 width: 90
-                height: 42
+                height: 45
                 texHeight: 30
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
             HorizontalIndicator {
                 id: oilPressL
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 0
+                anchors.rightMargin: 0
                 value: 32.6
                 maxWarnVal: 99
                 minValue: 13
@@ -129,22 +134,28 @@ Rectangle {
                 minWarnVal: 20
                 maxValue: 100
                 inverted: true
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             HorizontalIndicator {
                 id: oilTempL
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 0
+                anchors.rightMargin: 0
                 maxWarnValEneb: true
                 maxKritikValEneb: true
                 maxKritikVal: 165
                 maxWarnVal: 154
                 maxValue: 170
                 inverted: true
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             HorizontalIndicator {
                 id: oilQtyL
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 0
+                anchors.rightMargin: 0
                 minWarnValEneb: true
                 minKritikVal: 5
                 minKritikValEneb: false
@@ -152,50 +163,43 @@ Rectangle {
                 value: 20
                 maxValue: 40
                 inverted: true
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             HorizontalIndicator {
                 id: vibL
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 0
+                anchors.rightMargin: 0
                 maxWarnValEneb: true
                 maxWarnVal: 4
                 value: 1.6
                 fixedDecimals: 1
                 maxValue: 5
                 inverted: true
-                anchors.horizontalCenter: parent.horizontalCenter
             }
-
         }
-
-
-
-
-
-
-
-
-
     }
 
     Column {
         id: column3
-        x: 485
         y: 52
         width: 235
         height: 1011
-        Text {
+        anchors.horizontalCenterOffset: 150
+        anchors.horizontalCenter: parent.horizontalCenter
+        TextCust {
             id: text2
-            color: "#ffffff"
+            color:  Styles.blueDark
             text: qsTr("ENGINE 2")
-            font.pixelSize: 28
+            level:2
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
         CircularDialN {
             id: n1R
-            x: -20
             width: 250
+            anchors.horizontalCenter: parent.horizontalCenter
             engFail: true
             fire: false
             motoring: true
@@ -216,23 +220,26 @@ Rectangle {
 
         Column {
             id: column4
+            width: 250
             height: 400
             anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.rightMargin: 0
-            anchors.leftMargin: 0
+            anchors.leftMargin: 28
             spacing: 40
 
             DigitalVal {
                 id: ffR
                 width: 90
-                height: 42
+                height: 45
                 texHeight: 30
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
             HorizontalIndicator {
                 id: oilPressR
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.rightMargin: 0
+                anchors.leftMargin: 0
                 value: 38.9
                 inverted: false
                 maxWarnVal: 99
@@ -242,21 +249,27 @@ Rectangle {
                 minWarnValEneb: true
                 minWarnVal: 20
                 maxValue: 100
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             HorizontalIndicator {
                 id: oilTempR
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.rightMargin: 0
+                anchors.leftMargin: 0
                 maxWarnValEneb: true
                 maxKritikValEneb: true
                 maxKritikVal: 165
                 maxWarnVal: 154
                 maxValue: 170
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             HorizontalIndicator {
                 id: oilQtyR
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.rightMargin: 0
+                anchors.leftMargin: 0
                 minWarnValEneb: true
                 minKritikVal: 5
                 minKritikValEneb: false
@@ -264,142 +277,145 @@ Rectangle {
                 value: 20
                 maxValue: 40
                 inverted: false
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             HorizontalIndicator {
                 id: vibR
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.rightMargin: 0
+                anchors.leftMargin: 0
                 maxWarnValEneb: true
                 maxWarnVal: 4
                 value: 1.6
                 fixedDecimals: 1
                 maxValue: 5
-                anchors.horizontalCenter: parent.horizontalCenter
             }
 
         }
-
-
-
         spacing: 18
     }
 
-    Text {
+    TextCust {
         id: text4
         y: 467
         width: 77
-        color: "#00cdff"
+        height: 52
+        color: Styles.blueDark
         text: qsTr("EGT")
-        font.pixelSize: 34
+        level:2
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         lineHeight: 0.7
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
+
+        TextCust {
+            id: text14
+            x: 31
+            y: 37
+            color: "#ffffff"
+            text: qsTr("C°")
+            anchors.horizontalCenterOffset: -1
+            level: 3
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
     }
 
-    Text {
+
+    TextCust {
         id: text5
-        y: 609
+        y: 599
         width: 77
-        color: "#00cdff"
+        height: 52
+        color: Styles.blueDark
         text: qsTr("FF")
-        font.pixelSize: 34
+        level:2
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        anchors.horizontalCenterOffset: 1
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        TextCust {
+            id: text3
+            y: 37
+            color: "#ffffff"
+            text: qsTr("KG/s")
+            anchors.horizontalCenter: parent.horizontalCenter
+            level:3
+            anchors.horizontalCenterOffset: -1
+        }
+    }
+
+
+    TextCust {
+        id: text7
+        y: 678
+        width: 77
+        height: 52
+        color: Styles.blueDark
+        text: qsTr("OIL\nPRESS")
+        level:2
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         lineHeight: 0.7
-        anchors.horizontalCenterOffset: 0
+        anchors.horizontalCenterOffset: 1
         anchors.horizontalCenter: parent.horizontalCenter
 
-        Text {
-            id: text3
-            x: 27
-            y: 42
-            color: "#ffffff"
-            text: qsTr("KG/s")
-            font.pixelSize: 12
-            anchors.horizontalCenterOffset: 0
-        }
-
-        Text {
+        TextCust {
             id: text6
-            x: 31
-            y: 123
+            x: 32
+            y: 48
+            width: 22
+            height: 13
             color: "#ffffff"
             text: qsTr("PSI")
-            font.pixelSize: 12
-            anchors.horizontalCenterOffset: 0
+            anchors.horizontalCenter: parent.horizontalCenter
+            level:3
+            anchors.horizontalCenterOffset: -1
         }
+    }
 
-        Text {
+
+    TextCust {
+        id: text10
+        y: 928
+        width: 77
+        height: 52
+        color: Styles.blueDark
+        text: qsTr("VIB")
+        level:2
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        lineHeight: 0.7
+        anchors.horizontalCenterOffset: 1
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        TextCust {
             id: text8
-            x: 36
-            y: 361
+            x: 34
+            y: 42
             width: 7
             height: 16
             color: "#ffffff"
             text: qsTr("J")
-            font.pixelSize: 12
-            anchors.horizontalCenterOffset: 0
-        }
-
-        Text {
-            id: text9
-            x: 33
-            y: 199
-            color: "#ffffff"
-            text: qsTr("C°")
-            font.pixelSize: 12
-            anchors.horizontalCenterOffset: 0
-        }
-
-        Text {
-            id: text13
-            x: 33
-            y: 288
-            color: "#ffffff"
-            text: qsTr("J")
-            font.pixelSize: 12
+            anchors.horizontalCenter: parent.horizontalCenter
+            level:3
             anchors.horizontalCenterOffset: 0
         }
     }
 
-    Text {
-        id: text7
-        y: 676
-        width: 77
-        color: "#00cdff"
-        text: qsTr("OIL\nPRESS")
-        font.pixelSize: 25
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        lineHeight: 0.7
-        anchors.horizontalCenterOffset: 0
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
-
-    Text {
-        id: text10
-        y: 940
-        width: 77
-        color: "#00cdff"
-        text: qsTr("VIB")
-        font.pixelSize: 25
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        lineHeight: 0.7
-        anchors.horizontalCenterOffset: 0
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
 
     Column {
         id: column1
         x: 727
-        y: 65
+        y: 98
         width: 140
-        height: 329
+        height: 402
+        spacing: -1
         WarningIndicator {
             id: warningStartValve2
+            height: 80
             textHeight: 21
             status: 0
             warText: "START VALVE\nOPEN"
@@ -407,6 +423,7 @@ Rectangle {
 
         WarningIndicator {
             id: warningOilFilter2
+            height: 80
             textHeight: 21
             status: 0
             warText: "OIL FILTER\nBYPASS"
@@ -414,6 +431,7 @@ Rectangle {
 
         WarningIndicator {
             id: warningLowOil2
+            height: 80
             textHeight: 21
             status: 0
             warText: "LOW OIL\nPRESSURE"
@@ -421,18 +439,13 @@ Rectangle {
 
         WarningIndicator {
             id: warningThrust2
+            height: 80
             textHeight: 21
             status: 0
             warText: "THRUST"
         }
-
-        WarningIndicator {
-            id: warningFuelFlow2
-            textHeight: 21
-            status: 0
-            warText: "FUEL FLOW"
-        }
     }
+
     Connections{
         target:EngineDataRender
 
@@ -518,8 +531,6 @@ Rectangle {
                     tat.text=val.toFixed(0)
                 break;
             }
-
-
             default:{}
             }
         }
@@ -623,97 +634,69 @@ Rectangle {
         }
     }
 
-    Text {
+    TextCust {
         id: text11
-        y: 751
+        y: 762
         width: 77
-        color: "#00cdff"
+        height: 52
+        color: Styles.blueDark
         text: qsTr("OIL\nTEMP")
-        font.pixelSize: 25
+        level:2
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         lineHeight: 0.7
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.horizontalCenterOffset: 0
-    }
 
-    Text {
-        id: text12
-        y: 838
-        width: 77
-        color: "#00cdff"
-        text: qsTr("OIL\nQTY")
-        font.pixelSize: 25
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        lineHeight: 0.7
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.horizontalCenterOffset: 0
-    }
-
-    Rectangle {
-        id: rectangle
-        x: 8
-        y: 8
-        width: 155
-        height: 51
-        color: "#000000"
-        radius: 9
-        border.color: "#ffffff"
-
-        Text {
-            id: tat
+        TextCust {
+            id: text9
+            x: 31
+            y: 50
             color: "#ffffff"
-            text: qsTr("-23")
-            anchors.fill: parent
-            font.pixelSize: 45
-            horizontalAlignment: Text.AlignRight
-            verticalAlignment: Text.AlignVCenter
-            anchors.bottomMargin: 0
-            anchors.topMargin: 0
-            anchors.rightMargin: 43
-            anchors.leftMargin: 45
-        }
-
-        Text {
-            id: text15
-            x: 0
-            y: 0
-            width: 48
-            height: 51
-            color: "#00deff"
-            text: qsTr("TAT")
-            font.pixelSize: 28
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-        }
-
-        Rectangle {
-            id: rectangle1
-            x: 44
-            width: 1
-            color: "#585858"
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.topMargin: 1
-            anchors.bottomMargin: 1
+            text: qsTr("C°")
+            anchors.horizontalCenter: parent.horizontalCenter
+            level:3
+            anchors.horizontalCenterOffset: -1
         }
     }
 
-    Text {
-        id: text16
-        x: 115
-        y: 8
-        width: 48
-        height: 51
-        color: "#00deff"
-        text: qsTr("C°")
-        font.letterSpacing: -1.4
-        font.pixelSize: 35
+    TextCust {
+        id: text12
+        level:2
+        y: 846
+        width: 77
+        height: 52
+        color:Styles.blueDark
+        text: qsTr("OIL\nQTY")
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        font.wordSpacing: -0.4
+        lineHeight: 0.7
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: 0
+
+        TextCust {
+            id: text13
+            x: 35
+            y: 49
+            color: "#ffffff"
+            text: qsTr("J")
+            anchors.horizontalCenter: parent.horizontalCenter
+            level:3
+            anchors.horizontalCenterOffset: 0
+        }
     }
+
+    WarningIndicator {
+        id: warningFuelFlow2
+        x: 727
+        y: 414
+        height: 80
+        textHeight: 21
+        status: 0
+        warText: "FUEL FLOW"
+    }
+
+
 
 
 
@@ -722,10 +705,10 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:1060;width:875}D{i:1}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:2}D{i:9}D{i:10}
-D{i:11}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:12}D{i:8}D{i:19}D{i:20}D{i:21}D{i:23}
-D{i:24}D{i:25}D{i:26}D{i:27}D{i:22}D{i:18}D{i:28}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}
-D{i:29}D{i:35}D{i:36}D{i:38}D{i:39}D{i:40}D{i:41}D{i:42}D{i:37}D{i:43}D{i:44}D{i:45}
-D{i:47}D{i:48}D{i:49}D{i:46}D{i:50}
+    D{i:0;formeditorZoom:0.5;height:1060;width:875}D{i:1}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}
+D{i:2}D{i:9}D{i:10}D{i:11}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:12}D{i:8}D{i:19}
+D{i:20}D{i:21}D{i:23}D{i:24}D{i:25}D{i:26}D{i:27}D{i:22}D{i:18}D{i:29}D{i:28}D{i:31}
+D{i:30}D{i:33}D{i:32}D{i:35}D{i:34}D{i:37}D{i:38}D{i:39}D{i:40}D{i:36}D{i:41}D{i:43}
+D{i:42}D{i:45}D{i:44}D{i:46}
 }
 ##^##*/

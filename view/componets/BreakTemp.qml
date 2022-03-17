@@ -3,8 +3,8 @@ import QtQuick 2.0
 Rectangle {
     id: rectangle3
     x: 0
-    width: 184
-    height: 72
+    width: 201
+    height: 79
     color: "#000000"
     property double leftBreakTemp : 6.6
     property double rightBreakTemp : 15.2
@@ -126,61 +126,63 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        Text {
+        TextCust {
             id: leftTemp
             x: 3
             y: 10
-            width: 49
+            width: 50
             height: 38
             color: "#ffffff"
             text: leftBreakTemp.toFixed(1)
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            font.pixelSize: 27
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
+            level: 2
             anchors.leftMargin: 0
             anchors.verticalCenterOffset: 0
         }
 
-        Text {
+        TextCust {
             id: rightTemp
             x: 135
             y: 10
             width: 49
             height: 42
             color: "#ffffff"
-            text: rightBreakTemp.toFixed(1)
+            text: "9.2"
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            font.pixelSize: 27
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
+            level: 2
             anchors.rightMargin: 0
         }
 
-        Text {
+        TextCust {
             id: text3
-            x: 0
-            y: 59
+            x: 4
+            y: 57
             width: 42
             height: 16
             color: "#00b2ff"
             text: qsTr("x100C°")
-            font.pixelSize: 10
             horizontalAlignment: Text.AlignHCenter
+            font.capitalization: Font.MixedCase
+            level: 3
         }
 
-        Text {
+        TextCust {
             id: text4
-            x: 142
-            y: 59
+            x: 156
+            y: 57
             width: 42
             height: 16
             color: "#00b2ff"
             text: qsTr("x100C°")
-            font.pixelSize: 10
             horizontalAlignment: Text.AlignHCenter
+            font.capitalization: Font.MixedCase
+            level: 3
         }
     }
     function colorPicker(val){
@@ -206,7 +208,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:6;height:72;width:184}D{i:4}D{i:3}D{i:2}D{i:7}D{i:6}D{i:5}D{i:8}
-D{i:9}D{i:10}D{i:11}D{i:12}D{i:1}
+    D{i:0;height:79;width:201}D{i:4}D{i:3}D{i:2}D{i:7}D{i:6}D{i:5}D{i:8}D{i:9}D{i:10}
+D{i:11}D{i:12}D{i:1}
 }
 ##^##*/

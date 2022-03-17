@@ -16,7 +16,7 @@ Item {
         anchors.bottomMargin: 0
         anchors.leftMargin: 0
         low: false
-        inbalance: false
+        inbalance: true
         isCenterTank: false
         circularDialV2.warningTogle: false
         circularDialV2.errorTogle: false
@@ -36,7 +36,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         low: false
         inbalance: false
-        config: false
+        config: true
         circularDialV2.bigStep: 2800
         circularDialV2.maxValue: 28580
         desText: "Center"
@@ -53,7 +53,7 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
         anchors.rightMargin: 0
-        low: false
+        low: true
         config: false
         inbalance: false
         isCenterTank: false

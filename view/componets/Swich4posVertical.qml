@@ -42,15 +42,14 @@ Item {
 
             }
 
-            Text {
+            TextCust {
                 id: text1
                 color: position==0?activeTextCol:textCol
                 text:textPos1
                 anchors.fill: parent
-                font.pixelSize: textWidth
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.family: "Verdana"
 
             }
         }
@@ -68,15 +67,14 @@ Item {
                 anchors.fill: parent
             }
 
-            Text {
+            TextCust {
                 id: text2
                 color: position==1?activeTextCol:textCol
                 text: textPos2
                 anchors.fill: parent
-                font.pixelSize: textWidth
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.family: "Verdana"
             }
         }
 
@@ -93,15 +91,14 @@ Item {
                 anchors.fill: parent
             }
 
-            Text {
+            TextCust {
                 id: text3
                 color: position==2?activeTextCol:textCol
                 text: textPos3
                 anchors.fill: parent
-                font.pixelSize: textWidth
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.family: "Verdana"
             }
         }
         Button {
@@ -117,15 +114,14 @@ Item {
                 anchors.fill: parent
             }
 
-            Text {
+            TextCust {
                 id: text4
                 color: position==3?activeTextCol:textCol
                 text: textPos4
                 anchors.fill: parent
-                font.pixelSize: textWidth
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.family: "Verdana"
             }
         }
     }

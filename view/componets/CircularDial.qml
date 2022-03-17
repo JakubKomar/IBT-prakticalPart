@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Shapes
-
+import "."
 Item {
     id: circularDial
 
@@ -12,7 +12,7 @@ Item {
     property double redVal: maxValue
     property double orangeVal: maxValue
     property double minValue: 0
-    property color fillCol: "#00b9ff"
+    property color fillCol: Styles.blue
     property int strWidth:20
     property int startAng:40
     property int sweepAng:280
@@ -72,7 +72,7 @@ Item {
                 strokeColor: if(value>redVal)
                                  "red"
                             else if(value>orangeVal)
-                                 "#ff9200"
+                                 "orange"
                             else
                                  fillCol
                 fillColor:"transparent"

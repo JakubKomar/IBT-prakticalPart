@@ -17,13 +17,13 @@ Item {
         border.width: 2
         anchors.fill: parent
 
-        Text {
+        TextCust {
             id: digitalVal
+            level:2
             visible: !disableVal
             color: !higliteVal?"white":"black"
             text: value.toFixed(fixedVal)
             anchors.fill: parent
-            font.pixelSize: texHeight
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
         }

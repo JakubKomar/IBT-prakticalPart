@@ -35,33 +35,36 @@ Slider {
 
         }
 
-        Text {
+        TextCust {
             id: text1
             x: parent.width-width-textPading
             text: qsTr("WARM")
             anchors.verticalCenter: parent.verticalCenter
             anchors.bottom: rectangle1.bottom
-            font.pixelSize: 14
-            horizontalAlignment: Text.AlignHCenter
+            level:3
+            horizontalAlignment: Text.AlignRight
             verticalAlignment: Text.AlignVCenter
         }
 
-        Text {
+        TextCust {
             id: text2
             text: qsTr("AUTO")
             anchors.verticalCenter: parent.verticalCenter
-            font.pixelSize: 14
+            level:3
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        Text {
+        TextCust {
             id: text3
             x: deadZone*(to-from)* parent.width + textPading
             text: qsTr("COLD")
             anchors.verticalCenter: parent.verticalCenter
-            font.pixelSize: 14
+            anchors.bottom: rectangle1.bottom
+            level:3
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
         }
         Rectangle{
             x:1
@@ -70,7 +73,7 @@ Slider {
             height: parent.height-2
             color: "black"
             radius: 5
-            Text {
+            TextCust {
                 id: text4
                 anchors.verticalCenter: parent.verticalCenter
                 color: "#ffffff"
@@ -79,6 +82,7 @@ Slider {
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
+                level:3
             }
         }
     }
@@ -113,6 +117,6 @@ Slider {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:3}D{i:7}
+    D{i:0;formeditorZoom:1.66}
 }
 ##^##*/

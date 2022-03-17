@@ -43,43 +43,49 @@ Item {
             border.width: 1
             anchors.verticalCenter: parent.verticalCenter
 
-            Text {
+            TextCust {
                 id: description
                 x: 37
                 y: 2
-                color: "#0083ff"
+                width: 360
+                height: 27
+                color: "#0069ff"
                 text: desText
-                font.pixelSize: 20
+                anchors.verticalCenter: parent.verticalCenter
+                level:3
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
+                anchors.verticalCenterOffset: -28
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
-            Text {
+            TextCust {
                 id: digitalValue
                 x: 53
-                y: 26
                 color: "#ffffff"
                 text: value.toFixed(2)
-                font.pixelSize: 41
+                anchors.verticalCenter: parent.verticalCenter
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                lineHeight: 0
-                font.family: "Verdana"
-                anchors.horizontalCenterOffset: -1
-                font.strikeout: false
+                anchors.horizontalCenterOffset: 0
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
-            Text {
+            TextCust {
                 id: unitsText
                 x: 56
-                y: 69
-                color: "#0083ff"
+                width: 158
+                height: 20
+                color: "#0069ff"
                 text: units
-                font.pixelSize: 20
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.bottom: parent.bottom
+                level:3
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
+                anchors.verticalCenterOffset: 28
+                anchors.bottomMargin: 0
                 anchors.horizontalCenterOffset: 0
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -91,6 +97,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.1}D{i:1}D{i:4}D{i:5}D{i:6}D{i:3}D{i:2}
+    D{i:0;formeditorZoom:1.66}D{i:1}D{i:4}D{i:5}D{i:6}D{i:3}D{i:2}
 }
 ##^##*/

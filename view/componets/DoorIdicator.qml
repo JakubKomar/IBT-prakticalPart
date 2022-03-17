@@ -12,7 +12,6 @@ Item{
         radius: 30
         border.color: "#4c4c4c"
         anchors.fill: parent
-        textWidthDescription: 23
         onColor: "#ffae00"
         onText: "OPEN"
         clip: false
@@ -21,7 +20,6 @@ Item{
         anchors.bottomMargin: 0
         statusText.horizontalAlignment: Text.AlignHCenter
         statusText.verticalAlignment: Text.AlignVCenter
-        textWidthStatus: 37
         togled: true
         offText: "CLOSE"
         offColor: "#09ff00"

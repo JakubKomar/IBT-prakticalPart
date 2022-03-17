@@ -17,10 +17,13 @@ Button {
 
 
     property int status: 0
-
+    property int rad: 7
     property color warningColor: "#ff8c00"
     property color errorColor: "#bb0000"
-    property color defaultColor: "#080808"
+    property color defaultColor: "transparent"
+
+    property int borderW:1
+    property int borderWact:3
 
     property color bcColor: {
         if(status==2){
@@ -35,7 +38,7 @@ Button {
     }
     property bool activePage: false
 
-    property color frameColorDefault: "transparent"
+    property color frameColorDefault: "white"
     property color frameColorActive: "#00ff00"
     property color frameColor: activePage ? frameColorActive:frameColorDefault
 
@@ -44,8 +47,8 @@ Button {
     background: Rectangle {
           color: menuItem.bcColor
           border.color: menuItem.frameColor
-          border.width: 5
-          radius: 2
+          border.width: activePage? borderWact:borderW
+          radius:rad
 
     }
     contentItem: Item{
@@ -64,6 +67,6 @@ Button {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.33;height:80;width:146}
+    D{i:0;height:80;width:162}
 }
 ##^##*/

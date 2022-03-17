@@ -46,15 +46,14 @@ Item {
 
             }
 
-            Text {
+            TextCust {
                 id: text1
                 color: position==0?activeTextCol:textCol
                 text:textPos1
                 anchors.fill: parent
-                font.pixelSize: textWidth
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.family: "Verdana"
 
             }
         }
@@ -75,15 +74,14 @@ Item {
                 anchors.fill: parent
             }
 
-            Text {
+            TextCust {
                 id: text2
                 color: position==1?activeTextCol:textCol
                 text: textPos2
+                level:2
                 anchors.fill: parent
-                font.pixelSize: textWidth
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.family: "Verdana"
             }
         }
 
@@ -103,15 +101,14 @@ Item {
                 anchors.fill: parent
             }
 
-            Text {
+            TextCust {
                 id: text3
                 color: position==2?activeTextCol:textCol
                 text: textPos3
                 anchors.fill: parent
-                font.pixelSize: textWidth
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.family: "Verdana"
+                level:2
             }
         }
     }
@@ -121,6 +118,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:108;width:313}D{i:4}D{i:2}D{i:7}D{i:5}D{i:10}D{i:8}D{i:1}
+    D{i:0;height:77;width:294}D{i:4}D{i:2}D{i:7}D{i:5}D{i:10}D{i:8}D{i:1}
 }
 ##^##*/

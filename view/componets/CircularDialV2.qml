@@ -37,7 +37,7 @@ Item {
 
     property int startRadiusOfScale:22
     property int endRadiusOfScale:18
-    property int numRadiusOfScale:32
+    property int numRadiusOfScale:35
 
     property double redVal: maxValue
     property double orangeVal: maxValue
@@ -106,10 +106,10 @@ Item {
                 strokeColor: if(value>redVal||errorTogle)
                                  "red"
                             else if(value>orangeVal||warningTogle)
-                                 "#ff9200"
+                                 "orange"
                             else
-                                 "#00b9ff"
-                fillColor:"transparent"
+                                 Styles.blue
+                fillColor:"#00000000"
                 strokeWidth:18
                 capStyle: ShapePath.RoundCap
 
@@ -155,9 +155,11 @@ Item {
             Repeater{
                 id: largeScaleNums
                 model: parseInt((maxValue-minValue)/(bigStep))+1
-                delegate: Text {
+                delegate: TextCust {
+
                     id:scaleNums
                     color:"white"
+                    level:3
                     x:  dial.width/2+Math.cos(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-numRadiusOfScale) - scaleNums.width/2
 
                     y:  dial.height/2+ Math.sin(toRadians(startAng+(model.index * difAng/((maxValue-minValue)/bigStep))))*(dial.width/2-numRadiusOfScale) - scaleNums.height/2
@@ -198,7 +200,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:3}D{i:5}D{i:7}D{i:9}D{i:11}D{i:2}D{i:14}D{i:13}D{i:17}
+    D{i:0;height:250;width:250}D{i:3}D{i:5}D{i:7}D{i:9}D{i:11}D{i:2}D{i:14}D{i:13}D{i:17}
 D{i:16}D{i:1}
 }
 ##^##*/

@@ -98,13 +98,14 @@ Item {
                 id: largeScaleNumbers
                 model: parseInt((maxVal-minVal)/stepLarge+1)
 
-                delegate:Text{
+                delegate:TextCust{
                     width: 31
                     height: 21
                     x: parent.width/((maxVal-minVal)/stepLarge)*model.index-width/2-1
                     y: 3
                     color: "white"
                     text: minVal+stepLarge*model.index
+                    level:3
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -139,18 +140,16 @@ Item {
                 border.color: "gray"
                 border.width: 2
 
-                Text {
+                TextCust {
                     id: digitalValueText
                     x: 0
                     y: -14
                     color: "#008aff"
                     text: value.toFixed(1)+" C°"
                     anchors.fill: parent
-                    font.pixelSize: 15
+                    level:3
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    font.bold: true
-                    font.family: "Verdana"
                 }
             }
             Shape {

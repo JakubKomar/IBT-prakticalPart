@@ -43,14 +43,14 @@ Item {
                     border.color:  bcBorderCol
                     border.width: 2
                     radius: 8
-                    Text {
+                    TextCust {
                         id: button1Text
                         text: text1
                         color: textCol
                         anchors.fill: parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        font.pointSize: 30
+                        level:2
                     }
                 }
             }
@@ -67,14 +67,14 @@ Item {
                     radius: 8
                     border.color: bcBorderCol
                     border.width: 2
-                    Text {
+                    TextCust {
                         id: button2Text
                         text: text2
                         color: textCol
                         anchors.fill: parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        font.pointSize: 30
+                        level:2
                     }
                 }
             }
@@ -100,14 +100,14 @@ Item {
                     radius: 8
                     border.color: bcBorderCol
                     border.width: 2
-                    Text {
+                    TextCust {
                         id: button1Text1
                         color: textCol
                         text: text1
                         anchors.fill: parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        font.pointSize: 30
+                        level:2
                     }
                 }
             }
@@ -123,14 +123,14 @@ Item {
                     radius: 8
                     border.color: bcBorderCol
                     border.width: 2
-                    Text {
+                    TextCust {
                         id: button2Text1
                         color: textCol
                         text: text2
                         anchors.fill: parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        font.pointSize: 30
+                        level:2
                     }
                 }
             }

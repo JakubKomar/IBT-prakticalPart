@@ -17,6 +17,7 @@ Rectangle {
 
     property int borderWidth: 3
     border.width: borderWidth
+    property alias itemText: itemText
 
     property color borderCol: "#484848"
     border.color: borderCol
@@ -29,20 +30,24 @@ Rectangle {
                    offColorBc.b+(onColorBc.b-offColorBc.b)*value,
                    1)
 
-   Text{
+    TextCust{
        id:itemText
        color: Qt.rgba(offColor.r+(onColor.r-offColor.r)*value,
                       offColor.g+(onColor.g-offColor.g)*value,
                       offColor.b+(onColor.b-offColor.b)*value,
                       1)
        text: description
-       anchors.verticalCenter: parent.verticalCenter
-       anchors.horizontalCenter: parent.horizontalCenter
-       font.pixelSize: textHeight
+       anchors.fill: parent
+       font.letterSpacing: -2
        horizontalAlignment: Text.AlignHCenter
        verticalAlignment: Text.AlignVCenter
-       font.bold: true
+       font.bold: false
        wrapMode: Text.WordWrap
+       level: 2
+       anchors.rightMargin: 3
+       anchors.leftMargin: 3
+       anchors.bottomMargin: 3
+       anchors.topMargin: 3
        font.capitalization: Font.AllUppercase
        lineHeight: 0.7
 
@@ -55,7 +60,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.75}D{i:1}
+    D{i:0;height:80;width:140}D{i:1}
 }
 ##^##*/
 

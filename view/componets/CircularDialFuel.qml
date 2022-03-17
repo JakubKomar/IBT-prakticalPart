@@ -37,93 +37,110 @@ Item {
 
     Rectangle {
         id: digitalField
-        x: 54
         y: 55
-        width: 153
+        width: 120
         height: 100
         color: "#00ffffff"
         radius: 20
         border.color: "#ffffff"
         border.width: 1
         anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenterOffset: 26
+        anchors.horizontalCenter: parent.horizontalCenter
 
-        Text {
+        TextCust {
             id: description
-            x: 37
-            y: 2
-            color: "#0083ff"
-            text: desText
-            font.pixelSize: 20
+            height: 30
+            color: Styles.blueDark
+            text: "CENTER"
+            anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
+            anchors.verticalCenterOffset: -30
             anchors.horizontalCenter: parent.horizontalCenter
+            level:3
         }
 
-        Text {
+        TextCust {
             id: digitalValue
-            x: 0
-            y: 25
-            width: 134
-            height: 50
+            width: 75
+            height: 29
             color:warning?"orange": "#ffffff"
             text: value.toFixed(0)
-            font.pixelSize: 41
+            anchors.verticalCenter: parent.verticalCenter
+            font.letterSpacing: 0
+            level:2
             horizontalAlignment: Text.AlignRight
             verticalAlignment: Text.AlignVCenter
             lineHeight: 0
-            font.family: "Verdana"
+            font.styleName: "obyčejné"
+            anchors.horizontalCenterOffset: -15
+            font.bold: false
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.family: "Arial"
             font.strikeout: false
         }
 
-        Text {
+        TextCust {
             id: unitsText
-            y: 43
-            color: "#0083ff"
+            x: 90
+            width: 22
+            height: 29
+            color: Styles.blueDark
             text: "LB"
-            font.pixelSize: 20
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+            font.letterSpacing: -1.8
+            level:2
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            anchors.horizontalCenterOffset: 66
+            anchors.verticalCenterOffset: 0
+            anchors.rightMargin: 8
+        }
+
+        TextCust {
+            id: warnImbalance
+            width: 75
+            height: 16
+            visible: inbalance&& !isCenterTank && !low
+            color: "orange"
+            text: qsTr("IMBALANCE")
+            anchors.verticalCenter: parent.verticalCenter
+            level:3
+            horizontalAlignment: Text.AlignHCenter
+            anchors.verticalCenterOffset: 30
+            anchors.horizontalCenterOffset: 0
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-        Text {
-            id: warnImbalance
-            x: 8
-            y: 76
-            width: 75
-            height: 16
-            visible: inbalance&& !isCenterTank
-            color: "#ff9300"
-            text: qsTr("IMBALANCE")
-            font.pixelSize: 13
-            horizontalAlignment: Text.AlignHCenter
-        }
-
-        Text {
+        TextCust {
             id: warnConfig
-            x: 76
-            y: 76
             width: 69
-            height: 16
+            height: 17
             visible: config && isCenterTank
-            color: "#ff9300"
+            color: "orange"
             text: qsTr("CONFIG")
-            font.pixelSize: 13
+            anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment: Text.AlignHCenter
+            anchors.verticalCenterOffset: 30
+            anchors.horizontalCenterOffset: 0
+            anchors.horizontalCenter: parent.horizontalCenter
+            level:3
         }
 
-        Text {
+        TextCust {
             id: warnLowFuel
-            x: 76
-            y: 76
             width: 69
             height: 16
             visible: low && !isCenterTank
-            color: "#ff9300"
+            color: "orange"
             text: qsTr("LOW")
-            font.pixelSize: 13
+            anchors.verticalCenter: parent.verticalCenter
+            level:3
             horizontalAlignment: Text.AlignHCenter
+            anchors.verticalCenterOffset: 30
+            anchors.horizontalCenterOffset: 0
+            anchors.horizontalCenter: parent.horizontalCenter
         }
     }
     states: [
