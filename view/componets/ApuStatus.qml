@@ -28,36 +28,7 @@ Rectangle {
         anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        level: 1
-        anchors.leftMargin: 90
-    }
-
-    TextCust {
-        id: text1
-        width: 91
-        color: "#009bff"
-        text: qsTr("STATUS")
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
         level: 2
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        anchors.leftMargin: 0
-        anchors.bottomMargin: 0
-        anchors.topMargin: 0
-
-        Rectangle {
-            id: rectangle
-            x: 90
-            y: 3
-            width: 1
-            color: "#333333"
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.topMargin: 3
-            anchors.bottomMargin: 3
-        }
     }
 
     states: [
@@ -67,7 +38,6 @@ Rectangle {
                 target: text2
                 color: "#00ff1c"
                 text: "RUNNING"
-                font.pixelSize: 42
             }
         },
         State {
@@ -77,7 +47,6 @@ Rectangle {
                 target: text2
                 color: "#ff0000"
                 text: "FIRE"
-                font.pixelSize: 58
             }
         },
         State {
@@ -87,13 +56,7 @@ Rectangle {
                 target: text2
                 text: "shutting\ndown"
                 color: "orange"
-                font.pixelSize: 28
                 lineHeight: 0.7
-            }
-
-            PropertyChanges {
-                target: text1
-                text: qsTr("STATUS:")
             }
         }
     ]
@@ -101,6 +64,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:66;width:311}D{i:1}D{i:3}D{i:2}
+    D{i:0;height:80;width:140}D{i:1}
 }
 ##^##*/

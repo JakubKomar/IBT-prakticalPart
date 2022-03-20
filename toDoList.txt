@@ -1,8 +1,5 @@
 to do list
 
-font size -2-3 - beater readbilty
-better button repres
-
 
 optional:
 thread exiting isule
@@ -14,8 +11,6 @@ notes:
 
 rules:
     fonts:
-
-
         levels:
             1. 40px     - důležitá data
             2. 25px     - méně důležitá data, nadpisy, popisy

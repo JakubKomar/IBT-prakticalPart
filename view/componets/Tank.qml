@@ -31,7 +31,7 @@ Item {
         ShapePath {
             strokeColor: "transparent"
             strokeWidth: 0
-            fillColor: "#1b0094ff"
+            fillColor: "#000a10"
             startX: 0; startY: shape.height
             PathLine { x:shape.width  ;y:shape.height}
             PathLine { x:shape.width  ;y:(shape.height/maxValue)*(maxValue-value)}
@@ -60,7 +60,7 @@ Item {
         ShapePath {
             capStyle: ShapePath.RoundCap
             joinStyle:  ShapePath.RoundJoin
-            strokeWidth: 5
+            strokeWidth: 1
             strokeColor: "white"
             fillColor: "transparent"
             startX: 0; startY: shape.height
@@ -82,6 +82,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:4}D{i:9}D{i:13}D{i:17}D{i:3}
+    D{i:0;height:654;width:522}D{i:4}D{i:9}D{i:13}D{i:17}D{i:3}
 }
 ##^##*/

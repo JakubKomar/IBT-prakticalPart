@@ -14,10 +14,10 @@ Item {
 
     Rectangle {
         id: circle
-        color: "#404040"
+        color: "black"
         radius: width/2
-        border.color: "#ffffff"
-        border.width: 2
+        border.color: "gray"
+        border.width: 1
         anchors.fill: parent
         clip: true
         transform: Rotation{
@@ -42,7 +42,7 @@ Item {
                 id: pipeSub
                 x: 2
                 y: -2
-                width: 18
+                width: 20
                 height: 73
                 color: "#808080"
                 radius: 5
@@ -68,6 +68,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:2}D{i:4}D{i:3}D{i:1}
+    D{i:0;formeditorZoom:8;height:70;width:70}D{i:4}D{i:3}D{i:1}
 }
 ##^##*/

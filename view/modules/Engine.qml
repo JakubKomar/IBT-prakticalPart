@@ -18,17 +18,15 @@ Rectangle {
         width: 876
         height: parent.height
         color: "#00ffffff"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
 
         Column {
             id: column
             anchors.fill: parent
 
-
-
             Item {
                 id: engSetings
-                height: 832
+                height: 655
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.rightMargin: 0
@@ -37,7 +35,7 @@ Rectangle {
                 Swich3pos {
                     id: ignition
                     x: 288
-                    y: 240
+                    y: 98
                     anchors.horizontalCenterOffset: 0
                     textWidth: 33
                     textPos2: "BOTH"
@@ -49,131 +47,15 @@ Rectangle {
                     button3.onClicked: {ControlEngine.setIgnitionSpliter(1)}
                 }
 
-                GuardedSwichAlt {
-                    id: eng1Idle
-                    x: 70
-                    y: 626
-                    width: 283
-                    height: 153
-                    anchors.left: parent.left
-                    anchors.leftMargin: 8
-                    swich2stateAlt.textHeight: 19
-                    swich2stateAlt.textOff: "CUTOFF"
-                    swich2stateAlt.textOn: "IDLE"
-                    guard.onUnGuard: {guard.guarded=false}
-                    guard.onGuard: {guard.guarded=true}
-                    onButton1Clicked: {
-                        ControlEngine.setMixure(1,0)
-                    }
-                    onButton2Clicked: {
-                        ControlEngine.setMixure(1,1)
-                        guard.guarded=true
-                    }
-                }
-
-                GuardedSwichAlt {
-                    id: eng2Idle
-                    x: 589
-                    y: 626
-                    width: 280
-                    height: 153
-                    anchors.right: parent.right
-                    anchors.rightMargin: 7
-                    swich2stateAlt.textHeight: 19
-                    swich2stateAlt.textOn: "IDLE"
-                    swich2stateAlt.textOff: "CUTOFF"
-                    guard.onUnGuard: {guard.guarded=false}
-                    guard.onGuard: {guard.guarded=true}
-                    onButton1Clicked: {
-                        ControlEngine.setMixure(2,0)
-                    }
-                    onButton2Clicked: {
-                        ControlEngine.setMixure(2,1)
-                        guard.guarded=true
-                    }
-                }
-
-                Text {
+                TextCust {
                     id: text7
                     x: 357
-                    y: 163
+                    y: 58
                     color: "#00a8ff"
                     text: qsTr("IGNITION")
-                    font.pixelSize: 25
+                    level: 2
                     anchors.horizontalCenterOffset: 0
                     anchors.horizontalCenter: parent.horizontalCenter
-                }
-
-                Text {
-                    id: text5
-                    x: 132
-                    y: 586
-                    color: "#00a8ff"
-                    text: qsTr("ENGINE1 IDLE")
-                    font.pixelSize: 25
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.horizontalCenterOffset: -289
-                }
-
-                Text {
-                    id: text6
-                    x: 586
-                    y: 586
-                    color: "#00a8ff"
-                    text: qsTr("ENGINE2 IDLE")
-                    font.pixelSize: 25
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.horizontalCenterOffset: 291
-                }
-
-                Swich4posVertical {
-                    id: eng2Starter
-                    x: 659
-                    y: 125
-                    width: 140
-                    height: 440
-                    anchors.right: parent.right
-                    anchors.rightMargin: 75
-                    button1.onClicked: {ControlEngine.setIgnition(2,0)}
-                    button2.onClicked: {ControlEngine.setIgnition(2,1)}
-                    button3.onClicked: {ControlEngine.setIgnition(2,2)}
-                    button4.onClicked: {ControlEngine.setIgnition(2,3)}
-                }
-
-                Swich4posVertical {
-                    id: eng1Starter
-                    y: 125
-                    width: 140
-                    height: 440
-                    anchors.left: parent.left
-                    anchors.leftMargin: 75
-                    textWidth: 40
-                    button1.onClicked: {ControlEngine.setIgnition(1,0)}
-                    button2.onClicked: {ControlEngine.setIgnition(1,1)}
-                    button3.onClicked: {ControlEngine.setIgnition(1,2)}
-                    button4.onClicked: {ControlEngine.setIgnition(1,3)}
-                }
-
-                Text {
-                    id: text8
-                    x: 358
-                    y: 69
-                    color: "#00a8ff"
-                    text: qsTr("ENGINE 1 START")
-                    font.pixelSize: 25
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.horizontalCenterOffset: -293
-                }
-
-                Text {
-                    id: text9
-                    x: 354
-                    y: 69
-                    color: "#00a8ff"
-                    text: qsTr("ENGINE 2 START")
-                    font.pixelSize: 25
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.horizontalCenterOffset: 291
                 }
 
                 ModuleDescription {
@@ -185,11 +67,111 @@ Rectangle {
                     anchors.rightMargin: 0
                     anchors.leftMargin: 0
                 }
+
+                EngineStarter {
+                    id: eng2Starter
+                    x: 544
+                    y: 283
+                    height: 100
+                    position: 1
+                    onRightEvent: {ControlEngine.setIgnition(2,true)}
+                    onLeftEvent: {ControlEngine.setIgnition(2,false)}
+                }
+
+                TextCust {
+                    id: textCust
+                    x: 377
+                    y: 302
+                    color: Styles.blueDark
+                    text: "STARTER\nMOD"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    level: 2
+                }
+
+                EngineStarter {
+                    id: eng1Starter
+                    x: 123
+                    y: 283
+                    height: 100
+                    onRightEvent: {ControlEngine.setIgnition(1,true)}
+                    onLeftEvent: {ControlEngine.setIgnition(1,false)}
+                }
+
+                EngIdleSwich {
+                    id: eng2Idle
+                    x: 572
+                    y: 403
+                    swich2stateAltVert.togled: false
+                    guard.onUnGuard: {guard.guarded=false}
+                    guard.onGuard: {guard.guarded=true}
+                    swich2stateAltVert.button1.onClicked:{
+                        ControlEngine.setMixure(2,1)
+                        guard.guarded=true
+                    }
+                    swich2stateAltVert.button2.onClicked:{
+                        ControlEngine.setMixure(2,0)
+                    }
+                }
+
+                EngIdleSwich {
+                    id: eng1Idle
+                    x: 151
+                    y: 403
+                    guard.onUnGuard: {guard.guarded=false}
+                    guard.onGuard: {guard.guarded=true}
+                    swich2stateAltVert.button1.onClicked:{
+                        ControlEngine.setMixure(1,1)
+                        guard.guarded=true
+                    }
+                    swich2stateAltVert.button2.onClicked:{
+                        ControlEngine.setMixure(1,0)
+                    }
+                }
+
+                ModuleDescription {
+                    id: moduleDescription2
+                    x: 100
+                    y: 230
+                    height: 30
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    lineCol: Styles.blueDark
+                    description: "ENGINE 1"
+                    anchors.rightMargin: 488
+                    anchors.leftMargin: 70
+                }
+
+                ModuleDescription {
+                    id: moduleDescription3
+                    x: 106
+                    y: 230
+                    height: 30
+                    lineCol: Styles.blueDark
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: 491
+                    anchors.rightMargin: 67
+                    description: "ENGINE 2"
+                }
+
+                TextCust {
+                    id: textCust1
+                    x: 393
+                    y: 503
+                    color: Styles.blueDark
+                    text: "IDLE\nSWICH"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    level: 2
+                }
+
             }
 
             Item {
                 id: apu
-                height: 228
+                y: 656
+                height: 414
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.rightMargin: 0
@@ -197,120 +179,140 @@ Rectangle {
 
                 Rectangle {
                     id: apuModule
-                    y: 0
-                    height: 228
                     color: "#00ffffff"
-                    border.color: "#ffffff"
+                    border.color: "#00ffffff"
                     border.width: 2
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.rightMargin: 0
-                    anchors.leftMargin: 0
+                    anchors.fill: parent
 
                     ModuleDescription {
                         id: moduleDescription1
-                        y: 0
                         anchors.left: parent.left
                         anchors.right: parent.right
+                        anchors.top: parent.top
+                        anchors.topMargin: 0
                         description: "APU"
                         anchors.rightMargin: 0
                         anchors.leftMargin: 0
                     }
 
-                    Rectangle {
-                        id: rectangle2
-                        y: 45
-                        height: 176
-                        color: "#00ffffff"
-                        border.color: "#006c6c6c"
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.rightMargin: 0
-                        anchors.leftMargin: 0
+                    Verticalndicator {
+                        id: apuTemp
+                        y: 307
+                        width: 528
+                        height: 61
+                        anchors.horizontalCenterOffset: 0
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        maxVal: 110
+                        minVal: 0
+                    }
 
-                        Row {
-                            id: apuIndikators
-                            x: 2
-                            width: 873
-                            height: 70
-                            layoutDirection: Qt.LeftToRight
+                    Swich3posVert {
+                        id: apuControler
+                        y: 107
+                        width: 122
+                        height: 261
+                        anchors.horizontalCenterOffset: -331
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        textWidth: 31
+                        textPos3: "START"
+                        textPos2: "ON"
 
-                            ApuStatus {
-                                id: apuStatus
-                                swichOnOff: 0
-                                running: true
-                                fire: false
-                            }
-
-                            InfoIndicator {
-                                id: maint
-                                description: "MAINT"
-                            }
-
-                            WarningIndicator {
-                                id: lowOilPress
-                                textHeight: 28
-                                warText: "LOW OIL\nPRESSURE"
-                            }
-
-                            WarningIndicator {
-                                id: fault
-                                warText: "FAULT"
-                            }
-
-                            WarningIndicator {
-                                id: overSpeed
-                                warText: "OVER\nSPEED"
-                            }
+                        button1.onClicked: {
+                            ControlEngine.setApuSwich(0, apuControler.position)
+                        }
+                        button2.onClicked: {
+                            ControlEngine.setApuSwich(1, apuControler.position)
+                        }
+                        button3.onClicked: {
+                            ControlEngine.setApuSwich(2, apuControler.position)
                         }
 
-                        Verticalndicator {
-                            id: apuTemp
-                            x: 313
-                            y: 114
-                            width: 560
-                            height: 61
-                            maxVal: 110
-                            minVal: 0
-                        }
+                    }
 
-                        Swich3pos {
-                            id: apuControler
-                            y: 64
-                            width: 313
-                            anchors.left: parent.left
-                            anchors.top: parent.top
-                            anchors.bottom: parent.bottom
-                            textWidth: 31
-                            textPos3: "START"
-                            textPos2: "ON"
-                            anchors.leftMargin: 2
-                            anchors.topMargin: 67
-                            anchors.bottomMargin: 1
-
-                            button1.onClicked: {
-                                ControlEngine.setApuSwich(0, apuControler.position)
-                            }
-                            button2.onClicked: {
-                                ControlEngine.setApuSwich(1, apuControler.position)
-                            }
-                            button3.onClicked: {
-                                ControlEngine.setApuSwich(2, apuControler.position)
-                            }
-
-                        }
-
+                    ApuStatus {
+                        id: apuStatus
+                        y: 107
+                        width: 140
+                        height: 80
+                        radius: 6
+                        border.width: 1
+                        anchors.horizontalCenterOffset: 0
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        swichOnOff: 0
+                        running: true
+                        fire: false
                     }
 
                     Text {
                         id: text3
-                        y: 109
+                        y: 267
                         color: "#00a8ff"
                         text: qsTr("Temperature")
                         font.pixelSize: 25
                         anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.horizontalCenterOffset: 152
+                        anchors.horizontalCenterOffset: 0
                     }
+
+                    Column {
+                        id: column1
+                        x: 700
+                        y: 107
+                        width: 140
+                        height: 261
+
+                        InfoIndicator {
+                            id: maint
+                            description: "MAINT"
+                        }
+
+                        WarningIndicator {
+                            id: lowOilPress
+                            warText: "LOW OIL\nPRESSURE"
+                        }
+
+                        WarningIndicator {
+                            id: fault
+                            warText: "FAULT"
+                        }
+
+                        WarningIndicator {
+                            id: overSpeed
+                            warText: "OVER\nSPEED"
+                        }
+                    }
+
+                    TextCust {
+                        id: textCust2
+                        y: 60
+                        color: Styles.blueDark
+                        text: "Status"
+                        anchors.horizontalCenterOffset: 0
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        level: 2
+                    }
+
+                    TextCust {
+                        id: textCust3
+                        y: 60
+                        color: Styles.blueDark
+                        text: "CONTROL"
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.horizontalCenterOffset: -331
+                        level: 2
+                    }
+
+                    TextCust {
+                        id: textCust4
+                        y: 60
+                        color: Styles.blueDark
+                        text: "WARNINGS"
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.horizontalCenterOffset: 333
+                        level: 2
+                    }
+
+
+
 
                 }
                 Connections{
@@ -366,10 +368,11 @@ Rectangle {
         width: parent.width/2
         height: parent.height
         color: "#00ffffff"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
 
         EngineData {
             id: engineData
+            border.color: "#00ffffff"
             anchors.fill: parent
         }
     }
@@ -381,38 +384,53 @@ Rectangle {
 
         function onEngSwichSet(name, val){
             switch(name){
-                case "mix1":{
-                    eng1Idle.swich2stateAlt.togled= val===1
-                    break
-                }
-                case"mix2":{
-                    eng2Idle.swich2stateAlt.togled= val===1
-                    break
-                }
-                case"starter1":{
-                    eng1Starter.position=val
-                    break
-                }
-                case"starter2":{
-                    eng2Starter.position=val
-                    break
-                }
-                case"startSource":{
-                    ignition.position=val
-                    break
-                }
-                default:{}
+            case "mix1":{
+                eng1Idle.swich2stateAltVert.togled= val===0
+                break
+            }
+            case"mix2":{
+                eng2Idle.swich2stateAltVert.togled= val===0
+                break
+            }
+            case"starter1":{
+                eng1Starter.position=val
+                break
+            }
+            case"starter2":{
+                eng2Starter.position=val
+                break
+            }
+            case"startSource":{
+                ignition.position=val
+                break
+            }
+            default:{}
             }
         }
     }
+
+    HalfTransparentBorder {
+        id: halfTransparentBorder
+        width: 1
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        grad2: "gray"
+        vert: true
+        anchors.topMargin: 0
+        anchors.bottomMargin: 0
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
 }
+
+
 
 
 
 /*##^##
 Designer {
     D{i:0;formeditorZoom:0.5}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}
-D{i:13}D{i:14}D{i:3}D{i:17}D{i:20}D{i:21}D{i:22}D{i:23}D{i:24}D{i:19}D{i:25}D{i:26}
-D{i:18}D{i:27}D{i:16}D{i:28}D{i:15}D{i:2}D{i:1}D{i:30}D{i:29}D{i:31}D{i:32}
+D{i:13}D{i:14}D{i:3}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:23}D{i:24}D{i:25}D{i:26}
+D{i:22}D{i:27}D{i:28}D{i:29}D{i:16}D{i:30}D{i:15}D{i:2}D{i:1}D{i:32}D{i:31}D{i:33}
+D{i:34}D{i:35}
 }
 ##^##*/

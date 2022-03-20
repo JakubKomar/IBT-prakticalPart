@@ -4,6 +4,8 @@ Item {
     width: 672
     height: 30
     property string description: "ENGINE CONTROLS"
+
+    property color lineCol:"gray"
     TextCust {
         id: text4
         color: Styles.blueDark
@@ -20,7 +22,7 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            grad2: "gray"
+            grad2: lineCol
             anchors.bottomMargin: 1
             anchors.rightMargin: 0
             anchors.leftMargin: 0
@@ -33,6 +35,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:30;width:875}D{i:2}D{i:1}
+    D{i:0;height:30;width:318}D{i:2}D{i:1}
 }
 ##^##*/

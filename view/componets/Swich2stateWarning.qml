@@ -46,6 +46,6 @@ Button {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:2}D{i:3}D{i:4}D{i:2}
+    D{i:0;formeditorZoom:2;height:196;width:150}D{i:3}D{i:4}D{i:2}
 }
 ##^##*/

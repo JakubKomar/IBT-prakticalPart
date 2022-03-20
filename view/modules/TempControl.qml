@@ -22,7 +22,6 @@ Rectangle {
         height: 152
         text: "T"
         swich2state.onColor: "#ffae00"
-        swich2state.textWidthDescription: 24
         swich2state.onText: "ON"
         swich2state.togled: false
         swich2state.offText: "OFF"
@@ -186,7 +185,6 @@ Rectangle {
             warningIndicator.warText: "OFF"
             anchors.topMargin: 100
             anchors.leftMargin: 20
-            swich2state.textWidthStatus: 20
             swich2state.description: "SUPLY\nFAN"
             swich2state.togled: false
             swich2state.onText: "ALTERNATIVE"
@@ -207,7 +205,6 @@ Rectangle {
             warningIndicator.warText: "OFF"
             anchors.topMargin: 100
             anchors.rightMargin: 20
-            swich2state.textWidthStatus: 20
             swich2state.onText: "ALTERNATIVE"
             swich2state.offText: "NORMAL"
             swich2state.description: "EXHOUST\nFAN"

@@ -16,17 +16,8 @@ Rectangle {
         width:parent.width/2
         height: parent.height
         color: "#00ffffff"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         border.width: 2
-
-        Text {
-            id: text2
-            x: 350
-            y: 8
-            color: "#ffffff"
-            text: qsTr("Wing anti-ice")
-            font.pixelSize: 30
-        }
 
         Swich2stateBasic {
             id: swichWingAntiIce
@@ -97,12 +88,15 @@ Rectangle {
             }
         }
 
-        HalfTransparentBorder {
-            id: halfTransparentBorder
-            x: 320
-            y: 652
-            width: 119
-            height: 253
+        ModuleDescription {
+            id: moduleDescription1
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            description: "ANTI ICE CONTROLS"
+            anchors.rightMargin: 0
+            anchors.leftMargin: 0
+            anchors.topMargin: 0
         }
     }
     Rectangle {
@@ -112,17 +106,8 @@ Rectangle {
         width:parent.width/2
         height: parent.height
         color: "#00ffffff"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         border.width: 2
-
-        Text {
-            id: text1
-            x: 350
-            y: 8
-            color: "#ffffff"
-            text: qsTr("Window heat")
-            font.pixelSize: 30
-        }
 
         Swich2stateBasic {
             id: swichHeatL
@@ -269,6 +254,28 @@ Rectangle {
             }
 
         }
+
+        ModuleDescription {
+            id: moduleDescription
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            description: "WINDOWS HEAT"
+            anchors.rightMargin: 0
+            anchors.leftMargin: 0
+            anchors.topMargin: 0
+        }
+
+        ModuleDescription {
+            id: moduleDescription2
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            description: "PROBE HEAT"
+            anchors.rightMargin: 0
+            anchors.topMargin: 452
+            anchors.leftMargin: 0
+        }
     }
     Connections{
         target:ControlAntiIce
@@ -278,139 +285,153 @@ Rectangle {
         target:AntiIceRender
         function onSetAnnunciator(name,state){
             switch(name){
-                case "lHeatSide":{
-                    swichWinHeatSideL.stateIndicator.status=state
+            case "lHeatSide":{
+                swichWinHeatSideL.stateIndicator.status=state
                 break;
-                }
-                case "lHeatFwd":{
-                    swichWinHeatFwdL.stateIndicator.status=state
+            }
+            case "lHeatFwd":{
+                swichWinHeatFwdL.stateIndicator.status=state
                 break;
-                }
-                case "rHeatFwd":{
-                    swichWinHeatFwdR.stateIndicator.status=state
+            }
+            case "rHeatFwd":{
+                swichWinHeatFwdR.stateIndicator.status=state
                 break;
-                }
-                case "rHeatSide":{
-                    swichWinHeatSideR.stateIndicator.status=state
+            }
+            case "rHeatSide":{
+                swichWinHeatSideR.stateIndicator.status=state
                 break;
-                }
-                case "ovhtLf":{
-                    swichWinHeatFwdL.swich2stateWarning.warningIndicator.status=state
+            }
+            case "ovhtLf":{
+                swichWinHeatFwdL.swich2stateWarning.warningIndicator.status=state
                 break;
-                }
-                case "ovhtLs":{
-                    swichWinHeatSideL.swich2stateWarning.warningIndicator.status=state
+            }
+            case "ovhtLs":{
+                swichWinHeatSideL.swich2stateWarning.warningIndicator.status=state
                 break;
-                }
-                case "ovhtRf":{
-                    swichWinHeatFwdR.swich2stateWarning.warningIndicator.status=state
+            }
+            case "ovhtRf":{
+                swichWinHeatFwdR.swich2stateWarning.warningIndicator.status=state
                 break;
-                }
-                case "ovhtRs":{
-                    swichWinHeatSideR.swich2stateWarning.warningIndicator.status=state
+            }
+            case "ovhtRs":{
+                swichWinHeatSideR.swich2stateWarning.warningIndicator.status=state
                 break;
-                }
-                case "capt_pitot_off":{
-                    warningCaptL.status=state
+            }
+            case "capt_pitot_off":{
+                warningCaptL.status=state
                 break;
-                }
-                case "capt_alpha":{
-                    warningAlphaL.status=state
+            }
+            case "capt_alpha":{
+                warningAlphaL.status=state
                 break;
-                }
-                case "capt_elev":{
-                    warningElevL.status=state
+            }
+            case "capt_elev":{
+                warningElevL.status=state
                 break;
-                }
-                case "capt_temp":{
-                    warningTempL.status=state
+            }
+            case "capt_temp":{
+                warningTempL.status=state
                 break;
-                }
-                case "fo_pitot_off":{
-                    warningFOR.status=state
+            }
+            case "fo_pitot_off":{
+                warningFOR.status=state
                 break;
-                }
-                case "fo_alpha":{
-                    warningAlphaR.status=state
+            }
+            case "fo_alpha":{
+                warningAlphaR.status=state
                 break;
-                }
-                case "fo_elev":{
-                    warningElevR.status=state
+            }
+            case "fo_elev":{
+                warningElevR.status=state
                 break;
-                }
-                case "fo_aux":{
-                    warningAuxR.status=state
+            }
+            case "fo_aux":{
+                warningAuxR.status=state
                 break;
-                }
-                case "cowl_ice_on_0":{
-                    infoCowlValveL.status=state
+            }
+            case "cowl_ice_on_0":{
+                infoCowlValveL.status=state
                 break;
-                }
-                case "cowl_ice_on_1":{
-                    infoCowlValveR.status=state
+            }
+            case "cowl_ice_on_1":{
+                infoCowlValveR.status=state
                 break;
-                }
-                case "wing_ice_on_L":{
-                    infoLValve.status=state
+            }
+            case "wing_ice_on_L":{
+                infoLValve.status=state
                 break;
-                }
-                case "wing_ice_on_R":{
-                    infoRValve.status=state
+            }
+            case "wing_ice_on_R":{
+                infoRValve.status=state
                 break;
-                }
-                case "cowl_ice_0":{
-                    swichEngAntiIceL.warningIndicator.status=state
+            }
+            case "cowl_ice_0":{
+                swichEngAntiIceL.warningIndicator.status=state
                 break;
-                }
-                case "cowl_ice_1":{
-                    swichEngAntiIceR.warningIndicator.status=state
+            }
+            case "cowl_ice_1":{
+                swichEngAntiIceR.warningIndicator.status=state
                 break;
-                }
-                default:{}
+            }
+            default:{}
             }
         }
         function onSetSwich(name,state){
             switch(name){
-                case "sideL":{
-                    swichWinHeatSideL.swich2stateWarning.togled=state
+            case "sideL":{
+                swichWinHeatSideL.swich2stateWarning.togled=state
                 break;
-                }
-                case "fwdL":{
-                   swichWinHeatFwdL.swich2stateWarning.togled=state
+            }
+            case "fwdL":{
+                swichWinHeatFwdL.swich2stateWarning.togled=state
                 break;
-                }
-                case "fwdR":{
-                   swichWinHeatFwdR.swich2stateWarning.togled=state
+            }
+            case "fwdR":{
+                swichWinHeatFwdR.swich2stateWarning.togled=state
                 break;
-                }
-                case "sideR":{
-                   swichWinHeatSideR.swich2stateWarning.togled=state
+            }
+            case "sideR":{
+                swichWinHeatSideR.swich2stateWarning.togled=state
                 break;
-                }
-                case "heatL":{
-                   swichHeatL.swich2state.togled=state
+            }
+            case "heatL":{
+                swichHeatL.swich2state.togled=state
                 break;
-                }
-                case "heatR":{
-                    swichHeatR.swich2state.togled=state
+            }
+            case "heatR":{
+                swichHeatR.swich2state.togled=state
                 break;
-                }
-                case "wingHeat":{
-                    swichWingAntiIce.swich2state.togled=state
+            }
+            case "wingHeat":{
+                swichWingAntiIce.swich2state.togled=state
                 break;
-                }
-                case "engHeatR":{
-                    swichEngAntiIceR.swich2state.togled=state
+            }
+            case "engHeatR":{
+                swichEngAntiIceR.swich2state.togled=state
                 break;
-                }
-                case "engHeatL":{
-                    swichEngAntiIceL.swich2state.togled=state
+            }
+            case "engHeatL":{
+                swichEngAntiIceL.swich2state.togled=state
                 break;
-                }
-               
-                default:{}
+            }
+
+            default:{}
             }
         }
+    }
+
+    HalfTransparentBorder {
+        id: halfTransparentBorder
+        x: 437
+        y: 0
+        width: 1
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        grad2: "gray"
+        vert: true
+        anchors.topMargin: 0
+        anchors.bottomMargin: 0
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }
 
@@ -418,8 +439,8 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:1}
-D{i:12}D{i:13}D{i:14}D{i:15}D{i:17}D{i:18}D{i:19}D{i:20}D{i:16}D{i:22}D{i:23}D{i:24}
-D{i:25}D{i:21}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:11}D{i:31}D{i:32}
+    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:1}D{i:11}
+D{i:12}D{i:13}D{i:15}D{i:16}D{i:17}D{i:18}D{i:14}D{i:20}D{i:21}D{i:22}D{i:23}D{i:19}
+D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:10}D{i:31}D{i:32}D{i:33}
 }
 ##^##*/

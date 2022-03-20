@@ -30,16 +30,13 @@ class ControlEngine(QObject):
     def setMixure(self, engine, state):
         client.client.sendDREF("laminar/B738/engine/mixture_ratio"+str(engine), state)
 
-    @Slot(int, int)
-    def setIgnition(self, engine, value):
-        if value==0:
-            client.client.sendCOMM("laminar/B738/rotary/eng"+str(engine)+"_start_grd")
-        elif value==1:
-            client.client.sendCOMM("laminar/B738/rotary/eng"+str(engine)+"_start_off")
-        elif value==2:
-            client.client.sendCOMM("laminar/B738/rotary/eng"+str(engine)+"_start_cont")
-        elif value==3:
-            client.client.sendCOMM("laminar/B738/rotary/eng"+str(engine)+"_start_flt")
+    @Slot(int, bool)
+    def setIgnition(self, engine, right):
+        if right:
+            client.client.sendCOMM("laminar/B738/knob/eng"+str(engine)+"_start_right")
+        else:
+            client.client.sendCOMM("laminar/B738/knob/eng"+str(engine)+"_start_left")
+
 
 
     @Slot(int)

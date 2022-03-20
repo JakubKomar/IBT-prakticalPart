@@ -72,7 +72,7 @@ Rectangle {
         width: parent.width/2
         height: parent.height
         color: "#00ffffff"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         border.width: 2
 
         Image {
@@ -122,7 +122,6 @@ Rectangle {
             y: 340
             width: 141
             height: 137
-            swich2state.textWidthDescription: 19
             swich2state.description: "LEFT FWD\nOVERWING"
 
         }
@@ -133,7 +132,6 @@ Rectangle {
             y: 340
             width: 141
             height: 137
-            swich2state.textWidthDescription: 19
             swich2state.description: "RIGHT FWD\nOVERWING"
 
         }
@@ -144,7 +142,6 @@ Rectangle {
             y: 475
             width: 141
             height: 137
-            swich2state.textWidthDescription: 19
             swich2state.description: "LEFT AFT\nOVERWING"
 
         }
@@ -155,7 +152,6 @@ Rectangle {
             y: 475
             width: 141
             height: 137
-            swich2state.textWidthDescription: 19
             swich2state.description: "RIGHT AFT\nOVERWING"
 
         }

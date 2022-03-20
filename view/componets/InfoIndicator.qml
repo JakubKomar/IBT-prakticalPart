@@ -16,10 +16,11 @@ Item {
     Indicator{
         id: indicator
         anchors.fill: parent
-        offColorBc: "#000c16"
-        onColorBc: "#004e90"
-        onColor: "#ffffff"
-        offColor: "#232323"
+        onColor: "white"
+        onColorBc: "#005a94"
+        offColor: "#004a7d"
+        value: 1
+        offColorBc: "black"
     }
 }
 

@@ -7,25 +7,21 @@ Window {
     id:mainWindow
     width: 1920
     height: 1080
-    /*maximumHeight: height
-    maximumWidth: width
-
-   minimumHeight: height
-    minimumWidth: width*/
     visible: true
 
-    title: qsTr("Letecký display")
+    title: qsTr("Flight display - 737 MAX 10")
     property bool fullscreenEnable: false
     visibility:fullscreenEnable? Window.FullScreen: Window.Windowed
-
+    color: "#000000"
     Rectangle {
         id: frameBc
         color: "#000000"
-        anchors.fill: parent
-
-
-
-
+        width: 1920
+        height: 1080
+        transform: Scale {xScale: frameBc.scaleVal;yScale:frameBc.scaleVal}
+        property double xscaleVal:mainWindow.width/1920
+        property double yscaleVal:mainWindow.height/1080
+        property double scaleVal: xscaleVal<yscaleVal?xscaleVal:yscaleVal
         Rectangle {
             id: frame
             color: "#000000"
@@ -38,14 +34,13 @@ Window {
             Rectangle {
                 id: contentCont
                 color: "#000000"
-                anchors.right: parent.right
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                property double xscaleVal:contentCont.width/1750
-                property double yscaleVal:contentCont.height/1060
-                property double scaleVal: xscaleVal<yscaleVal?xscaleVal:yscaleVal
-                width: 1754
-                transform: Scale {xScale: contentCont.scaleVal;yScale:contentCont.scaleVal}
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenterOffset: 78
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                width: 1750
+                height: 1060
+
                 Item {
                     id: contentLoader
                     width: 1750
@@ -156,105 +151,145 @@ Window {
             Rectangle {
                 id: info
                 x: 0
-                y: 0
-                height: 108
-                color: "#00000000"
-                radius: 9
-                border.color: "#00808080"
-                border.width: 2
+                y: -5
+                height: 121
+                color: "#39000000"
+                radius: 8
+                border.color: "#73515151"
+                border.width: 1
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.rightMargin: 0
                 anchors.leftMargin: -6
 
-                TextCust {
-                    id: date
-                    x: 68
-                    y: 76
-                    width: 94
-                    height: 32
-                    color: "#ffffff"
-                    text: qsTr("12.05.21")
-                    font.letterSpacing: -1.6
-                    horizontalAlignment: Text.AlignRight
-                    level: 2
-                }
-
-                TextCust {
-                    id: text2
-                    x: 6
-                    y: 40
-                    width: 63
-                    height: 32
-                    color: Styles.blueDark
-                    text: qsTr("UTC")
-                    font.letterSpacing: -2
-                    level: 2
-                }
-
-                TextCust {
-                    id: time
-                    x: 68
-                    y: 40
-                    width: 94
-                    height: 32
-                    color: "#ffffff"
-                    text: qsTr("12:21:25")
-                    font.letterSpacing: -1.6
-                    horizontalAlignment: Text.AlignRight
-                    font.kerning: true
-                    textFormat: Text.PlainText
-                    level: 2
-                }
-
-                TextCust {
-                    id: text4
-                    x: 6
-                    y: 4
-                    width: 63
-                    height: 32
-                    color: Styles.blueDark
-                    text: qsTr("TAT")
-                    font.letterSpacing: 2.4
-                    level: 2
-                }
-
-                TextCust {
-                    id: text5
+                Column {
+                    id: column
                     x: 5
-                    y: 76
-                    width: 64
-                    height: 32
-                    color: Styles.blueDark
-                    text: qsTr("DATE")
-                    font.letterSpacing: -2
-                    level: 2
-                }
+                    width: 157
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    spacing: 3
+                    anchors.rightMargin: 0
+                    anchors.topMargin: 13
+                    anchors.bottomMargin: 0
 
-                TextCust {
-                    id: tat
-                    x: 72
-                    y: 4
-                    width: 60
-                    height: 32
-                    color: "#ffffff"
-                    text: qsTr("-5")
-                    font.letterSpacing: -1.6
-                    horizontalAlignment: Text.AlignRight
-                    level: 2
-                }
+                    Item {
+                        id: item1
+                        height: 31
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.rightMargin: 0
+                        anchors.leftMargin: 6
 
-                TextCust {
-                    id: tatUnit
-                    x: 132
-                    y: 4
-                    width: 30
-                    height: 32
-                    color: Styles.blueDark
-                    text: qsTr("C°")
-                    font.letterSpacing: -1.6
-                    horizontalAlignment: Text.AlignRight
-                    level: 2
+                        TextCust {
+                            id: text2
+                            x: -6
+                            width: 63
+                            height: 32
+                            color: Styles.blueDark
+                            text: qsTr("UTC")
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.letterSpacing: -2
+                            level: 2
+                        }
+
+                        TextCust {
+                            id: time
+                            x: 57
+                            width: 94
+                            height: 32
+                            color: "#ffffff"
+                            text: qsTr("12:21:25")
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.letterSpacing: -1.6
+                            horizontalAlignment: Text.AlignRight
+                            font.kerning: true
+                            textFormat: Text.PlainText
+                            level: 2
+                        }
+                    }
+
+                    Item {
+                        id: item2
+                        height: 31
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.leftMargin: 6
+                        anchors.rightMargin: 0
+
+                        TextCust {
+                            id: date
+                            x: 57
+                            width: 94
+                            height: 32
+                            color: "#ffffff"
+                            text: qsTr("12.05.21")
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.letterSpacing: -1.6
+                            horizontalAlignment: Text.AlignRight
+                            level: 2
+                        }
+
+                        TextCust {
+                            id: text5
+                            x: -6
+                            width: 64
+                            height: 32
+                            color: Styles.blueDark
+                            text: qsTr("DATE")
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.letterSpacing: -2
+                            level: 2
+                        }
+                    }
+
+                    Item {
+                        id: item3
+                        height: 31
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.leftMargin: 6
+                        anchors.rightMargin: 0
+
+                        TextCust {
+                            id: text4
+                            x: -5
+                            width: 63
+                            height: 32
+                            color: Styles.blueDark
+                            text: qsTr("TAT")
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.letterSpacing: 2.4
+                            level: 2
+                        }
+
+                        TextCust {
+                            id: tat
+                            x: 95
+                            width: 26
+                            height: 32
+                            color: "#ffffff"
+                            text: qsTr("-5")
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.letterSpacing: -1.6
+                            horizontalAlignment: Text.AlignRight
+                            level: 2
+                        }
+
+                        TextCust {
+                            id: tatUnit
+                            x: 121
+                            width: 30
+                            height: 32
+                            color: Styles.blueDark
+                            text: qsTr("C°")
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.letterSpacing: -1.6
+                            horizontalAlignment: Text.AlignRight
+                            level: 2
+                        }
+                    }
                 }
             }
 
@@ -262,7 +297,7 @@ Window {
                 id: menuColum
                 visible: true
                 anchors.fill: parent
-                anchors.topMargin: 114
+                anchors.topMargin: 121
                 anchors.bottomMargin: 10
                 anchors.leftMargin: -6
                 spacing: 5
@@ -570,10 +605,10 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.33}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}D{i:14}
-D{i:15}D{i:16}D{i:17}D{i:5}D{i:3}D{i:2}D{i:23}D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}
-D{i:29}D{i:22}D{i:31}D{i:32}D{i:33}D{i:34}D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:40}
-D{i:30}D{i:44}D{i:43}D{i:46}D{i:45}D{i:48}D{i:47}D{i:49}D{i:42}D{i:41}D{i:50}D{i:18}
-D{i:1}D{i:51}
+    D{i:0;formeditorZoom:0.33}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}D{i:14}
+D{i:15}D{i:16}D{i:17}D{i:5}D{i:4}D{i:3}D{i:25}D{i:26}D{i:24}D{i:28}D{i:29}D{i:27}
+D{i:31}D{i:32}D{i:33}D{i:30}D{i:23}D{i:22}D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:40}
+D{i:41}D{i:42}D{i:43}D{i:44}D{i:34}D{i:48}D{i:47}D{i:50}D{i:49}D{i:52}D{i:51}D{i:53}
+D{i:46}D{i:45}D{i:54}D{i:18}D{i:1}D{i:55}
 }
 ##^##*/

@@ -5,7 +5,7 @@ import sys
 
 from model.libInit import estCon
 
-from PySide6.QtGui import QGuiApplication
+from PySide6.QtGui import QGuiApplication, QIcon
 from PySide6.QtQml import QQmlApplicationEngine
 
 
@@ -22,6 +22,7 @@ if __name__ == "__main__":
     # init backend
     msControler = MasterControler(engine)
     # qlm file load
+    app.setWindowIcon(QIcon("view/pic/icon.png"))
     engine.load(os.fspath(Path(__file__).resolve().parent / "view/main.qml"))
     if not engine.rootObjects():
         sys.exit(-1)

@@ -25,7 +25,7 @@ Item {
         id: idicatorScape
         height: 38
         color: "#000000"
-        border.color: "#ffffff"
+        border.color: "#00808080"
         border.width: 2
         anchors.left: parent.left
         anchors.right: parent.right
@@ -133,21 +133,22 @@ Item {
             Rectangle {
                 id: rectangle
                 x: 0
-                y: 14
+                y: 17
                 width: 75
                 height: 25
-                color: "#ffffff"
-                border.color: "gray"
-                border.width: 2
+                color: "black"
+                border.color: "#00ffffff"
+                border.width: 1
 
                 TextCust {
                     id: digitalValueText
                     x: 0
                     y: -14
-                    color: "#008aff"
+                    color: Styles.blueDark
                     text: value.toFixed(1)+" C°"
                     anchors.fill: parent
-                    level:3
+                    font.letterSpacing: -3.2
+                    level:2
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -155,8 +156,8 @@ Item {
             Shape {
                  id:arrow
                  width: 11
-                 height: 16
-                 anchors.verticalCenterOffset: -15
+                 height: 15
+                 anchors.verticalCenterOffset: -9
                  anchors.horizontalCenterOffset: 0
                  anchors.centerIn: parent
                  ShapePath {
@@ -186,7 +187,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.25}D{i:4}D{i:6}D{i:10}D{i:3}D{i:14}D{i:2}D{i:18}D{i:17}D{i:20}
-D{i:19}D{i:16}D{i:1}
+    D{i:0;formeditorZoom:1.75;height:61;width:639}D{i:4}D{i:6}D{i:10}D{i:3}D{i:14}D{i:2}
+D{i:18}D{i:17}D{i:20}D{i:19}D{i:16}D{i:1}
 }
 ##^##*/

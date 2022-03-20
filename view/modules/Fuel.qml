@@ -60,8 +60,8 @@ Item {
                 id: pipe1
                 x: 1265
                 y: 83
-                width: 30
-                height: 485
+                width: 26
+                height: 481
                 color: "#ffffff"
                 border.color: "#ffffff"
             }
@@ -71,7 +71,7 @@ Item {
                 x: 1265
                 y: 77
                 width: 271
-                height: 30
+                height: 26
                 color: "#ffffff"
                 border.color: "#ffffff"
             }
@@ -80,8 +80,8 @@ Item {
                 id: pipe3
                 x: 177
                 y: 538
-                width: 1639
-                height: 30
+                width: 1636
+                height: 26
                 color: "#ffffff"
                 border.color: "#ffffff"
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -91,8 +91,8 @@ Item {
                 id: pipe4
                 x: 213
                 y: 77
-                width: 272
-                height: 30
+                width: 268
+                height: 26
                 color: "#ffffff"
                 border.color: "#ffffff"
             }
@@ -101,7 +101,7 @@ Item {
                 id: pipe5
                 x: 1403
                 y: 538
-                width: 30
+                width: 26
                 height: 441
                 color: "#ffffff"
                 border.color: "#ffffff"
@@ -111,7 +111,7 @@ Item {
                 id: pipe6
                 x: 1565
                 y: 538
-                width: 30
+                width: 26
                 height: 441
                 color: "#ffffff"
                 border.color: "#ffffff"
@@ -121,7 +121,7 @@ Item {
                 id: pipe7
                 x: 166
                 y: 538
-                width: 30
+                width: 26
                 height: 441
                 color: "#ffffff"
                 border.color: "#ffffff"
@@ -131,7 +131,7 @@ Item {
                 id: pipe8
                 x: 324
                 y: 538
-                width: 30
+                width: 26
                 height: 441
                 color: "#ffffff"
                 border.color: "#ffffff"
@@ -140,7 +140,7 @@ Item {
             Rectangle {
                 id: pipe
                 y: 83
-                width: 30
+                width: 26
                 height: 901
                 color: "#ffffff"
                 border.color: "#ffffff"
@@ -152,7 +152,7 @@ Item {
                 id: pipe20
                 x: 1051
                 y: 538
-                width: 30
+                width: 26
                 height: 331
                 color: "#ffffff"
                 border.color: "#ffffff"
@@ -162,7 +162,7 @@ Item {
                 id: pipe21
                 x: 687
                 y: 538
-                width: 30
+                width: 26
                 height: 331
                 color: "#ffffff"
                 border.color: "#ffffff"
@@ -172,7 +172,7 @@ Item {
                 id: pipe22
                 x: 49
                 y: 538
-                width: 30
+                width: 26
                 height: 175
                 color: "#ffffff"
                 border.color: "#ffffff"
@@ -180,11 +180,11 @@ Item {
 
             Rectangle {
                 id: pipe23
-                x: 52
-                y: 541
+                x: 50
+                y: 539
                 width: 24
-                height: 172
-                color: "#1e1e1e"
+                height: 174
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
@@ -193,7 +193,7 @@ Item {
                 id: pipe24
                 x: 1667
                 y: 538
-                width: 30
+                width: 26
                 height: 175
                 color: "#ffffff"
                 border.color: "#ffffff"
@@ -201,35 +201,35 @@ Item {
 
             Rectangle {
                 id: pipe25
-                x: 1670
-                y: 541
+                x: 1668
+                y: 539
                 width: 24
-                height: 172
-                color: "#1e1e1e"
+                height: 174
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: rectangle5
-                x: 1657
+                x: 1654
                 y: 586
                 width: 52
                 height: 101
-                color: "#707070"
+                color: "#000000"
                 radius: 16
-                border.color: "#ffffff"
-                border.width: 3
+                border.color: "#515151"
+                border.width: 1
                 Text {
                     id: text6
-                    x: -46
+                    x: -45
                     y: 36
                     width: 125
                     height: 53
                     color: "#ffffff"
                     text: qsTr("=>")
                     font.letterSpacing: -24.7
-                    font.pixelSize: 90
+                    font.pixelSize: 67
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     rotation: -90
@@ -243,22 +243,22 @@ Item {
             anchors.fill: parent
             Rectangle {
                 id: pipe9
-                x: 1268
+                x: 1266
                 y: 83
                 width: 24
-                height: 481
-                color: "#1e1e1e"
+                height: 480
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: pipe10
-                x: 1268
-                y: 80
-                width: 268
+                x: 1266
+                y: 78
+                width: 270
                 height: 24
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
@@ -266,10 +266,10 @@ Item {
             Rectangle {
                 id: pipe11
                 x: 177
-                y: 541
+                y: 539
                 width: 1636
                 height: 24
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
                 anchors.horizontalCenterOffset: -5
@@ -279,112 +279,112 @@ Item {
             Rectangle {
                 id: pipe12
                 x: 213
-                y: 80
-                width: 269
+                y: 78
+                width: 267
                 height: 24
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: pipe13
-                x: 1406
+                x: 1404
                 y: 541
                 width: 24
                 height: 438
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: pipe14
-                x: 1568
+                x: 1566
                 y: 541
                 width: 24
                 height: 438
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: pipe15
-                x: 169
+                x: 167
                 y: 541
                 width: 24
                 height: 438
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: pipe16
-                x: 327
+                x: 325
                 y: 541
                 width: 24
                 height: 438
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: pipe17
-                x: 458
+                x: 456
                 y: 83
                 width: 24
                 height: 902
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: pipe18
-                x: 1054
+                x: 1052
                 y: 541
                 width: 24
                 height: 329
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: pipe19
-                x: 690
+                x: 688
                 y: 541
                 width: 24
                 height: 329
-                color: "#1e1e1e"
+                color: "#0f0f0f"
                 border.color: "#00ffffff"
                 border.width: 0
             }
 
             Rectangle {
                 id: rectangle2
-                x: 37
+                x: 36
                 y: 584
                 width: 52
                 height: 101
-                color: "#707070"
+                color: "#000000"
                 radius: 16
-                border.color: "#ffffff"
-                border.width: 3
+                border.color: "#515151"
+                border.width: 1
 
                 Text {
                     id: text3
-                    x: -46
+                    x: -44
                     y: 36
                     width: 125
                     height: 53
                     color: "#ffffff"
                     text: qsTr("=>")
                     font.letterSpacing: -24.7
-                    font.pixelSize: 90
+                    font.pixelSize: 67
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     rotation: -90
@@ -398,53 +398,51 @@ Item {
             y: 984
             width: 95
             height: 70
-            color: "#4a4a4a"
+            color: "#000000"
             radius: 5
-            border.color: "#ffffff"
-            border.width: 3
+            border.color: "gray"
+            border.width: 1
 
-            Text {
+            TextCust {
                 id: apuText
                 color: "#ffffff"
                 text: qsTr("APU")
                 anchors.fill: parent
-                font.pixelSize: 45
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.styleName: "obyčejné"
-                font.family: "Verdana"
-                font.bold: false
             }
         }
 
 
         Rectangle {
             id: filtrL
-            x: 439
+            x: 437
             y: 140
             width: 65
             height: 116
-            color: "#464646"
-            border.color: "#ffffff"
+            color: "#000000"
+            border.color: "#515151"
             border.width: 2
         }
 
         Valve {
             id: apuValve
-            x: 436
-            y: 860
+            x: 433
+            y: 858
+            open: true
             rotation: -270
         }
 
         Rectangle {
             id: filtrR
-            x: 1248
+            x: 1246
             y: 140
             width: 65
             height: 116
-            color: "#464646"
-            border.color: "#ffffff"
-            border.width: 2
+            color: "#000000"
+            border.color: "#515151"
+            border.width: 1
         }
 
         Swich2stateWarning {
@@ -493,48 +491,82 @@ Item {
 
         Rectangle {
             id: rectangle1
-            y: 1
+            y: -17
             width: 689
-            height: 361
+            height: 379
             color: "#00ffffff"
             radius: 20
-            border.color: "#ffffff"
+            border.color: "#00ffffff"
             border.width: 2
             anchors.horizontalCenterOffset: 0
             anchors.horizontalCenter: parent.horizontalCenter
 
-            Verticalndicator {
-                id: fuelTemp
-                y: 297
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Text {
-                id: text2
-                y: 270
-                color: "#007cf3"
-                text: qsTr("FUEL TEMPRATURE")
-                font.pixelSize: 19
-                anchors.horizontalCenterOffset: 0
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            FuelPanel {
-                id: fuelPanel
-                y: 45
-                anchors.horizontalCenterOffset: -1
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            ModuleDescription {
-                id: moduleDescription
+            Item {
+                id: item1
+                y: 46
+                height: 362
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.top: parent.top
-                description: "FUEL"
-                anchors.topMargin: 0
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 0
                 anchors.rightMargin: 0
                 anchors.leftMargin: 0
+
+                Verticalndicator {
+                    id: fuelTemp
+                    x: -93
+                    y: 121
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    value: 52.2
+                    anchors.bottomMargin: 5
+                    anchors.rightMargin: 25
+                    anchors.leftMargin: 25
+
+                    TextCust {
+                        id: text2
+                        x: 266
+                        y: -24
+                        width: 505
+                        height: 23
+                        color: "#007cf3"
+                        text: qsTr("FUEL TEMPRATURE")
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        level:3
+                        anchors.rightMargin: 0
+                        anchors.leftMargin: 0
+                        anchors.horizontalCenterOffset: 1
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                }
+
+                FuelPanel {
+                    id: fuelPanel
+                    x: -82
+                    y: -131
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 92
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
+                }
+
+                ModuleDescription {
+                    id: moduleDescription
+                    x: -102
+                    y: -364
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    description: "FUEL"
+                    anchors.topMargin: 0
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
+                }
+
             }
         }
 
@@ -619,7 +651,7 @@ Item {
             InfoIndicator {
                 id: engValClose_L
                 textHeight: 28
-                anchors.horizontalCenter: parent.horizontalCenter               
+                anchors.horizontalCenter: parent.horizontalCenter
                 description: "ENG VAL\nCLOSED"
             }
 
@@ -658,7 +690,7 @@ Item {
             }
 
             WarningIndicator {
-                id: filtBypass_R             
+                id: filtBypass_R
                 warText: "FILTER\nBYPASS"
             }
 
@@ -695,28 +727,31 @@ Item {
         Valve {
             id: engValCloseImg_L
             x: 282
-            y: 57
-            open: false
+            y: 55
+            open: true
         }
 
         Valve {
             id: sparValCloseImg_L
-            x: 436
-            y: 292
+            x: 433
+            y: 288
+            open: true
             rotation: -270
         }
 
         Valve {
             id: sparValCloseImg_R
-            x: 1245
-            y: 292
+            x: 1243
+            y: 288
+            open: true
             rotation: -270
         }
 
         Valve {
             id: engValCloseImg_R
             x: 1397
-            y: 57
+            y: 55
+            open: true
         }
     }
     Connections{
@@ -850,11 +885,12 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:2}D{i:3}D{i:4}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
+    D{i:0;formeditorZoom:0.33}D{i:2}D{i:3}D{i:4}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
 D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:22}D{i:21}D{i:5}
 D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}D{i:36}
-D{i:35}D{i:23}D{i:38}D{i:37}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:46}D{i:47}
-D{i:48}D{i:49}D{i:45}D{i:50}D{i:51}D{i:52}D{i:53}D{i:55}D{i:56}D{i:57}D{i:54}D{i:59}
-D{i:60}D{i:61}D{i:58}D{i:62}D{i:63}D{i:64}D{i:65}D{i:66}D{i:67}D{i:1}D{i:68}D{i:69}
+D{i:35}D{i:23}D{i:38}D{i:37}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:48}D{i:47}
+D{i:49}D{i:50}D{i:46}D{i:45}D{i:51}D{i:52}D{i:53}D{i:54}D{i:56}D{i:57}D{i:58}D{i:55}
+D{i:60}D{i:61}D{i:62}D{i:59}D{i:63}D{i:64}D{i:65}D{i:66}D{i:67}D{i:68}D{i:1}D{i:69}
+D{i:70}
 }
 ##^##*/

@@ -118,12 +118,16 @@ Rectangle {
         width: parent.width/2
         height: parent.height
         color: "#00ffffff"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         border.width: 2
 
         Item {
             id: pipes
             anchors.fill: parent
+            anchors.rightMargin: 1
+            anchors.bottomMargin: -54
+            anchors.leftMargin: -1
+            anchors.topMargin: 54
 
             Rectangle {
                 id: pipe11
@@ -303,7 +307,7 @@ Rectangle {
         Swich2noStateGen {
             id: gen1Mod
             x: 87
-            y: 283
+            y: 337
             button1.onClicked:{
                 ControlElectrical.togle("gen1_up")
             }
@@ -315,7 +319,7 @@ Rectangle {
         Swich2noStateGen {
             id: gen2Mod
             x: 642
-            y: 283
+            y: 337
             infoIndicator.description: "GEN 2\nOFFBUS"
             button1.onClicked:{
                 ControlElectrical.togle("gen2_up")
@@ -327,7 +331,8 @@ Rectangle {
 
         SwichesApuGen {
             id: apuGenMod
-            y: 283
+            y: 337
+            anchors.horizontalCenterOffset: -1
             anchors.horizontalCenter: parent.horizontalCenter
             button1.onClicked:{
                 ControlElectrical.togle("apu_gen1_up")
@@ -345,10 +350,10 @@ Rectangle {
 
         Swich2noStateGen {
             id: grdPower
-            y: 806
+            y: 860
             infoIndicator.textHeight: 23
             infoIndicator.description: "GRD POWER\nAVAILABLE"
-            anchors.horizontalCenterOffset: 0
+            anchors.horizontalCenterOffset: -1
             anchors.horizontalCenter: parent.horizontalCenter
             button1.onClicked:{
                 ControlElectrical.togle("gpu_up")
@@ -361,7 +366,7 @@ Rectangle {
         BusGraphRepr {
             id: sourceOff2
             x: 642
-            y: 827
+            y: 881
             width: 150
             height: 157
             busText: "BUS 2"
@@ -370,7 +375,7 @@ Rectangle {
         BusGraphRepr {
             id: sourceOff1
             x: 87
-            y: 827
+            y: 881
             width: 150
             height: 157
         }
@@ -378,7 +383,7 @@ Rectangle {
         Rectangle {
             id: rectangle2
             x: 35
-            y: 47
+            y: 101
             width: 248
             height: 201
             color: "#2d2d2d"
@@ -441,7 +446,7 @@ Rectangle {
         Rectangle {
             id: rectangle4
             x: 593
-            y: 47
+            y: 101
             width: 248
             height: 201
             color: "#2d2d2d"
@@ -499,12 +504,13 @@ Rectangle {
 
         Rectangle {
             id: rectangle5
-            y: 8
+            y: 62
             width: 300
             height: 201
             color: "#2d2d2d"
             radius: 14
             border.color: "#7f7f7f"
+            anchors.horizontalCenterOffset: -1
             anchors.horizontalCenter: parent.horizontalCenter
             WarningIndicator {
                 id: standbyWarning
@@ -563,12 +569,13 @@ Rectangle {
 
         Rectangle {
             id: rectangle6
-            y: 557
+            y: 611
             width: 249
             height: 168
             color: "#2d2d2d"
             radius: 14
             border.color: "#7f7f7f"
+            anchors.horizontalCenterOffset: -1
             anchors.horizontalCenter: parent.horizontalCenter
 
             Text {
@@ -616,7 +623,7 @@ Rectangle {
         width: parent.width/2
         height: parent.height
         color: "#00ffffff"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         border.width: 2
         Rectangle {
             id: dcPart
@@ -625,7 +632,7 @@ Rectangle {
             width: parent.width
             height: parent.height/2
             color: "#00ffffff"
-            border.color: "#ffffff"
+            border.color: "#00ffffff"
             border.width: 1
 
             Rectangle {
@@ -722,7 +729,6 @@ Rectangle {
             id: ifePassSeat
             x: 8
             y: 210
-            textWidthDescription: 25
             description: "IFE/PASS\nSEAT"
         }
 
@@ -748,7 +754,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
+    D{i:0;formeditorZoom:0.33}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
 D{i:13}D{i:12}D{i:15}D{i:14}D{i:16}D{i:17}D{i:18}D{i:4}D{i:19}D{i:20}D{i:21}D{i:22}
 D{i:23}D{i:24}D{i:26}D{i:27}D{i:28}D{i:25}D{i:30}D{i:31}D{i:32}D{i:29}D{i:34}D{i:35}
 D{i:36}D{i:33}D{i:39}D{i:38}D{i:37}D{i:3}D{i:43}D{i:42}D{i:41}D{i:45}D{i:46}D{i:47}

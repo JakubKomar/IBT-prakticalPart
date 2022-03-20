@@ -38,7 +38,7 @@ Button {
     }
     property bool activePage: false
 
-    property color frameColorDefault: "gray"
+    property color frameColorDefault: "#5e808080"
     property color frameColorActive: Styles.green
     property color frameColor: activePage ? frameColorActive:frameColorDefault
 
@@ -46,9 +46,9 @@ Button {
 
     background: Rectangle {
           color: menuItem.bcColor
-          border.color: menuItem.frameColor
           border.width: activePage? borderWact:borderW
           radius:rad
+          border.color: activePage?frameColorActive: frameColorDefault
 
     }
     contentItem: Item{

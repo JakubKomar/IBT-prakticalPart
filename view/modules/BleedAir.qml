@@ -108,27 +108,26 @@ Item {
 
                 Rectangle {
                     id: pipe15
-                    width: 24
+                    x: 1
+                    width: 28
                     color: "#1e1e1e"
                     border.color: "#00ffffff"
                     border.width: 0
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    anchors.topMargin: 8
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.topMargin: 1
                     anchors.bottomMargin: 0
                 }
 
                 Rectangle {
                     id: pipe17
-                    y: 3
-                    width: 24
-                    height: 119
+                    x: 812
+                    y: 1
+                    width: 28
+                    height: 127
                     color: "#1e1e1e"
                     border.color: "#00ffffff"
                     border.width: 0
-                    anchors.horizontalCenterOffset: 811
-                    anchors.horizontalCenter: parent.horizontalCenter
                 }
             }
 
@@ -155,15 +154,15 @@ Item {
 
                 Rectangle {
                     id: pipe16
-                    width: 24
+                    x: 1
+                    width: 28
                     color: "#1e1e1e"
                     border.color: "#00ffffff"
                     border.width: 0
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    anchors.topMargin: 0
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.bottomMargin: 0
+                    anchors.topMargin: 1
+                    anchors.bottomMargin: -1
                 }
             }
 
@@ -179,14 +178,12 @@ Item {
             Rectangle {
                 id: pipe18
                 x: 170
-                y: 711
-                width: 314
-                height: 24
+                y: 709
+                width: 316
+                height: 28
                 color: "#1e1e1e"
                 border.color: "#00ffffff"
                 border.width: 0
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: 193
             }
 
             Item {
@@ -210,15 +207,14 @@ Item {
 
                 Rectangle {
                     id: pipe20
-                    width: 24
+                    x: -2
+                    width: 28
                     color: "#1e1e1e"
                     border.color: "#00ffffff"
                     border.width: 0
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    anchors.horizontalCenterOffset: -3
                     anchors.topMargin: 0
-                    anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottomMargin: -8
                 }
             }
@@ -235,7 +231,8 @@ Item {
 
                 Rectangle {
                     id: pipe19
-                    height: 24
+                    width: 26
+                    height: 28
                     color: "#1e1e1e"
                     border.color: "#00ffffff"
                     border.width: 0
@@ -251,14 +248,12 @@ Item {
         Rectangle {
             id: pipe21
             x: 1271
-            y: 711
+            y: 709
             width: 314
-            height: 24
+            height: 28
             color: "#1e1e1e"
             border.color: "#00ffffff"
             border.width: 0
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: 193
         }
 
         Swich2stateBasic {
@@ -266,7 +261,6 @@ Item {
             y: 39
             anchors.left: parent.left
             anchors.leftMargin: 417
-            swich2state.textWidthDescription: 25
             swich2state.onText: "AUTO"
             swich2state.description: "L RECIRC\nFAN"
             onClicked:{
@@ -280,7 +274,6 @@ Item {
             y: 47
             anchors.right: parent.right
             anchors.rightMargin: 417
-            swich2state.textWidthDescription: 25
             swich2state.togled: false
             swich2state.onText: "AUTO"
             swich2state.description: "R RECIRC\nFAN"
@@ -305,10 +298,10 @@ Item {
         Rectangle {
             id: rectangle1
             width: 460
-            height: 282
+            height: 321
             color: "#00ffffff"
             radius: 20
-            border.color: "#ffffff"
+            border.color: "#00ffffff"
             border.width: 3
             anchors.top: parent.top
             anchors.horizontalCenterOffset: 1
@@ -388,7 +381,7 @@ Item {
             color: "#000000"
             radius: 10
             border.color: "#6a6a6a"
-            border.width: 3
+            border.width: 1
             Text {
                 id: text3
                 color: "#6a6a6a"
@@ -412,7 +405,7 @@ Item {
             color: "#00ffffff"
             radius: 10
             border.color: "#6a6a6a"
-            border.width: 3
+            border.width: 1
             anchors.left: parent.left
             anchors.leftMargin: 10
             Text {
@@ -440,7 +433,7 @@ Item {
             color: "#000000"
             radius: 10
             border.color: "#6a6a6a"
-            border.width: 3
+            border.width: 1
             anchors.right: parent.right
             anchors.rightMargin: 8
             Text {
@@ -535,7 +528,7 @@ Item {
             color: "#00ffffff"
             radius: 20
             border.color: "#ffffff"
-            border.width: 3
+            border.width: 1
             anchors.top: parent.top
             anchors.topMargin: 594
             anchors.horizontalCenterOffset: 0
@@ -557,17 +550,20 @@ Item {
 
                     WarningIndicator {
                         id: rWarPack
+                        height: 70
                         warText: "PACK"
                     }
 
                     WarningIndicator {
                         id: lWinBodyBleed
+                        height: 70
                         textHeight: 23
                         warText: "WING BODY\nOVERHEAT"
                     }
 
                     WarningIndicator {
                         id: lBleed
+                        height: 70
                         warText: "BLEED"
                     }
                 }
@@ -580,17 +576,20 @@ Item {
                     anchors.rightMargin: 0
                     WarningIndicator {
                         id: lWarPack
+                        height: 70
                         warText: "PACK"
                     }
 
                     WarningIndicator {
                         id: rWinBodyBleed
+                        height: 70
                         textHeight: 23
                         warText: "WING BODY\nOVERHEAT"
                     }
 
                     WarningIndicator {
                         id: rBleed
+                        height: 70
                         warText: "BLEED"
                     }
                 }
@@ -603,7 +602,7 @@ Item {
             buttText: "TRIP\nRESET";
             anchors.horizontalCenter: parent.horizontalCenter
             onClicked: {
-                    ControlBleed.bleedTripReset()
+                ControlBleed.bleedTripReset()
             }
         }
 
@@ -613,9 +612,16 @@ Item {
             anchors.horizontalCenterOffset: 0
             anchors.horizontalCenter: parent.horizontalCenter
             onClicked: {
-                    ControlBleed.tripButtTest()
+                ControlBleed.tripButtTest()
             }
 
+        }
+
+        ModuleDescription {
+            id: moduleDescription
+            x: 534
+            y: 8
+            description: "BLEED AIR"
         }
 
 
@@ -711,12 +717,14 @@ Item {
 
 
 
+
+
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}D{i:3}D{i:4}D{i:5}D{i:7}D{i:8}D{i:6}D{i:10}D{i:11}D{i:12}
+    D{i:0;formeditorZoom:0.5}D{i:3}D{i:4}D{i:5}D{i:7}D{i:8}D{i:6}D{i:10}D{i:11}D{i:12}
 D{i:9}D{i:14}D{i:15}D{i:13}D{i:16}D{i:17}D{i:19}D{i:20}D{i:18}D{i:22}D{i:21}D{i:2}
 D{i:23}D{i:24}D{i:25}D{i:26}D{i:28}D{i:29}D{i:27}D{i:31}D{i:32}D{i:33}D{i:30}D{i:35}
 D{i:34}D{i:37}D{i:36}D{i:39}D{i:38}D{i:40}D{i:41}D{i:42}D{i:46}D{i:47}D{i:48}D{i:45}
-D{i:50}D{i:51}D{i:52}D{i:49}D{i:44}D{i:43}D{i:53}D{i:54}D{i:1}D{i:55}D{i:56}
+D{i:50}D{i:51}D{i:52}D{i:49}D{i:44}D{i:43}D{i:53}D{i:54}D{i:55}D{i:1}D{i:56}D{i:57}
 }
 ##^##*/

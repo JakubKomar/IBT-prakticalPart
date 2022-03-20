@@ -11,9 +11,9 @@ Rectangle {
     anchors.right: parent.right
     anchors.rightMargin: 0
     anchors.leftMargin: 0
-    color: "#1d1d1d"
+    color: "#000000"
     border.color: "#484848"
-    border.width: 3
+    border.width: 1
 
 
     Rectangle {
@@ -30,7 +30,7 @@ Rectangle {
             width: 34
             height: 150
             color: "#666666"
-            border.width: 5
+            border.width: 2
             anchors.horizontalCenter: parent.horizontalCenter
         }
         transform: Rotation{
@@ -54,6 +54,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.5}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:2;height:150;width:150}D{i:2}D{i:1}
 }
 ##^##*/

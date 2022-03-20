@@ -20,8 +20,8 @@ Item {
         id: rectangle
         color: "#000000"
         radius: 7
-        border.color: "#ffffff"
-        border.width: 3
+        border.color: "gray"
+        border.width: 1
         anchors.fill: parent
     }
 
@@ -47,10 +47,10 @@ Item {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.topMargin: 50
-        anchors.bottomMargin: 3
+        anchors.bottomMargin: 1
         radiusButt: 2
-        anchors.rightMargin: 3
-        anchors.leftMargin: 3
+        anchors.rightMargin: 1
+        anchors.leftMargin: 1
     }
 }
 
@@ -60,6 +60,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.25}D{i:1}D{i:2}D{i:3}
+    D{i:0;formeditorZoom:1.75;height:150;width:300}D{i:1}D{i:2}D{i:3}
 }
 ##^##*/

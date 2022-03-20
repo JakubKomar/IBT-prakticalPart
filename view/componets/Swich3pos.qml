@@ -8,12 +8,12 @@ Item {
     property alias button2: button2
     property alias button1: button1
     width: 300
-    property color activeBackGroundCol: "white"
-    property color backGroundCol: "#414141"
-    property color activeBorderCol: "#00b9ff"
+    property color activeBackGroundCol: "#000000"
+    property color backGroundCol: "#000000"
+    property color activeBorderCol: Styles.blue
     property color borderCol: "white"
     property color textCol: "white"
-    property color activeTextCol: "#00b9ff"
+    property color activeTextCol: Styles.blue
     property int radiusButt:4
 
     property int position: 0
@@ -41,7 +41,7 @@ Item {
                 color: position==0?activeBackGroundCol:backGroundCol
                 radius: radiusButt
                 border.color: position==0?activeBorderCol:borderCol
-                border.width: 3
+                border.width: position==0?3:1
                 anchors.fill: parent
 
             }
@@ -68,7 +68,7 @@ Item {
 
             background: Rectangle{
                 radius: radiusButt
-                border.width: 3
+                border.width: position==1?3:1
                 color: position==1?activeBackGroundCol:backGroundCol
                 border.color: position==1?activeBorderCol:borderCol
                 anchors.fill: parent
@@ -95,7 +95,7 @@ Item {
 
             background: Rectangle{
                 radius: radiusButt
-                border.width: 3
+                border.width: position==2?3:1
                 color: position==2?activeBackGroundCol:backGroundCol
                 border.color: position==2?activeBorderCol:borderCol
                 anchors.fill: parent
@@ -118,6 +118,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:77;width:294}D{i:4}D{i:2}D{i:7}D{i:5}D{i:10}D{i:8}D{i:1}
+    D{i:0;height:100;width:300}D{i:4}D{i:2}D{i:7}D{i:5}D{i:10}D{i:8}D{i:1}
 }
 ##^##*/
