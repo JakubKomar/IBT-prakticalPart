@@ -7,6 +7,9 @@ Rectangle {
     color: "#000000"
     border.color: "#484848"
     border.width: 1
+    property alias text2: text2
+    property alias onTxt: onTxt
+    property alias offTxt: offTxt
     antialiasing: true
     layer.samples: 8
     layer.enabled: true
@@ -17,12 +20,20 @@ Rectangle {
     property string description: "Desc\nMultiline"
 
     property string onText:"ON"
-    property color onColor: "#02ff00"
     property alias onTxtAlias: onTxt
 
     property string offText:"OFF"
-    property color offColor: "#acacac"
     property alias offTxtAlias: offTxt
+
+    property color active1Bc:Styles.blueDark
+    property color active2Bc:"gray"
+    property color active1Txt:"white"
+    property color active2Txt:"white"
+
+    property color pasive1Bc:"black"
+    property color pasive2Bc:"black"
+    property color pasive1Txt:"white"
+    property color pasive2Txt:"white"
 
 
     property bool togled:false
@@ -42,7 +53,7 @@ Rectangle {
             id:shape
             anchors.fill:parent
             ShapePath{
-                fillColor: !togled?"transparent":Styles.blueDark
+                fillColor: !togled?pasive1Bc:active1Bc
                 strokeColor:"transparent"
                 startX: 1; startY:1
                 PathLine { x: shape.width*0.58; y: 1}
@@ -56,7 +67,7 @@ Rectangle {
             id:shape1
             anchors.fill:parent
             ShapePath{
-                fillColor: togled?"transparent":Styles.blueDark
+                fillColor: togled?pasive2Bc:active2Bc
                 strokeColor: "transparent"
                 startX: shape.width-1; startY:1
                 PathLine { x: shape.width-1; y: shape.height-1}
@@ -69,11 +80,12 @@ Rectangle {
         TextCust {
             id: offTxt
             width: parent.width*0.5
-            color: "#ffffff"
+            color: !togled?pasive1Txt:active2Txt
             text: offText
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.bottom: parent.bottom
+            font.letterSpacing: -1.5
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors.rightMargin: 0
@@ -85,11 +97,12 @@ Rectangle {
         TextCust {
             id: onTxt
             width: parent.width*0.5
-            color: "#ffffff"
+            color: togled?pasive1Txt:active2Txt
             text: onText
             anchors.left: parent.left
             anchors.top: parent.top
             anchors.bottom: parent.bottom
+            font.letterSpacing: -1.5
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors.bottomMargin: 0
@@ -142,7 +155,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.75;height:135;width:150}D{i:3}D{i:2}D{i:9}D{i:8}D{i:14}D{i:15}
-D{i:16}D{i:1}D{i:18}D{i:17}
+    D{i:0;height:150;width:150}D{i:3}D{i:2}D{i:9}D{i:8}D{i:14}D{i:15}D{i:16}D{i:1}D{i:18}
+D{i:17}
 }
 ##^##*/

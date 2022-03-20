@@ -3,8 +3,8 @@ import QtQuick 2.0
 Item {
     id: item1
     x: 0
-    width: 600
-    height: 155
+    width: 599
+    height: 157
     property alias description: description
     property alias tempSlider: tempSlider
     property alias warningIndicator: warningIndicator
@@ -14,7 +14,7 @@ Item {
     Rectangle {
         id: rectangle1
         color: "#000000"
-        border.color: "#484848"
+        border.color: "#00484848"
         border.width: 2
         anchors.fill: parent
 
@@ -36,41 +36,28 @@ Item {
 
                 VerticaIndicatorDouble {
                     id: verticaIndicatorDouble
-                    anchors.left: rectangle3.right
+                    height: 90
+                    anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 130
                     text2.text: "CAB"
                     text1.text: "DUC"
-                    anchors.bottomMargin: 3
-                    anchors.topMargin: 3
-                    anchors.rightMargin: 3
-                    anchors.leftMargin: 3
                 }
 
-                Rectangle {
-                    id: rectangle3
-                    width: 90
-                    color: "#00ffffff"
-                    border.color: "#484848"
-                    border.width: 2
+                TextCust {
+                    id: description
+                    width: 110
+                    color: Styles.blueDark
+                    text: qsTr("CENTER")
+                    anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
+                    level:2
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
                     anchors.leftMargin: 0
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
-
-                    TextCust {
-                        id: description
-                        color: "#ffffff"
-                        text: qsTr("CENTER")
-                        anchors.fill: parent
-                        level:2
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                    }
                 }
+
             }
 
             Rectangle {
@@ -84,13 +71,14 @@ Item {
 
                 WarningIndicator {
                     id: warningIndicator
-                    width: 90
+                    width: 112
                     radius: 0
                     border.color: "#484848"
                     border.width: 2
                     anchors.left: parent.left
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
+                    indicator.borderWidth: 1
                     anchors.leftMargin: 0
                     anchors.bottomMargin: 0
                     anchors.topMargin: 0
@@ -100,12 +88,12 @@ Item {
 
                 TempSlider {
                     id: tempSlider
-                    anchors.left: warningIndicator.right
+                    anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    anchors.rightMargin: 5
-                    anchors.leftMargin: 2
+                    anchors.rightMargin: 36
+                    anchors.leftMargin: 130
                     anchors.bottomMargin: 2
                     anchors.topMargin: 2
                 }
@@ -123,6 +111,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:4}D{i:6}D{i:5}D{i:3}D{i:8}D{i:9}D{i:7}D{i:2}D{i:1}
+    D{i:0;height:160;width:815}D{i:4}D{i:5}D{i:3}D{i:7}D{i:8}D{i:6}D{i:2}D{i:1}
 }
 ##^##*/

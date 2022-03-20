@@ -4,7 +4,7 @@ import QtQuick.Shapes
 Item {
     id: verticalIndicator
     width: 672
-    height: 87
+    height: 95
     property alias idicatorScape: idicatorScape
     property alias text2: text2
     property alias text1: text1
@@ -19,11 +19,11 @@ Item {
     property bool enableSecond:true
     Rectangle {
         id: idicatorScape
-        y: 20
         height: 46
         color: "#000000"
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         border.width: 2
+        anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.rightMargin: 0
@@ -172,7 +172,7 @@ Item {
         Item {
             id: digitalValue
             x: 35
-            y: 28
+            y: 32
             width: 75
             height: 39
             anchors.left: parent.left
@@ -194,8 +194,8 @@ Item {
                 y: 14
                 width: 75
                 height: 25
-                color: "#ffffff"
-                border.color: "gray"
+                color: "transparent"
+                border.color: "transparent"
                 border.width: 2
 
                 TextCust {
@@ -203,9 +203,10 @@ Item {
                     x: 0
                     y: -14
                     color: "#008aff"
-                    text: value1.toFixed(1)+" C°"
+                    text: value1.toFixed(1)+"C°"
                     anchors.fill: parent
-                    level:3
+                    font.letterSpacing: -2.6
+                    level:2
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
 
@@ -220,8 +221,8 @@ Item {
                 anchors.centerIn: parent
                 ShapePath {
                     strokeWidth: 1
-                    strokeColor: "gray"
-                    fillColor: "#ffffff"
+                    strokeColor: "transparent"
+                    fillColor: Styles.blueDark
                     startX: 0; startY: arrow.height
                     PathLine { x: arrow.width; y: arrow.height }
                     PathLine { x: arrow.width/2; y: 0 }
@@ -233,7 +234,7 @@ Item {
         Item {
             id: digitalValue2
             x: 33
-            y: -34
+            y: -40
             width: 75
             height: 39
             anchors.left: parent.left
@@ -255,19 +256,20 @@ Item {
                 y: 14
                 width: 75
                 height: 25
-                color: "#ffffff"
-                border.color: "#808080"
+                color: "transparent"
+                border.color: "transparent"
                 border.width: 2
                 TextCust {
                     id: digitalValueText1
                     x: 0
                     y: -14
                     color: "#008aff"
-                    text: value2.toFixed(1)+" C°"
+                    text: value2.toFixed(1)+"C°"
                     anchors.fill: parent
+                    font.letterSpacing: -2.6
                     horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter                  
-                    level:3
+                    verticalAlignment: Text.AlignVCenter
+                    level:2
                 }
             }
 
@@ -280,7 +282,8 @@ Item {
                 anchors.verticalCenterOffset: 26
                 ShapePath {
                     startY: arrow1.height
-                    fillColor: "#ffffff"
+                    strokeColor: "transparent"
+                    fillColor: Styles.blueDark
                     strokeWidth: 1
                     startX: 0
                     PathLine {
@@ -297,7 +300,6 @@ Item {
                         x: 0
                         y: arrow1.height
                     }
-                    strokeColor: "#808080"
                 }
                 anchors.centerIn: parent
             }
@@ -338,8 +340,8 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.25}D{i:4}D{i:6}D{i:10}D{i:3}D{i:15}D{i:17}D{i:21}D{i:14}D{i:25}
-D{i:2}D{i:29}D{i:28}D{i:31}D{i:30}D{i:27}D{i:37}D{i:36}D{i:39}D{i:38}D{i:35}D{i:43}
-D{i:44}D{i:1}
+    D{i:0;formeditorZoom:4;height:87;width:681}D{i:4}D{i:6}D{i:10}D{i:3}D{i:15}D{i:17}
+D{i:21}D{i:14}D{i:25}D{i:2}D{i:29}D{i:28}D{i:31}D{i:30}D{i:27}D{i:37}D{i:36}D{i:39}
+D{i:38}D{i:35}D{i:43}D{i:44}D{i:1}
 }
 ##^##*/

@@ -49,7 +49,7 @@ Item {
                 y: 2
                 width: 360
                 height: 27
-                color: "#0069ff"
+                color: Styles.blueDark
                 text: desText
                 anchors.verticalCenter: parent.verticalCenter
                 level:3
@@ -77,7 +77,7 @@ Item {
                 x: 56
                 width: 158
                 height: 20
-                color: "#0069ff"
+                color: Styles.blueDark
                 text: units
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.bottom: parent.bottom
@@ -97,6 +97,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.66}D{i:1}D{i:4}D{i:5}D{i:6}D{i:3}D{i:2}
+    D{i:0;height:311;width:210}D{i:1}D{i:4}D{i:5}D{i:6}D{i:3}D{i:2}
 }
 ##^##*/

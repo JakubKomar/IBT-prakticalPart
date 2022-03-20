@@ -17,7 +17,7 @@ Rectangle {
     Rectangle {
         id: rectangle
         width: 511
-        height: 364
+        height: 428
         color: "#ffffff"
         radius: 9
         anchors.verticalCenter: parent.verticalCenter
@@ -26,7 +26,7 @@ Rectangle {
         Label {
             id: label1
             y: 18
-            text: qsTr("Connection to Xplane 11 config")
+            text: qsTr("Xplane11 connection configuration")
             anchors.left: parent.left
             anchors.right: parent.right
             horizontalAlignment: Text.AlignHCenter
@@ -41,6 +41,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.bottom: parent.bottom
+            spacing: 17
             anchors.bottomMargin: -5
             anchors.topMargin: 56
             anchors.rightMargin: 0

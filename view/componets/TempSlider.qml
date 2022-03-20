@@ -24,13 +24,13 @@ Slider {
         width:parent.width
         height:parent.height-(parent.height*pading)
         color: "black"
-        border.color: "white"
+        border.color: "transparent"
         radius: 5
 
         gradient: Gradient {
             orientation: Gradient.Horizontal
-            GradientStop { position: 0.0; color: "#00a8de" }
-            GradientStop { position: 0.5; color: "white" }
+            GradientStop { position: 0.0; color:  Styles.blue }
+            GradientStop { position: 0.5; color: "#e9e9e9" }
             GradientStop { position: 1.0; color: "#ffea00" }
 
         }
@@ -67,10 +67,11 @@ Slider {
             verticalAlignment: Text.AlignVCenter
         }
         Rectangle{
-            x:1
-            y:1
+            x:-1
+            y:-1
             width: deadZone*(to-from)* parent.width
-            height: parent.height-2
+            height: parent.height+2
+            border.color: "gray"
             color: "black"
             radius: 5
             TextCust {
@@ -89,15 +90,15 @@ Slider {
     handle: Rectangle {
         id: rectangle
         x:  (value-from)/(to-from)*(parent.width-width)
-        color: "#dcffffff"
+        color: "#dc000000"
         implicitWidth: 50
         implicitHeight: parent.height
         radius: 10
         border.width: 2
-        border.color: "#bdbebf"
+        border.color: Styles.blueDark
         Text {
             id: name
-            color: "#808080"
+            color: Styles.blueDark
             text: qsTr("||")
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
@@ -117,6 +118,6 @@ Slider {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.66}
+    D{i:0;formeditorZoom:1.5;height:63;width:667}
 }
 ##^##*/

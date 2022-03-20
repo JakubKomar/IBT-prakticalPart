@@ -12,13 +12,11 @@ Item{
         radius: 30
         border.color: "#4c4c4c"
         anchors.fill: parent
-        onColor: "#ffae00"
         onText: "OPEN"
         clip: false
         anchors.bottomMargin: 0
         togled: true
         offText: "CLOSE"
-        offColor: "#09ff00"
     }
 
 

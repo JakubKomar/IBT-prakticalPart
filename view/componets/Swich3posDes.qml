@@ -29,7 +29,7 @@ Item {
         id: text1
         level:2
         height: 54
-        color: "#a4a4a4"
+        color: Styles.blueDark
         text: description
         anchors.left: parent.left
         anchors.right: parent.right
@@ -60,6 +60,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.75;height:150;width:300}D{i:1}D{i:2}D{i:3}
+    D{i:0;formeditorZoom:1.33;height:150;width:300}D{i:1}D{i:2}D{i:3}
 }
 ##^##*/
