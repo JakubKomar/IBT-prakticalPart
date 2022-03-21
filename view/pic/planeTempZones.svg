@@ -28,13 +28,13 @@
      showgrid="false"
      inkscape:zoom="1.28"
      inkscape:cx="380.85938"
-     inkscape:cy="421.875"
+     inkscape:cy="171.875"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-1928"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      units="px" />
   <defs
      id="defs2" />
@@ -58,7 +58,7 @@
      inkscape:label="Vrstva 2"
      transform="translate(0.45046477,0.44585261)">
     <path
-       style="fill:none;stroke:#0097ff;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;stroke:#0097ff;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
        d="M 91.717295,36.613837 C 92.600955,28.497228 97.132029,1.4088189 102.45081,0.13637544 108.6095,2.1614767 113.13018,36.540754 113.13018,36.540754 c 0,0 -16.084616,0.150725 -21.412885,0.07308 z"
        id="path1113"
        sodipodi:nodetypes="ccccc" />
@@ -69,10 +69,13 @@
      inkscape:label="Vrstva 3"
      transform="translate(0.45046477,0.44585261)">
     <path
-       style="fill:none;stroke:#0097ff;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;stroke:#0097ff;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
        d="M 91.644215,38.857957 C 113.20082,38.711796 112.80608,38.7332 113.16007,38.7332 c 1.54827,32.446143 -0.0137,43.491126 0.70227,65.63239 l -22.830899,0.0908 c 0.123258,-21.014867 -0.59201,-43.089597 0.612774,-65.598443 z"
        id="path2308"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\workSpace\display\view\pic\planeZoneTemp.png"
+       inkscape:export-xdpi="95.541473"
+       inkscape:export-ydpi="95.541473" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -80,9 +83,12 @@
      inkscape:label="Vrstva 4"
      transform="translate(0.45046477,0.44585261)">
     <path
-       style="fill:none;stroke:#0097ff;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;stroke:#0097ff;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
        d="m 90.937837,107.02861 c 21.556613,-0.14616 22.911123,-0.12475 22.911123,-0.12475 0.14566,29.25608 0.63775,54.45164 -0.30205,66.12256 l -22.291667,0.014 C 90.55168,153.88596 90.714909,129.79585 90.937837,107.02861 Z"
        id="path2308-0"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\workSpace\display\view\pic\planeZoneTemp.png"
+       inkscape:export-xdpi="95.541473"
+       inkscape:export-ydpi="95.541473" />
   </g>
 </svg>

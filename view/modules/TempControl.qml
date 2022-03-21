@@ -18,84 +18,158 @@ Rectangle {
     }
 
     Item{
-        id:leftSide
-        width: parent.width/2
-        height:parent.height
-        layer.samples: 0
-
-        Rectangle {
-            id: rectangle
-            color: "#00ff0061"
-            border.color: "#00ffffff"
-            anchors.fill: parent
-            clip: true
-
-            Image {
-                id: image
-                width: 441
-                height: 902
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
-                source: "../pic/planeZoneTemp.png"
-                anchors.horizontalCenterOffset: 14
-                anchors.leftMargin: 0
-                anchors.horizontalCenter: parent.horizontalCenter
-                clip: false
-                scale: 1
-                sourceSize.width: 764
-                rotation: 0
-                fillMode: Image.PreserveAspectFit
-            }
-        }
-
-        Rectangle {
-            id: rectangle4
-            x: 443
-            y: 162
-            width: 463
-            height: 1
-            color: "#ffffff"
-            border.color: "#ffffff"
-            border.width: 2
-        }
-
-        Rectangle {
-            id: rectangle5
-            x: 444
-            y: 341
-            width: 461
-            height: 1
-            color: "#ffffff"
-            border.color: "#ffffff"
-            border.width: 2
-        }
-
-        Rectangle {
-            id: rectangle6
-            x: 441
-            y: 562
-            width: 466
-            height: 2
-            color: "#ffffff"
-            border.color: "#ffffff"
-            border.width: 2
-            rotation: -8.03
-        }
-    }
-    Item{
         id:rightSide
         width: parent.width/2
         x:parent.width/2
         height:parent.height
 
+        Rectangle {
+            id: rectangle12
+            x: 707
+            y: 862
+            width: 123
+            height: 1
+            color: "#ffffff"
+            border.color: "#ffffff"
+            border.width: 2
+        }
+
+        Item {
+            id: item1
+            x: 796
+            y: 110
+            width: 74
+            height: 1017
+
+            Rectangle {
+                id: rectangle10
+                x: 25
+                y: 40
+                width: 20
+                height: 896
+                color: "#808080"
+                border.color: "#00a5a5a5"
+                border.width: 2
+            }
+
+            Rectangle {
+                id: rectangle8
+                x: -24
+                y: 226
+                width: 69
+                height: 21
+                color: "#0f0f0f"
+                border.color: "#808080"
+                border.width: 1
+            }
+
+
+            Rectangle {
+                id: rectangle7
+                x: -24
+                y: 40
+                width: 69
+                height: 21
+                color: "#0f0f0f"
+                border.color: "#808080"
+                border.width: 1
+            }
+
+            Rectangle {
+                id: rectangle9
+                x: -24
+                y: 410
+                width: 69
+                height: 21
+                color: "#0f0f0f"
+                border.color: "#808080"
+                border.width: 1
+            }
+
+            Rectangle {
+                id: rectangle3
+                x: 26
+                y: 41
+                width: 18
+                height: 895
+                color: "#0f0f0f"
+                border.color: "#00a5a5a5"
+                border.width: 2
+            }
+
+            Valve {
+                id: trimAirValve
+                x: 0
+                y: 716
+                open: false
+            }
+
+            Rectangle {
+                id: rectangle11
+                x: -6
+                y: 869
+                width: 82
+                height: 76
+                color: "black"
+                radius: 10
+                border.color: "gray"
+
+                TextCust {
+                    id: textCust
+                    color:Styles.blueDark
+                    text: "BLEED\nAIR"
+                    anchors.fill: parent
+                    font.letterSpacing: -2.5
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    level: 2
+                }
+            }
+
+            Rectangle {
+                id: rectangle13
+                x: -1210
+                y: 46
+                width: 556
+                height: 10
+                color: "#0f0f0f"
+                border.color: "gray"
+                border.width: 1
+            }
+
+            Rectangle {
+                id: rectangle14
+                x: -1229
+                y: 232
+                width: 575
+                height: 10
+                color: "#0f0f0f"
+                border.color: "#808080"
+                border.width: 1
+            }
+
+            Rectangle {
+                id: rectangle15
+                x: -1229
+                y: 416
+                width: 575
+                height: 10
+                color: "#0f0f0f"
+                border.color: "#808080"
+                border.width: 1
+            }
+
+        }
+
         Column {
             id: column
-            width: 815
             height: 659
+            anchors.left: parent.left
+            anchors.right: parent.right
             anchors.top: parent.top
+            anchors.rightMargin: 30
+            anchors.leftMargin: 0
             anchors.topMargin: 41
-            anchors.horizontalCenterOffset: 0
-            anchors.horizontalCenter: parent.horizontalCenter
             spacing: 13
             rotation: 0
 
@@ -103,6 +177,8 @@ Rectangle {
                 id: cont
                 anchors.left: parent.left
                 anchors.right: parent.right
+                verticaIndicatorDouble.value1: 21.3
+                verticaIndicatorDouble.value2: 20.2
                 warningIndicator.status: 0
                 verticaIndicatorDouble.text2.horizontalAlignment: Text.AlignHCenter
                 verticaIndicatorDouble.text2.text: "DUC"
@@ -180,10 +256,11 @@ Rectangle {
                     height: 87
                     anchors.left: parent.left
                     anchors.right: parent.right
+                    value1: 25.3
                     text2.text: "L"
                     text1.text: "R"
                     anchors.rightMargin: 0
-                    anchors.leftMargin: 134
+                    anchors.leftMargin: 112
                 }
 
                 Rectangle {
@@ -207,9 +284,9 @@ Rectangle {
                         font.pixelSize: 27
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        anchors.rightMargin: -8
+                        anchors.rightMargin: -20
                         anchors.bottomMargin: 0
-                        anchors.leftMargin: 8
+                        anchors.leftMargin: 0
                         anchors.topMargin: 0
                         font.capitalization: Font.AllUppercase
                     }
@@ -222,11 +299,13 @@ Rectangle {
 
         Swich2stateBasic{
             id: trimAir
-            x: 30
-            y: 814
-            width: 157
-            height: 164
+            x: 575
+            y: 783
+            width: 150
+            height: 147
             text: "T"
+            anchors.right: parent.right
+            anchors.rightMargin: 150
             swich2state.onText: "ON"
             swich2state.togled: false
             swich2state.offText: "OFF"
@@ -236,13 +315,14 @@ Rectangle {
 
         Rectangle {
             id: cooling
-            x: 420
-            y: 763
-            width: 390
+            y: 741
+            width: 323
             height: 253
             color: "#00ffffff"
             border.color: "#00ffffff"
             border.width: 1
+            anchors.left: parent.left
+            anchors.leftMargin: 0
 
             Swich2stateWarning{
                 id: suplyFan
@@ -258,7 +338,7 @@ Rectangle {
                 togled: false
                 warningIndicator.warText: "OFF"
                 anchors.topMargin: 42
-                anchors.leftMargin: 17
+                anchors.leftMargin: 0
                 swich2state.description: "SUPLY\nFAN"
                 swich2state.togled: false
                 swich2state.offText: "NORM"
@@ -279,7 +359,7 @@ Rectangle {
                 description: "EXHOUST\nFAN"
                 warningIndicator.warText: "OFF"
                 anchors.topMargin: 42
-                anchors.rightMargin: 23
+                anchors.rightMargin: 0
                 swich2state.offText: "NORM"
                 swich2state.description: "EXHOUST\nFAN"
                 onClicked:{ControlTemp.coolingSwich("exhaust")}
@@ -300,15 +380,63 @@ Rectangle {
 
         ModuleDescription {
             id: moduleDescription
+            height: 30
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
             description: "temperature contoler"
             anchors.topMargin: 0
             anchors.rightMargin: 0
-            anchors.leftMargin: 0
+            anchors.leftMargin: -872
         }
 
+
+
+
+
+    }
+
+    Item{
+        id:leftSide
+        width: parent.width/2
+        height:parent.height
+        layer.samples: 0
+
+        Rectangle {
+            id: rectangle
+            color: "#00ff0061"
+            border.color: "#00ffffff"
+            anchors.fill: parent
+            clip: true
+
+            Image {
+                id: image
+                width: 441
+                height: 902
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                source: "../pic/planeZoneTemp.png"
+                anchors.horizontalCenterOffset: 14
+                anchors.leftMargin: 0
+                anchors.horizontalCenter: parent.horizontalCenter
+                clip: false
+                scale: 1
+                sourceSize.width: 764
+                rotation: 0
+                fillMode: Image.PreserveAspectFit
+            }
+
+            Rectangle {
+                id: rectangle16
+                x: 637
+                y: 527
+                width: 108
+                height: 8
+                color: "#0f0f0f"
+                border.color: "#00808080"
+                border.width: 1
+            }
+        }
     }
 
     Connections{
@@ -316,6 +444,7 @@ Rectangle {
 
         function onSetTrim(state){
             trimAir.swich2state.togled=state
+            trimAirValve.open=!state
         }
         function onSetCooling(name,state){
             if(name==="suply")
@@ -333,13 +462,57 @@ Rectangle {
                 fwd.tempSlider.setVal(state)
             */
         }
+        function onSetTemp(name, value){
+            switch(name){
+                case"cabDuct":{
+                    cont.verticaIndicatorDouble.value1=value
+                break;
+                }
+                case"fwdDuct":{
+                    fwd.verticaIndicatorDouble.value2=value
+                break;
+                }
+                case"fwdCab":{
+                    fwd.verticaIndicatorDouble.value1=value
+                break;
+                }
+                case"aftDuct":{
+                    aft.verticaIndicatorDouble.value2=value
+                break;
+                }
+                case"aftCab":{
+                    aft.verticaIndicatorDouble.value1=value
+                break;
+                }
+                case"packR":{
+                    packs.value2=value
+                    break;
+                }
+                case"packL":{
+                    packs.value1=value
+                break;
+                }
+                default:{}
+            }
+        }
+        function onSetIndicator(name,state){
+            if(name==="cabZone")
+                cont.warningIndicator.status=state
+            else if(name==="aftZone")
+                aft.warningIndicator.status=state
+            else if(name==="fwdZone")
+                fwd.warningIndicator.status=state
+        }
     }
 }
 
+
+
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:1}D{i:4}D{i:3}D{i:5}D{i:6}D{i:7}D{i:2}D{i:10}D{i:11}
-D{i:12}D{i:13}D{i:14}D{i:15}D{i:17}D{i:19}D{i:18}D{i:16}D{i:9}D{i:20}D{i:22}D{i:23}
-D{i:24}D{i:21}D{i:25}D{i:8}D{i:26}
+    D{i:0;formeditorZoom:0.75}D{i:1}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:12}
+D{i:11}D{i:13}D{i:14}D{i:15}D{i:4}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}D{i:24}
+D{i:26}D{i:25}D{i:23}D{i:16}D{i:27}D{i:29}D{i:30}D{i:31}D{i:28}D{i:32}D{i:2}D{i:35}
+D{i:36}D{i:34}D{i:33}D{i:37}
 }
 ##^##*/

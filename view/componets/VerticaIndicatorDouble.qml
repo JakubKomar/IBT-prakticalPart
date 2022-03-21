@@ -20,7 +20,7 @@ Item {
     Rectangle {
         id: idicatorScape
         height: 46
-        color: "#000000"
+        color: "#00000000"
         border.color: "#00ffffff"
         border.width: 2
         anchors.verticalCenter: parent.verticalCenter
@@ -340,8 +340,8 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:4;height:87;width:681}D{i:4}D{i:6}D{i:10}D{i:3}D{i:15}D{i:17}
-D{i:21}D{i:14}D{i:25}D{i:2}D{i:29}D{i:28}D{i:31}D{i:30}D{i:27}D{i:37}D{i:36}D{i:39}
-D{i:38}D{i:35}D{i:43}D{i:44}D{i:1}
+    D{i:0;height:90;width:715}D{i:4}D{i:6}D{i:10}D{i:3}D{i:15}D{i:17}D{i:21}D{i:14}D{i:25}
+D{i:2}D{i:29}D{i:28}D{i:31}D{i:30}D{i:27}D{i:37}D{i:36}D{i:39}D{i:38}D{i:35}D{i:43}
+D{i:44}D{i:1}
 }
 ##^##*/

@@ -13,7 +13,7 @@ Item {
 
     Rectangle {
         id: rectangle1
-        color: "#000000"
+        color: "#00000000"
         border.color: "#00484848"
         border.width: 2
         anchors.fill: parent
@@ -36,11 +36,12 @@ Item {
 
                 VerticaIndicatorDouble {
                     id: verticaIndicatorDouble
+                    y: 0
                     height: 90
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.rightMargin: 0
-                    anchors.leftMargin: 130
+                    anchors.leftMargin: 116
                     text2.text: "CAB"
                     text1.text: "DUC"
                 }
@@ -80,8 +81,8 @@ Item {
                     anchors.bottom: parent.bottom
                     indicator.borderWidth: 1
                     anchors.leftMargin: 0
-                    anchors.bottomMargin: 0
-                    anchors.topMargin: 0
+                    anchors.bottomMargin: 7
+                    anchors.topMargin: 7
                     textHeight: 24
                     warText: "ZONE\nTEMP"
                 }
@@ -93,7 +94,7 @@ Item {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     anchors.rightMargin: 36
-                    anchors.leftMargin: 130
+                    anchors.leftMargin: 112
                     anchors.bottomMargin: 2
                     anchors.topMargin: 2
                 }
@@ -111,6 +112,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:160;width:815}D{i:4}D{i:5}D{i:3}D{i:7}D{i:8}D{i:6}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:0.66;height:157;width:845}D{i:4}D{i:5}D{i:3}D{i:7}D{i:8}D{i:6}
+D{i:2}D{i:1}
 }
 ##^##*/
