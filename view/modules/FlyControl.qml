@@ -47,53 +47,6 @@ Rectangle {
                 }
             }
 
-            BreakTemp {
-                id: breakTempL
-                y: 724
-                anchors.left: parent.left
-                orangeVal: 5
-                redVal: 9.5
-                anchors.leftMargin: 131
-                leftBreakTemp: 6.1
-
-                TextCust {
-                    id: text1
-                    y: -24
-                    width: 123
-                    height: 24
-                    color: Styles.blueDark
-                    text: qsTr("BREAK TEMP L")
-                    level:3
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
-            }
-
-            BreakTemp {
-                id: breakTempR
-                x: 573
-                y: 724
-                anchors.right: parent.right
-                orangeVal: 5
-                redVal: 9.5
-                anchors.rightMargin: 101
-                leftBreakTemp: 6.1
-
-                TextCust {
-                    id: text2
-                    y: -24
-                    width: 113
-                    height: 24
-                    color: Styles.blueDark
-                    text: qsTr("BREAK TEMP R")
-                    level:3
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
-            }
-
 
             SurfaceIndicatorHorizontal {
                 id: splrL
@@ -219,7 +172,7 @@ Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            anchors.topMargin: 686
+            anchors.topMargin: 665
             anchors.leftMargin: 0
             description: "BREAKS"
             anchors.rightMargin: 0
@@ -227,8 +180,10 @@ Rectangle {
 
         EngineStarter {
             id: engineStarter
-            x: 333
-            y: 896
+            x: 162
+            y: 878
+            width: 232
+            height: 80
         }
 
         Connections{
@@ -334,12 +289,128 @@ Rectangle {
                 }
             }
         }
+
+        WarningIndicator {
+            id: warningIndicator2
+            x: 162
+            y: 977
+            width: 116
+            height: 75
+            status: 0
+            warText: "ANTI\nSKID\ninop"
+        }
+
+        WarningIndicator {
+            id: warningIndicator3
+            x: 278
+            y: 977
+            width: 116
+            height: 75
+            status: 0
+            warText: "AUTO BRAKE\nDISARM"
+        }
+
+        TextCust {
+            id: text3
+            x: 175
+            y: 839
+            width: 113
+            height: 24
+            color: Styles.blueDark
+            text: qsTr("AUTO BREAK")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            anchors.horizontalCenterOffset: -158
+            level: 2
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        TextCust {
+            id: text4
+            x: 626
+            y: 839
+            width: 113
+            height: 24
+            color: Styles.blueDark
+            text: qsTr("BREAK PRESURE")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            anchors.horizontalCenterOffset: 159
+            level: 2
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        BreakTemp {
+            id: breakTempL
+            x: 117
+            y: 736
+            anchors.left: parent.left
+            orangeVal: 5
+            redVal: 9.5
+            anchors.leftMargin: 178
+            leftBreakTemp: 6.1
+        }
+
+        BreakTemp {
+            id: breakTempR
+            x: 496
+            y: 732
+            width: 201
+            height: 88
+            anchors.right: parent.right
+            orangeVal: 5
+            redVal: 9.5
+            anchors.rightMargin: 178
+            leftBreakTemp: 6.1
+        }
+
+        TextCust {
+            id: text2
+            x: 610
+            y: 702
+            width: 113
+            height: 24
+            color: Styles.blueDark
+            text: qsTr("R TEMP")
+            level:2
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            anchors.horizontalCenterOffset: 159
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        TextCust {
+            id: text5
+            x: 613
+            y: 702
+            width: 113
+            height: 24
+            color: Styles.blueDark
+            text: qsTr("l TEMP")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            anchors.horizontalCenterOffset: -158
+            level: 2
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        CircularDialV2 {
+            id: circularDialV2
+            x: 507
+            y: 872
+            width: 180
+            height: 180
+            value: 2.7
+            redVal: 3.6
+            maxValue: 4
+        }
     }
     HalfTransparentBorder {
         id: halfTransparentBorder
         width: 1
         anchors.top: parent.top
         anchors.bottom: parent.bottom
+        vert: true
         anchors.topMargin: 0
         anchors.bottomMargin: 0
         anchors.horizontalCenter: parent.horizontalCenter
@@ -355,6 +426,94 @@ Rectangle {
         border.color: "#00ffffff"
         border.width: 2
 
+        Item {
+            id: item3
+            x: 0
+            height: 613
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.topMargin: 28
+            anchors.rightMargin: 0
+            anchors.leftMargin: 0
+
+            Rectangle {
+                id: rectangle8
+                x: 558
+                y: 237
+                width: 146
+                height: 26
+                color: "#ffffff"
+            }
+
+            Rectangle {
+                id: rectangle2
+                x: 318
+                y: 111
+                width: 26
+                height: 274
+                color: "#0f0f0f"
+                border.color: "#ffffff"
+            }
+
+            Rectangle {
+                id: rectangle3
+                x: 533
+                y: 111
+                width: 26
+                height: 285
+                color: "#0f0f0f"
+                border.color: "#ffffff"
+            }
+
+            Rectangle {
+                id: rectangle4
+                x: 703
+                y: 237
+                width: 26
+                height: 159
+                color: "#0f0f0f"
+                border.color: "#ffffff"
+            }
+
+            Rectangle {
+                id: rectangle5
+                x: 156
+                y: 237
+                width: 26
+                height: 159
+                color: "#0f0f0f"
+                border.color: "#ffffff"
+            }
+
+            Rectangle {
+                id: rectangle6
+                x: 181
+                y: 237
+                width: 138
+                height: 26
+                color: "#ffffff"
+
+                Rectangle {
+                    id: rectangle7
+                    x: -24
+                    y: 1
+                    width: 182
+                    height: 24
+                    color: "#0f0f0f"
+                }
+            }
+
+            Rectangle {
+                id: rectangle9
+                x: 534
+                y: 238
+                width: 170
+                height: 24
+                color: "#0f0f0f"
+            }
+        }
+
         ModuleDescription {
             id: moduleDescription3
             x: 6
@@ -368,65 +527,139 @@ Rectangle {
             anchors.rightMargin: 0
         }
 
-        FlapsIndicator {
-            id: flapsIndicator
-            y: 751
-            anchors.horizontalCenter: parent.horizontalCenter
-            stateVal: 0
-            setVal: 0.1
-        }
-
-        ModuleDescription {
-            id: moduleDescription1
-            x: 48
-            y: 686
-            height: 39
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.rightMargin: 0
-            anchors.leftMargin: 0
-            description: "FLAPS "
-        }
-
         Swich2stateWarning {
             id: swich2stateWarning1
-            x: 209
+            x: 255
             y: 390
+            description: "ELEC 2"
         }
 
         Swich2stateWarning {
             id: swich2stateWarning2
-            x: 463
+            x: 470
             y: 390
+            description: "ELECT 1"
         }
 
         Swich2stateWarning {
             id: swich2stateWarning3
             x: 637
             y: 390
+            description: "ENG 2"
         }
 
         WarningIndicator {
             id: warningIndicator1
-            x: 463
+            x: 470
             y: 585
             width: 150
             height: 56
+            status: 0
+            warText: "OVERHEAT"
         }
 
         Swich2stateWarning {
             id: swich2stateWarning
-            x: 45
+            x: 91
             y: 390
+            description: "ENG 1"
         }
 
         WarningIndicator {
             id: warningIndicator
-            x: 209
+            x: 255
             y: 585
             width: 150
             height: 56
+            status: 0
+            warText: "OVERHEAT"
         }
+
+
+        Rectangle {
+            id: rectangle1
+            x: 463
+            y: 36
+            width: 160
+            height: 107
+            color: "#000000"
+            radius: 10
+            border.color: "#565656"
+            anchors.right: parent.right
+            anchors.rightMargin: 250
+            TextCust {
+                id: textCust2
+                color: Styles.blueDark
+                text: "hydraulic\nsystem\nb"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                level: 2
+            }
+        }
+
+
+        Rectangle {
+            id: rectangle
+            y: 36
+            width: 160
+            height: 107
+            color: "#000000"
+            radius: 10
+            border.color: "#565656"
+            anchors.left: parent.left
+            anchors.leftMargin: 250
+
+            TextCust {
+                id: textCust
+                color: Styles.blueDark
+                text: "hydraulic\nsystem\na"
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.leftMargin: 1
+                level: 2
+            }
+        }
+
+        ModuleDescription {
+            id: moduleDescription5
+            x: 4
+            y: 7
+            height: 30
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.topMargin: 664
+            anchors.rightMargin: 470
+            anchors.leftMargin: 0
+            description: "Flaps"
+        }
+
+        FlapsIndicator {
+            id: flapsIndicator
+            x: 85
+            y: 714
+        }
+
+        ModuleDescription {
+            id: moduleDescription6
+            x: 13
+            y: 12
+            height: 30
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            description: "Flaps"
+            anchors.topMargin: 664
+            anchors.rightMargin: 0
+            anchors.leftMargin: 470
+        }
+
+
 
 
     }
@@ -437,8 +670,10 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:4}D{i:3}D{i:6}D{i:5}D{i:8}D{i:7}D{i:9}D{i:10}D{i:11}
-D{i:12}D{i:13}D{i:14}D{i:2}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}
-D{i:1}D{i:23}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:24}
+    D{i:0;formeditorZoom:0.5}D{i:4}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:2}D{i:11}
+D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}D{i:23}
+D{i:24}D{i:25}D{i:26}D{i:27}D{i:1}D{i:28}D{i:31}D{i:32}D{i:33}D{i:34}D{i:35}D{i:37}
+D{i:36}D{i:38}D{i:30}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:45}D{i:47}D{i:46}
+D{i:49}D{i:48}D{i:50}D{i:51}D{i:52}D{i:29}
 }
 ##^##*/

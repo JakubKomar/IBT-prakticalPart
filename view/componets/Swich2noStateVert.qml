@@ -21,18 +21,18 @@ Item {
         width: parent.width
         height: parent.height/2
         background: Rectangle{
-            color: bcBorderCol
-            border.color:  bcBorderCol
-            border.width: 2
+            color: "black"
+            border.color:  "gray"
+            border.width: 1
             radius: 8
-            Text {
+            TextCust {
                 id: button1Text
                 text: text1
-                color: textCol
+                color: Styles.blueDark
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pointSize: 30
+                level:2
             }
         }
     }
@@ -45,18 +45,18 @@ Item {
         height: parent.height/2
 
         background: Rectangle{
-            color: bcBorderCol
+            color: "black"
             radius: 8
-            border.color: bcBorderCol
-            border.width: 2
-            Text {
+            border.color:  "gray"
+            border.width: 1
+            TextCust {
                 id: button2Text
                 text: text2
-                color: textCol
+                color: Styles.blueDark
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font.pointSize: 30
+                level:2
             }
         }
     }
@@ -64,3 +64,9 @@ Item {
 }
 
 
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:1.5;height:180;width:150}D{i:1}D{i:4}
+}
+##^##*/

@@ -43,11 +43,13 @@ class AntiIceRender(QObject,RendModeBase):
             "laminar/B738/annunciator/cowl_ice_0",
             "laminar/B738/annunciator/cowl_ice_1",
 
+            "sim/cockpit/pressure/bleed_air_on"
+
         ]
   
     setAnnunciator=Signal(str,float)
     setSwich=Signal(str,bool)
-
+    setImg=Signal(str, bool)
 
     def sendRef(self, dic):
         self.setAnnunciator.emit("lHeatFwd",dic["laminar/B738/annunciator/window_heat_l_fwd"][0])
@@ -88,4 +90,8 @@ class AntiIceRender(QObject,RendModeBase):
         self.setSwich.emit("engHeatL",int(dic["laminar/B738/ice/eng1_heat_pos"][0]))
         self.setSwich.emit("engHeatR",int(dic["laminar/B738/ice/eng2_heat_pos"][0]))
 
-       
+        self.setImg.emit("center",bool(dic["sim/cockpit/pressure/bleed_air_on"][0]))
+        self.setImg.emit("wingL",bool(dic["sim/cockpit/pressure/bleed_air_on"][0]) and bool(dic["laminar/B738/annunciator/wing_ice_on_L"][0]>0 and dic["laminar/B738/annunciator/wing_ice_on_L"][0]<1))
+        self.setImg.emit("wingR",bool(dic["sim/cockpit/pressure/bleed_air_on"][0]) and bool(dic["laminar/B738/annunciator/wing_ice_on_R"][0]>0 and dic["laminar/B738/annunciator/wing_ice_on_R"][0]<1))
+        self.setImg.emit("eng1",bool(dic["sim/cockpit/pressure/bleed_air_on"][0]) and bool(dic["laminar/B738/annunciator/cowl_ice_on_0"][0]>0 and dic["laminar/B738/annunciator/cowl_ice_on_0"][0]<1))
+        self.setImg.emit("eng2",bool(dic["sim/cockpit/pressure/bleed_air_on"][0]) and bool(dic["laminar/B738/annunciator/cowl_ice_on_1"][0]>0 and dic["laminar/B738/annunciator/cowl_ice_on_1"][0]<1))

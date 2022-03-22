@@ -19,8 +19,9 @@ Rectangle {
     property alias itemText: itemText
 
     property color borderCol: "#484848"
-    border.color: borderCol
+    border.color:borderOnlyWhenTurned?value>0?borderCol:"transparent" :borderCol
     border.width: 1
+    property bool borderOnlyWhenTurned:false
 
     property int borderRadius:0
     radius:borderRadius
@@ -60,7 +61,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:80;width:140}D{i:1}
+    D{i:0;formeditorZoom:1.66;height:55;width:110}D{i:1}
 }
 ##^##*/
 

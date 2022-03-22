@@ -3,31 +3,27 @@ import QtQuick.Controls 2.0
 Item {
     id:antiIceSwich
     width: 150
-    height: 262
+    height: 197
     property alias swich2stateWarning: swich2stateWarning
-    property alias stateIndicator: stateIndicator
     signal clicked()
-    Column {
-        id: column
+    property bool onTogled:false
+    Swich2stateWarning {
+        id: swich2stateWarning
         anchors.fill: parent
-
-        StateIndicator {
-            id: stateIndicator
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.rightMargin: 0
-            anchors.leftMargin: 0
+        swich2state.pasive1Bc: onTogled?Styles.green:"transparent"
+        swich2state.active1Bc: onTogled?Styles.green:Styles.blueDark
+        togled: false
+        warningIndicator.warText: "OVERHEAT"
+        description: "SIDE"
+        onClicked:{
+            antiIceSwich.clicked()
         }
-
-        Swich2stateWarning {
-            id: swich2stateWarning
-            warningIndicator.warText: "OVERHEAT"
-            description: "SIDE"
-            onClicked:{
-                antiIceSwich.clicked()
-            }
-        }
-
     }
 
 }
+
+/*##^##
+Designer {
+    D{i:0;height:197;width:150}D{i:1}
+}
+##^##*/
