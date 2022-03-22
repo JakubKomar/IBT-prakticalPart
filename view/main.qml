@@ -346,6 +346,18 @@ Window {
                 }
 
                 MenuItem {
+                    id: ftContBtn
+                    visible: true
+                    text: "FtControl"
+                    onClicked: {
+                        MainRanderControler.setModuleSelector(9)
+                        menuColum.togleButt(this)
+                        ftControlLd.visible=true
+                    }
+
+                }
+
+                MenuItem {
                     id: bleedButt
                     text: "Bleed Air"
                     warningColor: "#ff8c00"
@@ -358,6 +370,7 @@ Window {
                     }
                 }
 
+
                 MenuItem {
                     id: tempButt
                     text: "Temp"
@@ -369,6 +382,7 @@ Window {
                     }
                 }
 
+
                 MenuItem {
                     id: doorButton
                     text: "Doors"
@@ -379,6 +393,7 @@ Window {
                         doorLd.visible=true
                     }
                 }
+
 
 
                 MenuItem {
@@ -393,6 +408,7 @@ Window {
                 }
 
 
+
                 MenuItem {
                     id: lightsBtn
                     text: "Lights"
@@ -405,17 +421,6 @@ Window {
 
 
 
-                MenuItem {
-                    id: ftContBtn
-                    visible: false
-                    text: "FtControl"
-                    onClicked: {
-                        MainRanderControler.setModuleSelector(9)
-                        menuColum.togleButt(this)
-                        ftControlLd.visible=true
-                    }
-
-                }
 
                 function unTogleAll(){
                     for (var i = 0; i < menuColum.children.length; ++i){
@@ -605,7 +610,7 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.33}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}D{i:14}
+    D{i:0;formeditorZoom:0.66}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}D{i:12}D{i:13}D{i:14}
 D{i:15}D{i:16}D{i:17}D{i:5}D{i:4}D{i:3}D{i:25}D{i:26}D{i:24}D{i:28}D{i:29}D{i:27}
 D{i:31}D{i:32}D{i:33}D{i:30}D{i:23}D{i:22}D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:40}
 D{i:41}D{i:42}D{i:43}D{i:44}D{i:34}D{i:48}D{i:47}D{i:50}D{i:49}D{i:52}D{i:51}D{i:53}

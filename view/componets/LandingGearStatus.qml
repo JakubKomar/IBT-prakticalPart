@@ -5,8 +5,8 @@ Rectangle {
     property bool inTransit: false
     property bool openLock: false
     property string description:"LEFT"
-    width: 60
-    height: 60
+    width: 70
+    height: 70
     color: "black"
     radius: 4
     border.color: "#ffffff"
@@ -32,7 +32,7 @@ Rectangle {
         color: Styles.green
         text: qsTr("DWN")
         anchors.fill: parent
-        font.letterSpacing: -1.6
+        font.letterSpacing: -2
         level:2
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -64,6 +64,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:60;width:60}D{i:1}D{i:2}
+    D{i:0;formeditorZoom:4;height:60;width:60}D{i:1}D{i:2}
 }
 ##^##*/

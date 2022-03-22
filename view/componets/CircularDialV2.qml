@@ -129,11 +129,11 @@ Item {
                 strokeWidth: 2
                 fillColor: "transparent"
 
-                startX: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxVal- minVal))*redVal))* (dial.width/2-circleBackGround.strokeWidth)
-                startY: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxVal- minVal))*redVal))* (dial.height/2-circleBackGround.strokeWidth)
+                startX: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxValue- minValue))*redVal))* (dial.width/2-circleBackGround.strokeWidth)
+                startY: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxValue- minValue))*redVal))* (dial.height/2-circleBackGround.strokeWidth)
                 PathLine {
-                    x: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxVal- minVal))*redVal))* (dial.width/2+5)
-                    y: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxVal- minVal))*redVal))* (dial.height/2+5)
+                    x: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxValue- minValue))*redVal))* (dial.width/2+5)
+                    y: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxValue- minValue))*redVal))* (dial.height/2+5)
                 }
             }
             ShapePath {
@@ -142,11 +142,11 @@ Item {
                 strokeWidth: 2
                 fillColor: "transparent"
 
-                startX: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxVal- minVal))*orangeVal))* (dial.width/2-circleBackGround.strokeWidth)
-                startY: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxVal- minVal))*orangeVal))* (dial.height/2-circleBackGround.strokeWidth)
+                startX: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxValue- minValue))*orangeVal))* (dial.width/2-circleBackGround.strokeWidth)
+                startY: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxValue- minValue))*orangeVal))* (dial.height/2-circleBackGround.strokeWidth)
                 PathLine {
-                    x: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxVal- minVal))*orangeVal))* (dial.width/2+5)
-                    y: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxVal- minVal))*orangeVal))* (dial.height/2+5)
+                    x: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxValue- minValue))*orangeVal))* (dial.width/2+5)
+                    y: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxValue- minValue))*orangeVal))* (dial.height/2+5)
                 }
             }
         }

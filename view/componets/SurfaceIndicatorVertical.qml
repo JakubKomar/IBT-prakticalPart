@@ -122,7 +122,7 @@ Item {
         height: 44
         color: "#00ffffff"
         radius: 8
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         border.width: 1
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0

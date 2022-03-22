@@ -141,7 +141,7 @@ Item {
         height: 50
         color: "#00ffffff"
         radius: 8
-        border.color: "#ffffff"
+        border.color: "#00ffffff"
         border.width: 1
         anchors.verticalCenter: parent.verticalCenter
 
@@ -182,7 +182,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:180;width:93}D{i:3}D{i:5}D{i:7}D{i:9}D{i:11}D{i:13}D{i:17}D{i:2}D{i:1}
-D{i:22}D{i:23}D{i:21}
+    D{i:0;formeditorZoom:3;height:180;width:93}D{i:3}D{i:5}D{i:7}D{i:9}D{i:11}D{i:13}
+D{i:17}D{i:2}D{i:1}D{i:22}D{i:23}D{i:21}
 }
 ##^##*/

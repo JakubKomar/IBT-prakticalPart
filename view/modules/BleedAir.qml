@@ -322,7 +322,7 @@ Item {
 
         Swich2stateBasic {
             id: lRecricrFan
-            y: 36
+            y: 90
             anchors.left: parent.left
             anchors.leftMargin: 58
             swich2state.onText: "AUTO"
@@ -335,7 +335,7 @@ Item {
         Swich2stateBasic {
             id: rRecrircFan
             x: 1553
-            y: 47
+            y: 90
             width: 150
             height: 150
             anchors.right: parent.right
@@ -544,7 +544,7 @@ Item {
 
         Swich3posDes {
             id: lPack
-            y: 36
+            y: 90
             width: 300
             height: 150
             position: 0
@@ -568,7 +568,7 @@ Item {
         Swich3posDes {
             id: rPack
             x: 1425
-            y: 47
+            y: 90
             width: 300
             height: 150
             position: 0
