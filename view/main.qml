@@ -117,7 +117,7 @@ Window {
                         id: ftControlLd
                         anchors.fill: parent
                         visible: false
-                        source: Qt.resolvedUrl("modules/FlyControl.qml")
+                        source: Qt.resolvedUrl("modules/Hydraulic.qml")
                     }
                 }
             }

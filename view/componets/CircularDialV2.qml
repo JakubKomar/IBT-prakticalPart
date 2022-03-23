@@ -45,7 +45,14 @@ Item {
     property bool redValEneb:false
     property bool orangeValEneb:false
 
+    property double redMinVal: minValue
+    property double orangeMinVal: minValue
+
+    property bool redMinValEneb:false
+    property bool orangeMinValEneb:false
+
     property alias dial: dial
+    property alias col:filed.strokeColor
     smooth: true
     antialiasing: true
     layer.enabled: true
@@ -103,9 +110,9 @@ Item {
             }
             ShapePath{
                 id:filed
-                strokeColor: if(value>redVal||errorTogle)
+                strokeColor: if(value<redMinVal&&redMinValEneb||value>redVal&&redValEneb||errorTogle)
                                  "red"
-                            else if(value>orangeVal||warningTogle)
+                            else if(value<orangeMinVal&&orangeMinValEneb||value>orangeVal&&orangeValEneb||warningTogle)
                                  "orange"
                             else
                                  Styles.blue
@@ -147,6 +154,32 @@ Item {
                 PathLine {
                     x: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxValue- minValue))*orangeVal))* (dial.width/2+5)
                     y: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxValue- minValue))*orangeVal))* (dial.height/2+5)
+                }
+            }
+            ShapePath {
+                id:kritStopMin
+                strokeColor: redMinValEneb? "red":"transparent"
+                strokeWidth: 2
+                fillColor: "transparent"
+
+                startX: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxValue- minValue))*redMinVal))* (dial.width/2-circleBackGround.strokeWidth)
+                startY: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxValue- minValue))*redMinVal))* (dial.height/2-circleBackGround.strokeWidth)
+                PathLine {
+                    x: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxValue- minValue))*redMinVal))* (dial.width/2+5)
+                    y: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxValue- minValue))*redMinVal))* (dial.height/2+5)
+                }
+            }
+            ShapePath {
+                id:warStopMin
+                strokeColor: orangeMinValEneb? "orange":"transparent"
+                strokeWidth: 2
+                fillColor: "transparent"
+
+                startX: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxValue- minValue))*orangeMinVal))* (dial.width/2-circleBackGround.strokeWidth)
+                startY: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxValue- minValue))*orangeMinVal))* (dial.height/2-circleBackGround.strokeWidth)
+                PathLine {
+                    x: dial.width/2+ Math.cos(toRadians(startAng+(difAng/(maxValue- minValue))*orangeMinVal))* (dial.width/2+5)
+                    y: dial.height/2+Math.sin(toRadians(startAng+(difAng/(maxValue- minValue))*orangeMinVal))* (dial.height/2+5)
                 }
             }
         }
@@ -200,7 +233,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:250;width:250}D{i:3}D{i:5}D{i:7}D{i:9}D{i:11}D{i:2}D{i:14}D{i:13}D{i:17}
-D{i:16}D{i:1}
+    D{i:0;height:210;width:210}D{i:3}D{i:5}D{i:7}D{i:9}D{i:11}D{i:13}D{i:15}D{i:2}D{i:18}
+D{i:17}D{i:21}D{i:20}D{i:1}
 }
 ##^##*/

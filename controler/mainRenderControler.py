@@ -13,7 +13,7 @@ from .rendMod._electricalRender import ElectricalRender
 from .rendMod._antiIceRender import AntiIceRender
 from .rendMod._dashBoardRender import DashBoardRender
 from .rendMod._engineRender import EngineRender
-from .rendMod._flyControlRender import FLyControlRender
+from .rendMod._hydraulicRender import HydraulicRender
 from .rendMod._ligtsRender import LightsRender
 from .rendMod._renderWarnings import WarnigsRender
 from .rendMod._engineDataRender import EngineDataRender
@@ -34,7 +34,7 @@ class MainRanderControler(QThread):
             "AntiIceRender" : AntiIceRender(),
             "DashBoardRender" : DashBoardRender(),
             "EngineRender" : EngineRender(),
-            "FLyControlRender" : FLyControlRender(),
+            "HydraulicRender" : HydraulicRender(),
             "LightsRender" : LightsRender(),
             "WarningsRender":WarnigsRender(),
             "EngineDataRender":EngineDataRender(),
@@ -101,7 +101,8 @@ class MainRanderControler(QThread):
             self.refList.extend(self.subcontrolers["EngineRender"].requestRef())
             self.refList.extend(self.subcontrolers["EngineDataRender"].requestRef())
         elif(self.moduleSelector == 9):
-            self.refList.extend(self.subcontrolers["FLyControlRender"].requestRef())
+            self.refList.extend(self.subcontrolers["HydraulicRender"].requestRef())
+            self.refList.extend(self.subcontrolers["DashBoardRender"].requestRef())
 
         self.refList = list(set(self.refList))
         self.poisonRefList=False
@@ -132,7 +133,8 @@ class MainRanderControler(QThread):
             self.subcontrolers["EngineRender"].sendRef(dictionary)
             self.subcontrolers["EngineDataRender"].sendRef(dictionary)
         elif(self.moduleSelector == 9):
-            self.subcontrolers["FLyControlRender"].sendRef(dictionary)
+            self.subcontrolers["HydraulicRender"].sendRef(dictionary)
+            self.subcontrolers["DashBoardRender"].sendRef(dictionary)
 
 
 

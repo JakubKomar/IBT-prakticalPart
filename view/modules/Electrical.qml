@@ -18,15 +18,11 @@ Rectangle {
         target:RenderElectrical
         function onIndicatorUpdate(name, value){
             switch(name){
-            case "drive1":
-                drive1.status=value
-                break;
-            case "drive2":
-                drive2.status=value
-                break;
+            /*
             case "standbyPwr":
                 standbyWarning.status=value
                 break;
+            */
             case "source1":
                 sourceOff1.warningIndicator1.status=value
                 break;
@@ -53,23 +49,18 @@ Rectangle {
                 break;
             default:
                 break;
-                /*
-                case "":
-                    =value
-                break;
-                */
-
             }
         }
 
         function onSwichUpdate(name, value){
-            switch(name){
+            switch(name){/*
             case "standby_bat":
                 stanbySwich.swich3pos.position=value
-                break;
+                break;*/
             case "cross_tie":
                 busTransfer.swich2stateAlt.togled=value
                 break;
+            /*
             case "batteryOn":
                 batSwich.swich2stateAlt.togled=value
                 break;
@@ -78,7 +69,7 @@ Rectangle {
                 break;
             case "disconnect2":
                 diconnect2.swich2stateAlt.togled=value
-                break;
+                break;*/
             case "ifePassSeat":
                 ifePassSeat.togled=value
                 break;
@@ -92,6 +83,7 @@ Rectangle {
 
         function onGuardUpdate(name, value){
             switch(name){
+                /*
             case "batteryCover":
                 batSwich.guard.guarded=value
                 break;
@@ -103,7 +95,7 @@ Rectangle {
                 break;
             case "drive2Cover":
                 diconnect2.guard.guarded=value
-                break;
+                break;*/
             case "busTransferCover":
                 busTransfer.guard.guarded=value
                 break;
@@ -381,193 +373,6 @@ Rectangle {
         }
 
         Rectangle {
-            id: rectangle2
-            x: 35
-            y: 101
-            width: 248
-            height: 201
-            color: "#2d2d2d"
-            radius: 14
-            border.color: "#7f7f7f"
-
-            WarningIndicator {
-                id: drive1
-                y: 154
-                width: 140
-                height: 43
-                radius: 13
-                anchors.horizontalCenter: parent.horizontalCenter
-                warText: "DRIVE"
-            }
-
-            GuardedSwichAlt {
-                id: diconnect1
-                x: 0
-                y: 29
-                guard.text1.color: "#4c250000"
-                swich2stateAlt.togled: false
-                swich2stateAlt.textOn: "DISCONECT"
-                swich2stateAlt.textHeight: 13
-                guard.guardCol: "#c95c0000"
-                swich2stateAlt.textOff: "NORMAL"
-                guarded: true
-                guardCol: "#d0ff0000"
-
-                guard.onGuard:{
-                    ControlElectrical.setGuard("disconect1")
-                }
-                guard.onUnGuard:{
-                    ControlElectrical.setGuard("disconect1")
-                }
-                swich2stateAlt.button1.onClicked:{
-                    ControlElectrical.togle("disconect1_off")
-                }
-                swich2stateAlt.button2.onClicked:{
-                    ControlElectrical.togle("disconect1")
-                }
-
-            }
-
-            Text {
-                id: text1
-                x: 0
-                y: 0
-                width: 248
-                height: 34
-                color: "#ffffff"
-                text: qsTr("DISCONNECT GEN1")
-                font.letterSpacing: -1.5
-                font.pixelSize: 26
-                horizontalAlignment: Text.AlignHCenter
-                font.family: "Verdana"
-            }
-        }
-
-        Rectangle {
-            id: rectangle4
-            x: 593
-            y: 101
-            width: 248
-            height: 201
-            color: "#2d2d2d"
-            radius: 14
-            border.color: "#7f7f7f"
-            WarningIndicator {
-                id: drive2
-                y: 154
-                width: 140
-                height: 43
-                radius: 13
-                anchors.horizontalCenter: parent.horizontalCenter
-                warText: "DRIVE"
-            }
-
-            GuardedSwichAlt {
-                id: diconnect2
-                x: 0
-                y: 29
-                guard.text1.color: "#4c250000"
-                swich2stateAlt.togled: false
-                swich2stateAlt.textHeight: 13
-                swich2stateAlt.textOn: "DISCONECT"
-                swich2stateAlt.textOff: "NORMAL"
-                guard.guardCol: "#c95c0000"
-                guardCol: "#d0590101"
-                guard.onGuard:{
-                    ControlElectrical.setGuard("disconect2")
-                }
-                guard.onUnGuard:{
-                    ControlElectrical.setGuard("disconect2")
-                }
-                swich2stateAlt.button1.onClicked:{
-                    ControlElectrical.togle("disconect2_off")
-                }
-                swich2stateAlt.button2.onClicked:{
-                    ControlElectrical.togle("disconect2")
-                }
-            }
-
-            Text {
-                id: text2
-                x: 0
-                y: 0
-                width: 248
-                height: 34
-                color: "#ffffff"
-                text: qsTr("DISCONNECT GEN1")
-                font.letterSpacing: -1.5
-                font.pixelSize: 26
-                horizontalAlignment: Text.AlignHCenter
-                font.family: "Verdana"
-            }
-        }
-
-        Rectangle {
-            id: rectangle5
-            y: 62
-            width: 300
-            height: 201
-            color: "#2d2d2d"
-            radius: 14
-            border.color: "#7f7f7f"
-            anchors.horizontalCenterOffset: -1
-            anchors.horizontalCenter: parent.horizontalCenter
-            WarningIndicator {
-                id: standbyWarning
-                y: 154
-                width: 140
-                height: 43
-                radius: 13
-                textHeight: 20
-                anchors.horizontalCenter: parent.horizontalCenter
-                warText: "STANDBY\nPWR OFF"
-            }
-
-            Text {
-                id: text3
-                y: 0
-                width: 248
-                height: 34
-                color: "#ffffff"
-                text: qsTr("STANDBY POWER")
-                font.letterSpacing: -1.5
-                font.pixelSize: 26
-                horizontalAlignment: Text.AlignHCenter
-                anchors.horizontalCenter: parent.horizontalCenter
-                font.family: "Verdana"
-            }
-
-            Guarded3Swich {
-                id: stanbySwich
-                y: 28
-                height: 130
-                anchors.left: parent.left
-                anchors.right: parent.right
-                swich3pos.position: 2
-                guard.guarded: true
-                swich3pos.textWidth: 28
-                swich3pos.textPos3: "AUTO"
-                swich3pos.textPos2: "OFF"
-                swich3pos.textPos1: "BAT"
-                anchors.rightMargin: 0
-                anchors.leftMargin: 0
-                guard.onGuard:{
-                    ControlElectrical.setGuard("stanbySwich")
-                }
-                guard.onUnGuard:{
-                    ControlElectrical.setGuard("stanbySwich")
-                }
-                swich3pos.button2.onClicked:{
-                    ControlElectrical.togle("stanbySwich")
-                }
-                swich3pos.button3.onClicked:{
-                    ControlElectrical.togle("stanbySwich_off")
-                    ControlElectrical.setGuard("stanbySwich")
-                }
-            }
-        }
-
-        Rectangle {
             id: rectangle6
             y: 611
             width: 249
@@ -634,39 +439,6 @@ Rectangle {
             color: "#00ffffff"
             border.color: "#00ffffff"
             border.width: 1
-
-            Rectangle {
-                id: rectangle7
-                x: -45
-                y: 334
-                width: 249
-                height: 128
-                color: "#2d2d2d"
-                radius: 14
-                border.color: "#7f7f7f"
-                rotation: 90
-
-                GuardedSwichAlt {
-                    id: batSwich
-                    x: 0
-                    y: -2
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    swich2stateAlt.textOn: "ON"
-                    guard.onGuard:{
-                        ControlElectrical.setGuard("batSwich")
-                    }
-                    guard.onUnGuard:{
-                        ControlElectrical.setGuard("batSwich")
-                    }
-                    swich2stateAlt.button1.onClicked:{
-                        ControlElectrical.togle("battery_off")
-                    }
-                    swich2stateAlt.button2.onClicked:{
-                        ControlElectrical.togle("battery_on")
-                        ControlElectrical.setGuard("batSwich")
-                    }
-                }
-            }
         }
 
         Rectangle {
@@ -756,8 +528,7 @@ Rectangle {
 Designer {
     D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
 D{i:13}D{i:12}D{i:15}D{i:14}D{i:16}D{i:17}D{i:18}D{i:4}D{i:19}D{i:20}D{i:21}D{i:22}
-D{i:23}D{i:24}D{i:26}D{i:27}D{i:28}D{i:25}D{i:30}D{i:31}D{i:32}D{i:29}D{i:34}D{i:35}
-D{i:36}D{i:33}D{i:38}D{i:37}D{i:3}D{i:43}D{i:42}D{i:41}D{i:45}D{i:46}D{i:47}D{i:48}
-D{i:44}D{i:49}D{i:50}D{i:51}D{i:52}D{i:53}D{i:40}
+D{i:23}D{i:24}D{i:27}D{i:26}D{i:25}D{i:3}D{i:29}D{i:31}D{i:32}D{i:33}D{i:34}D{i:30}
+D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:28}
 }
 ##^##*/

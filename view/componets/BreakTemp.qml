@@ -150,7 +150,7 @@ Rectangle {
             width: 49
             height: 42
             color: "#ffffff"
-            text: "9.2"
+            text: rightBreakTemp.toFixed(1)
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             horizontalAlignment: Text.AlignHCenter

@@ -12,6 +12,7 @@ from .contMod._controlDashBoard import ControlDashBoard
 from .contMod._controlDoors import ControlDoors
 from .contMod._controlEngine import ControlEngine
 from .contMod._controlLights import ControlLights
+from .contMod._controlHydraulic import ControlHydraulic
 
 from .contMod._controlSetings import ControlSetings
 
@@ -30,4 +31,5 @@ class MainComandControler(QObject):
             "ControlDoors": ControlDoors(),
             "ControlEngine": ControlEngine(),
             "ControlLights": ControlLights(),
+            "ControlHydraulic": ControlHydraulic(),
         }
