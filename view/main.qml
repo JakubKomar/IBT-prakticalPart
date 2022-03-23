@@ -336,19 +336,9 @@ Window {
                 }
 
                 MenuItem {
-                    id: electricalButton
-                    text: "ELECTR"
-                    onClicked: {
-                        MainRanderControler.setModuleSelector(5)
-                        menuColum.togleButt(this)
-                        electLd.visible=true
-                    }
-                }
-
-                MenuItem {
                     id: ftContBtn
                     visible: true
-                    text: "HYDR\nBREAKS"
+                    text: "HYDR"
                     onClicked: {
                         MainRanderControler.setModuleSelector(9)
                         menuColum.togleButt(this)
@@ -356,6 +346,19 @@ Window {
                     }
 
                 }
+
+
+
+                MenuItem {
+                    id: electricalButton
+                    text: "ELECT"
+                    onClicked: {
+                        MainRanderControler.setModuleSelector(5)
+                        menuColum.togleButt(this)
+                        electLd.visible=true
+                    }
+                }
+
 
                 MenuItem {
                     id: bleedButt
@@ -372,6 +375,17 @@ Window {
 
 
                 MenuItem {
+                    id: antiIceBtn
+                    visible: true
+                    text: "Anti Ice"
+                    onClicked: {
+                        MainRanderControler.setModuleSelector(6)
+                        menuColum.togleButt(this)
+                        antiIceLd.visible=true
+                    }
+                }
+
+                MenuItem {
                     id: tempButt
                     text: "Temp"
 
@@ -383,35 +397,16 @@ Window {
                 }
 
 
-                MenuItem {
-                    id: doorButton
-                    text: "Doors"
-
-                    onClicked: {
-                        MainRanderControler.setModuleSelector(4)
-                        menuColum.togleButt(this)
-                        doorLd.visible=true
-                    }
-                }
 
 
 
-                MenuItem {
-                    id: antiIceBtn
-                    visible: true
-                    text: "AntiIce"
-                    onClicked: {
-                        MainRanderControler.setModuleSelector(6)
-                        menuColum.togleButt(this)
-                        antiIceLd.visible=true
-                    }
-                }
+
 
 
 
                 MenuItem {
                     id: lightsBtn
-                    text: "Lights"
+                    text: "Light"
                     onClicked: {
                         MainRanderControler.setModuleSelector(7)
                         menuColum.togleButt(this)
@@ -433,6 +428,16 @@ Window {
                 function togleButt(toTogle){
                     menuColum.unTogleAll()
                     toTogle.activePage=true
+                }
+                MenuItem {
+                    id: doorButton
+                    text: "Door"
+
+                    onClicked: {
+                        MainRanderControler.setModuleSelector(4)
+                        menuColum.togleButt(this)
+                        doorLd.visible=true
+                    }
                 }
             }
 

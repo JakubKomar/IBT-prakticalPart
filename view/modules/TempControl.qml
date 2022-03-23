@@ -384,10 +384,10 @@ Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            description: "temperature contoler"
+            description: "temperature control"
             anchors.topMargin: 0
             anchors.rightMargin: 0
-            anchors.leftMargin: -872
+            anchors.leftMargin: 0
         }
 
 
@@ -437,6 +437,20 @@ Rectangle {
                 border.width: 1
             }
         }
+
+        ModuleDescription {
+            id: moduleDescription2
+            x: 875
+            y: 0
+            height: 30
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            description: "temperature overview"
+            anchors.topMargin: 0
+            anchors.rightMargin: 0
+            anchors.leftMargin: 0
+        }
     }
 
     Connections{
@@ -464,35 +478,35 @@ Rectangle {
         }
         function onSetTemp(name, value){
             switch(name){
-                case"cabDuct":{
-                    cont.verticaIndicatorDouble.value1=value
+            case"cabDuct":{
+                cont.verticaIndicatorDouble.value1=value
                 break;
-                }
-                case"fwdDuct":{
-                    fwd.verticaIndicatorDouble.value2=value
+            }
+            case"fwdDuct":{
+                fwd.verticaIndicatorDouble.value2=value
                 break;
-                }
-                case"fwdCab":{
-                    fwd.verticaIndicatorDouble.value1=value
+            }
+            case"fwdCab":{
+                fwd.verticaIndicatorDouble.value1=value
                 break;
-                }
-                case"aftDuct":{
-                    aft.verticaIndicatorDouble.value2=value
+            }
+            case"aftDuct":{
+                aft.verticaIndicatorDouble.value2=value
                 break;
-                }
-                case"aftCab":{
-                    aft.verticaIndicatorDouble.value1=value
+            }
+            case"aftCab":{
+                aft.verticaIndicatorDouble.value1=value
                 break;
-                }
-                case"packR":{
-                    packs.value2=value
-                    break;
-                }
-                case"packL":{
-                    packs.value1=value
+            }
+            case"packR":{
+                packs.value2=value
                 break;
-                }
-                default:{}
+            }
+            case"packL":{
+                packs.value1=value
+                break;
+            }
+            default:{}
             }
         }
         function onSetIndicator(name,state){
@@ -510,9 +524,9 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:1}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:12}
+    D{i:0;formeditorZoom:0.25}D{i:1}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:12}
 D{i:11}D{i:13}D{i:14}D{i:15}D{i:4}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}D{i:24}
 D{i:26}D{i:25}D{i:23}D{i:16}D{i:27}D{i:29}D{i:30}D{i:31}D{i:28}D{i:32}D{i:2}D{i:35}
-D{i:36}D{i:34}D{i:33}D{i:37}
+D{i:36}D{i:34}D{i:37}D{i:33}D{i:38}
 }
 ##^##*/

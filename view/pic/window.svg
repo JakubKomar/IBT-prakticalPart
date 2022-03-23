@@ -114,7 +114,7 @@
      inkscape:groupmode="layer"
      id="layer13"
      inkscape:label="1"
-     style="display:none">
+     style="display:inline">
     <path
        style="display:inline;fill:url(#linearGradient134252);fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 44.659395,9.893002 23.52778,16.098555 11.808811,64.286042 48.36356,48.794147 Z"
@@ -125,7 +125,7 @@
      inkscape:groupmode="layer"
      id="layer14"
      inkscape:label="2"
-     style="display:none">
+     style="display:inline">
     <path
        style="display:inline;fill:url(#linearGradient134250);fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 102.27186,14.967515 99.75831,44.095406 53.82829,47.515972 49.33038,10.131071 Z"
@@ -136,7 +136,7 @@
      inkscape:groupmode="layer"
      id="layer15"
      inkscape:label="3"
-     style="display:none">
+     style="display:inline">
     <path
        style="display:inline;fill:url(#linearGradient134254);fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 109.19356,14.88281 2.51355,29.12789 45.93002,3.42056 4.49791,-37.3849 z"
@@ -158,7 +158,7 @@
      inkscape:label="base"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:none">
+     style="display:inline">
     <path
        style="fill:none;stroke:#0097ff;stroke-width:0.565;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 102.27186,14.967515 99.758307,44.095406 53.828293,47.515972 49.330381,10.131071 Z"

@@ -1,5 +1,6 @@
 to do list
-
+    rudder zero oscilation
+    
 
 optional:
 thread exiting isule
