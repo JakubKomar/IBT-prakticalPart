@@ -1,4 +1,8 @@
 # This Python file uses the following encoding: utf-8
+__autor__="Jakub Komárek"
+
+
+
 import os
 from pathlib import Path
 import sys
