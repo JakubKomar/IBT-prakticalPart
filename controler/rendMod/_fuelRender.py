@@ -1,6 +1,13 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:32:54
+ # @ Description: Render subcontroler - fuel module
+ '''
 
-import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
 
@@ -69,6 +76,6 @@ class RenderFuel(QObject,RendModeBase):
         self.setIndicator.emit("lfpL2", dic["laminar/B738/annunciator/low_fuel_press_l2"][0])
         self.setIndicator.emit("lfpR1", dic["laminar/B738/annunciator/low_fuel_press_r1"][0])
         self.setIndicator.emit("lfpR2", dic["laminar/B738/annunciator/low_fuel_press_r2"][0])
-        self.setIndicator.emit("cfv", dic["laminar/B738/annunciator/crossfeed"][0])   # to do intesity of light
+        self.setIndicator.emit("cfv", dic["laminar/B738/annunciator/crossfeed"][0])  
         self.setFuelTemp.emit(dic["sim/cockpit2/temperature/outside_air_temp_degc"][0])
         self.setIndicator.emit("apuRuning", bool(dic["sim/cockpit/engine/APU_running"][0]))

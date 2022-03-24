@@ -1,8 +1,13 @@
 # This Python file uses the following encoding: utf-8
-
-from typing import Dict
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:04:06
+ # @ Description: Main render controler - inicializate all render subControlers and start render loop
+ '''
 from PySide6.QtCore import  Slot, Signal, QThread
-
 
 from .rendMod._fuelRender import RenderFuel
 from .rendMod._bleedRender import RenderBleed
@@ -20,12 +25,14 @@ from .rendMod._engineDataRender import EngineDataRender
 from .rendMod._fuelDialsRender import FuelDialsRender
 
 import model.libInit as client
+import logging
 
 class MainRanderControler(QThread):
 
     def __init__(self):
         QThread.__init__(self)
 
+        #subcontrolers tuple
         self.subcontrolers = {"RenderFuel": RenderFuel(),
             "RenderBleed" : RenderBleed(),
             "RenderTemp" : TempRender(),
@@ -41,21 +48,28 @@ class MainRanderControler(QThread):
             "FuelDialsRender":FuelDialsRender()
         }
 
+    #signal for indicating connection between simulator
     setConnStatus = Signal(bool)
 
+    # main render loop 
     def run(self):
         while True:
             try:
                 self.loop()
                 self.setConnStatus.emit(False)
-            except WindowsError:
+            except WindowsError: # connection exeption
                 self.setConnStatus.emit(True)
-            except Exception as EX:
-                print(EX)
+            except Exception as EX: #all exeption are chatched, render loop must run
+                logging.warning(EX)
 
+    # reflist that is sended to simulator
     refList=[]
+
+    # true - reflist is not up to date - colection of new refs
     poisonRefList=True
+    # selector of modules
     moduleSelector = 0
+    # user controled selector of modules
     moduleSelectorPicker = 0
 
     def loop(self):
@@ -67,11 +81,13 @@ class MainRanderControler(QThread):
 
         self.sendRefs(dictionary)
 
+    # module selector slot
     @Slot(int)
     def setModuleSelector(self, modID):
         self.moduleSelectorPicker = modID
         self.poisonRefList=True
 
+    # geting new refs after module change event
     def actualizateRefList(self):
         self.moduleSelector=self.moduleSelectorPicker
         self.refList=[]
@@ -107,6 +123,7 @@ class MainRanderControler(QThread):
         self.refList = list(set(self.refList))
         self.poisonRefList=False
 
+    # after simulator deliver refs, refs are sended to propriet render modules
     def sendRefs(self, dictionary):
         self.subcontrolers["WarningsRender"].sendRef(dictionary)
         
@@ -135,7 +152,3 @@ class MainRanderControler(QThread):
         elif(self.moduleSelector == 9):
             self.subcontrolers["HydraulicRender"].sendRef(dictionary)
             self.subcontrolers["DashBoardRender"].sendRef(dictionary)
-
-
-
-

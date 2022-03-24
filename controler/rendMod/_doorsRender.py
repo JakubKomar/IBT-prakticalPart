@@ -1,6 +1,13 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:36:56
+ # @ Description: Render subcontroler - door state module
+ '''
 
-import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
 
@@ -19,7 +26,6 @@ class DoorRender(QObject,RendModeBase):
             "laminar/B738/annunciator/left_aft_overwing",
             "laminar/B738/annunciator/right_aft_overwing",
             "laminar/B738/annunciator/equip_door"
-
         ]
   
     setDoorIndicator=Signal(str, bool)

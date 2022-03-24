@@ -1,7 +1,13 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:29:53
+ # @ Description: Render subcontroler - warnings, time, date, tat, module 
+ '''
 
-import string
-import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
 import datetime
@@ -32,6 +38,7 @@ class WarnigsRender(QObject,RendModeBase):
     setTime=Signal(str)
     setDate=Signal(str)
     setTat=Signal(str)
+    
     def sendRef(self, dic):
         self.setAnnunciator.emit("doors",bool(dic["laminar/B738/annunciator/six_pack_doors"][0]))
         self.setAnnunciator.emit("electrical",bool(dic["laminar/B738/annunciator/six_pack_elec"][0]))

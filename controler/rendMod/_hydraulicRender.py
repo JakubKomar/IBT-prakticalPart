@@ -1,6 +1,13 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:32:07
+ # @ Description: Render subcontroler - hydraulic module render
+ '''
 
-import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
 
@@ -28,7 +35,6 @@ class HydraulicRender(QObject,RendModeBase):
     setSwichMulti=Signal(str, int)
     setSwich=Signal(str, bool)
     setAnnuticator=Signal(str, float)
-
 
     def sendRef(self, dic):
         self.setSwichMulti.emit("autoBrake", int(dic["laminar/B738/autobrake/autobrake_pos"][0]))

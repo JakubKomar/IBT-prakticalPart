@@ -1,7 +1,13 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:31:30
+ # @ Description: Render subcontroler - lights module
+ '''
 
-import string
-import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
 
@@ -27,7 +33,6 @@ class LightsRender(QObject,RendModeBase):
     setEmerAnnun=Signal(float)
 
     def sendRef(self, dic):
-
         self.setSwich.emit("runwayL", bool(dic["sim/cockpit2/switches/generic_lights_switch"][2]))
         self.setSwich.emit("runwayR", bool(dic["sim/cockpit2/switches/generic_lights_switch"][3]))
         self.setSwich.emit("taxi", bool(dic["sim/cockpit2/switches/generic_lights_switch"][4]))

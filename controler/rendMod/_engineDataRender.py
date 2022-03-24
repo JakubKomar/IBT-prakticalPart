@@ -1,6 +1,13 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:35:39
+ # @ Description: Render subcontroler - engine panel
+ '''
 
-import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
 
@@ -27,10 +34,10 @@ class EngineDataRender(QObject,RendModeBase):
 
             "laminar/B738/engine/start_valve1",
             "laminar/B738/engine/start_valve2",
-            "sim/cockpit/warnings/annunciators/oil_pressure_low",#not tested
+            "sim/cockpit/warnings/annunciators/oil_pressure_low",
             "laminar/B738/engine/eng1_oil_filter_bypass",
             "laminar/B738/engine/eng2_oil_filter_bypass",
-            "sim/cockpit2/annunciators/N1_low",#not tested
+            "sim/cockpit2/annunciators/N1_low",
 
             "sim/cockpit/warnings/annunciators/reverser_on",
             "sim/flightmodel2/engines/thrust_reverser_deploy_ratio",
@@ -70,7 +77,6 @@ class EngineDataRender(QObject,RendModeBase):
         self.setBoolAnnunciator.emit("targetOffL", dic["laminar/B738/engine/mixture_ratio1"][0]>0.1 )
         self.setBoolAnnunciator.emit("targetOffR", dic["laminar/B738/engine/mixture_ratio2"][0]>0.1)
 
-
         self.setIndicator.emit("egtL",dic["laminar/B738/engine/eng1_egt"][0])
         self.setIndicator.emit("egtR",dic["laminar/B738/engine/eng2_egt"][0])
         self.setIndicator.emit("oilTempL",dic["sim/cockpit2/engine/indicators/oil_temperature_deg_C"][0])
@@ -95,5 +101,3 @@ class EngineDataRender(QObject,RendModeBase):
         self.setAnnunciator.emit("lowFuelPresureR",0)
         self.setAnnunciator.emit("trustL",0)
         self.setAnnunciator.emit("trustR",0)
-
-       

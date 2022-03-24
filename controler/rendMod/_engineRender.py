@@ -1,6 +1,13 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:35:06
+ # @ Description: Render subcontroler - engine status
+ '''
 
-import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
 
@@ -40,5 +47,3 @@ class EngineRender(QObject,RendModeBase):
         self.engSwichSet.emit("starter1", int(dic["laminar/B738/engine/starter1_pos"][0]))
         self.engSwichSet.emit("starter2", int(dic["laminar/B738/engine/starter2_pos"][0]))
         self.engSwichSet.emit("startSource", int(dic["laminar/B738/toggle_switch/eng_start_source"][0])+1)
-
-       

@@ -1,6 +1,13 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:36:13
+ # @ Description: Render subcontroler - electrical panel part
+ '''
 
-import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
 
@@ -36,6 +43,7 @@ class ElectricalRender(QObject,RendModeBase):
     guardUpdate= Signal(str,bool)
     swichUpdate= Signal(str,int)
     indicatorUpdate=Signal(str,bool)
+
     def sendRef(self, dic):
         self.guardUpdate.emit("batteryCover",not bool(dic["laminar/B738/button_switch/cover_position"][2]))
         self.guardUpdate.emit("standbyPower",not bool(dic["laminar/B738/button_switch/cover_position"][3]))

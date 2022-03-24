@@ -1,8 +1,15 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:41:54
+ # @ Description: Controls subcontroler - parsing incoming signals, fuel module
+ '''
 
 import model.libInit as client
 from PySide6.QtCore import QObject, Slot
-
 
 class ControlFuel(QObject):
 

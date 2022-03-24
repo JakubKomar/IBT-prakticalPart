@@ -1,6 +1,13 @@
 # This Python file uses the following encoding: utf-8
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:33:41
+ # @ Description: Render subcontroler - fuel dials 
+ '''
 
-import model.libInit as client
 from PySide6.QtCore import QObject, Signal
 from .rendModeBase import RendModeBase
 
@@ -44,7 +51,4 @@ class FuelDialsRender(QObject,RendModeBase):
 
         self.setWarn.emit("imbal",abs(dic["laminar/B738/fuel/right_tank_lbs"][0] - dic["laminar/B738/fuel/left_tank_lbs"][0])>1000 )
 
-
         self.setWarn.emit("imbalEx",abs(dic["laminar/B738/fuel/left_tank_lbs"][0] - dic["laminar/B738/fuel/right_tank_lbs"][0])<200 )
-
-

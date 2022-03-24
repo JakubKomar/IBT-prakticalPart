@@ -1,7 +1,12 @@
 # This Python file uses the following encoding: utf-8
-__autor__="Jakub Komárek"
-
-
+'''
+ # @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+ # @ Author: Jakub Komárek
+ # @ Licence: MIT
+ # @ Modified by: Jakub Komárek
+ # @ Modified time: 2022-03-24 02:09:03
+ # @ Description: Main file of program - inicializate main modules and run main loop of Qt
+ '''
 
 import os
 from pathlib import Path
@@ -12,12 +17,10 @@ from model.libInit import estCon
 from PySide6.QtGui import QGuiApplication, QIcon
 from PySide6.QtQml import QQmlApplicationEngine
 
-
 from controler.masterControler import MasterControler
 
-
 if __name__ == "__main__":
-    # connect tp xplane 11
+    # connect to xplane 11
     estCon()
     # app init
     app = QGuiApplication()
