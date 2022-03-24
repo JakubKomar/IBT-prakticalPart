@@ -17,3 +17,8 @@ Used techology:
 Author: Jakub Komárek
 Licence: GNU v3.0
   
+Used libary xPlaneConnect:
+Copyright ©2013-2018 United States Government as represented by the Administrator of 
+the National Aeronautics and Space Administration. All Rights Reserved.
+
+
