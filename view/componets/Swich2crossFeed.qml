@@ -1,9 +1,17 @@
+/*
+  * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+  * @ Author: Jakub Komárek
+  * @ Licence: MIT
+  * @ Modified by: Jakub Komárek
+  * @ Modified time: 2022-03-24 03:31:37
+  * @ Description: crossfead valve swich
+ */
+
 import QtQuick
 import QtQuick.Controls
 
 Rectangle {
     id:swich2state
-    //text: qsTr("Swich2state")
 
     implicitWidth: 150
     implicitHeight: 150
@@ -14,7 +22,6 @@ Rectangle {
     color: "#000000"
     border.color: "#484848"
     border.width: 1
-
 
     Rectangle {
         id: circle

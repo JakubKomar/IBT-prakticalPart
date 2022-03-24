@@ -1,7 +1,15 @@
+/*
+  * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+  * @ Author: Jakub Komárek
+  * @ Licence: MIT
+  * @ Modified by: Jakub Komárek
+  * @ Modified time: 2022-03-24 03:09:47
+  * @ Description: Fuel module
+ */
+
 import QtQuick
 import QtQuick.Controls
 import "../componets"
-
 
 Item {
     id: fuelMod

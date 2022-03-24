@@ -1,4 +1,13 @@
-import QtQuick 2.0
+/*
+  * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+  * @ Author: Jakub Komárek
+  * @ Licence: MIT
+  * @ Modified by: Jakub Komárek
+  * @ Modified time: 2022-03-24 03:31:09
+  * @ Description: flaps pozition indicator
+ */
+
+import QtQuick
 import QtQuick.Shapes
 Item {
     id:surfaceIndicatorVertical
@@ -11,7 +20,12 @@ Item {
     property double val:-0.75
     property int shapeHeight : 3
     property string description:"elevator"
-
+    property double noneOscilateVal: {
+        if(Math.abs(safeVal)<0.01)
+            0
+        else
+            safeVal
+    }
     Item{
         id:inerBorder
         x: 76
@@ -128,14 +142,14 @@ Item {
         anchors.bottomMargin: 0
         anchors.horizontalCenter: parent.horizontalCenter
 
-        Text {
+        TextCust {
             id: descr
             color: "#0097ff"
             text: description
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            font.pixelSize: 12
+            level:3
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors.topMargin: 0
@@ -143,15 +157,15 @@ Item {
             anchors.leftMargin: 0
         }
 
-        Text {
+        TextCust {
             id: digitalVal
             y: 22
             color: "#ffffff"
-            text: val.toFixed(2)
+            text: noneOscilateVal.toFixed(2)
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            font.pixelSize: 21
+            level:2
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors.bottomMargin: 0

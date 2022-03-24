@@ -1,8 +1,18 @@
+/*
+  * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+  * @ Author: Jakub Komárek
+  * @ Licence: MIT
+  * @ Modified by: Jakub Komárek
+  * @ Modified time: 2022-03-24 03:06:43
+  * @ Description: main qml file - modules loders and menu 
+ */
+
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Controls.Universal
 import "componets/"
+
 Window {
     id:mainWindow
     width: 1920

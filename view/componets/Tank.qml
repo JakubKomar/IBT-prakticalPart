@@ -1,3 +1,12 @@
+/*
+  * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+  * @ Author: Jakub Komárek
+  * @ Licence: MIT
+  * @ Modified by: Jakub Komárek
+  * @ Modified time: 2022-03-24 03:37:06
+  * @ Description: tank graphic representation - schema use
+ */
+
 import QtQuick
 import QtQuick.Shapes
 

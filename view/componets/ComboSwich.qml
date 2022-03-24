@@ -1,3 +1,12 @@
+/*
+  * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+  * @ Author: Jakub Komárek
+  * @ Licence: MIT
+  * @ Modified by: Jakub Komárek
+  * @ Modified time: 2022-03-24 03:19:43
+  * @ Description: marged 2 swiches - cant be separated trought gests
+ */
+
 import QtQuick
 
 Item {
@@ -153,6 +162,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:150;width:290}D{i:7}D{i:8}D{i:9}D{i:1}D{i:11}D{i:12}D{i:13}D{i:10}D{i:14}
+    D{i:0;formeditorZoom:0.05;height:150;width:290}D{i:7}D{i:8}D{i:9}D{i:1}D{i:11}D{i:12}
+D{i:13}D{i:10}D{i:14}
 }
 ##^##*/

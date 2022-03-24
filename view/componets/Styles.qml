@@ -1,5 +1,14 @@
+/*
+  * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+  * @ Author: Jakub Komárek
+  * @ Licence: MIT
+  * @ Modified by: Jakub Komárek
+  * @ Modified time: 2022-03-24 03:28:01
+  * @ Description: styles global vars
+ */
+
 pragma Singleton
-import QtQuick 2.0
+import QtQuick 
 
 QtObject {
     property int fontSize1: 40
