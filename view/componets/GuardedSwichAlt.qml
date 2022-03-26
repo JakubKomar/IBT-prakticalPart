@@ -22,7 +22,7 @@ Item {
     layer.samples: 8
     property bool guarded:true
     property color guardCol: "#d0282828"
-    property color guardBorderCol: "white"
+    property color guardBorderCol: "gray"
 
     signal button1Clicked()
     signal button2Clicked()
@@ -44,15 +44,17 @@ Item {
         Swich2stateAlt {
             id: swich2stateAlt
             anchors.fill: parent
+            turnOnBcCol: Styles.blueDark
+            turnOnTextCol: "#ffffff"
             anchors.rightMargin: 2
             anchors.leftMargin: 2
             anchors.bottomMargin: 2
             anchors.topMargin: 2
             togled: true
-            turnOffBcBorderCol: "#747474"
-            turnOffTextCol: "#adadad"
-            turnOffBcCol: "#3d3d3d"
-            turnOnBcBorderCol: "#00b9ff"
+            turnOffBcBorderCol: "white"
+            turnOffTextCol: Styles.blue
+            turnOffBcCol: "black"
+            turnOnBcBorderCol: Styles.blue
             button1.onClicked: {button1Clicked()}
             button2.onClicked: {button2Clicked()}
         }
@@ -68,6 +70,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}D{i:2}D{i:1}D{i:3}
+    D{i:0;height:131;width:250}D{i:2}D{i:1}D{i:3}
 }
 ##^##*/

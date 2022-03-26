@@ -15,7 +15,7 @@ Used techology:
     Python 3.10
       
 Author: Jakub Komárek
-Licence: GNU v3.0
+Licence: MIT
   
 Used libary xPlaneConnect:
 Copyright ©2013-2018 United States Government as represented by the Administrator of 

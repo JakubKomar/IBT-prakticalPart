@@ -20,8 +20,8 @@ Item {
     property alias button2: button2
     property alias button1: button1
 
-    property color bcCol:"white"
-    property color bcBorderCol:"#484848"
+    property color bcCol:"black"
+    property color bcBorderCol:Styles.blueDark
     property color textCol:bcBorderCol
 
     property string text1:"OFF"
@@ -29,19 +29,20 @@ Item {
 
     Rectangle {
         id: rectangle2
-        color: "#282828"
+        color: "#000000"
         radius: 8
-        border.color: "#6a6a6a"
+        border.color: "gray"
         anchors.fill: parent
 
         Rectangle {
             id: rectangle
-            x: 0
             y: 0
             width: parent.width/2
             height: parent.height
             color: "#00ffffff"
             border.color: "#00515151"
+            anchors.left: parent.left
+            anchors.leftMargin: 0
 
             Button {
                 id: button1
@@ -97,6 +98,8 @@ Item {
             height: parent.height
             color: "#00ffffff"
             border.color: "#00515151"
+            anchors.right: parent.right
+            anchors.rightMargin: 0
 
             Button {
                 id: button3
@@ -160,6 +163,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.66}D{i:3}D{i:6}D{i:2}D{i:10}D{i:13}D{i:9}D{i:1}D{i:16}
+    D{i:0;height:200;width:248}D{i:3}D{i:6}D{i:2}D{i:10}D{i:13}D{i:9}D{i:1}D{i:16}
 }
 ##^##*/

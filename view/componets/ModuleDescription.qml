@@ -13,9 +13,12 @@ Item {
     id: rectangle1
     width: 672
     height: 30
+    property alias halfTransparentBorder: halfTransparentBorder
+    property alias text4: text4
     property string description: "ENGINE CONTROLS"
 
     property color lineCol:"gray"
+    property alias textSpacing:text4.font.letterSpacing
     TextCust {
         id: text4
         color: Styles.blueDark
@@ -45,6 +48,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:30;width:318}D{i:2}D{i:1}
+    D{i:0;height:30;width:150}D{i:2}D{i:1}
 }
 ##^##*/

@@ -73,4 +73,8 @@ class ControlElectrical(QObject):
             client.client.sendCOMM("laminar/B738/toggle_switch/gpu_up")
         elif(name=="gpu_dn"):
             client.client.sendCOMM("laminar/B738/toggle_switch/gpu_dn")
+        elif(name=="cab_util"):
+            client.client.sendCOMM("laminar/B738/autopilot/cab_util_toggle")
+        elif(name=="ife"):
+            client.client.sendCOMM("laminar/B738/autopilot/ife_pass_seat_toggle")
 

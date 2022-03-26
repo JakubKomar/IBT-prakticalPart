@@ -10,15 +10,16 @@
 import QtQuick
 
 Item {
-    width: 180
-    height: 190
-    property alias warningIndicator1: warningIndicator1
+    width: 140
+    height: 231
+    property alias sourceOff: sourceOff
+    property alias trBussOff: trBussOff
     property string busText: "BUS 1"
     Rectangle {
         id: rectangle
         color: "#000000"
         radius: 5
-        border.color: "#ffffff"
+        border.color: "#808080"
         anchors.fill: parent
         clip: true
 
@@ -32,23 +33,33 @@ Item {
             anchors.bottomMargin: 2
             anchors.topMargin: 2
 
-            WarningIndicator {
-                id: warningIndicator1
-                width: parent.width
-                height: parent.height/2
-                 warText: "SOURCE\nOFF"
-            }
 
             TextCust {
                 id: text1
                 width: parent.width
-                height: parent.height/2
+                height: parent.height/3
                 color: "#ababab"
                 text: busText
                 level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
+
+            WarningIndicator {
+                id: trBussOff
+                width: parent.width
+                height: parent.height/3
+                warText: "TRANSFER\nBUS OFF"
+            }
+
+            WarningIndicator {
+                id: sourceOff
+                width: parent.width
+                height: parent.height/3
+                warText: "SOURCE\nOFF"
+            }
+
+
 
 
 
@@ -59,6 +70,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.1}D{i:3}D{i:4}D{i:2}D{i:1}
+    D{i:0;height:188;width:143}D{i:3}D{i:4}D{i:5}D{i:2}D{i:1}
 }
 ##^##*/

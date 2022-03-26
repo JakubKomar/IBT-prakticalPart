@@ -1,5 +1,9 @@
 to do list
-    rudder zero oscilation
+    hydraulic schema cosmetic
+    plane aligen
+    doors update
+    door module add something
+    headers to addons
     
 
 optional:

@@ -8,6 +8,7 @@
  */
 
 import QtQuick
+import QtQuick.Shapes
 import QtQuick.Controls
 import "../componets"
 
@@ -15,37 +16,45 @@ Rectangle {
     id:tempControl
     width: 1750
     height: 1060
-
+    
     color: "#000000"
     border.color: "#000000"
 
     Connections{
         target:ControlElectrical
     }
+    
+    HalfTransparentBorder {
+        id: halfTransparentBorder
+        x: 1320
+        width: 1
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.topMargin: 0
+        anchors.horizontalCenterOffset: 0
+        anchors.bottomMargin: 0
+        vert: true
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
 
     Connections{
         target:RenderElectrical
         function onIndicatorUpdate(name, value){
             switch(name){
-            /*
-            case "standbyPwr":
-                standbyWarning.status=value
-                break;
-            */
             case "source1":
-                sourceOff1.warningIndicator1.status=value
+                sourceOff1.sourceOff.status=value
                 break;
             case "source2":
-                sourceOff2.warningIndicator1.status=value
+                sourceOff2.sourceOff.status=value
+                break;
+            case "bus1":
+                sourceOff1.trBussOff.status=value
+                break;
+            case "bus2":
+                sourceOff2.trBussOff.status=value
                 break;
             case "grp":
                 grdPower.infoIndicator.status=value
-                break;
-            case "bus1":
-                transfer1.status=value
-                break;
-            case "bus2":
-                transfer2.status=value
                 break;
             case "gen1":
                 gen1Mod.infoIndicator.status=value
@@ -60,53 +69,109 @@ Rectangle {
                 break;
             }
         }
-
+        
         function onSwichUpdate(name, value){
-            switch(name){/*
-            case "standby_bat":
-                stanbySwich.swich3pos.position=value
-                break;*/
+            switch(name){
             case "cross_tie":
                 busTransfer.swich2stateAlt.togled=value
                 break;
-            /*
-            case "batteryOn":
-                batSwich.swich2stateAlt.togled=value
-                break;
-            case "disconnect1":
-                diconnect1.swich2stateAlt.togled=value
-                break;
-            case "disconnect2":
-                diconnect2.swich2stateAlt.togled=value
-                break;*/
             case "ifePassSeat":
-                ifePassSeat.togled=value
+                ifePassSeat.swich2state.togled=value
                 break;
             case "cabUtil":
-                cabUtil.togled=value
+                cabUtil.swich2state.togled=value
+                break;
+            default:
+                break;
+            }
+        }
+        
+        function onGuardUpdate(name, value){
+            switch(name){
+            case "busTransferCover":
+                busTransfer.guard.guarded=value
                 break;
             default:
                 break;
             }
         }
 
-        function onGuardUpdate(name, value){
+        function onSendElData(name, value){
             switch(name){
-                /*
-            case "batteryCover":
-                batSwich.guard.guarded=value
+            case "stbyFreq":
+                acStnVals.freq=value
                 break;
-            case "standbyPower":
-                stanbySwich.guard.guarded=value
+            case "grdFreq":
+                grdPwrVals.freq=value
                 break;
-            case "drive1Cover":
-                diconnect1.guard.guarded=value
+            case "gen1Freq":
+                gen1Vals.freq=value
                 break;
-            case "drive2Cover":
-                diconnect2.guard.guarded=value
-                break;*/
-            case "busTransferCover":
-                busTransfer.guard.guarded=value
+            case "apuFreq":
+                apu1Vals.freq=value
+                break;
+            case "gen2Freq":
+                gen2Vals.freq=value
+                break;
+            case "invFreq":
+                inverterVals.freq=value
+                break;
+            case "stbyVolt":
+                acStnVals.volts=value
+                break;
+            case "grdVolt":
+                grdPwrVals.volts=value
+                break;
+            case "gen1Volt":
+                gen1Vals.volts=value
+                break;
+            case "apuVolt":
+                apu1Vals.volts=value
+                break;
+            case "gen2Volt":
+                gen2Vals.volts=value
+                break;
+            case "invVolt":
+                inverterVals.volts=value
+                break;
+            case "gen1Amp":
+                gen1Vals.amps=value
+                break;
+            case "gen2Amp":
+                gen2Vals.amps=value
+                break;
+            case "apuGenAmp":
+                apu1Vals.amps=value
+                break;
+            case "dcStbVolt":
+                dcStbyVals.volts=value
+                break;
+            case "batVolt":
+                batVals.volts=value
+                break;
+            case "batBusVolt":
+                batBusVals.volts=value
+                break;
+            case "tr1Volt":
+                tr1Vals.volts=value
+                break;
+            case "tr1Amp":
+                tr1Vals.amps=value
+                break;
+            case "tr2Volt":
+                tr2Vals.volts=value
+                break;
+            case "tr2Amp":
+                tr2Vals.amps=value
+                break;
+            case "tr3Volt":
+                tr3Vals.volts=value
+                break;
+            case "tr3Amp":
+                tr3Vals.amps=value
+                break;
+            case "batAmp":
+                batVals.amps=value
                 break;
             default:
                 break;
@@ -116,199 +181,281 @@ Rectangle {
 
     Rectangle {
         id: leftSide
+        x: parent.width/2
         width: parent.width/2
         height: parent.height
         color: "#00ffffff"
         border.color: "#00ffffff"
         border.width: 2
-
+        
         Item {
             id: pipes
             anchors.fill: parent
-            anchors.rightMargin: 1
-            anchors.bottomMargin: -54
-            anchors.leftMargin: -1
-            anchors.topMargin: 54
+            anchors.rightMargin: 0
+            anchors.bottomMargin: 61
+            anchors.leftMargin: 0
+            anchors.topMargin: -163
 
             Rectangle {
-                id: pipe11
-                x: 158
-                y: 633
-                width: 560
-                height: 30
-                color: "#ffffff"
-                border.color: "#00000000"
-                border.width: 0
-                anchors.horizontalCenterOffset: 8
-                anchors.horizontalCenter: parent.horizontalCenter
+                id: rectangle14
+                x: 116
+                y: 426
+                width: 10
+                height: 526
+                color: Styles.blue
             }
 
             Rectangle {
-                id: pipe
-                x: 152
-                y: 196
-                width: 30
-                height: 643
-                color: "#ffffff"
-                border.color: "#00000000"
-                border.width: 0
-
-                Rectangle {
-                    id: pipe1
-                    x: 2
-                    color: "#353535"
-                    border.color: "#b9b9b9"
-                    border.width: 0
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
-                    anchors.rightMargin: 2
-                    anchors.leftMargin: 2
-                }
+                id: rectangle34
+                x: 730
+                y: 426
+                width: 10
+                height: 526
+                color: Styles.blue
             }
 
             Rectangle {
-                id: pipe2
-                x: 702
-                y: 196
-                width: 30
-                height: 637
-                color: "#ffffff"
-                border.color: "#00000000"
-                border.width: 0
-                Rectangle {
-                    id: pipe3
-                    x: 2
-                    color: "#353535"
-                    border.color: "#b9b9b9"
-                    border.width: 0
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
-                    anchors.rightMargin: 2
-                    anchors.leftMargin: 2
-                }
+                id: rectangle35
+                x: 411
+                y: 388
+                width: 10
+                height: 112
+                color: Styles.blue
             }
 
             Rectangle {
-                id: pipe4
-                x: 423
-                y: 686
-                width: 30
-                height: 137
-                color: "#ffffff"
-                border.color: "#00000000"
-                border.width: 0
-                Rectangle {
-                    id: pipe5
-                    x: 2
-                    color: "#353535"
-                    border.color: "#b9b9b9"
-                    border.width: 0
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
-                    anchors.rightMargin: 2
-                    anchors.leftMargin: 2
-                }
+                id: rectangle36
+                x: 535
+                y: 319
+                width: 10
+                height: 181
+                color: Styles.blue
             }
 
             Rectangle {
-                id: pipe6
+                id: rectangle38
+                x: 160
+                y: 644
+                width: 564
+                height: 10
+                color: Styles.blue
+            }
+
+            Circle {
+                id: circle11
+                x: 109
+                y: 935
+                width: 25
+                height: 25
+                rectangle.color: "#00b9ff"
+            }
+
+            Circle {
+                id: circle12
+                x: 722
+                y: 935
+                width: 25
+                height: 25
+                rectangle.color: "#00b9ff"
+            }
+
+            Rectangle {
+                id: rectangle39
+                x: 567
+                y: 942
+                width: 170
+                height: 10
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle40
+                x: 122
+                y: 942
+                width: 183
+                height: 10
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle44
+                x: 472
+                y: 494
+                width: 10
+                height: 181
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle45
+                x: 472
+                y: 494
+                width: 73
+                height: 10
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle37
+                x: 285
+                y: 392
+                width: 10
+                height: 112
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle46
+                x: 368
+                y: 494
+                width: 53
+                height: 6
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle47
+                x: 285
+                y: 494
+                width: 136
+                height: 10
+                color: Styles.blue
+            }
+
+            HalfTransparentBorder {
+                id: halfTransparentBorder1
+                x: 730
+                y: 952
+                width: 10
+                height: 425
+                grad2: "#000096ff"
+                grad1: "#00afff"
+                vert: true
+            }
+
+            HalfTransparentBorder {
+                id: halfTransparentBorder2
+                x: 116
+                y: 952
+                width: 10
+                height: 425
+                grad2: "#000096ff"
+                vert: true
+                grad1: "#00afff"
+            }
+
+            Arrow {
+                id: arrow28
+                x: 188
+                y: 629
+                width: 40
+                height: 40
+                rotation: 90
+            }
+
+            Arrow {
+                id: arrow29
+                x: 643
+                y: 927
+                width: 40
+                height: 40
+                rotation: 90
+            }
+
+            Arrow {
+                id: arrow25
+                x: 715
+                y: 583
+                width: 40
+                height: 40
+            }
+
+            Arrow {
+                id: arrow26
+                x: 457
+                y: 515
+                width: 40
+                height: 40
+            }
+
+            Rectangle {
+                id: rectangle48
                 x: 352
-                y: 430
-                width: 30
-                height: 197
-                color: "#ffffff"
-                border.color: "#00000000"
-                border.width: 0
-                Rectangle {
-                    id: pipe7
-                    x: 2
-                    color: "#353535"
-                    border.color: "#b9b9b9"
-                    border.width: 0
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 0
-                    anchors.topMargin: 0
-                    anchors.rightMargin: 2
-                    anchors.leftMargin: 2
-                }
+                y: 494
+                width: 10
+                height: 181
+                color: Styles.blue
             }
 
-            Rectangle {
-                id: pipe8
-                x: 501
-                y: 425
-                width: 30
-                height: 197
-                color: "#ffffff"
-                border.color: "#00000000"
-                border.width: 0
-                Rectangle {
-                    id: pipe9
-                    x: 2
-                    color: "#353535"
-                    border.color: "#b9b9b9"
-                    border.width: 0
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 0
-                    anchors.topMargin: 0
-                    anchors.rightMargin: 2
-                    anchors.leftMargin: 2
-                }
+            Arrow {
+                id: arrow27
+                x: 337
+                y: 515
+                width: 40
+                height: 40
             }
 
-            Rectangle {
-                id: pipe12
-                x: 158
-                y: 635
-                width: 560
-                height: 26
-                color: "#353535"
-                border.color: "#00000000"
-                border.width: 0
-                anchors.horizontalCenterOffset: 8
-                anchors.horizontalCenter: parent.horizontalCenter
+            Arrow {
+                id: arrow30
+                x: 632
+                y: 629
+                width: 40
+                height: 40
+                rotation: -90
             }
 
-            WarningIndicator {
-                id: transfer1
-                x: 97
-                y: 608
-                radius: 0
-                textHeight: 24
-                warText: "TRANSFER\nBUS OFF"
+            Arrow {
+                id: arrow31
+                x: 167
+                y: 927
+                width: 40
+                height: 40
+                rotation: -90
             }
 
-            WarningIndicator {
-                id: transfer2
-                x: 647
-                y: 608
-                textHeight: 24
-                warText: "TRANSFER\nBUS OFF"
+
+
+
+
+
+
+        }
+
+        Arrow {
+            id: arrow24
+            x: 101
+            y: 423
+            width: 40
+            height: 40
+        }
+
+        Swich2noStateGen {
+            id: grdPower
+            x: 379
+            y: 87
+            width: 130
+            height: 200
+            textCol: "#ffffff"
+            infoIndicator.textHeight: 23
+            infoIndicator.description: "GRD POWER\nAVAILABLE"
+            anchors.horizontalCenterOffset: 126
+            anchors.horizontalCenter: parent.horizontalCenter
+            button1.onClicked:{
+                ControlElectrical.togle("gpu_up")
+            }
+            button2.onClicked:{
+                ControlElectrical.togle("gpu_dn")
             }
         }
 
         Swich2noStateGen {
             id: gen1Mod
-            x: 87
-            y: 337
+            y: 165
+            width: 130
+            height: 200
+            anchors.left: parent.left
+            textCol: "#ffffff"
+            anchors.leftMargin: 59
             button1.onClicked:{
                 ControlElectrical.togle("gen1_up")
             }
@@ -316,11 +463,16 @@ Rectangle {
                 ControlElectrical.togle("gen1_dn")
             }
         }
-
+        
         Swich2noStateGen {
             id: gen2Mod
-            x: 642
-            y: 337
+            x: 623
+            y: 165
+            width: 130
+            height: 200
+            anchors.right: parent.right
+            textCol: "#ffffff"
+            anchors.rightMargin: 73
             infoIndicator.description: "GEN 2\nOFFBUS"
             button1.onClicked:{
                 ControlElectrical.togle("gen2_up")
@@ -329,11 +481,14 @@ Rectangle {
                 ControlElectrical.togle("gen2_dn")
             }
         }
-
+        
         SwichesApuGen {
             id: apuGenMod
-            y: 337
-            anchors.horizontalCenterOffset: -1
+            y: 87
+            width: 248
+            height: 200
+            textCol: "#ffffff"
+            anchors.horizontalCenterOffset: -83
             anchors.horizontalCenter: parent.horizontalCenter
             button1.onClicked:{
                 ControlElectrical.togle("apu_gen1_up")
@@ -348,50 +503,39 @@ Rectangle {
                 ControlElectrical.togle("apu_gen2_dn")
             }
         }
-
-        Swich2noStateGen {
-            id: grdPower
-            y: 860
-            infoIndicator.textHeight: 23
-            infoIndicator.description: "GRD POWER\nAVAILABLE"
-            anchors.horizontalCenterOffset: -1
-            anchors.horizontalCenter: parent.horizontalCenter
-            button1.onClicked:{
-                ControlElectrical.togle("gpu_up")
-            }
-            button2.onClicked:{
-                ControlElectrical.togle("gpu_dn")
-            }
-        }
-
+        
         BusGraphRepr {
             id: sourceOff2
-            x: 642
-            y: 881
-            width: 150
-            height: 157
-            busText: "BUS 2"
+            x: 666
+            y: 452
+            width: 143
+            height: 188
+            anchors.right: parent.right
+            anchors.rightMargin: 67
+            busText: "AC BUS 2"
         }
-
+        
         BusGraphRepr {
             id: sourceOff1
-            x: 87
-            y: 881
-            width: 150
-            height: 157
+            y: 452
+            width: 143
+            height: 188
+            anchors.left: parent.left
+            anchors.leftMargin: 53
+            busText: "AC BUS 1"
         }
-
+        
         Rectangle {
             id: rectangle6
-            y: 611
+            y: 381
             width: 249
             height: 168
-            color: "#2d2d2d"
+            color: "#000000"
             radius: 14
             border.color: "#7f7f7f"
-            anchors.horizontalCenterOffset: -1
+            anchors.horizontalCenterOffset: -7
             anchors.horizontalCenter: parent.horizontalCenter
-
+            
             Text {
                 id: text4
                 y: 0
@@ -405,10 +549,12 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.family: "Verdana"
-
+                
                 GuardedSwichAlt {
                     id: busTransfer
                     y: 36
+                    guard.guardBorderCol: "#808080"
+                    clip: true
                     swich2stateAlt.textHeight: 23
                     swich2stateAlt.textOn: "AUTO"
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -428,116 +574,1006 @@ Rectangle {
                 }
             }
         }
-    }
 
+        ModuleDescription {
+            id: moduleDescription
+            x: 8
+            y: -111
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            description: "ELECTRICAL distribution CONTROL"
+            anchors.topMargin: 0
+            anchors.rightMargin: 0
+            anchors.leftMargin: 0
+        }
+
+        Swich2stateBasic {
+            id: cabUtil
+            x: 200
+            y: 703
+            anchors.right: parent.right
+            anchors.rightMargin: 527
+            swich2state.description: "CAB\nUTIL"
+            onClicked:{ControlElectrical.togle("cab_util")}
+
+        }
+
+        Swich2stateBasic {
+            id: ifePassSeat
+            y: 703
+            anchors.left: parent.left
+            anchors.leftMargin: 504
+            swich2state.description: "IFE/PASS\nSEAT"
+            onClicked:{ControlElectrical.togle("ife")}
+        }
+
+        ModuleDescription {
+            id: moduleDescription1
+            x: -1748
+            y: 0
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            description: "ELECTRICAL overview"
+            anchors.rightMargin: 873
+            anchors.topMargin: 0
+            anchors.leftMargin: -873
+        }
+
+
+
+
+
+
+    }
+    
     Rectangle {
         id: rightSide
-        x: parent.width/2
+        x: 0
         y: 0
         width: parent.width/2
         height: parent.height
         color: "#00ffffff"
         border.color: "#00ffffff"
         border.width: 2
-        Rectangle {
-            id: dcPart
-            x: 0
-            y:parent.height/2
-            width: parent.width
-            height: parent.height/2
-            color: "#00ffffff"
-            border.color: "#00ffffff"
-            border.width: 1
-        }
 
-        Rectangle {
-            id: acPart
-            x: 0
-            y: 0
-            width: parent.width
-            height: parent.height/2
-            color: "#00ffffff"
-            border.color: "#00ffffff"
-            border.width: 2
+        Item {
+            id: item1
+            anchors.fill: parent
 
-            Text {
-                id: text6
-                y: -7
-                color: "#ffffff"
-                text: qsTr("AC")
-                font.pixelSize: 33
-                anchors.horizontalCenterOffset: 0
-                anchors.horizontalCenter: parent.horizontalCenter
+            Circle {
+                id: circle13
+                x: 547
+                y: 577
+                rectangle.color: "#fffb00"
+
+                Circle {
+                    id: circle14
+                    x: 4
+                    y: 4
+                    width: 42
+                    height: 42
+                    rectangle.color: "#000000"
+                }
+
+                Rectangle {
+                    id: rectangle15
+                    y: 0
+                    height: 25
+                    color: "#000000"
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
+                }
             }
 
             Rectangle {
-                id: rectangle
-                y: 36
-                width: 834
-                height: 1
-                color: "#ffffff"
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Text {
-                id: text7
-                y: 530
-                color: "#ffffff"
-                text: qsTr("DC")
-                font.pixelSize: 33
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.horizontalCenterOffset: 0
+                id: rectangle4
+                x: 95
+                y: 156
+                width: 4
+                height: 621
+                color: Styles.blue
             }
 
             Rectangle {
-                id: rectangle1
-                y: 573
-                width: 834
-                height: 1
+                id: rectangle5
+                x: 781
+                y: 155
+                width: 4
+                height: 286
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle7
+                x: 159
+                y: 254
+                width: 578
+                height: 4
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle8
+                x: 305
+                y: 155
+                width: 4
+                height: 102
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle9
+                x: 565
+                y: 155
+                width: 4
+                height: 102
+                color: Styles.blue
+            }
+
+            Rectangle {
+                id: rectangle10
+                x: 305
+                y: 556
+                width: 4
+                height: 391
+                color: "#fffb00"
+            }
+
+            Rectangle {
+                id: rectangle11
+                x: 781
+                y: 556
+                width: 4
+                height: 95
+                color: "#fffb00"
+            }
+
+
+            Rectangle {
+                id: rectangle16
+                x: 95
+                y: 855
+                width: 4
+                height: 92
+                color: "#fffb00"
+            }
+
+
+            Rectangle {
+                id: rectangle17
+                x: 95
+                y: 942
+                width: 629
+                height: 4
+                color: "#fffb00"
+            }
+
+
+            Rectangle {
+                id: rectangle20
+                x: 95
+                y: 372
+                width: 465
+                height: 4
+                color: Styles.blue
+            }
+
+
+            Rectangle {
+                id: rectangle21
+                x: 305
+                y: 372
+                width: 4
+                height: 147
+                color: Styles.blue
+            }
+
+
+            Rectangle {
+                id: rectangle22
+                x: 583
+                y: 372
+                width: 4
+                height: 147
+                color: Styles.blue
+            }
+
+
+            Rectangle {
+                id: rectangle23
+                x: 583
+                y: 372
+                width: 202
+                height: 4
+                color: Styles.blue
+            }
+
+
+            Rectangle {
+                id: rectangle24
+                x: 556
+                y: 372
+                width: 4
+                height: 147
+                color: Styles.blue
+            }
+
+
+            Rectangle {
+                id: rectangle25
+                x: 305
+                y: 602
+                width: 246
+                height: 4
+                color: "#fffb00"
+            }
+
+
+            Rectangle {
+                id: rectangle30
+                x: 95
+                y: 301
+                width: 135
+                height: 4
+                color: Styles.blue
+            }
+
+
+            Rectangle {
+                id: rectangle31
+                x: 95
+                y: 336
+                width: 135
+                height: 4
+                color: Styles.blue
+            }
+
+
+            Rectangle {
+                id: rectangle32
+                x: 646
+                y: 301
+                width: 139
+                height: 4
+                color: Styles.blue
+            }
+
+
+            Rectangle {
+                id: rectangle33
+                x: 646
+                y: 336
+                width: 139
+                height: 4
+                color: Styles.blue
+            }
+
+
+            Arrow {
+                id: arrow
+                x: 297
+                y: 237
+            }
+
+            Rectangle {
+                id: rectangle12
+                x: 570
+                y: 541
+                width: 4
+                height: 464
+                color: "#fffb00"
+            }
+
+            Arrow {
+                id: arrow1
+                x: 557
+                y: 237
+            }
+
+            Arrow {
+                id: arrow2
+                x: 773
+                y: 225
+            }
+
+            Arrow {
+                id: arrow3
+                x: 87
+                y: 225
+            }
+
+            Arrow {
+                id: arrow4
+                x: 166
+                y: 246
+                rotation: 90
+            }
+
+            Arrow {
+                id: arrow5
+                x: 689
+                y: 246
+                rotation: -90
+            }
+
+            Arrow {
+                id: arrow6
+                x: 742
+                y: 293
+                rotation: 90
+            }
+
+            Arrow {
+                id: arrow7
+                x: 742
+                y: 328
+                rotation: 90
+            }
+
+            Arrow {
+                id: arrow8
+                x: 115
+                y: 293
+                rotation: -90
+            }
+
+            Arrow {
+                id: arrow9
+                x: 115
+                y: 328
+                rotation: -90
+            }
+
+            Arrow {
+                id: arrow10
+                x: 297
+                y: 416
+            }
+
+            Arrow {
+                id: arrow11
+                x: 549
+                y: 416
+            }
+
+            Arrow {
+                id: arrow12
+                x: 575
+                y: 416
+            }
+
+            Arrow {
+                id: arrow13
+                x: 773
+                y: 416
+            }
+
+            Arrow {
+                id: arrow14
+                x: 87
+                y: 566
+            }
+
+            Arrow {
+                id: arrow15
+                x: 87
+                y: 703
+                rotation: 180
+            }
+
+            Arrow {
+                id: arrow16
+                x: 297
+                y: 632
+                col: "#fffb00"
+            }
+
+            Arrow {
+                id: arrow17
+                x: 773
+                y: 632
+                col: "#fffb00"
+            }
+
+            Circle {
+                id: circle1
+                x: 775
+                y: 596
+                width: 16
+                height: 16
+                rectangle.color: "#fffb00"
+            }
+
+            Circle {
+                id: circle
+                x: 299
+                y: 596
+                width: 16
+                height: 16
+                rectangle.color: "#fffb00"
+            }
+
+            Circle {
+                id: circle2
+                x: 299
+                y: 936
+                width: 16
+                height: 16
+                rectangle.color: "#fffb00"
+            }
+
+            Circle {
+                id: circle3
+                x: 564
+                y: 936
+                width: 16
+                height: 16
+                rectangle.color: "#fffb00"
+            }
+
+            Circle {
+                id: circle4
+                x: 775
+                y: 366
+                width: 16
+                height: 16
+                rectangle.color: "#00b9ff"
+            }
+
+            Circle {
+                id: circle5
+                x: 775
+                y: 330
+                width: 16
+                height: 16
+                rectangle.color: "#00b9ff"
+            }
+
+            Circle {
+                id: circle6
+                x: 775
+                y: 295
+                width: 16
+                height: 16
+                rectangle.color: "#00b9ff"
+            }
+
+            Circle {
+                id: circle7
+                x: 89
+                y: 365
+                width: 16
+                height: 16
+                rectangle.color: "#00b9ff"
+            }
+
+            Circle {
+                id: circle8
+                x: 89
+                y: 329
+                width: 16
+                height: 16
+                rectangle.color: "#00b9ff"
+            }
+
+            Circle {
+                id: circle9
+                x: 89
+                y: 294
+                width: 16
+                height: 16
+                rectangle.color: "#00b9ff"
+            }
+
+            Circle {
+                id: circle10
+                x: 299
+                y: 367
+                width: 16
+                height: 16
+                rectangle.color: "#00b9ff"
+            }
+
+            Arrow {
+                id: arrow18
+                x: 297
+                y: 750
+                col: "#fffb00"
+            }
+
+            Arrow {
+                id: arrow19
+                x: 562
+                y: 750
+                col: "#fffb00"
+            }
+
+            Arrow {
+                id: arrow20
+                x: 562
+                y: 982
+                col: "#fffb00"
+            }
+
+            Arrow {
+                id: arrow21
+                x: 562
+                y: 891
+                rotation: 180
+                col: "#fffb00"
+            }
+
+            Arrow {
+                id: arrow22
+                x: 297
+                y: 891
+                rotation: 180
+                col: "#fffb00"
+            }
+
+            Arrow {
+                id: arrow23
+                x: 87
+                y: 891
+                col: "#fffb00"
+                rotation: 180
+            }
+
+            Rectangle {
+                id: rectangle41
+                x: 593
+                y: 602
+                width: 192
+                height: 4
+                color: "#fffb00"
+            }
+
+            Rectangle {
+                id: rectangle18
+                x: 525
+                y: 551
+                width: 4
+                height: 55
+                color: "#fffb00"
+            }
+
+            Arrow {
+                id: arrow32
+                x: 517
+                y: 586
+                col: "#fffb00"
+            }
+
+            Rectangle {
+                id: rectangle19
+                x: 713
+                y: 862
+                width: 24
+                height: 21
+                color: "#700000"
+                border.color: "gray"
+
+                Text {
+                    id: text1
+                    color: "#ffffff"
+                    text: qsTr("+")
+                    anchors.fill: parent
+                    font.pixelSize: 31
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.bottomMargin: 7
+                }
+            }
+
+            Rectangle {
+                id: rectangle42
+                x: 823
+                y: 862
+                width: 24
+                height: 21
+                color: "#000000"
+                border.color: "gray"
+
+                Text {
+                    id: text2
+                    color: "#ffffff"
+                    text: qsTr("-")
+                    anchors.fill: parent
+                    font.pixelSize: 31
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.bottomMargin: 7
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        GenValues {
+            id: gen1Vals
+            x: 20
+            y: 80
+            width: 150
+            height: 129
+            text: "GEN 1"
+            isGenerator: true
+        }
+
+        GenValues {
+            id: apu1Vals
+            x: 230
+            y: 52
+            width: 150
+            height: 129
+            text: "APU GEN"
+            isGenerator: true
+        }
+
+        GenValues {
+            id: grdPwrVals
+            x: 491
+            y: 52
+            width: 150
+            height: 129
+            text: "GRD PWR"
+            isGenerator: true
+            ampsEneb: false
+        }
+
+        GenValues {
+            id: gen2Vals
+            x: 708
+            y: 80
+            width: 150
+            height: 129
+            text: "GEN 2"
+            anchors.right: parent.right
+            isGenerator: true
+            anchors.rightMargin: 20
+        }
+
+        GenValues {
+            id: tr1Vals
+            y: 432
+            width: 150
+            height: 129
+            text: "TR 1"
+            anchors.left: parent.left
+            freqEneb: false
+            anchors.leftMargin: 230
+        }
+
+        GenValues {
+            id: batVals
+            x: 708
+            y: 881
+            width: 150
+            height: 129
+            text: "BATTERY"
+            anchors.right: parent.right
+            freqEneb: false
+            anchors.rightMargin: 20
+        }
+
+        GenValues {
+            id: tr3Vals
+            x: 716
+            y: 432
+            width: 150
+            height: 129
+            text: "TR 3"
+            anchors.right: parent.right
+            freqEneb: false
+            anchors.rightMargin: 20
+        }
+
+        GenValues {
+            id: dcStbyVals
+            x: 230
+            y: 766
+            width: 150
+            height: 129
+            text: "DC STBY"
+            freqEneb: false
+            ampsEneb: false
+        }
+
+        GenValues {
+            id: batBusVals
+            x: 491
+            y: 766
+            width: 150
+            height: 129
+            text: "BATT BUS"
+            anchors.right: parent.right
+            freqEneb: false
+            ampsEneb: false
+            anchors.rightMargin: 234
+        }
+
+        GenValues {
+            id: tr2Vals
+            x: 491
+            y: 432
+            width: 150
+            height: 129
+            text: "TR 2"
+            anchors.right: parent.right
+            freqEneb: false
+            anchors.rightMargin: 230
+        }
+
+        GenValues {
+            id: acStnVals
+            x: 20
+            y: 579
+            width: 150
+            height: 129
+            text: "AC STN BUS"
+            volts: 117
+            voltsEneb: true
+            ampsEneb: false
+        }
+
+        GenValues {
+            id: inverterVals
+            x: 20
+            y: 766
+            width: 150
+            height: 129
+            text: "INVErter"
+            ampsEneb: false
+        }
+
+        Rectangle {
+            id: rectangle
+            x: 20
+            y: 242
+            width: 150
+            height: 30
+            color: "#000000"
+            radius: 9
+            border.color: "#808080"
+
+            TextCust {
+                id: textCust
+                x: 20
                 color: "#ffffff"
-                anchors.horizontalCenterOffset: 0
-                anchors.horizontalCenter: parent.horizontalCenter
+                text: "AC BUS 1"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.bottomMargin: 0
+                level: 3
             }
         }
-        Swich2state {
-            id: cabUtil
-            x: 8
-            y: 380
-            description: "CAB\nUTIL"
+
+        Rectangle {
+            id: rectangle1
+            x: 732
+            y: 242
+            width: 150
+            height: 30
+            color: "#000000"
+            radius: 9
+            border.color: "gray"
+            anchors.right: parent.right
+            anchors.rightMargin: 20
+            TextCust {
+                id: textCust1
+                color: "#ffffff"
+                text: "AC BUS 2"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                level: 3
+            }
         }
 
-        Swich2state {
-            id: ifePassSeat
-            x: 8
-            y: 210
-            description: "IFE/PASS\nSEAT"
+        Rectangle {
+            id: rectangle2
+            x: 707
+            y: 649
+            width: 150
+            height: 30
+            color: "#000000"
+            radius: 9
+            border.color: "#808080"
+            anchors.right: parent.right
+            anchors.rightMargin: 18
+            TextCust {
+                id: textCust2
+                color: "#ffffff"
+                text: "DC BUS 2"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                level: 3
+            }
         }
 
-        WarningIndicator {
-            id: warningIndicator7
-            x: 13
-            y: 686
+        Rectangle {
+            id: rectangle3
+            x: 232
+            y: 649
+            width: 150
+            height: 30
+            color: "#000000"
+            radius: 9
+            border.color: "#808080"
+            TextCust {
+                id: textCust3
+                x: 230
+                color: "#ffffff"
+                text: "DC BUS 1"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                level: 3
+            }
         }
 
-        WarningIndicator {
-            id: warningIndicator8
-            x: 13
-            y: 593
+        Rectangle {
+            id: rectangle26
+            y: 328
+            width: 150
+            height: 30
+            color: "#000000"
+            radius: 9
+            border.color: "#808080"
+            anchors.left: parent.left
+            anchors.leftMargin: 130
+            TextCust {
+                id: textCust5
+                color: "#ffffff"
+                text: "AC MAIN BUS 1"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.bottomMargin: 0
+                level: 3
+            }
         }
 
-        WarningIndicator {
-            id: warningIndicator9
-            x: 13
-            y: 101
+        Rectangle {
+            id: rectangle27
+            y: 287
+            width: 150
+            height: 30
+            color: "#000000"
+            radius: 9
+            border.color: "#808080"
+            anchors.left: parent.left
+            anchors.leftMargin: 130
+            TextCust {
+                id: textCust6
+                color: "#ffffff"
+                text: "GALLEY BUS C,D"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.bottomMargin: 0
+                level: 3
+            }
         }
+
+        Rectangle {
+            id: rectangle28
+            x: 596
+            y: 327
+            width: 150
+            height: 30
+            color: "#000000"
+            radius: 9
+            border.color: "#808080"
+            anchors.right: parent.right
+            anchors.rightMargin: 129
+            TextCust {
+                id: textCust7
+                color: "#ffffff"
+                text: "AC MAIN BUS 2"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.bottomMargin: 0
+                level: 3
+            }
+        }
+
+        Rectangle {
+            id: rectangle29
+            x: 596
+            y: 287
+            width: 150
+            height: 30
+            color: "#000000"
+            radius: 9
+            border.color: "#808080"
+            anchors.right: parent.right
+            anchors.rightMargin: 129
+            TextCust {
+                id: textCust8
+                color: "#ffffff"
+                text: "GALLEY BUS A,B"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.bottomMargin: 0
+                level: 3
+            }
+        }
+
+        Rectangle {
+            id: rectangle13
+            x: 496
+            y: 999
+            width: 150
+            height: 30
+            color: "#000000"
+            radius: 9
+            border.color: "#808080"
+            TextCust {
+                id: textCust4
+                color: "#ffffff"
+                text: "HOT BATT BUS"
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                level: 3
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
 }
+
+
+
+
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:5}D{i:7}D{i:6}D{i:9}D{i:8}D{i:11}D{i:10}
-D{i:13}D{i:12}D{i:15}D{i:14}D{i:16}D{i:17}D{i:18}D{i:4}D{i:19}D{i:20}D{i:21}D{i:22}
-D{i:23}D{i:24}D{i:27}D{i:26}D{i:25}D{i:3}D{i:29}D{i:31}D{i:32}D{i:33}D{i:34}D{i:30}
-D{i:35}D{i:36}D{i:37}D{i:38}D{i:39}D{i:28}
+    D{i:0;formeditorZoom:0.33}D{i:1}D{i:2}D{i:3}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
+D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}D{i:23}
+D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:5}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}
+D{i:35}D{i:36}D{i:39}D{i:38}D{i:37}D{i:40}D{i:41}D{i:42}D{i:43}D{i:4}D{i:47}D{i:48}
+D{i:46}D{i:49}D{i:50}D{i:51}D{i:52}D{i:53}D{i:54}D{i:55}D{i:56}D{i:57}D{i:58}D{i:59}
+D{i:60}D{i:61}D{i:62}D{i:63}D{i:64}D{i:65}D{i:66}D{i:67}D{i:68}D{i:69}D{i:70}D{i:71}
+D{i:72}D{i:73}D{i:74}D{i:75}D{i:76}D{i:77}D{i:78}D{i:79}D{i:80}D{i:81}D{i:82}D{i:83}
+D{i:84}D{i:85}D{i:86}D{i:87}D{i:88}D{i:89}D{i:90}D{i:91}D{i:92}D{i:93}D{i:94}D{i:95}
+D{i:96}D{i:97}D{i:98}D{i:99}D{i:100}D{i:101}D{i:102}D{i:103}D{i:104}D{i:105}D{i:106}
+D{i:108}D{i:107}D{i:110}D{i:109}D{i:45}D{i:111}D{i:112}D{i:113}D{i:114}D{i:115}D{i:116}
+D{i:117}D{i:118}D{i:119}D{i:120}D{i:121}D{i:122}D{i:124}D{i:123}D{i:126}D{i:125}D{i:128}
+D{i:127}D{i:130}D{i:129}D{i:132}D{i:131}D{i:134}D{i:133}D{i:136}D{i:135}D{i:138}D{i:137}
+D{i:140}D{i:139}D{i:44}
 }
 ##^##*/

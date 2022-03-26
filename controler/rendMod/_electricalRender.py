@@ -16,7 +16,6 @@ class ElectricalRender(QObject,RendModeBase):
     def __init__(self):
         QObject.__init__(self)
         self.referList = ["laminar/B738/button_switch/cover_position",
-
             "laminar/B738/one_way_switch/drive_disconnect1_pos",
             "laminar/B738/one_way_switch/drive_disconnect2_pos",
             "laminar/B738/annunciator/drive1",
@@ -38,11 +37,38 @@ class ElectricalRender(QObject,RendModeBase):
             "laminar/B738/one_way_switch/drive_disconnect2_pos",
             "laminar/B738/toggle_switch/ife_pass_seat_pos",
             "laminar/B738/toggle_switch/cab_util_pos",
+
+            "laminar/B738/ac_freq_mode0",
+            "laminar/B738/ac_freq_mode1",
+            "laminar/B738/ac_freq_mode2",
+            "laminar/B738/ac_freq_mode3",
+            "laminar/B738/ac_freq_mode4",
+            "laminar/B738/ac_freq_mode5",
+
+            "laminar/B738/ac_volt_mode1",
+            "laminar/B738/ac_volt_mode2",
+            "laminar/B738/ac_volt_mode3",
+            "laminar/B738/ac_volt_mode4",
+            "laminar/B738/ac_volt_mode5",
+
+            "sim/cockpit2/electrical/generator_amps",
+            "sim/cockpit/electrical/generator_apu_amps",
+            
+            "sim/cockpit2/electrical/battery_amps",
+            "sim/cockpit2/electrical/bus_load_amps",
+            
+            "sim/cockpit2/electrical/bus_volts",
+            "sim/cockpit2/electrical/battery_voltage_indicated_volts",
+
+            "sim/cockpit/electrical/generator_on",
+
+            "sim/cockpit2/electrical/battery_amps"
         ]
   
     guardUpdate= Signal(str,bool)
     swichUpdate= Signal(str,int)
     indicatorUpdate=Signal(str,bool)
+    sendElData= Signal(str, float)
 
     def sendRef(self, dic):
         self.guardUpdate.emit("batteryCover",not bool(dic["laminar/B738/button_switch/cover_position"][2]))
@@ -70,3 +96,34 @@ class ElectricalRender(QObject,RendModeBase):
         self.swichUpdate.emit("disconnect2",int(dic["laminar/B738/one_way_switch/drive_disconnect2_pos"][0]))
         self.swichUpdate.emit("ifePassSeat",int(dic["laminar/B738/toggle_switch/ife_pass_seat_pos"][0]))
         self.swichUpdate.emit("cabUtil",int(dic["laminar/B738/toggle_switch/cab_util_pos"][0]))
+
+        self.sendElData.emit("stbyFreq",dic["laminar/B738/ac_freq_mode0"][0])
+        self.sendElData.emit("grdFreq",dic["laminar/B738/ac_freq_mode1"][0])
+        self.sendElData.emit("gen1Freq",dic["laminar/B738/ac_freq_mode2"][0])
+        self.sendElData.emit("apuFreq",dic["laminar/B738/ac_freq_mode3"][0])
+        self.sendElData.emit("gen2Freq",dic["laminar/B738/ac_freq_mode4"][0])
+        self.sendElData.emit("invFreq",dic["laminar/B738/ac_freq_mode5"][0])
+
+        self.sendElData.emit("stbyVolt",117)
+        self.sendElData.emit("grdVolt",dic["laminar/B738/ac_volt_mode1"][0])
+        self.sendElData.emit("gen1Volt",dic["laminar/B738/ac_volt_mode2"][0])
+        self.sendElData.emit("apuVolt",dic["laminar/B738/ac_volt_mode3"][0])
+        self.sendElData.emit("gen2Volt",dic["laminar/B738/ac_volt_mode4"][0])
+        self.sendElData.emit("invVolt",dic["laminar/B738/ac_volt_mode5"][0])
+
+        self.sendElData.emit("gen1Amp",dic["sim/cockpit2/electrical/generator_amps"][0])
+        self.sendElData.emit("gen2Amp",dic["sim/cockpit2/electrical/generator_amps"][1])
+        self.sendElData.emit("apuGenAmp",dic["sim/cockpit/electrical/generator_apu_amps"][0])
+
+
+        self.sendElData.emit("dcStbVolt",dic["sim/cockpit2/electrical/bus_volts"][2])
+
+        self.sendElData.emit("batVolt",dic["sim/cockpit2/electrical/battery_voltage_indicated_volts"][0])
+        self.sendElData.emit("batAmp",dic["sim/cockpit2/electrical/battery_amps"][0])
+        self.sendElData.emit("batBusVolt",dic["sim/cockpit2/electrical/bus_volts"][0])
+        self.sendElData.emit("tr1Volt",29 if dic["sim/cockpit/electrical/generator_on"][0]==1 else 0)
+        self.sendElData.emit("tr1Amp",dic["sim/cockpit2/electrical/bus_load_amps"][0])
+        self.sendElData.emit("tr2Volt",29 if dic["sim/cockpit/electrical/generator_on"][0]==1 != dic["sim/cockpit/electrical/generator_on"][1]==1  else 0)
+        self.sendElData.emit("tr2Amp",dic["sim/cockpit2/electrical/bus_load_amps"][1])
+        self.sendElData.emit("tr3Volt",29 if dic["sim/cockpit/electrical/generator_on"][1]==1 else 0 )
+        self.sendElData.emit("tr3Amp",dic["sim/cockpit2/electrical/bus_load_amps"][2])

@@ -18,8 +18,8 @@ Item {
     property alias button2: button2
     property alias button1: button1
 
-    property color bcCol:"white"
-    property color bcBorderCol:"#484848"
+    property color bcCol:"black"
+    property color bcBorderCol:Styles.blueDark
     property color textCol:bcBorderCol
 
     property string text1:"OFF"
@@ -45,14 +45,14 @@ Item {
                     border.color:  bcBorderCol
                     border.width: 2
                     radius: 8
-                    Text {
+                    TextCust {
                         id: button1Text
                         text: text1
                         color: textCol
                         anchors.fill: parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        font.pointSize: 30
+                        level:2
                     }
                 }
             }
@@ -76,27 +76,25 @@ Item {
                     radius: 8
                     border.color: bcBorderCol
                     border.width: 2
-                    Text {
+                    TextCust {
                         id: button2Text
                         text: text2
                         color: textCol
                         anchors.fill: parent
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        font.pointSize: 30
+                        level:2
                     }
                 }
             }
-
         }
     }
-
 }
 
 
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:3}D{i:3}D{i:6}D{i:7}D{i:2}D{i:1}
+    D{i:0;height:200;width:150}D{i:3}D{i:6}D{i:7}D{i:2}D{i:1}
 }
 ##^##*/
