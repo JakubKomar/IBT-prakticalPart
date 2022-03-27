@@ -399,51 +399,35 @@ Rectangle {
             anchors.leftMargin: 0
         }
 
-
-
-
-
     }
 
     Item{
         id:leftSide
         width: parent.width/2
         height:parent.height
-        layer.samples: 0
 
         Rectangle {
             id: rectangle
             color: "#00ff0061"
             border.color: "#00ffffff"
             anchors.fill: parent
-            clip: true
+            anchors.topMargin: -8
+            antialiasing: true
+            layer.samples: 8
+            layer.enabled: true
 
             Image {
                 id: image
-                width: 441
-                height: 902
-                anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
                 source: "../pic/planeZoneTemp.png"
-                anchors.horizontalCenterOffset: 14
                 anchors.leftMargin: 0
-                anchors.horizontalCenter: parent.horizontalCenter
-                clip: false
-                scale: 1
-                sourceSize.width: 764
-                rotation: 0
+                anchors.rightMargin: 4
+                anchors.bottomMargin: 0
+                anchors.topMargin: 0
                 fillMode: Image.PreserveAspectFit
-            }
-
-            Rectangle {
-                id: rectangle16
-                x: 637
-                y: 527
-                width: 108
-                height: 8
-                color: "#0f0f0f"
-                border.color: "#00808080"
-                border.width: 1
             }
         }
 
@@ -459,6 +443,17 @@ Rectangle {
             anchors.topMargin: 0
             anchors.rightMargin: 0
             anchors.leftMargin: 0
+        }
+
+        Rectangle {
+            id: rectangle16
+            x: 637
+            y: 527
+            width: 108
+            height: 8
+            color: "#0f0f0f"
+            border.color: "#00808080"
+            border.width: 1
         }
     }
 
@@ -533,9 +528,9 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.25}D{i:1}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:12}
+    D{i:0;formeditorZoom:0.66}D{i:1}D{i:3}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:12}
 D{i:11}D{i:13}D{i:14}D{i:15}D{i:4}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}D{i:24}
 D{i:26}D{i:25}D{i:23}D{i:16}D{i:27}D{i:29}D{i:30}D{i:31}D{i:28}D{i:32}D{i:2}D{i:35}
-D{i:36}D{i:34}D{i:37}D{i:33}D{i:38}
+D{i:34}D{i:36}D{i:37}D{i:33}D{i:38}
 }
 ##^##*/

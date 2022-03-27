@@ -1,9 +1,6 @@
 to do list
     hydraulic schema cosmetic
-    plane aligen
-    doors update
     door module add something
-    headers to addons
     
 
 optional:

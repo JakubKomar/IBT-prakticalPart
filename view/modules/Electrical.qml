@@ -30,6 +30,7 @@ Rectangle {
         width: 1
         anchors.top: parent.top
         anchors.bottom: parent.bottom
+        grad2: "GRAY"
         anchors.topMargin: 0
         anchors.horizontalCenterOffset: 0
         anchors.bottomMargin: 0
@@ -217,7 +218,7 @@ Rectangle {
             Rectangle {
                 id: rectangle35
                 x: 411
-                y: 388
+                y: 370
                 width: 10
                 height: 112
                 color: Styles.blue
@@ -228,7 +229,7 @@ Rectangle {
                 x: 535
                 y: 319
                 width: 10
-                height: 181
+                height: 169
                 color: Styles.blue
             }
 
@@ -280,16 +281,16 @@ Rectangle {
             Rectangle {
                 id: rectangle44
                 x: 472
-                y: 494
+                y: 478
                 width: 10
-                height: 181
+                height: 197
                 color: Styles.blue
             }
 
             Rectangle {
                 id: rectangle45
                 x: 472
-                y: 494
+                y: 478
                 width: 73
                 height: 10
                 color: Styles.blue
@@ -298,25 +299,16 @@ Rectangle {
             Rectangle {
                 id: rectangle37
                 x: 285
-                y: 392
+                y: 370
                 width: 10
                 height: 112
                 color: Styles.blue
             }
 
             Rectangle {
-                id: rectangle46
-                x: 368
-                y: 494
-                width: 53
-                height: 6
-                color: Styles.blue
-            }
-
-            Rectangle {
                 id: rectangle47
                 x: 285
-                y: 494
+                y: 473
                 width: 136
                 height: 10
                 color: Styles.blue
@@ -346,7 +338,7 @@ Rectangle {
 
             Arrow {
                 id: arrow28
-                x: 188
+                x: 195
                 y: 629
                 width: 40
                 height: 40
@@ -355,7 +347,7 @@ Rectangle {
 
             Arrow {
                 id: arrow29
-                x: 643
+                x: 654
                 y: 927
                 width: 40
                 height: 40
@@ -365,7 +357,7 @@ Rectangle {
             Arrow {
                 id: arrow25
                 x: 715
-                y: 583
+                y: 576
                 width: 40
                 height: 40
             }
@@ -373,7 +365,7 @@ Rectangle {
             Arrow {
                 id: arrow26
                 x: 457
-                y: 515
+                y: 505
                 width: 40
                 height: 40
             }
@@ -381,7 +373,7 @@ Rectangle {
             Rectangle {
                 id: rectangle48
                 x: 352
-                y: 494
+                y: 473
                 width: 10
                 height: 181
                 color: Styles.blue
@@ -390,14 +382,14 @@ Rectangle {
             Arrow {
                 id: arrow27
                 x: 337
-                y: 515
+                y: 505
                 width: 40
                 height: 40
             }
 
             Arrow {
                 id: arrow30
-                x: 632
+                x: 626
                 y: 629
                 width: 40
                 height: 40
@@ -406,7 +398,7 @@ Rectangle {
 
             Arrow {
                 id: arrow31
-                x: 167
+                x: 160
                 y: 927
                 width: 40
                 height: 40
@@ -424,7 +416,7 @@ Rectangle {
         Arrow {
             id: arrow24
             x: 101
-            y: 423
+            y: 413
             width: 40
             height: 40
         }
@@ -723,6 +715,12 @@ Rectangle {
                 color: "#fffb00"
             }
 
+            Arrow {
+                id: arrow1
+                x: 557
+                y: 234
+            }
+
             Rectangle {
                 id: rectangle11
                 x: 781
@@ -731,6 +729,7 @@ Rectangle {
                 height: 95
                 color: "#fffb00"
             }
+
 
 
             Rectangle {
@@ -743,6 +742,7 @@ Rectangle {
             }
 
 
+
             Rectangle {
                 id: rectangle17
                 x: 95
@@ -751,6 +751,7 @@ Rectangle {
                 height: 4
                 color: "#fffb00"
             }
+
 
 
             Rectangle {
@@ -763,6 +764,7 @@ Rectangle {
             }
 
 
+
             Rectangle {
                 id: rectangle21
                 x: 305
@@ -771,6 +773,7 @@ Rectangle {
                 height: 147
                 color: Styles.blue
             }
+
 
 
             Rectangle {
@@ -783,6 +786,7 @@ Rectangle {
             }
 
 
+
             Rectangle {
                 id: rectangle23
                 x: 583
@@ -791,6 +795,7 @@ Rectangle {
                 height: 4
                 color: Styles.blue
             }
+
 
 
             Rectangle {
@@ -803,6 +808,7 @@ Rectangle {
             }
 
 
+
             Rectangle {
                 id: rectangle25
                 x: 305
@@ -811,6 +817,7 @@ Rectangle {
                 height: 4
                 color: "#fffb00"
             }
+
 
 
             Rectangle {
@@ -823,14 +830,16 @@ Rectangle {
             }
 
 
+
             Rectangle {
                 id: rectangle31
                 x: 95
-                y: 336
+                y: 341
                 width: 135
                 height: 4
                 color: Styles.blue
             }
+
 
 
             Rectangle {
@@ -843,21 +852,17 @@ Rectangle {
             }
 
 
+
             Rectangle {
                 id: rectangle33
                 x: 646
-                y: 336
+                y: 341
                 width: 139
                 height: 4
                 color: Styles.blue
             }
 
 
-            Arrow {
-                id: arrow
-                x: 297
-                y: 237
-            }
 
             Rectangle {
                 id: rectangle12
@@ -868,114 +873,109 @@ Rectangle {
                 color: "#fffb00"
             }
 
-            Arrow {
-                id: arrow1
-                x: 557
-                y: 237
-            }
 
             Arrow {
                 id: arrow2
                 x: 773
-                y: 225
+                y: 223
             }
 
             Arrow {
                 id: arrow3
                 x: 87
-                y: 225
+                y: 223
             }
 
             Arrow {
                 id: arrow4
-                x: 166
+                x: 169
                 y: 246
                 rotation: 90
             }
 
             Arrow {
                 id: arrow5
-                x: 689
+                x: 685
                 y: 246
                 rotation: -90
             }
 
             Arrow {
                 id: arrow6
-                x: 742
+                x: 745
                 y: 293
                 rotation: 90
             }
 
             Arrow {
                 id: arrow7
-                x: 742
-                y: 328
+                x: 745
+                y: 333
                 rotation: 90
             }
 
             Arrow {
                 id: arrow8
-                x: 115
+                x: 111
                 y: 293
                 rotation: -90
             }
 
             Arrow {
                 id: arrow9
-                x: 115
-                y: 328
+                x: 111
+                y: 333
                 rotation: -90
             }
 
             Arrow {
                 id: arrow10
                 x: 297
-                y: 416
+                y: 413
             }
 
             Arrow {
                 id: arrow11
                 x: 549
-                y: 416
+                y: 413
             }
 
             Arrow {
                 id: arrow12
                 x: 575
-                y: 416
+                y: 413
             }
 
             Arrow {
                 id: arrow13
                 x: 773
-                y: 416
+                y: 413
             }
 
             Arrow {
                 id: arrow14
                 x: 87
-                y: 566
+                y: 560
             }
 
             Arrow {
                 id: arrow15
                 x: 87
-                y: 703
+                y: 705
                 rotation: 180
             }
 
             Arrow {
                 id: arrow16
                 x: 297
-                y: 632
+                y: 630
                 col: "#fffb00"
             }
 
             Arrow {
                 id: arrow17
                 x: 773
-                y: 632
+                y: 630
                 col: "#fffb00"
             }
 
@@ -1027,7 +1027,7 @@ Rectangle {
             Circle {
                 id: circle5
                 x: 775
-                y: 330
+                y: 335
                 width: 16
                 height: 16
                 rectangle.color: "#00b9ff"
@@ -1054,7 +1054,7 @@ Rectangle {
             Circle {
                 id: circle8
                 x: 89
-                y: 329
+                y: 334
                 width: 16
                 height: 16
                 rectangle.color: "#00b9ff"
@@ -1081,28 +1081,28 @@ Rectangle {
             Arrow {
                 id: arrow18
                 x: 297
-                y: 750
+                y: 746
                 col: "#fffb00"
             }
 
             Arrow {
                 id: arrow19
                 x: 562
-                y: 750
+                y: 746
                 col: "#fffb00"
             }
 
             Arrow {
                 id: arrow20
                 x: 562
-                y: 982
+                y: 980
                 col: "#fffb00"
             }
 
             Arrow {
                 id: arrow21
                 x: 562
-                y: 891
+                y: 894
                 rotation: 180
                 col: "#fffb00"
             }
@@ -1110,7 +1110,7 @@ Rectangle {
             Arrow {
                 id: arrow22
                 x: 297
-                y: 891
+                y: 894
                 rotation: 180
                 col: "#fffb00"
             }
@@ -1118,7 +1118,7 @@ Rectangle {
             Arrow {
                 id: arrow23
                 x: 87
-                y: 891
+                y: 893
                 col: "#fffb00"
                 rotation: 180
             }
@@ -1144,7 +1144,7 @@ Rectangle {
             Arrow {
                 id: arrow32
                 x: 517
-                y: 586
+                y: 582
                 col: "#fffb00"
             }
 
@@ -1188,6 +1188,12 @@ Rectangle {
                     verticalAlignment: Text.AlignVCenter
                     anchors.bottomMargin: 7
                 }
+            }
+
+            Arrow {
+                id: arrow
+                x: 297
+                y: 234
             }
 
 
@@ -1562,18 +1568,18 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.33}D{i:1}D{i:2}D{i:3}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
+    D{i:0;formeditorZoom:0.5}D{i:1}D{i:2}D{i:3}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
 D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}D{i:23}
-D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:5}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}
-D{i:35}D{i:36}D{i:39}D{i:38}D{i:37}D{i:40}D{i:41}D{i:42}D{i:43}D{i:4}D{i:47}D{i:48}
-D{i:46}D{i:49}D{i:50}D{i:51}D{i:52}D{i:53}D{i:54}D{i:55}D{i:56}D{i:57}D{i:58}D{i:59}
+D{i:24}D{i:25}D{i:26}D{i:27}D{i:28}D{i:5}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}
+D{i:35}D{i:38}D{i:37}D{i:36}D{i:39}D{i:40}D{i:41}D{i:42}D{i:4}D{i:46}D{i:47}D{i:45}
+D{i:48}D{i:49}D{i:50}D{i:51}D{i:52}D{i:53}D{i:54}D{i:55}D{i:56}D{i:57}D{i:58}D{i:59}
 D{i:60}D{i:61}D{i:62}D{i:63}D{i:64}D{i:65}D{i:66}D{i:67}D{i:68}D{i:69}D{i:70}D{i:71}
 D{i:72}D{i:73}D{i:74}D{i:75}D{i:76}D{i:77}D{i:78}D{i:79}D{i:80}D{i:81}D{i:82}D{i:83}
 D{i:84}D{i:85}D{i:86}D{i:87}D{i:88}D{i:89}D{i:90}D{i:91}D{i:92}D{i:93}D{i:94}D{i:95}
-D{i:96}D{i:97}D{i:98}D{i:99}D{i:100}D{i:101}D{i:102}D{i:103}D{i:104}D{i:105}D{i:106}
-D{i:108}D{i:107}D{i:110}D{i:109}D{i:45}D{i:111}D{i:112}D{i:113}D{i:114}D{i:115}D{i:116}
-D{i:117}D{i:118}D{i:119}D{i:120}D{i:121}D{i:122}D{i:124}D{i:123}D{i:126}D{i:125}D{i:128}
-D{i:127}D{i:130}D{i:129}D{i:132}D{i:131}D{i:134}D{i:133}D{i:136}D{i:135}D{i:138}D{i:137}
-D{i:140}D{i:139}D{i:44}
+D{i:96}D{i:97}D{i:98}D{i:99}D{i:100}D{i:101}D{i:102}D{i:103}D{i:104}D{i:106}D{i:105}
+D{i:108}D{i:107}D{i:109}D{i:44}D{i:110}D{i:111}D{i:112}D{i:113}D{i:114}D{i:115}D{i:116}
+D{i:117}D{i:118}D{i:119}D{i:120}D{i:121}D{i:123}D{i:122}D{i:125}D{i:124}D{i:127}D{i:126}
+D{i:129}D{i:128}D{i:131}D{i:130}D{i:133}D{i:132}D{i:135}D{i:134}D{i:137}D{i:136}D{i:139}
+D{i:138}D{i:43}
 }
 ##^##*/

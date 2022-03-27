@@ -30,16 +30,10 @@ Rectangle {
 
         Item{
             id:ilustration
-            height: 902
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.right: parent.right
+            anchors.fill: parent
             antialiasing: true
             layer.samples: 8
-            layer.enabled: true
-            anchors.rightMargin: 0
-            anchors.horizontalCenterOffset: 14
-            anchors.leftMargin: 0
+            layer.enabled: true          
             Image {
                 id: base
                 anchors.fill: parent
@@ -113,29 +107,29 @@ Rectangle {
 
             MiniValve {
                 id: eng1Valve
-                x: 312
-                y: 346
+                x: 306
+                y: 417
                 rotation: 90
             }
 
             MiniValve {
                 id: eng2Valve
-                x: 533
-                y: 346
+                x: 540
+                y: 417
                 rotation: 90
             }
 
             MiniValve {
                 id: wing1Valve
-                x: 264
-                y: 428
+                x: 257
+                y: 503
                 rotation: -210
             }
 
             MiniValve {
                 id: wing2Valve
-                x: 581
-                y: 427
+                x: 583
+                y: 502
                 rotation: 210
             }
 
@@ -153,8 +147,8 @@ Rectangle {
 
             Rectangle {
                 id: rectangle
-                x: 550
-                y: 327
+                x: 559
+                y: 399
                 width: 68
                 height: 1
                 color: "gray"
@@ -163,8 +157,8 @@ Rectangle {
 
             Rectangle {
                 id: rectangle1
-                x: 601
-                y: 415
+                x: 603
+                y: 489
                 width: 76
                 height: 1
                 color: "#808080"
@@ -173,8 +167,8 @@ Rectangle {
 
             Rectangle {
                 id: rectangle2
-                x: 258
-                y: 327
+                x: 252
+                y: 399
                 width: 68
                 height: 1
                 color: "#808080"
@@ -183,8 +177,8 @@ Rectangle {
 
             Rectangle {
                 id: rectangle3
-                x: 199
-                y: 415
+                x: 192
+                y: 490
                 width: 76
                 height: 1
                 color: "#808080"

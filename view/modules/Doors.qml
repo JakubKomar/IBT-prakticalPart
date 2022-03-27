@@ -26,42 +26,52 @@ Rectangle {
             switch(name){
             case"fwdEntry":{
                 fwdEntry.togled=turned
+                door1.visible=turned
                 break;
             }
             case"fwdService":{
                 fwdService.togled=turned
+                door2.visible=turned
                 break;
             }
             case"leftFwdOver":{
                 leftFwdOverwing.togled=turned
+                door3.visible=turned
                 break;
             }
             case"rightFwdOver":{
                 rightFwdOverwing.togled=turned
+                door4.visible=turned
                 break;
             }
             case"leftAFTOver":{
                 leftAftOverwing.togled=turned
+                door5.visible=turned
                 break;
             }
             case"rightAFTOver":{
                 rightAftOverwing.togled=turned
+                door6.visible=turned
                 break;
             }
             case"aftEntry":{
                 aftEntry.togled=turned
+                door7.visible=turned
                 break;
             }
             case"aftService":{
                 aftService.togled=turned
+                door8.visible=turned
                 break;
             }
             case"fwdCargo":{
                 fwdCargo.togled=turned
+                door9.visible=turned
                 break;
             }
             case"aftCargo":{
                 aftCargo.togled=turned
+                door10.visible=turned
                 break;
             }
             case"equip":{
@@ -76,26 +86,79 @@ Rectangle {
     Rectangle {
         id: rectangle
         x: 0
-        y: -1
-        width: 880
+        y: 0
+        width: parent.width/2
         height: parent.height
         color: "#00ffffff"
         border.color: "#00ffffff"
-        border.width: 2
-
+        antialiasing: true
+        layer.samples: 8
+        layer.enabled: true
         Image {
             id: image
-            width: 481
-            height: 499
-            anchors.verticalCenter: parent.verticalCenter
-            source: "../pic/planeDoors.png"
-            anchors.horizontalCenterOffset: 2
-            anchors.verticalCenterOffset: 1
-            anchors.horizontalCenter: parent.horizontalCenter
-            clip: false
-            scale: 1.8
-            sourceSize.width: 764
-            rotation: 0
+            anchors.fill: parent
+            source: "../pic/doors/base.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door1
+            anchors.fill: parent
+            source: "../pic/doors/door1.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door2
+            anchors.fill: parent
+            source: "../pic/doors/door2.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door3
+            anchors.fill: parent
+            source: "../pic/doors/door3.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door4
+            anchors.fill: parent
+            source: "../pic/doors/door4.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door5
+            anchors.fill: parent
+            source: "../pic/doors/door5.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door6
+            anchors.fill: parent
+            source: "../pic/doors/door6.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door7
+            anchors.fill: parent
+            source: "../pic/doors/door7.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door8
+            anchors.fill: parent
+            source: "../pic/doors/door8.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door9
+            anchors.fill: parent
+            source: "../pic/doors/door9.png"
+            fillMode: Image.PreserveAspectFit
+        }
+        Image {
+            id: door10
+            x: 589
+            anchors.fill: parent
+            source: "../pic/doors/door10.png"
             fillMode: Image.PreserveAspectFit
         }
 
@@ -111,8 +174,8 @@ Rectangle {
         }
         DoorIdicator {
            id: fwdService
-           x: 516
-           y: 219
+           x: 527
+           y: 162
            width: 98
            height: 61
            togled: false
@@ -121,7 +184,7 @@ Rectangle {
 
        DoorIdicator {
            id: leftFwdOverwing
-           x: 287
+           x: 247
            y: 426
            width: 98
            height: 61
@@ -131,7 +194,7 @@ Rectangle {
 
        DoorIdicator {
            id: rightFwdOverwing
-           x: 516
+           x: 527
            y: 426
            width: 98
            height: 61
@@ -141,7 +204,7 @@ Rectangle {
 
        DoorIdicator {
            id: leftAftOverwing
-           x: 287
+           x: 247
            y: 500
            width: 98
            height: 61
@@ -151,7 +214,7 @@ Rectangle {
 
        DoorIdicator {
            id: rightAftOverwing
-           x: 516
+           x: 527
            y: 500
            width: 98
            height: 61
@@ -161,8 +224,8 @@ Rectangle {
 
        DoorIdicator {
            id: aftService
-           x: 516
-           y: 751
+           x: 527
+           y: 808
            width: 98
            height: 61
            togled: true
@@ -172,8 +235,8 @@ Rectangle {
 
        DoorIdicator {
            id: aftEntry
-           x: 287
-           y: 751
+           x: 247
+           y: 808
            width: 98
            height: 61
            name: "AFT\nENTRY"
@@ -182,7 +245,7 @@ Rectangle {
 
        DoorIdicator {
            id: aftCargo
-           x: 516
+           x: 527
            y: 625
            width: 98
            height: 61
@@ -192,8 +255,8 @@ Rectangle {
 
        DoorIdicator {
            id: fwdCargo
-           x: 516
-           y: 299
+           x: 527
+           y: 275
            width: 98
            height: 61
            name: "FWD\nCARGO"
@@ -202,7 +265,7 @@ Rectangle {
 
        DoorIdicator {
            id: equip
-           x: 287
+           x: 247
            y: 625
            width: 98
            height: 61
@@ -212,8 +275,8 @@ Rectangle {
 
        DoorIdicator {
            id: fwdEntry
-           x: 287
-           y: 219
+           x: 247
+           y: 162
            width: 98
            height: 61
            name: "FWD\nENTRY"
@@ -222,9 +285,12 @@ Rectangle {
 
 }
 
+
+
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.33}D{i:1}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}
-D{i:11}D{i:12}D{i:13}D{i:14}D{i:15}D{i:2}
+    D{i:0;formeditorZoom:0.5}D{i:1}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
+D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}D{i:23}
+D{i:24}D{i:25}D{i:2}
 }
 ##^##*/

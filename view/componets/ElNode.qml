@@ -1,4 +1,12 @@
-import QtQuick 2.0
+/*
+  * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
+  * @ Author: Jakub Komárek
+  * @ Licence: MIT
+  * @ Modified by: Jakub Komárek
+  * @ Modified time: 2022-03-27 19:06:00
+  * @ Description: electrical node data 
+ */
+import QtQuick
 
 Item {
     width: 109
