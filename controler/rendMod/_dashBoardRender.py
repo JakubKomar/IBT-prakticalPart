@@ -40,7 +40,11 @@ class DashBoardRender(QObject,RendModeBase):
             "laminar/B738/annunciator/nose_gear_safe",
             "laminar/B738/annunciator/left_gear_transit",
             "laminar/B738/annunciator/right_gear_transit",
-            "laminar/B738/annunciator/nose_gear_transit"
+            "laminar/B738/annunciator/nose_gear_transit",
+
+            "laminar/B738/annunciator/speedbrake_armed",
+            "laminar/B738/annunciator/speedbrake_extend",
+            "laminar/B738/annunciator/parking_brake",
         ]
   
     setAnnunciator=Signal(str, float)
@@ -51,6 +55,10 @@ class DashBoardRender(QObject,RendModeBase):
     def sendRef(self, dic):
         self.setAnnunciator.emit("transit",dic["laminar/B738/annunciator/slats_transit"][0])
         self.setAnnunciator.emit("extend",dic["laminar/B738/annunciator/slats_extend"][0])
+
+        self.setAnnunciator.emit("spdBrealArmed",dic["laminar/B738/annunciator/speedbrake_armed"][0])
+        self.setAnnunciator.emit("spdBrealExtended",dic[ "laminar/B738/annunciator/speedbrake_extend"][0])
+        self.setAnnunciator.emit("parkingBreak",dic[ "laminar/B738/annunciator/parking_brake"][0])
 
         self.setFlapIndicator.emit("actState",dic["sim/cockpit2/controls/flap_handle_deploy_ratio"][0])
         self.setFlapIndicator.emit("setState",dic["sim/cockpit2/controls/flap_ratio"][0])

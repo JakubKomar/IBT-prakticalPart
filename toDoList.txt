@@ -1,18 +1,13 @@
 to do list
     hydraulic schema cosmetic
+    warning fix
     door module add something
-    parking brake indicator, speed breake indicator
 
     enjoy life
     
 
 optional:
 thread exiting isule
-pipes transfer indication - better
-temp sliders pozition render,
-fuel alternative units - kg
-
-notes:
 
 rules:
     fonts:

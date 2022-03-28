@@ -207,6 +207,83 @@ Rectangle {
                 val: 0.25
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
+            Rectangle {
+                id: parkingBrake
+                x: 377
+                y: 314
+                width: 125
+                height: 25
+                color: "#9c000000"
+                radius: 7
+                border.color: "#ff0000"
+
+                TextCust {
+                    id: textCust
+                    x: 3
+                    color: "#ff0000"
+                    text: "Parking brake"
+                    anchors.fill: parent
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.rightMargin: 0
+                    anchors.bottomMargin: 0
+                    anchors.leftMargin: 0
+                    anchors.topMargin: 0
+                    level: 3
+                }
+            }
+
+            Rectangle {
+                id: spdBreakExtended
+                x: 288
+                y: 198
+                width: 64
+                height: 47
+                color: "#9c000000"
+                radius: 7
+                border.color: "#ff0000"
+                TextCust {
+                    id: textCust1
+                    x: 3
+                    color: "#ff0000"
+                    text: "spd\nbrake\nextend"
+                    anchors.fill: parent
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.bottomMargin: 0
+                    anchors.leftMargin: 0
+                    anchors.rightMargin: 0
+                    anchors.topMargin: 0
+                    level: 3
+                }
+            }
+
+            Rectangle {
+                id: spdBreakArmed
+                x: 527
+                y: 198
+                width: 64
+                height: 47
+                color: "#9c000000"
+
+                radius: 7
+                border.color: Styles.green
+                TextCust {
+                    id: textCust2
+                    x: 3
+                    color: Styles.green
+                    text: "spd\nbrake\narmed"
+                    anchors.fill: parent
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.bottomMargin: 0
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
+                    anchors.topMargin: 0
+                    level: 3
+                }
+            }
         }
         
         LandingGearStatus {
@@ -288,6 +365,18 @@ Rectangle {
             }
             case"extend":{
                 flapsIndicator.stateIndicator.status=val
+                break
+            }
+            case"spdBrealArmed":{
+                spdBreakArmed.visible=val===1
+                break
+            }
+            case"spdBrealExtended":{
+                spdBreakExtended.visible=val===1
+                break
+            }
+            case"parkingBreak":{
+                parkingBrake.visible=val===1
                 break
             }
             default:{}
@@ -401,10 +490,14 @@ Rectangle {
 
 
 
+
+
+
+
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:2}D{i:1}D{i:4}D{i:5}D{i:8}D{i:7}D{i:10}D{i:9}D{i:12}
-D{i:11}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:6}D{i:19}D{i:20}D{i:21}D{i:22}
-D{i:23}D{i:24}D{i:25}D{i:3}D{i:26}D{i:27}
+    D{i:0;formeditorZoom:0.66}D{i:2}D{i:1}D{i:4}D{i:5}D{i:8}D{i:7}D{i:10}D{i:9}D{i:12}
+D{i:11}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:20}D{i:19}D{i:22}D{i:21}D{i:24}
+D{i:23}D{i:6}D{i:25}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:3}D{i:32}D{i:33}
 }
 ##^##*/
