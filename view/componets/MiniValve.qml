@@ -14,8 +14,11 @@ Item {
     implicitHeight: 40
     implicitWidth: 40
     property double open: 0
+    property bool directView:false
     state:
-        if(open==1)
+        if(directView)
+            ""
+        else if(open==1)
             "transmit"
         else if(open>0)
             "on"
@@ -38,9 +41,10 @@ Item {
         clip: true
         transform: Rotation{
             id: rotate
-            angle: 0
+            angle: directView? open*90:internalAngle
             origin.x: circle.width/2
             origin.y: circle.height/2
+            property int internalAngle:0
         }
         Rectangle {
             id: pipe
@@ -61,14 +65,21 @@ Item {
             name: "on"
             PropertyChanges {
                 target:rotate
-                angle: 90
+                internalAngle: 90
             }
         },
         State {
             name: "transmit"
             PropertyChanges {
                 target:rotate
-                angle: 45
+                internalAngle: 45
+            }
+        },
+        State {
+            name: ""
+            PropertyChanges {
+                target:rotate
+                internalAngle: 0
             }
         }
 
@@ -79,6 +90,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.5;height:30;width:30}D{i:3}D{i:1}
+    D{i:0;height:30;width:30}D{i:3}D{i:1}
 }
 ##^##*/

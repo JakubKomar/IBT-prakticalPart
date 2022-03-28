@@ -59,8 +59,8 @@ class MainRanderControler(QThread):
                 self.setConnStatus.emit(False)
             except WindowsError: # connection exeption
                 self.setConnStatus.emit(True)
-            except Exception as EX: #all exeption are chatched, render loop must run
-                logging.warning(EX)
+            #except Exception as EX: #all exeption are chatched, render loop must run
+              #  logging.warning(EX)
 
     # reflist that is sended to simulator
     refList=[]

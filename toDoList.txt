@@ -1,6 +1,9 @@
 to do list
     hydraulic schema cosmetic
     door module add something
+    parking brake indicator, speed breake indicator
+
+    enjoy life
     
 
 optional:
