@@ -62,7 +62,7 @@ Item {
             id: description
             height: 30
             color: Styles.blueDark
-            text: "CENTER"
+            text: desText
             anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -83,12 +83,8 @@ Item {
             horizontalAlignment: Text.AlignRight
             verticalAlignment: Text.AlignVCenter
             lineHeight: 0
-            font.styleName: "obyčejné"
             anchors.horizontalCenterOffset: -15
-            font.bold: false
             anchors.horizontalCenter: parent.horizontalCenter
-            font.family: "Arial"
-            font.strikeout: false
         }
 
         TextCust {
@@ -184,6 +180,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;height:210;width:210}D{i:1}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:2}
+    D{i:0;formeditorZoom:1.33;height:210;width:210}D{i:1}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}
+D{i:8}D{i:2}
 }
 ##^##*/

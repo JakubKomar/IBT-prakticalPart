@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:35:57
+  * @ Modified time: 2022-03-29 01:09:12
   * @ Description: temperature seter slider
  */
 
@@ -88,7 +88,6 @@ Slider {
                 anchors.verticalCenter: parent.verticalCenter
                 color: "#ffffff"
                 text: qsTr("OFF")
-                font.pixelSize: 14
                 anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter

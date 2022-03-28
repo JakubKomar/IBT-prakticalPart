@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:22:10
+  * @ Modified time: 2022-03-29 01:16:29
   * @ Description: guarded basic swich
  */
 
@@ -50,7 +50,7 @@ Item {
         width: parent.width
         height: parent.height
 
-        Text {
+        TextCust {
             id: text1
             x: 89
             y: 8
@@ -58,7 +58,7 @@ Item {
             height: 42
             color: "#0abcff"
             text:swich2stateAlt.textOn
-            font.pixelSize: 51
+            level:2
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
         }

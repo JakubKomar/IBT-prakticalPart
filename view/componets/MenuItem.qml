@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:25:38
+  * @ Modified time: 2022-03-28 23:32:59
   * @ Description: menu item - clickable
  */
 
@@ -27,6 +27,8 @@ Button {
 
 
     property int status: 0
+    property bool fire:false
+    property bool warn:false
     property int rad: 7
     property color warningColor: "orange"
     property color errorColor: "red"
@@ -36,10 +38,10 @@ Button {
     property int borderWact:3
 
     property color bcColor: {
-        if(status==2){
+        if(fire){
             errorColor
         }
-        else if(status==1){
+        else if(warn){
             warningColor
         }
         else{

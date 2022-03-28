@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:25:14
+  * @ Modified time: 2022-03-28 23:32:56
   * @ Description: Landing gear status indicator
  */
 
@@ -54,7 +54,7 @@ Rectangle {
             PropertyChanges {
                 target: text2
                 color: "red"
-                text: qsTr("TRAN")
+                text: qsTr("TRA")
             }
         },
         State {
@@ -73,6 +73,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:4;height:60;width:60}D{i:1}D{i:2}
+    D{i:0;height:60;width:60}D{i:1}D{i:2}
 }
 ##^##*/

@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:11:48
+  * @ Modified time: 2022-03-29 01:08:50
   * @ Description: connection configuration module
  */
 

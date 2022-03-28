@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:23:29
+  * @ Modified time: 2022-03-29 01:11:49
   * @ Description: horizontal indicator whith warning and error stops
  */
 
@@ -46,12 +46,12 @@ Rectangle {
         anchors.horizontalCenterOffset: 1
         anchors.horizontalCenter: parent.horizontalCenter
 
-        Text {
+        TextCust {
             id: digitalVal
             color: "#ffffff"
             text: value.toFixed(fixedDecimals)
             anchors.fill: parent
-            font.pixelSize: 22
+            level:2
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
         }
@@ -151,25 +151,25 @@ Rectangle {
     }
 
 
-    Text {
+    TextCust {
         id: rightValue
         x: 223
         y: 19
         color: "#a3a3a3"
         text: inverted?minValue:maxValue
         anchors.right: parent.right
-        font.pixelSize: 12
+        level:3
         anchors.rightMargin: 5
     }
 
-    Text {
+    TextCust {
         id: leftValue
         x: 217
         y: 19
         color: "#a3a3a3"
         text: inverted?maxValue:minValue
         anchors.left: parent.left
-        font.pixelSize: 12
+         level:3
         anchors.leftMargin: 5
     }
     function inCritical(){

@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:09:15
+  * @ Modified time: 2022-03-29 01:14:50
   * @ Description: engine  module
  */
 
@@ -252,12 +252,12 @@ Rectangle {
                         fire: false
                     }
 
-                    Text {
+                    TextCust {
                         id: text3
                         y: 267
                         color: "#00a8ff"
                         text: qsTr("Temperature")
-                        font.pixelSize: 25
+                        level:2
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.horizontalCenterOffset: 0
                     }

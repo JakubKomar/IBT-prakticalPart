@@ -14,7 +14,6 @@ global client # global var for client
 
 #incicialization function
 def estCon(xpHost='localhost', xpPort=49009, port=0, timeout=100):
-    print("X-Plane Connect example script")
     global client
     client = XPC(xpHost,xpPort,port,timeout)
     try:

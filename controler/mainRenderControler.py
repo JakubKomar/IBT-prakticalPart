@@ -59,8 +59,8 @@ class MainRanderControler(QThread):
                 self.setConnStatus.emit(False)
             except WindowsError: # connection exeption
                 self.setConnStatus.emit(True)
-            #except Exception as EX: #all exeption are chatched, render loop must run
-              #  logging.warning(EX)
+            except Exception as EX: #all exeption are chatched, render loop must run
+                logging.warning(EX)
 
     # reflist that is sended to simulator
     refList=[]
@@ -86,6 +86,12 @@ class MainRanderControler(QThread):
     def setModuleSelector(self, modID):
         self.moduleSelectorPicker = modID
         self.poisonRefList=True
+
+    # thread terminating function
+    @Slot()
+    def shutDown(self):
+        client.client.close()
+        self.terminate()
 
     # geting new refs after module change event
     def actualizateRefList(self):

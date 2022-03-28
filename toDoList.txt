@@ -1,13 +1,9 @@
 to do list
-    hydraulic schema cosmetic
-    warning fix
-    door module add something
-
     enjoy life
     
 
 optional:
-thread exiting isule
+    thread exiting isule
 
 rules:
     fonts:

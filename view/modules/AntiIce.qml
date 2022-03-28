@@ -234,7 +234,7 @@ Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            description: "ANTI ICE overview"
+            description: "ANTI-ICE overview"
             anchors.rightMargin: 0
             anchors.leftMargin: 0
             anchors.topMargin: 0
@@ -348,8 +348,9 @@ Rectangle {
 
         AntiIceSwich {
             id: swichWinHeatSideL
-            x: 10
             y: 410
+            anchors.left: parent.left
+            anchors.leftMargin: 10
             onTogled: false
             onClicked: {
                 ControlAntiIce.swichTogle("sideWindL")
@@ -358,8 +359,9 @@ Rectangle {
 
         AntiIceSwich {
             id: swichWinHeatFwdL
-            x: 159
             y: 410
+            anchors.left: parent.left
+            anchors.leftMargin: 170
             swich2stateWarning.description: "FWD"
             onClicked: {
                 ControlAntiIce.swichTogle("fwdWindL")
@@ -370,6 +372,8 @@ Rectangle {
             id: swichWinHeatFwdR
             x: 568
             y: 410
+            anchors.right: parent.right
+            anchors.rightMargin: 170
             swich2stateWarning.description: "FWD"
             onClicked: {
                 ControlAntiIce.swichTogle("fwdWindR")
@@ -380,6 +384,8 @@ Rectangle {
             id: swichWinHeatSideR
             x: 715
             y: 410
+            anchors.right: parent.right
+            anchors.rightMargin: 10
             onClicked: {
                 ControlAntiIce.swichTogle("sideWindR")
             }
@@ -439,7 +445,7 @@ Rectangle {
 
         Swich2stateBasic {
             id: swichHeatR
-            x: 159
+            x: 170
             y: 775
             width: 150
             height: 150
@@ -487,7 +493,7 @@ Rectangle {
 
         Swich2stateWarning {
             id: swichEngAntiIceL
-            x: 568
+            x: 555
             y: 775
             width: 150
             height: 212
@@ -580,7 +586,7 @@ Rectangle {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            description: "ANTI ICE CONTROLER"
+            description: "ANTI-ICE CONTROLER"
             anchors.topMargin: 665
             anchors.rightMargin: -1
             anchors.leftMargin: 1
@@ -793,7 +799,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.5}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
+    D{i:0;formeditorZoom:0.66}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}D{i:10}D{i:11}
 D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:2}D{i:22}
 D{i:23}D{i:24}D{i:25}D{i:26}D{i:28}D{i:29}D{i:30}D{i:27}D{i:32}D{i:33}D{i:34}D{i:31}
 D{i:35}D{i:36}D{i:1}D{i:38}D{i:39}D{i:40}D{i:41}D{i:42}D{i:43}D{i:44}D{i:45}D{i:46}

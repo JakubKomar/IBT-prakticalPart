@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:27:27
+  * @ Modified time: 2022-03-29 01:16:04
   * @ Description: simple clickeble 2 state button
  */
 
@@ -33,12 +33,12 @@ Button {
 
     }
 
-    Text {
+    TextCust {
         id: text1
         x: 62
         y: 25
         text: qsTr("Text")
-        font.pixelSize: 12
+        level:3
     }
 
 }

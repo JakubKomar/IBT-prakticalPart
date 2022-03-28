@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:08:47
+  * @ Modified time: 2022-03-29 01:15:18
   * @ Description: electrical module
  */
 
@@ -528,7 +528,7 @@ Rectangle {
             anchors.horizontalCenterOffset: -7
             anchors.horizontalCenter: parent.horizontalCenter
             
-            Text {
+            TextCust {
                 id: text4
                 y: 0
                 width: 248
@@ -536,7 +536,7 @@ Rectangle {
                 color: "#ffffff"
                 text: qsTr("BUS TRANSFER")
                 font.letterSpacing: -1.5
-                font.pixelSize: 26
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.horizontalCenter: parent.horizontalCenter

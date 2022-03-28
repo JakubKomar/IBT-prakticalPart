@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:23:54
+  * @ Modified time: 2022-03-29 01:13:47
   * @ Description: hydraulic data component
  */
 
@@ -19,49 +19,53 @@ Rectangle {
     border.color: "gray"
     anchors.horizontalCenter: parent.horizontalCenter
 
-    Text {
+    TextCust {
         id: text4
-        y: 27
+        y: 33
         color: Styles.blueDark
         text: qsTr("QTY %")
-        font.pixelSize: 20
+        level:3
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-    Text {
+    TextCust {
         id: text5
-        y: 65
+        y: 71
         color: Styles.blueDark
         text: qsTr("PRESS")
-        font.pixelSize: 20
+        level:3
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.horizontalCenterOffset: -1
+        anchors.horizontalCenterOffset: 0
     }
 
-    Text {
+    TextCust {
         id: text6
-        y: 0
+        y: 6
         color:Styles.blueDark
         text: qsTr("A")
-        font.pixelSize: 20
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        level:3
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.horizontalCenterOffset: -70
+        anchors.horizontalCenterOffset: -71
     }
 
-    Text {
+    TextCust {
         id: text7
         y: 0
         width: 12
         height: 27
         color: Styles.blueDark
         text: qsTr("B")
-        font.pixelSize: 20
-        anchors.horizontalCenterOffset: 70
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        level:3
+        anchors.horizontalCenterOffset: 74
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-    Text {
+    TextCust {
         id: qtyB
         x: 148
         y: 27
@@ -70,13 +74,13 @@ Rectangle {
         color: "#ffffff"
         text: qsTr("87")
         anchors.right: parent.right
-        font.pixelSize: 28
+        level:2
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         anchors.rightMargin: 0
     }
 
-    Text {
+    TextCust {
         id: qtyA
         y: 27
         width: 85
@@ -84,13 +88,13 @@ Rectangle {
         color: "#ffffff"
         text: qsTr("87")
         anchors.left: parent.left
-        font.pixelSize: 28
+        level:2
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         anchors.leftMargin: 0
     }
 
-    Text {
+    TextCust {
         id: pressB
         x: 148
         y: 65
@@ -99,13 +103,13 @@ Rectangle {
         color: "#ffffff"
         text: qsTr("2920")
         anchors.right: parent.right
-        font.pixelSize: 28
+        level:2
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         anchors.rightMargin: 0
     }
 
-    Text {
+    TextCust {
         id: pressA
         y: 65
         width: 85
@@ -113,7 +117,7 @@ Rectangle {
         color: "#ffffff"
         text: qsTr("2940")
         anchors.left: parent.left
-        font.pixelSize: 28
+        level:2
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         anchors.leftMargin: 0
@@ -146,6 +150,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;height:106;width:227}D{i:1}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}D{i:8}D{i:9}
+    D{i:0;formeditorZoom:4;height:106;width:227}D{i:1}D{i:2}D{i:3}D{i:4}D{i:5}D{i:6}D{i:7}
+D{i:8}D{i:9}
 }
 ##^##*/

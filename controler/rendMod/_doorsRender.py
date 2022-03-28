@@ -25,10 +25,16 @@ class DoorRender(QObject,RendModeBase):
             "laminar/B738/annunciator/right_fwd_overwing",
             "laminar/B738/annunciator/left_aft_overwing",
             "laminar/B738/annunciator/right_aft_overwing",
-            "laminar/B738/annunciator/equip_door"
+            "laminar/B738/annunciator/equip_door",
+            "sim/cockpit/switches/fasten_seat_belts",
+            "laminar/B738/toggle_switch/no_smoking_pos",
+            "737x/cabin/set_pax_lighting",
+            "737u/cabin/set_entry_lighting"
+
         ]
   
     setDoorIndicator=Signal(str, bool)
+    setSwich=Signal(str, int)
 
     def sendRef(self, dic):
         self.setDoorIndicator.emit("fwdEntry",bool(dic["laminar/B738/annunciator/fwd_entry"][0]))
@@ -42,3 +48,25 @@ class DoorRender(QObject,RendModeBase):
         self.setDoorIndicator.emit("fwdCargo",bool(dic["laminar/B738/annunciator/fwd_cargo"][0]))
         self.setDoorIndicator.emit("aftCargo",bool(dic["laminar/B738/annunciator/aft_cargo"][0]))
         self.setDoorIndicator.emit("equip",bool(dic["laminar/B738/annunciator/equip_door"][0]))
+
+
+        self.setSwich.emit("noSmoke",int(dic["laminar/B738/toggle_switch/no_smoking_pos"][0]))
+        self.setSwich.emit("seatBelts",int(dic["sim/cockpit/switches/fasten_seat_belts"][0]))
+
+        self.setSwich.emit("entryLight",int(dic["737u/cabin/set_entry_lighting"][0]))
+
+
+        paxVal = int(dic["737x/cabin/set_pax_lighting"][0])
+        
+        if paxVal==0:
+            paxPos=0
+        elif paxVal==3:
+            paxPos=1
+        elif paxVal==1:
+            paxPos=2
+        elif paxVal==2:
+            paxPos=3
+        elif paxVal==4:
+            paxPos=4
+
+        self.setSwich.emit("paxLighting",paxPos)

@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:12:04
+  * @ Modified time: 2022-03-29 01:09:59
   * @ Description: temperature control
  */
 
@@ -302,7 +302,7 @@ Rectangle {
                         color: Styles.blueDark
                         text: qsTr("PACK")
                         anchors.fill: parent
-                        font.pixelSize: 27
+                        level:2
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                         anchors.rightMargin: -20

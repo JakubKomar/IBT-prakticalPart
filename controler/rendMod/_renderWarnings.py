@@ -48,7 +48,6 @@ class WarnigsRender(QObject,RendModeBase):
         self.setAnnunciator.emit("hydraulic",bool(dic["laminar/B738/annunciator/six_pack_hyd"][0]))
         self.setAnnunciator.emit("ice",bool(dic["laminar/B738/annunciator/six_pack_ice"][0]))
         self.setAnnunciator.emit("temp",bool(dic["laminar/B738/annunciator/six_pack_air_cond"][0]))
-        self.setAnnunciator.emit("flyCont",bool(dic["laminar/B738/annunciator/six_pack_flt_cont"][0]))
 
         self.setTime.emit(str(int(dic["sim/cockpit2/clock_timer/zulu_time_hours"][0])).zfill(2)+
             ":"+

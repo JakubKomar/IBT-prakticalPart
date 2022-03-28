@@ -112,7 +112,6 @@ Rectangle {
                 TextCust {
                     id: indiFire1
                     y: 58
-                    height: 58
                     visible:fire
                     color: "#ff0000"
                     text: qsTr("FIRE")
@@ -125,7 +124,6 @@ Rectangle {
                     anchors.rightMargin: 0
                     anchors.leftMargin: 0
                     anchors.bottomMargin: 0
-                    font.styleName: "tučné"
                 }
 
                 TextCust {
@@ -133,7 +131,6 @@ Rectangle {
                     y: 63
                     visible: (reverser||reverserGreen )&& !fire
                     color: Styles.green
-                    height: 18
                     text: qsTr("REVERSER")
                     anchors.left: parent.left
                     anchors.right: parent.right
@@ -151,7 +148,6 @@ Rectangle {
                     id: indiMotoring
                     y: 81
                     visible:motoring&& !fire
-                    height: 18
                     color: "#ffffff"
                     text: qsTr("MOTORING")
                     anchors.left: parent.left
@@ -170,7 +166,6 @@ Rectangle {
                     id: indiEngFail
                     y: 98
                     visible:engFail&& !fire
-                    height: 18
                     color: "orange"
                     text: qsTr("ENGINE FAIL")
                     anchors.left: parent.left
@@ -218,7 +213,6 @@ Rectangle {
                     TextCust {
                         id: digiValN1
                         x: 14
-                        height: 28
                         color: "#ffffff"
                         text: n1.toFixed(1)
                         anchors.verticalCenter: parent.verticalCenter
@@ -235,7 +229,6 @@ Rectangle {
                     TextCust {
                         id: text2
                         y: 0
-                        height: 20
                         color: Styles.blue
                         text: qsTr("N1")
                         anchors.left: parent.left
@@ -260,13 +253,11 @@ Rectangle {
                     TextCust{
                         id: text3
                         y: 0
-                        height: 20
                         color: Styles.green
                         text: qsTr("N2")
                         anchors.left: parent.left
                         anchors.right: parent.right
                         level:3
-                        font.pixelSize: 12
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                         anchors.leftMargin: 0
@@ -275,7 +266,6 @@ Rectangle {
 
                     TextCust {
                         id: digiValN2
-                        height: 28
                         color: "#d3d3d3"
                         text: n2.toFixed(1)
                         anchors.verticalCenter: parent.verticalCenter

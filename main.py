@@ -19,6 +19,9 @@ from PySide6.QtQml import QQmlApplicationEngine
 
 from controler.masterControler import MasterControler
 
+def keep_alive():
+    print("ah..ah..ah..ah...staying alive...staying alive")
+
 if __name__ == "__main__":
     # connect to xplane 11
     estCon()
@@ -30,6 +33,7 @@ if __name__ == "__main__":
     msControler = MasterControler(engine)
     # qlm file load
     app.setWindowIcon(QIcon("view/pic/icon.png"))
+
     engine.load(os.fspath(Path(__file__).resolve().parent / "view/main.qml"))
     if not engine.rootObjects():
         sys.exit(-1)

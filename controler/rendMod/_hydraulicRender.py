@@ -55,6 +55,9 @@ class HydraulicRender(QObject,RendModeBase):
         self.setAnnuticator.emit("electrPump1Ov", dic["laminar/B738/annunciator/el_hyd_ovht_1"][0])
         self.setAnnuticator.emit("electrPump2Ov", dic["laminar/B738/annunciator/el_hyd_ovht_2"][0])
 
+        self.setAnnuticator.emit("stbyPress",0)
+        self.setAnnuticator.emit("lowQty", 0)
+
         self.setAnnuticator.emit("autoBreakeDisarm", dic["laminar/B738/annunciator/auto_brake_disarm"][0])
         self.setAnnuticator.emit("antiSkid", 0)
         self.setAnnuticator.emit("breakPress", dic["laminar/B738/brake/brake_press"][0])

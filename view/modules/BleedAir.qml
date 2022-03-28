@@ -3,7 +3,7 @@
   * @ Author: Jakub Komárek
   * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:08:06
+  * @ Modified time: 2022-03-29 01:15:31
   * @ Description: bleed air module
  */
 
@@ -408,9 +408,9 @@ Item {
 
         Swich2stateBasic {
             id: lRecricrFan
-            y: 858
+            y: 827
             anchors.left: parent.left
-            anchors.leftMargin: 10
+            anchors.leftMargin: 50
             swich2state.onText: "AUTO"
             swich2state.description: "L RECIRC\nFAN"
             onClicked:{
@@ -420,12 +420,12 @@ Item {
 
         Swich2stateBasic {
             id: rRecrircFan
-            x: 0
-            y: 858
+            x: 684
+            y: 827
             width: 150
             height: 150
             anchors.right: parent.right
-            anchors.rightMargin: 10
+            anchors.rightMargin: 50
             swich2state.togled: false
             swich2state.onText: "AUTO"
             swich2state.description: "R RECIRC\nFAN"
@@ -610,7 +610,7 @@ Item {
             y: 827
             anchors.left: parent.left
             anchors.leftMargin: 50
-            swich2state.description: "ENG 2\nBLEED"
+            swich2state.description: "ENG 1\nBLEED"
             onClicked:{
                 ControlBleed.togleBleedSource("l")
             }
@@ -725,8 +725,8 @@ Item {
 
         Rectangle {
             id: rectangle3
-            x: 525
-            y: 826
+            x: 510
+            y: 829
             width: 150
             height: 150
             color: "#000000"
@@ -735,12 +735,12 @@ Item {
             border.width: 1
             anchors.right: parent.right
             anchors.rightMargin: 215
-            Text {
+            TextCust {
                 id: text3
                 color: "#6a6a6a"
                 text: "EXTERNAL\nSOURCE"
                 anchors.fill: parent
-                font.pixelSize: 27
+                level:2
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.bottomMargin: 0
@@ -995,7 +995,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:2}D{i:1}D{i:3}D{i:4}D{i:6}D{i:7}D{i:9}D{i:10}D{i:11}
+    D{i:0;formeditorZoom:0.5}D{i:2}D{i:1}D{i:3}D{i:4}D{i:6}D{i:7}D{i:9}D{i:10}D{i:11}
 D{i:12}D{i:13}D{i:14}D{i:15}D{i:16}D{i:17}D{i:18}D{i:19}D{i:20}D{i:21}D{i:22}D{i:23}
 D{i:24}D{i:26}D{i:27}D{i:28}D{i:29}D{i:30}D{i:31}D{i:32}D{i:33}D{i:34}D{i:35}D{i:36}
 D{i:37}D{i:38}D{i:39}D{i:40}D{i:41}D{i:42}D{i:25}D{i:8}D{i:43}D{i:44}D{i:45}D{i:47}
