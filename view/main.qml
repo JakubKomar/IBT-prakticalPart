@@ -337,16 +337,6 @@ Window {
                     }
                 }
 
-                MenuItem{
-                    id:fuelButt
-                    text: "Fuel"
-                    onClicked: {
-                        MainRanderControler.setModuleSelector(1)
-                        menuColum.togleButt(this)
-                        fuelLd.visible=true
-                    }
-                }
-
                 MenuItem {
                     id: ftContBtn
                     visible: true
@@ -359,17 +349,19 @@ Window {
 
                 }
 
-
-
-                MenuItem {
-                    id: electricalButton
-                    text: "ELECT"
+                MenuItem{
+                    id:fuelButt
+                    text: "Fuel"
                     onClicked: {
-                        MainRanderControler.setModuleSelector(5)
+                        MainRanderControler.setModuleSelector(1)
                         menuColum.togleButt(this)
-                        electLd.visible=true
+                        fuelLd.visible=true
                     }
                 }
+
+
+
+
 
 
                 MenuItem {
@@ -386,6 +378,7 @@ Window {
                 }
 
 
+
                 MenuItem {
                     id: antiIceBtn
                     visible: true
@@ -396,6 +389,7 @@ Window {
                         antiIceLd.visible=true
                     }
                 }
+
 
                 MenuItem {
                     id: tempButt
@@ -415,6 +409,16 @@ Window {
 
 
 
+
+                MenuItem {
+                    id: electricalButton
+                    text: "ELECT"
+                    onClicked: {
+                        MainRanderControler.setModuleSelector(5)
+                        menuColum.togleButt(this)
+                        electLd.visible=true
+                    }
+                }
 
                 MenuItem {
                     id: lightsBtn
