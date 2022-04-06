@@ -19,8 +19,6 @@ from PySide6.QtQml import QQmlApplicationEngine
 
 from controler.masterControler import MasterControler
 
-def keep_alive():
-    print("ah..ah..ah..ah...staying alive...staying alive")
 
 if __name__ == "__main__":
     # connect to xplane 11
