@@ -4,7 +4,7 @@ Program comunicates whith xPlane 11 trought xPlane Connect addon.
 
 This is practical part of my final thesis.
 
-Required Xplane11 addon:
+Required X-Plane 11 addon:
 
     xPlaneConnect: https://github.com/nasa/XPlaneConnect
     
