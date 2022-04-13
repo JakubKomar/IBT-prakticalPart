@@ -1,9 +1,8 @@
 /*
   * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
   * @ Author: Jakub Komárek
-  * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-28 23:32:56
+  * @ Modified time: 2022-04-13 21:04:34
   * @ Description: Landing gear status indicator
  */
 

@@ -1,9 +1,9 @@
 /*
   * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
   * @ Author: Jakub Komárek
-  * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:13:53
+  * @ Modified by: Jakub Komárek
+  * @ Modified time: 2022-04-13 20:57:14
   * @ Description: apu status indicator
  */
 

@@ -1,9 +1,8 @@
 /*
   * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
   * @ Author: Jakub Komárek
-  * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-29 01:13:47
+  * @ Modified time: 2022-04-13 21:00:13
   * @ Description: hydraulic data component
  */
 

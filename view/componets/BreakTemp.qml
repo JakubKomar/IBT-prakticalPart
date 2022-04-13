@@ -1,9 +1,9 @@
 /*
   * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
   * @ Author: Jakub Komárek
-  * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:15:13
+  * @ Modified time: 2022-04-13 20:57:25
+  * @ Modified time: 2022-04-13 20:57:26
   * @ Description: break temprature indicator whith graphic reprezentation
  */
 

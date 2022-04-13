@@ -1,9 +1,8 @@
 /*
   * @ Project: GUI for Boing 737 MAX 10 plane over xPlane 11 simulator.
   * @ Author: Jakub Komárek
-  * @ Licence: MIT
   * @ Modified by: Jakub Komárek
-  * @ Modified time: 2022-03-24 03:40:12
+  * @ Modified time: 2022-04-13 21:05:50
   * @ Description: switch 2 state graphic repr
  */
 
