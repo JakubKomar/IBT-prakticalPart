@@ -3,10 +3,8 @@
 Prototype UI of futuristic display for airplane Boeing 737 max 10.
 Program comunicates whith X-Plane 11 trought XPlane Connect addon.
 
-Author
-- Jakub Komárek
-Licence
-- GPL v2
+Author: Jakub Komárek  
+Licence: GPL v2
 
 ## Required X-Plane 11 addon:
 - [XPlane Connect](https://github.com/nasa/XPlaneConnect)
@@ -30,6 +28,4 @@ python3.10 main.py
 ```
   
 ## Used libary licence XPlane Connect:
-Copyright ©2013-2018 United States Government as represented by the Administrator of the National Aeronautics and Space Administration. All Rights Reserved.
-
-
+*Copyright ©2013-2018 United States Government as represented by the Administrator of the National Aeronautics and Space Administration. All Rights Reserved.*
