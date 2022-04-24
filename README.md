@@ -3,9 +3,10 @@
 Prototype UI of futuristic display for airplane Boeing 737 max 10.
 Program comunicates whith X-Plane 11 trought XPlane Connect addon.
 
-Author: Jakub Komárek
-Licence: GPL v2
-
+Author
+- Jakub Komárek
+Licence
+- GPL v2
 
 ## Required X-Plane 11 addon:
 - [XPlane Connect](https://github.com/nasa/XPlaneConnect)
